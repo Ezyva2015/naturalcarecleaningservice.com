@@ -417,6 +417,7 @@ $(function() {
                     display: 'none',
                 })
 
+				console.log("weekly clicked ");
 			}
 
 			function biweekly() {
@@ -576,36 +577,73 @@ $(function() {
 
 		<script type="text/javascript" language="javascript">
 			$(function(){
-var base = <?php echo $base; ?>;
-var keepclean = <?php echo $keepclean; ?>;
-var getclean = <?php echo $getclean; ?>;
-var deepclean = <?php echo $deepclean; ?>;
-var moveinout = <?php echo $moveinout; ?>;
-var addon = <?php echo $addon; ?>;
-var beds = <?php echo $beds; ?>;
-var baths = <?php echo $baths; ?>;
-var sqft = <?php echo $sqft; ?>;
-var week = <?php echo $week; ?>;
-var biweek = <?php echo $biweek; ?>;
-var month = <?php echo $month; ?>;
-var rate = <?php echo $rate; ?>;
-var useDiscount = <?php echo $useDiscount; ?>;
-var discount = <?php echo $discount; ?>;
 
-function numBeds() {
-	var ret =  isNaN(parseInt($('#bed').val())) ? 0 : parseInt($('#bed').val());
-	return ret;
-}
+	var base = <?php echo $base; ?>;
+	var keepclean = <?php echo $keepclean; ?>;
+	var getclean = <?php echo $getclean; ?>;
+	var deepclean = <?php echo $deepclean; ?>;
+	var moveinout = <?php echo $moveinout; ?>;
+	var addon = <?php echo $addon; ?>;
+	var beds = <?php echo $beds; ?>;
+	var baths = <?php echo $baths; ?>;
+	var sqft = <?php echo $sqft; ?>;
+	var week = <?php echo $week; ?>;
+	var biweek = <?php echo $biweek; ?>;
+	var month = <?php echo $month; ?>;
+	var rate = <?php echo $rate; ?>;
+	var useDiscount = <?php echo $useDiscount; ?>;
+	var discount = <?php echo $discount; ?>;
 
-function numBaths() {
-	var ret = isNaN(parseInt($('#bath').val())) ? 0 : parseInt($('#bath').val());
-	return ret;
-}
+	function numBeds() {
+		var ret =  isNaN(parseInt($('#bed').val())) ? 0 : parseInt($('#bed').val());
+		return ret;
+	}
 
-function squareFootage() {
-	var ret = isNaN(parseInt($('#footage').val())) ? 0 : parseInt($('#footage').val());
-	return ret;
-}
+	function numBaths() {
+		var ret = isNaN(parseInt($('#bath').val())) ? 0 : parseInt($('#bath').val());
+		return ret;
+	}
+
+	function squareFootage() {
+		var ret = isNaN(parseInt($('#footage').val())) ? 0 : parseInt($('#footage').val());
+		return ret;
+	}
+
+	function getItCleanFunc(totalBasePrice, getITcLean)
+	{
+		return parseFloat(totalBasePrice * getITcLean);
+	}
+
+	function deepCleanFunc(totalBasePrice, deepClean)
+	{
+		return  parseFloat(totalBasePrice * deepClean);
+	}
+
+	function moveInOutFunc(totalBasePrice, moveInOut)
+	{
+		return  parseFloat(totalBasePrice * moveInOut);
+	}
+	function getTotalBasePrice(totalSquareFootCalculation)
+	{
+		var J7 = parseInt("2");
+		var C3 = parseInt("6");
+		var J8 = parseInt("2");
+		var D3 = parseInt("14");
+		var F3 = parseInt("99");
+		//var M3 = parseInt("0");
+
+		var totalBeds = J7;
+		var totalBedsPrice = C3;
+		var totalBathRoom = J8;
+		var totalBathRoOmPrice = D3;
+		var totalBaseValue = F3;
+		//totalSquareFootCalculation = M3;
+		var totalBasePrice = (totalBeds*totalBedsPrice) + (totalBathRoom*totalBathRoOmPrice) + totalBaseValue+totalSquareFootCalculation;
+
+		return parseInt(totalBasePrice);
+	}
+
+
 
 	subtotal = base + (numBeds() * beds) + (numBaths() * baths) + (((squareFootage() - sqft > 0 ? squareFootage() - sqft : 0) / 100) * 3);
 
@@ -856,12 +894,50 @@ function squareFootage() {
 	
 	var oldcleantype = null;
 	$('.cleantype').click(function() {
+
+
+
+		console.log("clean type clicked");
+
+
 	    if(($(this).text() == 'Keep It Clean' && $('#repeat').val() != 'One Time') || $(this).text() != 'Keep It Clean')
 	    {
+
+
+			getclean  = parseFloat("1.25");
+			deepclean = parseFloat("1.5");
+			moveinout = parseFloat("1.75");
+
+
+
+			console.log(' first clean ' + firstclean + " price " + recurringPrice);
+
+			console.log("get clean " + getclean + "deep clean " + deepclean + " move in out " +moveinout );
+
+			console.log(" text == " + $(this).text());
+
+			console.log("base price " + base);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			console.log("this not Keep It Clean || repeat not One Time  ||this Keep It Clean ");
 
 		total += recurringDiscount;
 		
 		recurringDiscount /= adjustment;
+
+
 		if(oldcleantype == 'Keep It Clean')
 		{
 		    adjustment /= keepclean;
@@ -909,16 +985,62 @@ function squareFootage() {
 			total *= moveinout;
 			total -= recurringDiscount;
 		}
-		
-		
+
+
+
+
+
+
+
+
+
 		if(useDiscount)
 		  firstclean = adjustment - discount - promodiscount;
 		else
 		  firstclean = adjustment - recurringDiscount - promodiscount;
-		
-		
-		
+
+
 		hours = adjustment / rate;
+
+
+
+
+
+
+			getclean  = parseFloat("1.25");
+			deepclean = parseFloat("1.5");
+			moveinout = parseFloat("1.75");
+			var totalBasePrice = getTotalBasePrice(0);
+
+			if ($(this).text() == 'Keep It Clean')
+			{
+				firstclean = 1;
+			}
+			else if ($(this).text() == 'Get it Clean')
+			{
+				firstclean = getItCleanFunc(totalBasePrice, getclean);
+			}
+			else if ($(this).text() == 'Deep Clean')
+			{
+				firstclean = deepCleanFunc(totalBasePrice, deepclean);
+			}
+			else if ($(this).text() == 'Move In/Out')
+			{
+				firstclean = moveInOutFunc(totalBasePrice, moveinout);
+			}
+
+
+
+
+
+
+
+
+			$('#visit1').text(firstclean);
+
+
+			//$('#visit1').text(Math.floor((Math.random() * 10) + 1));
+		  	//	 	return;
 
 		$('#cleantype').val($(this).text())
 		$('#Ihour').text(hours.toFixed(1) + ' hours')
@@ -1000,6 +1122,10 @@ function squareFootage() {
 			
 			$('#onetimeadjust').val('$' + adjustment.toFixed(0))
 			oldcleantype = $('#cleantype').val()
+		}
+		else
+		{
+			console.log("else - no calculation happens");
 		}
 	})
 
@@ -1132,20 +1258,30 @@ function squareFootage() {
 			}).hide();
 			
 		} else {
+
+
+			console.log("repeat clicked as one time but else");
 		  $('.cleantype').first().show();
 		  
 		  if ($('#repeat').val() == 'Every Week') {
+			  console.log("clicked is every week");
 			recurringDiscount = (1 - week) * adjustment;
 			recurringPrice = subtotal * week;
 			console.log(recurringPrice);
 		  } else if ($('#repeat').val() == 'Every 2 Weeks') {
+
+			  console.log("clicked is every 2 weeks");
 			recurringDiscount = (1 - biweek) * adjustment;
 			recurringPrice = subtotal * biweek;
 		  } else if ($('#repeat').val() == 'Every 4 Weeks') {
+
+			  console.log("clicked is every 4 weeks");
 			recurringPrice = subtotal * month;
 			recurringDiscount = (1 - month) * adjustment;
 		  }
         }
+
+
         
         
 
@@ -1155,6 +1291,17 @@ function squareFootage() {
           firstclean = adjustment - recurringDiscount - promodiscount;
           
 		hours = adjustment / rate;
+
+
+
+		console.log('successfully calculated');
+		console.log('visit1 value first clean = ' + firstclean);
+		console.log('visit2 value prices = ' + recurringPrice);
+
+
+
+
+
 
 		$('#hour').text(hours.toFixed(1) + ' hours');
 		$('#Ihour').text(hours.toFixed(1) + ' hours');
@@ -1225,6 +1372,10 @@ function squareFootage() {
 			$('#pdiscountR').hide();
 			$('#prodisc').hide();
        }
+
+
+
+
 		$('#visit2').text('$' + Math.round(recurringPrice).toFixed(0));
 		$('#pvisit2').text('$' + Math.round(recurringPrice).toFixed(0));
 		$('#Ivisit1').val(Math.round(firstclean));
@@ -1379,7 +1530,7 @@ function squareFootage() {
 								</div><div class="clearfix"></div>
 								<div class="col-xs-12 col-md-6 col-sm-12 col-lg-6 col-lg-offset-1 col-md-offset-2" id="bookingContent" style="background:white; padding-left:0%; padding-bottom:25px; padding-top: 1%">
 									<h2 class="ip-header">Complete Your Booking:</h2>
-									<p>Great! Lets get a few details to complete your booking.</p>
+									<p>Great! Lets get a few details to complete your booking. tO be updated</p>
 										<h3 class="ip-subheader">How Often?</h3>
 										<br class="hidden-xs">
 										<p>With our flexible scheduling you can cancel or reschedule anytime.</p>
@@ -1804,7 +1955,7 @@ function squareFootage() {
 							    <div>
     								<div class="tablerow col-sm-12">
     									<span class="col-sm-8">First Clean:</span>
-    									<b><span style="font-size: 20px; color: #3dafdc" class="col-sm-4" id="visit1"></span></b>
+    									<b><span style="font-size: 20px; color: #3dafdc" class="col-sm-4" id="visit1"> visit 1</span></b>
     									<sub style="float:right">+tax</sub>
     								</div><div class="clearfix"></div>
     								<br>
@@ -1817,7 +1968,7 @@ function squareFootage() {
                                 <span class="col-sm-8" id="onewk" style="color:white; display:none; height:28px; background:#3dafdc">Every Week:</span>
                                 <span class="col-sm-8" id="twowk" style="color:white; display:none; height:28px; background:#3dafdc">Every 2 Weeks:</span>
                                 <span class="col-sm-8" id="fourwk" style="color:white; display:none; height:28px; background:#3dafdc">Every 4 Weeks:</span>
-                                <b><span style="color:white; font-size: 20px; background:#3dafdc" class="col-sm-4" id="visit2"></span></b>
+                                <b><span style="color:red; font-size: 20px; background:#3dafdc" class="col-sm-4" id="visit2"> visit 2 </span></b>
                                 <sub style="float:right; background:#3dafdc; color:white">+tax</sub>
                           </div>
                         </div>
