@@ -1,6 +1,18 @@
 ﻿<?php @session_start();?>
 <?php
+ //require("assets/bootstrap/bootstrap-touchspin-master/demo/demo.php");
+//
+//
+//
 
+
+?>
+
+
+
+
+
+<?php
 require_once ('infusionsoft/PHP-iSDK-master/src/isdk.php');
 require_once ('stripe/init.php');
 require_once ('conf.php');
@@ -225,7 +237,30 @@ if (isset($_SESSION) && !empty($_SESSION) && isset($_SESSION['contact_id']))
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
         <script src="assets/js/jquery-scrolltofixed.js" type="text/javascript"></script>
         <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-        <!--END PAGE LEVEL SCRIPTS -->
+
+<!--		<link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">-->
+		<link href="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.css" rel="stylesheet" type="text/css" media="all">
+		<link href="assets/bootstrap/bootstrap-touchspin-master/src/jquery.bootstrap-touchspin.css" rel="stylesheet" type="text/css" media="all">
+		<!--		<link href="../src/jquery.bootstrap-touchspin.css" rel="stylesheet" type="text/css" media="all">-->
+
+
+		<link href="assets/bootstrap/bootstrap-touchspin-master/demo/demo.css" rel="stylesheet" type="text/css" media="all">
+
+<!--		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
+<!--		<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js"></script>-->
+		<script src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.js"></script>
+		<script src="assets/bootstrap/bootstrap-touchspin-master/src/jquery.bootstrap-touchspin.js"></script>
+		<!--		<script src="../src/jquery.bootstrap-touchspin.js"></script>-->
+
+
+
+		<link href="assets/css/stepper.css"  rel="stylesheet" type="text/css" media="all" >
+
+
+
+
+
+		<!--END PAGE LEVEL SCRIPTS -->
 		<script type="text/javascript">
 			$(document).ready(function() {
 				$('#summary').scrollToFixed({
@@ -1439,6 +1474,8 @@ $(function() {
 
 	<!-- BEGIN BODY -->
 	<body style="background-color: white">
+
+
 	    <div style="background: #ddd; height: 7px;"></div>				<!-- TOP ROW HEADER -->
 	    <div class="row" style="background-color: #444; padding-top: 10px;padding-bottom: 10px;">
             <div class="col-xs-12 col-md-6 col-sm-8 col-lg-5 col-lg-offset-1 col-md-offset-3">
@@ -1586,17 +1623,37 @@ $(function() {
                                                     	</div>
                                                    </div>
                                                    <div class="col-md-4">
+
+
+
+
+
                                                    		<div  class="form-group" style="padding-left: 0px">
                                                    			<label class="control-label col-xs-12" style="font-size: 20px; padding-left: 0px; padding-right: 0px; font-weight: inherit"></label>
                                                    			<div class="col-xs-12 center" style="padding-left: 0px; padding-right: 0px">
-                                                        		<select class="form-control" style="color: #555555; font-size: 14px; height:42px; width:100%;" id="bed" name="_Beds" required />
-                                                        			<option value="1">1 bedroom</option>
-                                                        			<option value="2" selected>2 bedrooms</option>
-                                                        			<option value="3">3 bedrooms</option>
-                                                        			<option value="4">4 bedrooms</option>
-                                                        			<option value="5">5 bedrooms</option>
-                                                        			<option value="6">6 bedrooms</option>
-                                                        		</select>
+
+
+																	<input
+																			class="form-control has-success bed-rooms"
+																			id="bed"
+																			name="_Beds"
+																			required=""
+																			type="text"
+																	>
+
+
+
+
+
+
+<!--                                                        		<select class="form-control" style="color: #555555; font-size: 14px; height:42px; width:100%;" id="bed" name="_Beds" required />-->
+<!--                                                        			<option value="1">1 bedroom</option>-->
+<!--                                                        			<option value="2" selected>2 bedrooms</option>-->
+<!--                                                        			<option value="3">3 bedrooms</option>-->
+<!--                                                        			<option value="4">4 bedrooms</option>-->
+<!--                                                        			<option value="5">5 bedrooms</option>-->
+<!--                                                        			<option value="6">6 bedrooms</option>-->
+<!--                                                        		</select>-->
                                                     		</div>
                                                     	</div>
                                                    </div>
@@ -2048,6 +2105,15 @@ $(function() {
                     </div>
                 </div>
     </footer>-->
+
+		<script>
+			prettyPrint();
+		</script>
+
+		<script src="assets/js/stepper.js" ></script>
+
+
+
 	</body>
 <!-- END BODY -->
 </html>
