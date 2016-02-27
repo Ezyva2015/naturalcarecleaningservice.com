@@ -349,10 +349,15 @@
                     	alert('Google api did not fill in address');
                 	}
             	});
-            });
 
+
+            });
             // [END region_geolocation]
 
+            function exec_clicked()
+            {
+                $( '#autocomplete' ).attr( 'autocomplete', 'off' );
+            }
         </script>
     </head>
 
@@ -387,8 +392,12 @@ if(!isset($redirect)):
                                                     <div align="center">
                                                         <h2>Get an Instant Price</h2>
                                                     </div>
+
+
                                                     <div id="locationField" class="form-group center">
-                                                        <input autocomplete="addressfill" style="height: 42px" placeholder="Enter your street address…" tabindex="10" g-places-autocomplete="" force-selection="true" required type="text" class="form-control" id="autocomplete" name="Address" placeholder="Enter your address">
+
+
+                                                        <input onclick="exec_clicked()" autocomplete="off" style="height: 42px" placeholder="Enter your street address…" tabindex="10" g-places-autocomplete="" force-selection="true" required type="text" class="form-control google-addresses-autocomplete" id="autocomplete" name="Address" placeholder="Enter your address"   >
                                                         </input>
                                                     </div>
                                                     <table id="address" style="display: none">
