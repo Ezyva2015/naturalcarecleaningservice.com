@@ -263,7 +263,11 @@
 						if(e.keyCode===9){ 
 						google.maps.event.trigger(this,'keydown',{keyCode:40}) 
 						}
-					
+
+
+
+
+                    
 						
 
 
@@ -273,7 +277,9 @@
 				
 
                 
-                setTimeout(function() { document.getElementById('autocomplete').autocomplete = 'false'; }, 1000);
+                setTimeout(function() {
+                    document.getElementById('autocomplete').autocomplete = 'off';
+                }, 1000);
                 
                 // When the user selects an address from the dropdown,
                 // populate the address fields in the form.
@@ -370,8 +376,6 @@ if(!isset($redirect)):
 
             <!--PAGE CONTENT -->
             <div id="content" style="margin-left:0px; margin-right:0px; padding: 0px">
-
-                
                     <div class="row-fluid">
                         
                         <div class="col-lg-12" style="padding: 0px">
@@ -427,7 +431,7 @@ if(!isset($redirect)):
                                                           </tr>
                                                         </table>
                                                         <div class="form-group center">
-                                                                    <input id="address_2" name="StreetAddress2" class="form-control" placeholder="Apt # (optional)" />
+                                                                    <input autocomplete="off" id="address_2" name="StreetAddress2" class="form-control" placeholder="Apt # (optional)" />
                                                                     </div>
                                                     <div class="col-xs-12">
                                                         <p style="font-size:16; text-align: center; color: #434348">Tell us about your home.</p>
@@ -436,7 +440,7 @@ if(!isset($redirect)):
             
                                                    <div class="form-group center">
                                                         <div style="padding-left:0px; padding-right: 0px" class="col-xs-12 col-md-12">
-                                                        <input id="firstname" name="FirstName" class="form-control" placeholder="First Name" />
+                                                        <input autocomplete="off" id="firstname" name="FirstName" class="form-control" placeholder="First Name" />
                                                         </div>
                                                     </div>
                                                     <div class="form-group center">
@@ -446,7 +450,7 @@ if(!isset($redirect)):
                                                         </div>
                                                         <div class="form-group center">
                                                         <div style="padding-left:0px; padding-right:0px" class="col-xs-12 col-md-12">
-                                                        <input id="email2" name="Email"  class="form-control" placeholder="Email" />
+                                                        <input autocomplete="off" id="email2" name="Email"  class="form-control" placeholder="Email" />
                                                         </div>
                                                         </div><div class="clearfix"></div>
                                                     <div class="form-group center">
