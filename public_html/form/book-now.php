@@ -1355,7 +1355,7 @@ $(function() {
 		console.log('successfully calculated');
 		console.log('visit1 value first clean = ' + firstclean);
 		console.log('visit2 value prices = ' + recurringPrice);
-		console.log('visit1 repeat = ' + $('#repeat').val());
+		console.log('visit1 repeat  = ' + $('#repeat').val());
 
 
 
@@ -1366,8 +1366,11 @@ $(function() {
 		$('#Ihour').text(hours.toFixed(1) + ' hours');
 
 
-			$('#visit1').text('$' + Math.round(firstclean).toFixed(0));
-		 
+		if ($('#repeat').val() == 'One Time') {
+			$('#visit1').text('this is just form 1 time');
+		} else {
+
+		}
 
         $('#pvisit1').text('$' + Math.round(firstclean).toFixed(0));
         if($('#repeat').val() && $('#cleantype').val() && $('#footage').val())
