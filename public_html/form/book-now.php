@@ -260,6 +260,8 @@ if (isset($_SESSION) && !empty($_SESSION) && isset($_SESSION['contact_id']))
 
 
 
+
+
 		<!--END PAGE LEVEL SCRIPTS -->
 		<script type="text/javascript">
 			$(document).ready(function() {
@@ -658,29 +660,78 @@ $(function() {
 	{
 		return  parseFloat(totalBasePrice * moveInOut);
 	}
-	function getTotalBasePrice(totalSquareFootCalculation)
+	function getTotalBasePrice(totalSquareFootCalculation, totalBeds, totalBathRoom)
 	{
-		var J7 = parseInt("2");
-		var C3 = parseInt("6");
-		var J8 = parseInt("2");
-		var D3 = parseInt("14");
-		var F3 = parseInt("99");
-		//var M3 = parseInt("0");
 
-		var totalBeds = J7;
-		var totalBedsPrice = C3;
-		var totalBathRoom = J8;
-		var totalBathRoOmPrice = D3;
-		var totalBaseValue = F3;
+		var totalBedsPrice     = parseInt("6");
+		var totalBathRoOmPrice = parseInt("14");
+		var totalBaseValue     = parseInt("99");
 		//totalSquareFootCalculation = M3;
 		var totalBasePrice = (totalBeds*totalBedsPrice) + (totalBathRoom*totalBathRoOmPrice) + totalBaseValue+totalSquareFootCalculation;
 
 		return parseInt(totalBasePrice);
 	}
 
+	function calculate_sqrtFt(SQFTInput)
+	{
+		var SQFTBase = 1000;
+		var multiplier1 = 100;
+		var multiplier2 = 3;
+		var answer = 0;
+		if(SQFTInput > SQFTBase) {
+			answer = (SQFTInput - SQFTBase)/multiplier1*multiplier2;
+		}
+		return answer;
+	}
+
+	/**
+	 * Caluclate first clean for
+	 * Tabs:
+	 * Keep It Clean
+	 * Get Clean
+	 * Move In Out
+	 */
+	function calculateFirstCleanByKeepItCleanGetCleanMoveInOut()
+	{
+		var tabClass = '.cleantype';
+		var firstCleanId = '#visit1';
+		var totalBathRooms = parseFloat($('#bath').val());
+		var totalBedRooms = parseInt($('#bed').val());
+		getclean  = parseFloat("1.25");
+		deepclean = parseFloat("1.5");
+		moveinout = parseFloat("1.75");
+		var SQFTInput = parseInt($('#footage').val());
+		var totalBasePrice = getTotalBasePrice(calculate_sqrtFt(SQFTInput), totalBedRooms, totalBathRooms);
+
+		if ($(tabClass).text() == 'Keep It Clean')
+		{
+			firstclean = 1;
+		}
+		else if ($(tabClass).text() == 'Get it Clean')
+		{
+			firstclean = getItCleanFunc(totalBasePrice, getclean);
+		}
+		else if ($(tabClass).text() == 'Deep Clean')
+		{
+			firstclean = deepCleanFunc(totalBasePrice, deepclean);
+		}
+		else if ($(tabClass).text() == 'Move In/Out')
+		{
+			firstclean = moveInOutFunc(totalBasePrice, moveinout);
+		}
+
+		firstclean = Math.round(firstclean);
+
+		console.log( " SQFTInput " + SQFTInput + " totalBasePrice " + totalBasePrice + " firstclean " + firstclean + " total bath room " + totalBathRooms + " total bed rooms " + totalBedRooms );
+
+		$(firstCleanId).text(firstclean);
+
+	}
 
 
-	subtotal = base + (numBeds() * beds) + (numBaths() * baths) + (((squareFootage() - sqft > 0 ? squareFootage() - sqft : 0) / 100) * 3);
+
+
+				subtotal = base + (numBeds() * beds) + (numBaths() * baths) + (((squareFootage() - sqft > 0 ? squareFootage() - sqft : 0) / 100) * 3);
 
 	var adjustment = subtotal;
 	var recurringPrice = base;
@@ -1037,49 +1088,16 @@ $(function() {
 
 		hours = adjustment / rate;
 
-
-
-
-
-
-			getclean  = parseFloat("1.25");
-			deepclean = parseFloat("1.5");
-			moveinout = parseFloat("1.75");
-			var totalBasePrice = getTotalBasePrice(0);
-
-			if ($(this).text() == 'Keep It Clean')
-			{
-				firstclean = 1;
-			}
-			else if ($(this).text() == 'Get it Clean')
-			{
-				firstclean = getItCleanFunc(totalBasePrice, getclean);
-			}
-			else if ($(this).text() == 'Deep Clean')
-			{
-				firstclean = deepCleanFunc(totalBasePrice, deepclean);
-			}
-			else if ($(this).text() == 'Move In/Out')
-			{
-				firstclean = moveInOutFunc(totalBasePrice, moveinout);
-			}
-
-
-
-
-
-
-
-
-			$('#visit1').text(firstclean);
+		// Calculate keep it clean, deep clean and move in out
+	    calculateFirstCleanByKeepItCleanGetCleanMoveInOut();
 
 
 			//$('#visit1').text(Math.floor((Math.random() * 10) + 1));
 		  	//	 	return;
 
-		$('#cleantype').val($(this).text())
-		$('#Ihour').text(hours.toFixed(1) + ' hours')
-		$('#hour').text(hours.toFixed(1) + ' hours')
+		$('#cleantype').val($(this).text());
+		$('#Ihour').text(hours.toFixed(1) + ' hours');
+		$('#hour').text(hours.toFixed(1) + ' hours');
 		$('#visit1').text('$' + Math.round(firstclean).toFixed(0));
 		$('#pvisit1').text('$' + Math.round(firstclean).toFixed(0));
 		
@@ -1600,25 +1618,38 @@ $(function() {
 														<div class="form-group" style="padding-left: 0px">
 															<label class="col-xs-12 control-label" style="padding-left: 0px; padding-right: 0px; font-size: 20px; font-weight: inherit"></label>
 															<div class="col-xs-12 center" style="padding-left: 0px; padding-right: 0px">
-                                                        		<select class="form-control" style="color: #555555; font-size: 14px; height:42px; width:100%;" id="bath" name="_baths" required />
-                                                        			<option value="1">1 bathroom</option>
-                                                        			<option value="1.5">1.5 bathroom</option>
-																	
-																	<option value="2" selected>2 bathrooms</option>
-																	<option value="2.5">2.5 bathroom</option>
-																	
-                                                        			<option value="3">3 bathrooms</option>
-																	<option value="3.5">3.5 bathroom</option>
-																	
-                                                        			<option value="4">4 bathrooms</option>
-																	<option value="4.5">4.5 bathroom</option>
-																	
-                                                        			<option value="5.5">5.5 bathrooms</option>
-																	<option value="1.5">1.5 bathroom</option>
-																	
-                                                        			<option value="6">6 bathrooms</option>
-																	
-                                                        		</select>
+
+
+<!--																<select class="form-control" style="color: #555555; font-size: 14px; height:42px; width:100%;" id="bath" name="_baths" required />-->
+
+																<input
+																		class="form-control has-success bed-rooms"
+																		id="bath"
+																		name="_baths"
+																		required=""
+																		type="text"
+																		readonly>
+
+
+<!--                                                        		<select class="form-control" style="color: #555555; font-size: 14px; height:42px; width:100%;" id="bath" name="_baths" required />-->
+<!--                                                        			<option value="1">1 bathroom</option>-->
+<!--                                                        			<option value="1.5">1.5 bathroom</option>-->
+<!--																	-->
+<!--																	<option value="2" selected>2 bathrooms</option>-->
+<!--																	<option value="2.5">2.5 bathroom</option>-->
+<!--																	-->
+<!--                                                        			<option value="3">3 bathrooms</option>-->
+<!--																	<option value="3.5">3.5 bathroom</option>-->
+<!--																	-->
+<!--                                                        			<option value="4">4 bathrooms</option>-->
+<!--																	<option value="4.5">4.5 bathroom</option>-->
+<!--																	-->
+<!--                                                        			<option value="5.5">5.5 bathrooms</option>-->
+<!--																	<option value="1.5">1.5 bathroom</option>-->
+<!--																	-->
+<!--                                                        			<option value="6">6 bathrooms</option>-->
+<!--																	-->
+<!--                                                        		</select>-->
                                                     		</div>
                                                     	</div>
                                                    </div>
@@ -1639,13 +1670,14 @@ $(function() {
 																			name="_Beds"
 																			required=""
 																			type="text"
-																	>
+																			readonly>
+<!--																    <input class="form-control" style="color: #555555; font-size: 14px; height:42px; width:100%;" id="bed" name="_Beds" required />-->
+<!---->
 
 
 
 
-
-
+<!---->
 <!--                                                        		<select class="form-control" style="color: #555555; font-size: 14px; height:42px; width:100%;" id="bed" name="_Beds" required />-->
 <!--                                                        			<option value="1">1 bedroom</option>-->
 <!--                                                        			<option value="2" selected>2 bedrooms</option>-->
