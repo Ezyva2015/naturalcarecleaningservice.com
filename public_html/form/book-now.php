@@ -691,7 +691,7 @@ $(function() {
 	 * Get Clean
 	 * Move In Out
 	 */
-	function calculateFirstCleanByKeepItCleanGetCleanMoveInOut()
+	function calculateFirstCleanByKeepItCleanGetCleanMoveInOut(text)
 	{
 		var tabClass = '.cleantype';
 		var firstCleanId = '#visit1';
@@ -703,28 +703,33 @@ $(function() {
 		var SQFTInput = parseInt($('#footage').val());
 		var totalBasePrice = getTotalBasePrice(calculate_sqrtFt(SQFTInput), totalBedRooms, totalBathRooms);
 
-		if ($(tabClass).text() == 'Keep It Clean')
+		if (text == 'Keep It Clean')
 		{
 			firstclean = 1;
 		}
-		else if ($(tabClass).text() == 'Get it Clean')
+		else if (text == 'Get it Clean')
 		{
+			console.log("inside get it clean");
 			firstclean = getItCleanFunc(totalBasePrice, getclean);
 		}
-		else if ($(tabClass).text() == 'Deep Clean')
+		else if (text == 'Deep Clean')
 		{
+			console.log("deep clean");
 			firstclean = deepCleanFunc(totalBasePrice, deepclean);
 		}
-		else if ($(tabClass).text() == 'Move In/Out')
+		else if (text == 'Move In/Out')
 		{
+			console.log("move in out");
 			firstclean = moveInOutFunc(totalBasePrice, moveinout);
 		}
 
 		firstclean = Math.round(firstclean);
 
-		console.log( " SQFTInput " + SQFTInput + " totalBasePrice " + totalBasePrice + " firstclean " + firstclean + " total bath room " + totalBathRooms + " total bed rooms " + totalBedRooms );
+		console.log(" text tab = " + text + " clicked tab " + $(tabClass).text() + "  " + SQFTInput + " totalBasePrice " + totalBasePrice + " firstclean " + firstclean + " total bath room " + totalBathRooms + " total bed rooms " + totalBedRooms );
 
-		$(firstCleanId).text(firstclean);
+
+
+ 		$(firstCleanId).text(firstclean);
 
 	}
 
@@ -993,7 +998,7 @@ $(function() {
 			getclean  = parseFloat("1.25");
 			deepclean = parseFloat("1.5");
 			moveinout = parseFloat("1.75");
-
+			var textTab  = $(this).text();
 
 
 			console.log(' first clean ' + firstclean + " price " + recurringPrice);
@@ -1089,7 +1094,7 @@ $(function() {
 		hours = adjustment / rate;
 
 		// Calculate keep it clean, deep clean and move in out
-	    calculateFirstCleanByKeepItCleanGetCleanMoveInOut();
+	    calculateFirstCleanByKeepItCleanGetCleanMoveInOut(textTab);
 
 
 			//$('#visit1').text(Math.floor((Math.random() * 10) + 1));
@@ -1350,6 +1355,7 @@ $(function() {
 		console.log('successfully calculated');
 		console.log('visit1 value first clean = ' + firstclean);
 		console.log('visit2 value prices = ' + recurringPrice);
+		console.log('visit1 repeat = ' + $('#repeat').val());
 
 
 
@@ -1358,7 +1364,11 @@ $(function() {
 
 		$('#hour').text(hours.toFixed(1) + ' hours');
 		$('#Ihour').text(hours.toFixed(1) + ' hours');
-	    $('#visit1').text('$' + Math.round(firstclean).toFixed(0));
+
+
+			$('#visit1').text('$' + Math.round(firstclean).toFixed(0));
+		 
+
         $('#pvisit1').text('$' + Math.round(firstclean).toFixed(0));
         if($('#repeat').val() && $('#cleantype').val() && $('#footage').val())
 		{		
