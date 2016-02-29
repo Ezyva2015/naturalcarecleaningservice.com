@@ -54,6 +54,20 @@ function calculate() {
     var moveInOut = parseFloat("1.75");
 
     var totalBasePrice = getTotalBasePrice(0);
-    alert("totalBasePrice = " + totalBasePrice + " " + getItCleanFunc(totalBasePrice, getItClean) + " " + deepCleanFunc(totalBasePrice, deepClean) + " "  +  moveInOutFunc(totalBasePrice, moveInOut));
+    alert( " calculate sqrt ft " +  calculate_sqrtFt(5200) + "totalBasePrice = " + totalBasePrice + " " + getItCleanFunc(totalBasePrice, getItClean) + " " + deepCleanFunc(totalBasePrice, deepClean) + " "  +  moveInOutFunc(totalBasePrice, moveInOut));
 
 }
+
+function calculate_sqrtFt(SQFTInput)
+{
+    var SQFTBase = 1000;
+    var multiplier1 = 100;
+    var multiplier2 = 3;
+    var answer = 0;
+    if(SQFTInput > SQFTBase) {
+        answer = (SQFTInput - SQFTBase)/multiplier1*multiplier2;
+    }
+    return answer;
+}
+
+
