@@ -112,6 +112,13 @@
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
         <script src="assets/js/jquery-scrolltofixed.js" type="text/javascript"></script>
         <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+
+
+
+
+
+        <script src="assets/js/bootstrap-formhelpers-phone.format.js"></script>
+        <script src="assets/js/bootstrap-formhelpers-phone.js"></script>
         <!--END PAGE LEVEL SCRIPTS -->
         <style>
             input {
@@ -235,7 +242,7 @@
 							},200);
 							
 							
-							$('#address_2').focus();
+							//$('#address_2').focus();
 							
 							//$('#address_2').focus();					
 							
@@ -260,14 +267,16 @@
 						
 						}
 						
-						if(e.keyCode===9){ 
-						google.maps.event.trigger(this,'keydown',{keyCode:40}) 
+						if(e.keyCode===9){
+
+                            console.log("keydown and trigger google maps event key code 40 from 9");
+						    google.maps.event.trigger(this,'keydown',{keyCode:40})
 						}
 
 
 
 
-                    
+                        console.log("keycode " + e.keyCode)
 						
 
 
@@ -452,6 +461,17 @@ if(!isset($redirect)):
                                                         <div style="padding-left:0px; padding-right:0px" class="col-xs-12 col-md-12">
                                                         <input autocomplete="off" id="email2" name="Email"  class="form-control" placeholder="Email" />
                                                         </div>
+
+
+                                                            <div class="form-group center">
+                                                                <div style="padding-left:0px; padding-right:0px" class="col-xs-12 col-md-12">
+                                                                    <input autocomplete="off" type="text" placeholder="Phone Number" class="input-medium bfh-phone" data-format="ddd-dddd" style="margin-top: 16px;padding: 10px 10px 10px 9px;color: grey;width: 100%;border: 3px solid #CCCCCC;">
+                                                                </div>
+                                                            </div>
+
+
+
+
                                                         </div><div class="clearfix"></div>
                                                     <div class="form-group center">
                                                     	<div class="btn-toolbar">
