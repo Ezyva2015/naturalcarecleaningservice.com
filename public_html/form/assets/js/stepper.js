@@ -42,7 +42,8 @@ function bed(id) {
         }
 
         $(id).val(str);
-        //$('#bed-room-stepper').val(str);
+
+        calculateFirstCleanByKeepItCleanGetCleanMoveInOut();
     });
     i.on("touchspin.on.startdownspin", function () {
         if(bed > minValue ) {
@@ -57,17 +58,11 @@ function bed(id) {
             str += bedRoomPlural;
         }
         $(id).val(str);
-        //$('#bed-room-stepper').val(str);
+
+        calculateFirstCleanByKeepItCleanGetCleanMoveInOut();
     });
 
-    //i.on("touchspin.on.stopspin", function () {
-    //
-    //    console.log("bed " + fieldCurrentValue + "max value " + maxValue);
-    //    if(fieldCurrentValue > maxValue) {
-    //        alert("max value");
-    //        $(id).val(initValue);
-    //    }
-    //});
+
 }
 function bath(id) {
     var bed = 1;
@@ -106,6 +101,9 @@ function bath(id) {
 
         $(id).val(str);
         //$('#bed-room-stepper').val(str);
+
+
+
     });
     i.on("touchspin.on.startdownspin", function () {
         if(bed > minValue ) {
@@ -118,48 +116,95 @@ function bath(id) {
         if(bed > 1) {
             str += bedRoomPlural;
         }
-
-
         $(id).val(str);
-        //$('#bed-room-stepper').val(str);
-    });
-    //
-    //i.on("touchspin.on.stopspin", function () {
-    //    if(bed > maxValue) {
-    //
-    //        alert("max value");
-    //        $(id).val(initValue);
-    //
-    //
-    //    }
-    //});
 
-    calculateFirstCleanByKeepItCleanGetCleanMoveInOut();
+
+    });
 
 }
-
 
 function bathRoomUnit(index) {
-
     var unit = new Array("", "1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5.5", "1.5", "6");
-
     return unit[index];
 }
-//
-//<option value="1">1 bathroom</option>
-//<option value="1.5">1.5 bathroom</option>
-//
-//<option value="2" selected>2 bathrooms</option>
-//<option value="2.5">2.5 bathroom</option>
-//
-//<option value="3">3 bathrooms</option>
-//<option value="3.5">3.5 bathroom</option>
-//
-//<option value="4">4 bathrooms</option>
-//<option value="4.5">4.5 bathroom</option>
-//
-//<option value="5.5">5.5 bathrooms</option>
-//<option value="1.5">1.5 bathroom</option>
-//
-//<option value="6">6 bathrooms</option>
-//}
+
+
+function calculateFirstCleanByKeepItCleanGetCleanMoveInOut()
+{
+    var tabClass = '.cleantype';
+    var firstCleanId = '#visit1';
+    var totalBathRooms = parseFloat($('#bath').val());
+    var totalBedRooms = parseInt($('#bed').val());
+    getclean  = parseFloat("1.25");
+    deepclean = parseFloat("1.5");
+    moveinout = parseFloat("1.75");
+    var SQFTInput = parseInt($('#footage').val());
+    var totalBasePrice = getTotalBasePrice(calculate_sqrtFt(SQFTInput), totalBedRooms, totalBathRooms);
+
+    if ($(tabClass).text() == 'Keep It Clean')
+    {
+        firstclean = 1;
+    }
+    else if ($(tabClass).text() == 'Get it Clean')
+    {
+        firstclean = getItCleanFunc(totalBasePrice, getclean);
+    }
+    else if ($(tabClass).text() == 'Deep Clean')
+    {
+        firstclean = deepCleanFunc(totalBasePrice, deepclean);
+    }
+    else if ($(tabClass).text() == 'Move In/Out')
+    {
+        firstclean = moveInOutFunc(totalBasePrice, moveinout);
+    }
+
+    firstclean = Math.round(firstclean);
+
+    console.log( " SQFTInput " + SQFTInput + " totalBasePrice " + totalBasePrice + " firstclean " + firstclean + " total bath room " + totalBathRooms + " total bed rooms " + totalBedRooms );
+
+    $(firstCleanId).text(firstclean);
+
+}
+function squareFootage() {
+    var ret = isNaN(parseInt($('#footage').val())) ? 0 : parseInt($('#footage').val());
+    return ret;
+}
+
+function getItCleanFunc(totalBasePrice, getITcLean)
+{
+    return parseFloat(totalBasePrice * getITcLean);
+}
+
+function deepCleanFunc(totalBasePrice, deepClean)
+{
+    return  parseFloat(totalBasePrice * deepClean);
+}
+
+function moveInOutFunc(totalBasePrice, moveInOut)
+{
+    return  parseFloat(totalBasePrice * moveInOut);
+}
+function getTotalBasePrice(totalSquareFootCalculation, totalBeds, totalBathRoom)
+{
+
+    var totalBedsPrice     = parseInt("6");
+    var totalBathRoOmPrice = parseInt("14");
+    var totalBaseValue     = parseInt("99");
+    //totalSquareFootCalculation = M3;
+    var totalBasePrice = (totalBeds*totalBedsPrice) + (totalBathRoom*totalBathRoOmPrice) + totalBaseValue+totalSquareFootCalculation;
+
+    return parseInt(totalBasePrice);
+}
+
+function calculate_sqrtFt(SQFTInput)
+{
+    var SQFTBase = 1000;
+    var multiplier1 = 100;
+    var multiplier2 = 3;
+    var answer = 0;
+    if(SQFTInput > SQFTBase) {
+        answer = (SQFTInput - SQFTBase)/multiplier1*multiplier2;
+    }
+    return answer;
+}
+
