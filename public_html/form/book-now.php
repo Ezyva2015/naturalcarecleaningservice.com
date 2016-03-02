@@ -255,7 +255,7 @@ if (isset($_SESSION) && !empty($_SESSION) && isset($_SESSION['contact_id']))
 
 
 		<link href="assets/css/stepper.css"  rel="stylesheet" type="text/css" media="all" >
-
+		<link rel="stylesheet" href="assets/css/booknow2.css" />
 
 
 
@@ -1670,39 +1670,18 @@ $(function() {
 										</div>
 									</div>
 								</div><div class="clearfix"></div>
-								<div class="col-xs-12 col-md-6 col-sm-12 col-lg-6 col-lg-offset-1 col-md-offset-2" id="bookingContent" style="background:white; padding-left:0%; padding-bottom:25px; padding-top: 1%">
-									<h2 class="ip-header">Complete Your Booking:</h2>
-									<p>Great! Lets get a few details to complete your booking. tO be updated</p>
-										<h3 class="ip-subheader">How Often?</h3>
-										<br class="hidden-xs">
-										<p>With our flexible scheduling you can cancel or reschedule anytime.</p>
-									<div style="padding:0px" class="container-fluid">
-									    <div class="row">
-											<div class="phone col-xs-12 col-lg-3">
-										      <a href="#" name="freq" onclick="onetime()" class="btn  btn-default btn-lg btn-line repeat col-xs-12">One Time</a>
-										    </div>
-										    <div class="phone col-xs-12 col-lg-3">
-										      <a href="#" name="freq" onclick="weekly()" class="btn btn-default btn-lg btn-line repeat col-xs-12">Every Week</a>
-										    </div>
-										    <div class="phone col-xs-12 col-lg-3">
-										      <a href="#" name="freq" onclick="biweekly()" class="btn btn-default btn-lg btn-line repeat col-xs-12">Every 2 Weeks</a>
-										    </div>
-										    <div class="phone col-xs-12 col-lg-3">
-										      <a href="#" name="freq" onclick="monthly()" class="btn btn-default btn-lg btn-line repeat col-xs-12">Every 4 Weeks</a>
-										    </div>
-										</div>
-									</div>
-									<center><span style="padding-left:30px; width:50%">
-									<input type="hidden" value="" id="repeat" name="_Frequency" />
-									</span></center>
-									<div class="clearfix"></div>
-									<hr>
-                                    	<h3 class="ip-subheader">Cleaning Details</h3>
+								
+								<div class="col-xs-12 col-md-6 col-sm-12 col-lg-6 col-lg-offset-1 col-md-offset-2" id="bookingContent" style="background:white; padding-left:0%; padding-bottom:25px;">
+								<div class="logotrigle"><img src="assets/img/logotrigle.png"></div>
+										
+                                    	<h3 class="ip-subheader">Tell us about your home?</h3>
 									
 									<div style="padding:0px" class="container-fluid">
 												<div class="row">
 													<div class="col-md-4">
 														<div class="form-group" style="padding-left: 0px">
+														
+															<div class="form_btn_back">
 															<label class="col-xs-12 control-label" style="padding-left: 0px; padding-right: 0px; font-size: 20px; font-weight: inherit"></label>
 															<div class="col-xs-12 center" style="padding-left: 0px; padding-right: 0px">
 
@@ -1737,8 +1716,9 @@ $(function() {
 <!--                                                        			<option value="6">6 bathrooms</option>-->
 <!--																	-->
 <!--                                                        		</select>-->
-                                                    		</div>
-                                                    	</div>
+																</div>
+															</div>
+														</div>
                                                    </div>
                                                    <div class="col-md-4">
 
@@ -1785,9 +1765,39 @@ $(function() {
                                                    		</div>
 													</div>
                                           		</div>
-									    										<p>
-										Please select the level of cleaning your house needs.
-									</p><div class="row">
+									 
+									<hr>	
+									<div class="triaglelogo2"><img src="assets/img/trilaglelogo2.png"></div>
+									
+									
+									
+									<h3 class="ip-subheader">How often would you like your home cleaned?</h3>
+										<br class="hidden-xs">
+									<div style="padding:0px" class="container-fluid">
+									    <div class="row">
+											<div class="phone col-xs-12 col-lg-3">
+										      <a href="#" name="freq" onclick="onetime()" class="btn  btn-default btn-lg btn-line repeat col-xs-12">One Time</a>
+										    </div>
+										    <div class="phone col-xs-12 col-lg-3">
+										      <a href="#" name="freq" onclick="weekly()" class="btn btn-default btn-lg btn-line repeat col-xs-12">Every Week</a>
+										    </div>
+										    <div class="phone col-xs-12 col-lg-3">
+										      <a href="#" name="freq" onclick="biweekly()" class="btn btn-default btn-lg btn-line repeat col-xs-12">Every 2 Weeks</a>
+										    </div>
+										    <div class="phone col-xs-12 col-lg-3">
+										      <a href="#" name="freq" onclick="monthly()" class="btn btn-default btn-lg btn-line repeat col-xs-12">Every 4 Weeks</a>
+										    </div>
+										</div>
+									</div>
+									<center><span style="padding-left:30px; width:50%">
+									<input type="hidden" value="" id="repeat" name="_Frequency" />
+									</span></center>
+									<div class="clearfix"></div>
+									<hr>
+									<div class="triaglelogo2"><img src="assets/img/trilaglelogo2.png"></div>
+									
+									 <h3 class="ip-subheader">Pick the level for your first cleaned?</h3>
+										<div class="row">
 
 									       <div class="col-xs-6 col-md-6 col-lg-3">
 									           <a href="#" id="keep" onclick="keepclean()" class="keep btn  btn-default btn-lg btn-line cleantype col-xs-12">Keep It Clean</a>
@@ -1818,59 +1828,25 @@ $(function() {
 											An extremely thorough cleaning where everything is hand wiped from the ceiling fans down to the baseboards. Also includes cleaning inside empty cabinets and drawers.
 										</p>
 									</div>
+									
 									<hr>
-									<h3 class="ip-subheader">Select Your Extras</h3>
-									<p>
-										Add these little extras to really complement your first cleaning!
-									</p>
-									<div class="row-fluid">
-										<div style="padding: 0px !important" class="row">
-											<input type="hidden" name="_AddOns" id="addon" value="" />
-											<div  class="col-xs-3 col-md-3 text-center">
-												<input name="Fridge" id="fridge" value="" class="addon" type="image" src="assets/img/33.png"</input>
-
-												</div>
-												<div class="col-xs-3 col-md-3 text-center">
-												<input name="Stove" id="stove" value="" class="addon" type="image" src="assets/img/22.png"</input>
-
-												</div>
-
-												<div class="col-xs-3 col-md-3 text-center">
-												<input name="Window" id="window" value="" class="addon" type="image" src="assets/img/44.png"</input>
-
-												</div>
-
-												<div class="col-xs-3 col-md-3 text-center">
-												<input name="BedSteam" id="wall" value="" class="addon" type="image" src="assets/img/55.png"</input>
-
-												</div>
-
-												<!--<div class="col-xs-6 col-md-4" align="center">
-												<input name="Laundry" id="laundry" value="" class="addon" type="image" src="assets/img/11.png"</input>
-												<p style="text-align:center">Load of laundry</p>
-												</div>-->
-
-												</div>
-												</div>
-												<div class="clearfix"></div>
-
-												<hr>
-										
-												<h3 class="ip-subheader">When would you like us to come?</h3>
-												<p>Pick your cleaning date and choose an arrival window.</p>
+									<div class="triaglelogo2"><img src="assets/img/trilaglelogo2.png"></div>
+									
+									<h3 class="ip-subheader">Select your cleaning date and arrival window</h3>
+												
 												<div class="form-group">
-												<div class="row" style="padding: 0px">
+												<div class="row">
 												<div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
 												<input style="text-align: center" type="text" placeholder="mm/dd/yyyy" class="form-control datepicker col-xs-12" name="_SelectYourDate" data-date-format="mm/dd/yyyy" id="datepicker" />
 												</div>
 												<div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
-												    <a href="#" id="any" onclick="anytime()" style="margin: 3px 0px 0px 0px; padding: 10px" class="btn btn-default btn-lg btn-line repeat col-xs-12 daytime form-control">Anytime</a>
+												    <a href="#" id="any" onclick="anytime()" style="margin: 3px 0px 0px 0px; " class="btn btn-default btn-lg btn-line repeat col-xs-12 daytime form-control">Anytime</a>
 												</div>
 												<div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
-												    <a href="#" id="morn" onclick="morning()" style="margin:  3px 0px 0px 0px; padding: 10px" class="btn btn-default btn-lg btn-line repeat col-xs-12 daytime form-control">Morning</a>
+												    <a href="#" id="morn" onclick="morning()" style="margin:  3px 0px 0px 0px;" class="btn btn-default btn-lg btn-line repeat col-xs-12 daytime form-control">Morning</a>
 												</div>
 												<div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
-												    <a href="#" id="after" onclick="afternoon()" style="margin: 3px 0px 0px 0px; padding: 10px" class="btn btn-default btn-lg btn-line repeat col-xs-12 daytime form-control">Afternoon</a>
+												    <a href="#" id="after" onclick="afternoon()" style="margin: 3px 0px 0px 0px;" class="btn btn-default btn-lg btn-line repeat col-xs-12 daytime form-control">Afternoon</a>
 												</div>
 												</div>
 										
@@ -1880,7 +1856,7 @@ $(function() {
 												</div>
 												
 												<div class="clearfix"></div>
-												<div style="height: 40px; padding-left: 0px">
+												<div style="padding-left: 0px">
 												<p style="display:none" id="anytime" >We will arrive between 8:30 am and 4:00 pm. Exact arrival time cannot be guaranteed, but you can opt in for a 30 minute call ahead.</p>
 												<p style="display:none" id="morning" >We will arrive between 8:30 am and 12:00 pm. Exact arrival time cannot be guaranteed, but you can opt in for a 30 minute call ahead.</p>
 												<p style="display:none" id="afternoon" >We will arrive between 12:00 pm and 4:00 pm. Exact arrival time cannot be guaranteed, but you can opt in for a 30 minute call ahead.</p>
@@ -1889,7 +1865,8 @@ $(function() {
 												<div class="clearfix"></div>
 
 												<hr>
-												<h3 class="ip-subheader">Contact Information</h3>
+												<div class="triaglelogo2"><img src="assets/img/trilaglelogo2.png"></div>
+												<!--<h3 class="ip-subheader">Contact Information</h3>
 												<p>
 												We will use this to send you information about your cleanings.
 												</p>
@@ -1911,7 +1888,53 @@ $(function() {
 												</div>
 												</div><div class="clearfix"></div><br>
 												<hr>
-												<h3 class="ip-subheader">Service Address</h3>
+												<div class="triaglelogo2"><img src="assets/img/trilaglelogo2.png"></div>
+									-->
+									
+									
+									
+									
+									
+									
+									
+									<h3 class="ip-subheader">Select any add-ons for your first clean</h3>
+									
+									<div class="container add_ons_container">
+										<div class="row add_ons">
+											<input type="hidden" name="_AddOns" id="addon" value="" />
+											<div  class="col-md-3  text-center">
+												<input name="Fridge" id="fridge" value="" class="addon" type="image" src="assets/img/33.png"></input>
+
+												</div>
+												<div class="col-md-3 text-center">
+												<input name="Stove" id="stove" value="" class="addon" type="image" src="assets/img/22.png"></input>
+
+												</div>
+
+												<div class="col-md-3 text-center">
+												<input name="Window" id="window" value="" class="addon" type="image" src="assets/img/44.png"></input>
+
+												</div>
+
+												
+												<div class="col-md-3 text-center">
+												<input name="BedSteam" id="wall" value="" class="addon" type="image" src="assets/img/55.png"></input>
+
+												</div>
+
+												<!--<div class="col-xs-6 col-md-4" >
+												<input name="Laundry" id="laundry" value="" class="addon" type="image" src="assets/img/11.png"></input>
+												<p style="text-align:center">Load of laundry</p>
+												</div>-->
+
+											</div>
+										</div>
+												<div class="clearfix"></div>
+
+												<hr>
+												<div class="triaglelogo2"><img src="assets/img/trilaglelogo2.png"></div>
+												
+												<!--<h3 class="ip-subheader">Service Address</h3>
 												<p>
 												Hope we are not being too forward, but we do need to know where to go!
 												</p>
@@ -1988,18 +2011,27 @@ $(function() {
 
 												</div><div class="clearfix"></div><br>
 												<hr>
-												<h3 class="ip-subheader">Payment details</h3>
+												<div class="triaglelogo2"><img src="assets/img/trilaglelogo2.png"></div>-->
+												
+
+											
+												
+												<h3 class="ip-subheader">Payment Information</h3>
 												<p>
-												Enter your card information below.
-												<br>
-												You will be charged after service has been rendered.
+													<span class="payment_sub_text">You will not be charged untill after your services is complete.</span>
 												</p>
-												<div class="form-group">
-												<div style="padding-left:0px" class="col-xs-8 col-md-5">
-												<input id="promo" value="<?= isset($_SESSION['_PromoCode'])?$_SESSION['_PromoCode']:'' ?>" name="_PromoCode" class="form-control" placeholder="Promo code (optional)" />
+						
+											<div class="container-fluid" style="padding-right:15px;">
+											<div class="payment_label row"> 
+												<h3 class="credit_label">Credit card</h3> <img id="ccimage" style="width: 200px !important; padding-right: 5px; margin: 0px;" src="assets/img/cc_logo.png"> 
 												</div>
-												<a href="#" style="bottom:5px; padding-top:11px" class="btn btn-lg btn-default btn-line col-xs-3 col-md-2" id="applyPromoBtn">Apply</a>
+											<div class="payment row">
+
+											
+												<div class="form-group">
 												<div class="clearfix"></div><br>
+											<div class="container">
+												
 												<div style="padding-left:0px" class="phone col-xs-12 col-md-6 input-group">
 												<input style="border-right:none" value="<?= isset($_SESSION['creditcard'])?$_SESSION['creditcard']:''?>" autocomplete="off" data-stripe="number" id="creditcard" name="credit_card" data-mask="9999-9999-9999-9999" class="form-control" placeholder="Credit Card Number"
 												onblur="creditcard_saved = this.value;
@@ -2024,20 +2056,51 @@ $(function() {
 												</div>
 												<div style="padding-left:0px" class="phone col-xs-6 col-md-2">
 												<input id="cvc" value="<?= isset($_SESSION['cvc'])?$_SESSION['cvc']:''?>" name="cvc" data-stripe="cvc" data-mask="999" class="form-control" placeholder="CVC" />
+												</div>
+												
+											</div>
+											<br>
+											<div class="container ">
+												<div style="padding-left:0px" class="phone col-xs-12 col-sm-6 col-md-4">
+												<input id="firstname" name="FirstName" value="<?= isset($_SESSION['FirstName'])?$_SESSION['FirstName']:'' ?>" class="form-control" placeholder="First Name" />
+												</div>
+												<div style="padding-left:0px" class="phone col-xs-12 col-sm-6  col-md-4">
+												<input id="lastname" name="LastName" value="<?= isset($_SESSION['LastName'])?$_SESSION['LastName']:'' ?>"  class="form-control" placeholder="Last Name" />
+												</div>
+												
+												<div style="padding-left:0px" class="phone col-xs-12 col-md-4">
+												<input id="number" name="Phone1" value="<?= isset($_SESSION['Phone1'])?$_SESSION['Phone1']:'' ?>" class="form-control" data-mask="(999) 999-9999" placeholder="Phone" />
+												</div>
+											</div>
+											<br>
+											<div class="container"> 
+											<div style="padding-left:0px" class="col-xs-8 col-md-4">
+												<input id="promo" value="<?= isset($_SESSION['_PromoCode'])?$_SESSION['_PromoCode']:'' ?>" name="_PromoCode" class="form-control" placeholder="Promo code (optional)" />
+												</div>
+												<a href="#" style="bottom:5px; padding-top:11px" class="btn btn-lg btn-default btn-line col-xs-3 col-md-2" id="applyPromoBtn">Apply</a>
 											</div>
 											<div class="clearfix"></div>
 											
-											</div><div class="row">	
-											  <div style="padding-left:20px" class="phone col-xs-12 text-center">
-                                                    <img id="ccimage" style="width: 350px !important; padding-right: 5px; margin: 0px;" src="assets/img/cc_logo.png"> <br>Safe and secure 256 BIT SSL enctrypted payment.
-                                                </div>
-											</div><br>
+											</div>
+											
+											<br>
+											
+											
+											</div>
+											<div class="containter" style="padding-left:0px; border:1px solid #dcdcdc; border-radius:0px 0px 5px 5px;">	
+												<div  class="phone col-xs-12 text-center">
+                                                <p>All tracsactions are safe and secure with 256 BIT SSL encryption via Stripe.</p>
+												</div>
+											</div>
+											</div>
+											
+											
 											<div class="row hidden-md hidden-lg">
 												<div class="col-xs-2"></div>
 												<div class="col-xs-8">
-													<div class="row" style="border: 2px solid #ccc; padding-left: 0px">
-														<div class="col-xs-6 text-center">
-															<table width="135" border="0" style="margin-top: 28px" cellpadding="2" cellspacing="0" title="Click to Verify - This site chose Symantec SSL for secure e-commerce and confidential communications.">
+													<div class="row">
+														<div class="col-md-3 text-center">
+															<table width="135" border="0" cellpadding="2" cellspacing="0" title="Click to Verify - This site chose Symantec SSL for secure e-commerce and confidential communications.">
                                                         		<tr>
                                                             		<td width="135" align="center" valign="top"><script type="text/javascript" src="https://seal.websecurity.norton.com/getseal?host_name=naturalcarecleaningservice.com&amp;size=XS&amp;use_flash=NO&amp;use_transparent=NO&amp;lang=en"></script><br />
                                                                 		<a href="http://www.symantec.com/ssl-certificates" target="_blank"  style="color:#000000; text-decoration:none; font:bold 7px verdana,sans-serif; letter-spacing:.5px; text-align:center; margin:0px; padding:0px;">ABOUT SSL CERTIFICATES</a>
@@ -2045,36 +2108,64 @@ $(function() {
                                                         		</tr>
                                                     		</table>
                                                     	</div>
-                                                    	<div class="col-xs-6 text-center">
+                                                    	<div class="col-md-3 text-center">
                                                     		<a href="https://ssl.comodo.com">
-																<img src="https://ssl.comodo.com/images/comodo_secure_100x85_white.png" alt="SSL Certificate" width="100" height="85" style="border: 0px;"><br>
+																<img src="https://ssl.comodo.com/images/comodo_secure_100x85_white.png" alt="SSL Certificate" width="100" height="85"><br>
 																<span style="font-weight:bold; font-size:7pt">SSL Certificate</span>
 															</a>
                                                     	</div>
                                                    </div>
 												</div>
 											</div>
-											<hr>
+											
+										
+											
+											<div class="container">
+												<div style="display:none">
+												<input name="_promodiscount" id="promodisc5" />
+												<input name="_YourFirstClean" id="Ivisit1" />
+												<input name="_FirstCleanHours" id="Ihour" />
+												<input name="_YourRecurringPrice" id="Ivisit2" />
+												<input name="_RecurringDiscount" id="IdiscountR" />
+												<input name="_OneTimeAdjustment" id="onetimeadjust" />
+												<input name="stripeToken" id="stripetoken" />
+												</div>
+												<button style="height: 52px; font-size: 24px; color: white; margin-left:10px;" type="submit" id="continue2" name="continue2" class="btn btn-grad col-xs-12">Book My Cleaning</button>
+											</div>
+											
 											<div >
 											<p style="padding: 0px">
 											By clicking "Book My Cleaning", you are agreeing to our <a href="https://naturalcarecleaningservice.com/terms-conditions/" target="_blank">Terms of Service</a>.
 											</p>
 											</div>
+											
 											<div>
-											<div style="display:none">
-											<input name="_promodiscount" id="promodisc5" />
-											<input name="_YourFirstClean" id="Ivisit1" />
-											<input name="_FirstCleanHours" id="Ihour" />
-											<input name="_YourRecurringPrice" id="Ivisit2" />
-											<input name="_RecurringDiscount" id="IdiscountR" />
-											<input name="_OneTimeAdjustment" id="onetimeadjust" />
-											<input name="stripeToken" id="stripetoken" />
+											
+											
+											 <div class="summary col-sm-2 col-sm-offset-3" >
+											<table width="135" border="0" style="margin-top: 18px" cellpadding="2" cellspacing="0" title="Click to Verify - This site chose Symantec SSL for secure e-commerce and confidential communications.">
+												<tr>
+													<td width="135" align="center" valign="top"><script type="text/javascript" src="https://seal.websecurity.norton.com/getseal?host_name=naturalcarecleaningservice.com&amp;size=XS&amp;use_flash=NO&amp;use_transparent=NO&amp;lang=en"></script><br />
+														<a href="http://www.symantec.com/ssl-certificates" target="_blank"  style="color:#000000; text-decoration:none; font:bold 7px verdana,sans-serif; letter-spacing:.5px; text-align:center; margin:0px; padding:0px;">ABOUT SSL CERTIFICATES</a>
+													</td>
+												</tr>
+											</table>
 											</div>
-											<button style="height: 52px; font-size: 24px; color: white;" type="submit" id="continue2" name="continue2" class="btn btn-grad col-xs-12">Book Now</button>
+											<div class="summary col-sm-6 text-center">
+												<a href="https://ssl.comodo.com">
+													<img src="https://ssl.comodo.com/images/comodo_secure_100x85_white.png" alt="SSL Certificate" width="100" height="85" style="border: 0px;"><br>
+													<span style="font-weight:bold; font-size:7pt">SSL Certificate</span>
+												</a>
+												<br>
 											</div>
+											
+											
+											</div>
+											
 											</div>
 
-						<div id="summary" class="col-md-3 hidden-sm" style="width: 278px !important">
+						<div id="summary" class="col-md-3 hidden-sm jsummary" style="width: 278px !important">
+						<div class="triagle"><img src="assets/img/triangleft.png" class="triangleft"></div>
 											<div class="summary">
 											<div class="summary col-sm-12">
 											<div class="col-sm-3">
