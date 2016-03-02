@@ -121,13 +121,15 @@
         <script src="assets/js/bootstrap-formhelpers-phone.js"></script>
         <!--END PAGE LEVEL SCRIPTS -->
         <style>
-            input {
+            /*input {
                 display: inline !important
             }
             select {
                 display: inline !important;
 
             }
+			
+			*/
             select.form-control {
               -moz-appearance: none;
                -webkit-appearance: none;
@@ -164,6 +166,7 @@
         <script>
             $(function() {
                 formInit();
+					
             });
         </script>
         <script>
@@ -233,13 +236,13 @@
 							
 							
 							
-							$('.pac-container').remove();
+/* 							$('.pac-container').remove();
 							
 							setTimeout(function(){
 								
 							$('#autocomplete').val(firstResult);
 							
-							},200);
+							},200); */
 							
 							
 							//$('#address_2').focus();
@@ -251,7 +254,7 @@
 								types : ['geocode']
 							});							
 								
-								addrFilled = true;
+								
 								
 							}
 							
@@ -269,20 +272,33 @@
 						
 						if(e.keyCode===9){
 
-                            console.log("keydown and trigger google maps event key code 40 from 9");
+                            //console.log("keydown and trigger google maps event key code 40 from 9");
 						    google.maps.event.trigger(this,'keydown',{keyCode:40})
 						}
 
 
 
 
-                        console.log("keycode " + e.keyCode)
+                        //console.log("keycode " + e.keyCode)
 						
-
-
+						google.maps.event.addListener(autocomplete, 'place_changed', function() {
+								fillInAddress();
+						});	
+	
 						
 						
                 });
+				
+
+				$('#autocomplete').focusout(function(autocomplete){
+					
+					 google.maps.event.trigger(this,'keydown',{keyCode:40})
+
+				
+					
+					
+				})				
+				
 				
 
                 
@@ -303,7 +319,7 @@
             function fillInAddress() {
                 // Get the place details from the autocomplete object.
 				
-				
+				$('#realaddress').val($('#autocomplete').val())
 				
                 var place = autocomplete.getPlace();
 
@@ -319,6 +335,7 @@
                  if (componentForm[addressType]) {
                  var val = place.address_components[i][componentForm[addressType]];
                  document.getElementById(addressType).value = val;
+				 
                  }
                  }
                 // $('#street_address').val(place.address_components[0]['short_name'] + ' ' + place.address_components[1]['long_name']);
@@ -373,6 +390,8 @@
             {
                 $( '#autocomplete' ).attr( 'autocomplete', 'off' );
             }
+			
+	
         </script>
     </head>
 
@@ -393,11 +412,9 @@ if(!isset($redirect)):
 
                                 <div class="panel-body" style="background:#daeef3">
                                     <?php if (isset($message))
-                                                          echo $message;
-                                                    ?>
-                                    <div id="page1" style="height: 500px">
-
-                                        
+                                              echo $message;
+                                       ?>
+                                    <div id="page1" style="height: 500px">                                        
                                         <section>
                                             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" name="start" id="start" role="form" autocomplete="off">
                                                 <div>
@@ -409,11 +426,14 @@ if(!isset($redirect)):
 
                                                     <div id="locationField" class="form-group center">
 
-
-                                                        <input onclick="exec_clicked()" autocomplete="off" style="height: 42px" placeholder="Enter your street address…" tabindex="10" g-places-autocomplete="" force-selection="true" required type="text" class="form-control google-addresses-autocomplete" id="autocomplete" name="Address" placeholder="Enter your address"   >
+														
+														
+                                                        <input onclick="exec_clicked()" autocomplete="false" style="height: 42px" placeholder="Enter your street address…" tabindex="10" g-places-autocomplete="" force-selection="true" required type="search" class="form-control google-addresses-autocomplete" id="autocomplete" name="Address" placeholder="Enter your address" value=""   >
                                                         </input>
+														
+														
                                                     </div>
-                                                    <table id="address" style="display: none">
+                                                    <table id="address" style="display:none">
                                                           <tr>
                                                             <td class="label">Street address</td>
                                                             <td class="slimField"><input class="field" id="street_number"
@@ -449,7 +469,7 @@ if(!isset($redirect)):
             
                                                    <div class="form-group center">
                                                         <div style="padding-left:0px; padding-right: 0px" class="col-xs-12 col-md-12">
-                                                        <input autocomplete="off" id="firstname" name="FirstName" class="form-control" placeholder="First Name" />
+                                                        <input autocomplete="off" required id="firstname" name="FirstName" class="form-control" placeholder="First Name" />
                                                         </div>
                                                     </div>
                                                     <div class="form-group center">
@@ -459,13 +479,13 @@ if(!isset($redirect)):
                                                         </div>
                                                         <div class="form-group center">
                                                         <div style="padding-left:0px; padding-right:0px" class="col-xs-12 col-md-12">
-                                                        <input autocomplete="off" id="email2" name="Email"  class="form-control" placeholder="Email" />
+                                                        <input autocomplete="off" id="email2" name="Email" type="email"  class="form-control" placeholder="Email" />
                                                         </div>
 
 
                                                             <div class="form-group center">
                                                                 <div style="padding-left:0px; padding-right:0px" class="col-xs-12 col-md-12">
-                                                                    <input autocomplete="off" type="text" placeholder="Phone Number" class="input-medium bfh-phone" data-format="ddd-dddd" style="margin-top: 16px;padding: 10px 10px 10px 9px;color: grey;width: 100%;border: 3px solid #CCCCCC;">
+                                                                    <input autocomplete="off" type="text" placeholder="Phone Number" class="input-medium bfh-phone" data-format="(ddd) dddd-dddd" style="margin-top: 16px;padding: 10px 10px 10px 9px;color: grey;width: 100%;border: 3px solid #CCCCCC;" required>
                                                                 </div>
                                                             </div>
 
