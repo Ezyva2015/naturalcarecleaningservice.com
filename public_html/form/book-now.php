@@ -672,6 +672,29 @@ $(function() {
 		return parseInt(totalBasePrice);
 	}
 
+	function calculateWeekly() {
+		return basePrice() * weeklyPrice();
+	}
+
+	function calculateEvery2weeks() {
+		return basePrice() * every2WeeksPrice();
+	}
+
+	function calculateEvery4weeks() {
+		return basePrice() * every4WeeksPrice();
+	}
+
+
+
+
+	function weeklyPrice(){ return parseFloat("0.65"); }
+
+	function every2WeeksPrice(){ return parseFloat("0.7"); }
+
+	function every4WeeksPrice(){ return parseFloat("0.75"); }
+
+
+
 	function calculate_sqrtFt(SQFTInput)
 	{
 		var SQFTBase = 1000;
@@ -682,6 +705,16 @@ $(function() {
 			answer = (SQFTInput - SQFTBase)/multiplier1*multiplier2;
 		}
 		return answer;
+	}
+
+	function basePrice()
+	{
+		var totalBathRooms = parseFloat($('#bath').val());
+		var SQFTInput = parseInt($('#footage').val());
+		var totalBedRooms = parseInt($('#bed').val());
+		var totalBasePrice = getTotalBasePrice(calculate_sqrtFt(SQFTInput), totalBedRooms, totalBathRooms);
+
+		return totalBasePrice;
 	}
 
 	/**
@@ -1352,10 +1385,51 @@ $(function() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+		var $weekTab = $('#repeat').val();
+
 		console.log('successfully calculated');
 		console.log('visit1 value first clean = ' + firstclean);
 		console.log('visit2 value prices = ' + recurringPrice);
 		console.log('visit1 repeat  = ' + $('#repeat').val());
+
+
+		console.log("new");
+
+
+		console.log("weekly " + calculateWeekly());
+		console.log("every 2 weeks " + calculateEvery2weeks());
+		console.log("every 4 weeks " + calculateEvery4weeks());
+
+
+		if ($weekTab == 'Every Week') {
+			recurringPrice = calculateWeekly();
+		} else if ($weekTab == 'Every 2 Weeks') {
+			recurringPrice = calculateEvery2weeks();
+		} else if ($weekTab == 'Every 4 Weeks') {
+			recurringPrice = calculateEvery4weeks();
+		}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1367,7 +1441,7 @@ $(function() {
 
 
 		if ($('#repeat').val() == 'One Time') {
-			$('#visit1').text('this is just form 1 time');
+			$('#visit1').text('$' + basePrice());
 		} else {
 
 		}
