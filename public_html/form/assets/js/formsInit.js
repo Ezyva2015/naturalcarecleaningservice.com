@@ -59,13 +59,13 @@ function formInit() {
 			$('.access').click(function(){
 				$('#access').val($(this).text())
 				$('.access').css({
-					color: '#FF8604',
+					color: '#000',
  					'background-color': '#fff',
-  					'border-color': '#FF8604',
+  					'border-color': '#b4d0c2',
 				})
 				$(this).css({
 					color: '#ffffff !important', 
-					'background-color': '#FF8604 !important',
+					'background-color': '#b4d0c2 !important',
 					'border-color': '#b3b3b3 !important',
 				})
 			})
@@ -75,13 +75,13 @@ function formInit() {
 					$('#cleantype').val($(this).text())
 					$('#cleantype').text($(this).text())
 					$('.cleantype').css({
-						color: '#FF8604',
+						color: '#000',
  						'background-color': '#fff',
-  						'border-color': '#FF8604',
+  						'border-color': '#b4d0c2',
 					})
 					$(this).css({
 						color: '#ffffff !important', 
-						'background-color': '#FF8604 !important',
+						'background-color': '#b4d0c2 !important',
 						'border-color': '#b3b3b3 !important',
 					})
 				}
@@ -101,13 +101,13 @@ function formInit() {
 				$('#repeat').val($(this).text())
 				$('#repeat').text($(this).text())
 				$('.repeat').css({
-					color: '#FF8604',
+					color: '#000',
  					'background-color': '#fff',
-  					'border-color': '#FF8604',
+  					'border-color': '#b4d0c2',
 				})
 				$(this).css({
 					color: '#ffffff !important', 
-					'background-color': '#FF8604 !important',
+					'background-color': '#b4d0c2 !important',
 					'border-color': '#b3b3b3 !important',
 				})
 				$('#recur').text($(this).text())
@@ -122,7 +122,7 @@ function formInit() {
 				})
 				$(this).css({
 					color: '#ffffff !important', 
-					'background-color': '#FF8604 !important',
+					'background-color': '#b4d0c2 !important',
 					'border-color': '#b3b3b3 !important',
 				})
 				$('#schedule').text($(this).text())

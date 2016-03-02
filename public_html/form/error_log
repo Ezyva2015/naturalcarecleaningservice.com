@@ -651,3 +651,13 @@ Stack trace:
 #3 /home/natural/public_html/form/stripe/lib/ApiResource.php(137): Stripe\ApiResource::_staticRequest('post', '/v1/customers', Array, NULL)
 #4 /home/natural/public_html/form/stripe/lib/Customer.php(37): Stripe\ApiResource::_create(Array, NULL)
 #5 /home/natural/public_html/form/book-now.php(70): Stripe\Customer::create(Array) in /home/natural/public_html/form/stripe/lib/ApiRequestor.php on line 155
+[29-Feb-2016 09:28:16 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/natural/public_html/form/page1-test.php on line 562
+[01-Mar-2016 08:49:42 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting ')' in /home/natural/public_html/form/book-now.php on line 91
+[01-Mar-2016 09:07:37 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting ')' in /home/natural/public_html/form/book-now.php on line 91
+[01-Mar-2016 09:49:59 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting ')' in /home/natural/public_html/form/book-now.php on line 91
+[02-Mar-2016 01:29:38 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting ')' in /home/natural/public_html/form/book-now.php on line 91
+[02-Mar-2016 03:44:31 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting ')' in /home/natural/public_html/form/book-now.php on line 91
+[02-Mar-2016 04:53:09 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting ')' in /home/natural/public_html/form/book-now.php on line 91
+[02-Mar-2016 05:20:02 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting ')' in /home/natural/public_html/form/book-now.php on line 91
+[02-Mar-2016 06:07:28 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting ')' in /home/natural/public_html/form/book-now.php on line 91
+[02-Mar-2016 07:24:56 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting ')' in /home/natural/public_html/form/book-now.php on line 91
