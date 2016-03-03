@@ -26,6 +26,10 @@ include('results_table/connect-db.php');
     $result = mysql_query("SELECT * FROM options")
     or die(mysql_error());
     $row = mysql_fetch_array($result);
+	// echo"<pre>";
+	// print_r( $row );
+	// echo"</pre>";
+
     
     // check that the 'id' matches up with a row in the databse
     if($row)
@@ -1650,7 +1654,7 @@ $(function() {
 														<img style="height: 24px" src="assets/img/Calendar.png">
 													</div>
 													<div class="col-xs-10">
-														<div id="pdate2"> </div>
+														<div id="pdate2"></div>
 														<div id="pschedule2"> </div>
 													</div>
 												</div>
@@ -1671,7 +1675,12 @@ $(function() {
 									</div>
 								</div><div class="clearfix"></div>
 								
-								<div class="col-xs-12 col-md-6 col-sm-12 col-lg-6 col-lg-offset-1 col-md-offset-2" id="bookingContent" style="background:white; padding-left:0%; padding-bottom:25px;">
+								<div class="col-xs-12 col-md-6 col-sm-12 col-lg-6 col-lg-offset-1 col-md-offset-2" id="bookingContent" style="background:white; padding-left:0%;">
+									<div class="before_main">
+										<h1>Schedule Your Home Cleaning</h1>
+										<p><span>47 neigbors</span> in 77007 already use naturalcare cleaning.</p>
+										<p>join them today.</p>
+									</div>
 								<div class="logotrigle"><img src="assets/img/logotrigle.png"></div>
 										
                                     	<h3 class="ip-subheader">Tell us about your home?</h3>
@@ -2145,12 +2154,7 @@ $(function() {
 												<input id="number" name="Phone1" value="<?= isset($_SESSION['Phone1'])?$_SESSION['Phone1']:'' ?>" class="form-control" data-mask="(999) 999-9999" placeholder="Phone" />
 												</div>
 											</div>-->
-											<div class="container"> 
-											<div style="padding-left:0px" class="col-xs-8 col-md-4">
-												<input id="promo" value="<?= isset($_SESSION['_PromoCode'])?$_SESSION['_PromoCode']:'' ?>" name="_PromoCode" class="form-control" placeholder="Promo code (optional)" />
-												</div>
-												<a href="#" style="bottom:5px; padding-top:11px" class="btn btn-lg btn-default btn-line col-xs-3 col-md-2" id="applyPromoBtn">Apply</a>
-											</div>
+											
 											<div class="clearfix"></div>
 											
 											</div>
@@ -2167,28 +2171,6 @@ $(function() {
 											</div>
 											
 											
-											<div class="row hidden-md hidden-lg">
-												<div class="col-xs-2"></div>
-												<div class="col-xs-8">
-													<div class="row">
-														<div class="col-md-3 text-center">
-															<table width="135" border="0" cellpadding="2" cellspacing="0" title="Click to Verify - This site chose Symantec SSL for secure e-commerce and confidential communications.">
-                                                        		<tr>
-                                                            		<td width="135" align="center" valign="top"><script type="text/javascript" src="https://seal.websecurity.norton.com/getseal?host_name=naturalcarecleaningservice.com&amp;size=XS&amp;use_flash=NO&amp;use_transparent=NO&amp;lang=en"></script><br />
-                                                                		<a href="http://www.symantec.com/ssl-certificates" target="_blank"  style="color:#000000; text-decoration:none; font:bold 7px verdana,sans-serif; letter-spacing:.5px; text-align:center; margin:0px; padding:0px;">ABOUT SSL CERTIFICATES</a>
-                                                            		</td>
-                                                        		</tr>
-                                                    		</table>
-                                                    	</div>
-                                                    	<div class="col-md-3 text-center">
-                                                    		<a href="https://ssl.comodo.com">
-																<img src="https://ssl.comodo.com/images/comodo_secure_100x85_white.png" alt="SSL Certificate" width="100" height="85"><br>
-																<span style="font-weight:bold; font-size:7pt">SSL Certificate</span>
-															</a>
-                                                    	</div>
-                                                   </div>
-												</div>
-											</div>
 											
 										
 											
@@ -2211,32 +2193,33 @@ $(function() {
 											</p>
 											</div>
 											
-											<div>
 											
-											
-											 <div class="summary col-sm-2 col-sm-offset-3" >
-											<table width="135" border="0" style="margin-top: 18px" cellpadding="2" cellspacing="0" title="Click to Verify - This site chose Symantec SSL for secure e-commerce and confidential communications.">
-												<tr>
-													<td width="135" align="center" valign="top"><script type="text/javascript" src="https://seal.websecurity.norton.com/getseal?host_name=naturalcarecleaningservice.com&amp;size=XS&amp;use_flash=NO&amp;use_transparent=NO&amp;lang=en"></script><br />
-														<a href="http://www.symantec.com/ssl-certificates" target="_blank"  style="color:#000000; text-decoration:none; font:bold 7px verdana,sans-serif; letter-spacing:.5px; text-align:center; margin:0px; padding:0px;">ABOUT SSL CERTIFICATES</a>
-													</td>
-												</tr>
-											</table>
-											</div>
-											<div class="summary col-sm-6 text-center">
-												<a href="https://ssl.comodo.com">
-													<img src="https://ssl.comodo.com/images/comodo_secure_100x85_white.png" alt="SSL Certificate" width="100" height="85" style="border: 0px;"><br>
-													<span style="font-weight:bold; font-size:7pt">SSL Certificate</span>
-												</a>
-												<br>
-											</div>
-											
-											
+											<div class="row">
+												<div class="col-xs-2"></div>
+												<div class="col-xs-8">
+													<div class="row">
+														<div class="col-md-3 col-md-offset-2 text-center">
+															<table width="135" border="0" cellpadding="2" cellspacing="0" title="Click to Verify - This site chose Symantec SSL for secure e-commerce and confidential communications.">
+                                                        		<tr>
+                                                            		<td width="135" align="center" valign="top"><script type="text/javascript" src="https://seal.websecurity.norton.com/getseal?host_name=naturalcarecleaningservice.com&amp;size=XS&amp;use_flash=NO&amp;use_transparent=NO&amp;lang=en"></script><br />
+                                                                		<a href="http://www.symantec.com/ssl-certificates" target="_blank"  style="color:#000000; text-decoration:none; font:bold 7px verdana,sans-serif; letter-spacing:.5px; text-align:center; margin:0px; padding:0px;">ABOUT SSL CERTIFICATES</a>
+                                                            		</td>
+                                                        		</tr>
+                                                    		</table>
+                                                    	</div>
+                                                    	<div class="col-md-3 text-center">
+                                                    		<a href="https://ssl.comodo.com">
+																<img src="https://ssl.comodo.com/images/comodo_secure_100x85_white.png" alt="SSL Certificate" width="100" height="85"><br>
+																<span style="font-weight:bold; font-size:7pt">SSL Certificate</span>
+															</a>
+                                                    	</div>
+                                                   </div>
+												</div>
 											</div>
 											
 											</div>
 
-						<div id="summary" class="col-md-3 hidden-sm jsummary" style="width: 278px !important">
+						<div id="summary" class="col-md-3 hidden-sm jsummary" style="width: 278px !important; margin-top:0px !important;">
 						<div class="triagle"><img src="assets/img/triangleft.png" class="triangleft"></div>
 											<div class="summary">
 											<div class="summary col-sm-12">
@@ -2259,7 +2242,7 @@ $(function() {
 										<img style="height: 24px" src="assets/img/Calendar.png" />
 										</div>
 										<div class="col-md-9">
-										<span id="date2"></span><br>
+										<span id="date2"></span>
 										<span id="schedule2"></span>
 										</div>
 										</div><div class="clearfix"></div><br>
@@ -2270,7 +2253,12 @@ $(function() {
 						</div>
 						<div class="clearfix"></div>
 						<br>
-						<div class="summary col-sm-12" style="border-top:2px solid #DAEEF3">
+						
+						
+						<hr style="width:100%;">
+						<div class="triaglelogo2 triaglelogo2_left"><img src="assets/img/trilaglelogo2.png"></div>
+						
+						<div class="summary col-sm-12">
 							<div class="summary col-sm-12" style="padding-right:0px">
 						      <div id="border" style="padding-bottom:10px; border-bottom: 2px solid #DAEEF3; display:none;">
 								<div id="sub" style="display:none" class="tablerow col-sm-12">
@@ -2292,49 +2280,77 @@ $(function() {
 							<br>
 							<div class="summary col-sm-12" style="padding-top: 0px">
 							    <div>
-    								<div class="tablerow col-sm-12">
-    									<span class="col-sm-8">First Clean:</span>
-    									<b><span style="font-size: 20px; color: #3dafdc" class="col-sm-4" id="visit1"> visit 1</span></b>
+    								<b><div class="tablerow col-sm-12">
+    									<span style="color: #000" class="col-sm-8">First Clean:</span>
+    									<b><span style="font-size: 20px; color: #000" class="col-sm-4" id="visit1"> visit 1</span></b>
     									<sub style="float:right">+tax</sub>
-    								</div><div class="clearfix"></div>
+    								</div></b><div class="clearfix"></div>
     								<br>
 								</div>
 							</div>
 						</div><div class="clearfix"></div>
 					<div class="summary col-sm-12" style="padding-top:0px">
-						<div id="multvisit" class="tablerow col-sm-12" style="display:none; padding:0px; height:58px; color: white; background:#3dafdc">
+						<div id="multvisit" class="tablerow col-sm-12" style="display:none; padding:0px; height:58px; color: white; background:#b4d0c2">
 						    <div style="padding-top: 15px; padding-right: 15px">
-                                <span class="col-sm-8" id="onewk" style="color:white; display:none; height:28px; background:#3dafdc">Every Week:</span>
-                                <span class="col-sm-8" id="twowk" style="color:white; display:none; height:28px; background:#3dafdc">Every 2 Weeks:</span>
-                                <span class="col-sm-8" id="fourwk" style="color:white; display:none; height:28px; background:#3dafdc">Every 4 Weeks:</span>
-                                <b><span style="color:red; font-size: 20px; background:#3dafdc" class="col-sm-4" id="visit2"> visit 2 </span></b>
-                                <sub style="float:right; background:#3dafdc; color:white">+tax</sub>
+                                <span class="col-sm-8" id="onewk" style="color:#000; display:none; height:28px; background:#b4d0c2"><b><img src="assets/img/loading.png">Every Week:</b></span>
+                                <span class="col-sm-8" id="twowk" style="color:#000; display:none; height:28px; background:#b4d0c2"><b>Every 2 Weeks:</b></span>
+                                <span class="col-sm-8" id="fourwk" style="color:#000; display:none; height:28px; background:#b4d0c2"><b>Every 4 Weeks:</b></span>
+                                <b><span style="color:#000; font-size: 20px; background:#b4d0c2" class="col-sm-4" id="visit2"> visit 2 </span></b>
+                                <sub style="float:right; background:#3dafdc; color:#000">+tax</sub>
                           </div>
                         </div>
                     </div>
-                    <div class="summary col-sm-6 text-center">
-                        <table width="135" border="0" style="margin-top: 18px" cellpadding="2" cellspacing="0" title="Click to Verify - This site chose Symantec SSL for secure e-commerce and confidential communications.">
-                            <tr>
-                                <td width="135" align="center" valign="top"><script type="text/javascript" src="https://seal.websecurity.norton.com/getseal?host_name=naturalcarecleaningservice.com&amp;size=XS&amp;use_flash=NO&amp;use_transparent=NO&amp;lang=en"></script><br />
-                                    <a href="http://www.symantec.com/ssl-certificates" target="_blank"  style="color:#000000; text-decoration:none; font:bold 7px verdana,sans-serif; letter-spacing:.5px; text-align:center; margin:0px; padding:0px;">ABOUT SSL CERTIFICATES</a>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="summary col-sm-6 text-center">
-                    	<a href="https://ssl.comodo.com">
-							<img src="https://ssl.comodo.com/images/comodo_secure_100x85_white.png" alt="SSL Certificate" width="100" height="85" style="border: 0px;"><br>
-							<span style="font-weight:bold; font-size:7pt">SSL Certificate</span>
-						</a>
-						<br>
-                    </div>
+					
+					
+					
+					
+											<div class="container-fluid" style="background:#daeef3; overflow:hidden; padding-left:0px; padding-top:12px;"> 
+												<div style="padding-left:0px" class="col-md-8">
+													<input id="promo" value="<?= isset($_SESSION['_PromoCode'])?$_SESSION['_PromoCode']:'' ?>" name="_PromoCode" class="form-control" placeholder="Promo code (optional)" />
+												</div>
+												<a href="#" style="bottom:5px; padding-top:11px" class="btn btn-lg btn-default btn-line col-xs-3 col-md-3" id="applyPromoBtn">Apply</a>
+											</div>
+					
+					
+					
+					
+					<div class="col-md-3 hidden-sm jsummary" style="width: 278px !important;" >
+				<div class="triagle"><img src="assets/img/triangleft.png" class="triangleft"></div>
+					<div class="last_sammary">
+						<h3>Frequently asked questions</h3>
+						<p>What's include is a cleaning service.?</p>
+						<p>We all cleaned all your house and more. you will love it to get the detail of the different types of cleans click here</p>
+						<p>What's include is a cleaning service.?</p>
+						<p>What's include is a cleaning service.?</p>
+						<p>What's include is a cleaning service.?</p>
+						
+					</div>
+				
+				
+				</div>
+                    
 						<style>
 						    .summary {
 						        padding-left:0px;
 						        padding-right:0px;
 						    }
 						</style>
+						
+					
+					
+					
+					
+					
+					
+					
+					
+						
 				</div>
+				
+				
+				
+				
+				
 
 			</div>
 
