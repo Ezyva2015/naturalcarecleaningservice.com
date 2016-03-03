@@ -56,6 +56,29 @@ $app = new iSDK();
 
 $app->cfgCon('naturalcare');
 
+
+//floyd code
+$returnFields = array('Contact.PostalCode');
+$contacts = $app->dsFind('ContactGroupAssign',1000,0,'GroupId',510,$returnFields);
+
+
+foreach($contacts as $contact){
+	
+	if($contact['Contact.PostalCode']==$_SESSION['PostalCode']){
+		
+		
+		$totaljoined[] = 1;
+		
+		
+	}
+	
+	
+}
+
+
+
+
+
 \Stripe\Stripe::setAPiKey($conf['stripe_key']);
 if (isset($_SESSION) && !empty($_SESSION) && isset($_SESSION['contact_id']))
 {
@@ -1347,9 +1370,9 @@ $(function() {
 				$('#cleantype').val('')
 				
 			$('.cleantype').first().css({
-				'border-color': '#FF8604',
+				'border-color': '#b4d0c2',
 				'background-color': '#FFF',
-				'color': '#FF8604'
+				'color': '#000'
 			}).hide();
 			
 		} else {
@@ -1651,7 +1674,7 @@ $(function() {
 												<br>
 												<div class="row">
 													<div class="col-xs-2">
-														<img style="height: 24px" src="assets/img/Calendar.png">
+														<img style="height: 23px" src="assets/img/Calendar.png">
 													</div>
 													<div class="col-xs-10">
 														<div id="pdate2"></div>
@@ -1678,7 +1701,7 @@ $(function() {
 								<div class="col-xs-12 col-md-6 col-sm-12 col-lg-6 col-lg-offset-1 col-md-offset-2" id="bookingContent" style="background:white; padding-left:0%;">
 									<div class="before_main">
 										<h1>Schedule Your Home Cleaning</h1>
-										<p><span>47 neigbors</span> in 77007 already use naturalcare cleaning.</p>
+										<p><span><?php echo count($totaljoined); ?> neigbors</span> in <?php  echo $_SESSION['PostalCode']; ?> already use naturalcare cleaning.</p>
 										<p>join them today.</p>
 									</div>
 								<div class="logotrigle"><img src="assets/img/logotrigle.png"></div>
@@ -2196,18 +2219,18 @@ $(function() {
 											
 											<div class="row">
 												<div class="col-xs-2"></div>
-												<div class="col-xs-8">
+												<div class="col-xs-12">
 													<div class="row">
-														<div class="col-md-3 col-md-offset-2 text-center">
-															<table width="135" border="0" cellpadding="2" cellspacing="0" title="Click to Verify - This site chose Symantec SSL for secure e-commerce and confidential communications.">
+														<div class="col-md-2 col-sm-12 col-md-offset-2 text-center">
+															<table style="margin-top:29px;" width="100%" border="0" cellpadding="2" cellspacing="0" title="Click to Verify - This site chose Symantec SSL for secure e-commerce and confidential communications." style="display:table; margin:0 auto;">
                                                         		<tr>
                                                             		<td width="135" align="center" valign="top"><script type="text/javascript" src="https://seal.websecurity.norton.com/getseal?host_name=naturalcarecleaningservice.com&amp;size=XS&amp;use_flash=NO&amp;use_transparent=NO&amp;lang=en"></script><br />
-                                                                		<a href="http://www.symantec.com/ssl-certificates" target="_blank"  style="color:#000000; text-decoration:none; font:bold 7px verdana,sans-serif; letter-spacing:.5px; text-align:center; margin:0px; padding:0px;">ABOUT SSL CERTIFICATES</a>
+                                                                		<a href="http://www.symantec.com/ssl-certificates" target="_blank"  style="color:#000000; text-decoration:none; font:bold 7px verdana,sans-serif; letter-spacing:.5px; text-align:center;">ABOUT SSL CERTIFICATES</a>
                                                             		</td>
                                                         		</tr>
                                                     		</table>
                                                     	</div>
-                                                    	<div class="col-md-3 text-center">
+                                                    	<div class="col-md-2 col-md-offset-1 col-sm-12  text-center">
                                                     		<a href="https://ssl.comodo.com">
 																<img src="https://ssl.comodo.com/images/comodo_secure_100x85_white.png" alt="SSL Certificate" width="100" height="85"><br>
 																<span style="font-weight:bold; font-size:7pt">SSL Certificate</span>
@@ -2223,10 +2246,10 @@ $(function() {
 						<div class="triagle"><img src="assets/img/triangleft.png" class="triangleft"></div>
 											<div class="summary">
 											<div class="summary col-sm-12">
-											<div class="col-sm-3">
+											<div class="col-md-1">
 											<img style="height: 24px" src="assets/img/House.png" />
-										</div>
-										<div class="col-md-9">
+											</div>
+										<div class="col-md-8">
 										<span id="t-keepclean" style="display:none;white-space:nowrap">Keep It Clean</span>
 										<span id="t-getclean" style="display:none; white-space: nowrap" >Get it Clean<br></span>
 										<span id="t-deepclean" style="display:none; white-space: nowrap">Deep Clean<br></span>
@@ -2236,23 +2259,22 @@ $(function() {
 										<span id="t-window" style="display:none; white-space: nowrap">Inside Window<br></span>
 										<span id="t-wall" style="display:none; white-space: nowrap">Bed Steam<br></span>
 										</div>
-										</div><div class="clearfix"></div><br>
+										</div><div class="clearfix"></div>
 										<div class="summary col-sm-12">
-										<div class="col-md-3">
-										<img style="height: 24px" src="assets/img/Calendar.png" />
+										<div class="col-md-1">
+										<img style="height: 23px" src="assets/img/Calendar.png" />
 										</div>
-										<div class="col-md-9">
+										<div class="col-md-8">
 										<span id="date2"></span>
 										<span id="schedule2"></span>
 										</div>
-										</div><div class="clearfix"></div><br>
+										</div><div class="clearfix"></div>
 										<div class="summary col-md-12">
 										<div class="col-sm-3">
 									</div>
 								</div>
 						</div>
 						<div class="clearfix"></div>
-						<br>
 						
 						
 						<hr style="width:100%;">
@@ -2292,9 +2314,9 @@ $(function() {
 					<div class="summary col-sm-12" style="padding-top:0px">
 						<div id="multvisit" class="tablerow col-sm-12" style="display:none; padding:0px; height:58px; color: white; background:#b4d0c2">
 						    <div style="padding-top: 15px; padding-right: 15px">
-                                <span class="col-sm-8" id="onewk" style="color:#000; display:none; height:28px; background:#b4d0c2"><b><img src="assets/img/loading.png">Every Week:</b></span>
-                                <span class="col-sm-8" id="twowk" style="color:#000; display:none; height:28px; background:#b4d0c2"><b>Every 2 Weeks:</b></span>
-                                <span class="col-sm-8" id="fourwk" style="color:#000; display:none; height:28px; background:#b4d0c2"><b>Every 4 Weeks:</b></span>
+                                <span class="col-sm-8" id="onewk" style="color:#000; display:none; height:28px; background:#b4d0c2"><b><img src="assets/img/loading.png">&nbsp;Every Week:</b></span>
+                                <span class="col-sm-8" id="twowk" style="color:#000; display:none; height:28px; background:#b4d0c2"><b><img src="assets/img/loading.png">&nbsp;Every 2 Weeks:</b></span>
+                                <span class="col-sm-8" id="fourwk" style="color:#000; display:none; height:28px; background:#b4d0c2"><b><img src="assets/img/loading.png">&nbsp;Every 4 Weeks:</b></span>
                                 <b><span style="color:#000; font-size: 20px; background:#b4d0c2" class="col-sm-4" id="visit2"> visit 2 </span></b>
                                 <sub style="float:right; background:#3dafdc; color:#000">+tax</sub>
                           </div>
@@ -2321,9 +2343,6 @@ $(function() {
 						<p>What's include is a cleaning service.?</p>
 						<p>We all cleaned all your house and more. you will love it to get the detail of the different types of cleans click here</p>
 						<p>What's include is a cleaning service.?</p>
-						<p>What's include is a cleaning service.?</p>
-						<p>What's include is a cleaning service.?</p>
-						
 					</div>
 				
 				
