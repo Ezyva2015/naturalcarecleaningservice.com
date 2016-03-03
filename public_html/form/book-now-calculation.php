@@ -650,6 +650,7 @@ $(function() {
 		return ret;
 	}
 
+
 	function getItCleanFunc(totalBasePrice, getITcLean)
 	{
 		return parseFloat(totalBasePrice * getITcLean);
@@ -676,28 +677,17 @@ $(function() {
 		return parseInt(totalBasePrice);
 	}
 
-	function calculateWeekly() {
-		return basePrice() * weeklyPrice();
-	}
+	function calculateWeekly() { return basePrice() * weeklyPrice(); }
 
-	function calculateEvery2weeks() {
-		return basePrice() * every2WeeksPrice();
-	}
+	function calculateEvery2weeks() { return basePrice() * every2WeeksPrice(); }
 
-	function calculateEvery4weeks() {
-		return basePrice() * every4WeeksPrice();
-	}
-
-
-
+	function calculateEvery4weeks() { return basePrice() * every4WeeksPrice(); }
 
 	function weeklyPrice(){ return parseFloat("0.65"); }
 
 	function every2WeeksPrice(){ return parseFloat("0.7"); }
 
 	function every4WeeksPrice(){ return parseFloat("0.75"); }
-
-
 
 	function calculate_sqrtFt(SQFTInput)
 	{
@@ -1583,7 +1573,7 @@ $(function() {
 
 	<!-- BEGIN BODY -->
 	<body style="background-color: white">
-
+				<H1> Booking calculation..</H1>
 
 	    <div style="background: #ddd; height: 7px;"></div>				<!-- TOP ROW HEADER -->
 	    <div class="row" style="background-color: #444; padding-top: 10px;padding-bottom: 10px;">
