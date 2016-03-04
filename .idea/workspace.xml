@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="916011d8-faf7-46f4-a60d-89fe6ba75df5" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/form/assets/css/Downloads/betheme-premium-wordpress-theme.zip" afterPath="$PROJECT_DIR$/public_html/form/assets/css/Downloads/betheme-premium-wordpress-theme.zip" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/form/assets/js/formsInit.js" afterPath="$PROJECT_DIR$/public_html/form/assets/js/formsInit.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/form/error_log" afterPath="$PROJECT_DIR$/public_html/form/error_log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/form/page1-test.php" afterPath="$PROJECT_DIR$/public_html/form/page1-test.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/form/book-now-calculation.php" afterPath="$PROJECT_DIR$/public_html/form/book-now-calculation.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/form/page1.php" afterPath="$PROJECT_DIR$/public_html/form/page1.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/form/results_table/connect-db.php" afterPath="$PROJECT_DIR$/public_html/form/results_table/connect-db.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/form/results_table/edit.php" afterPath="$PROJECT_DIR$/public_html/form/results_table/edit.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/form/results_table/error_log" afterPath="$PROJECT_DIR$/public_html/form/results_table/error_log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/form/testing/testing.php" afterPath="$PROJECT_DIR$/public_html/form/testing/testing.php" />
     </list>
     <ignored path="naturalcarecleaningservice.com.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,110 +30,45 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="book-now.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/form/book-now.php">
+      <file leaf-file-name="testing.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/form/testing/testing.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.73077">
-              <caret line="2108" column="16" selection-start-line="2108" selection-start-column="16" selection-end-line="2108" selection-end-column="16" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="2" column="62" selection-start-line="2" selection-start-column="62" selection-end-line="2" selection-end-column="62" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dynamic-calculation.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/form/testing/dynamic-calculation.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="120" column="0" selection-start-line="120" selection-start-column="0" selection-end-line="125" selection-end-column="60" />
+              <folding>
+                <element signature="n#!!block;n#calculateSqftCalc#0" expanded="false" />
+                <element signature="n#!!block;n#calculateBasePrice#0" expanded="false" />
+                <element signature="n#!!block;n#calculateWeekly#0" expanded="false" />
+                <element signature="n#!!block;n#calculateEvery2Weeks#0" expanded="false" />
+                <element signature="n#!!block;n#calculateEvery4Weeks#0" expanded="false" />
+                <element signature="n#!!block;n#calculateGetItClean#0" expanded="false" />
+                <element signature="n#!!block;n#calculateDeepClean#0" expanded="false" />
+                <element signature="n#!!block;n#calculateMoveInOut#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="book-now-calculation.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public_html/form/book-now-calculation.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.9794168">
+              <caret line="1564" column="0" selection-start-line="1564" selection-start-column="0" selection-end-line="1564" selection-end-column="0" />
               <folding>
                 <element signature="e#33#104#0#PHP" expanded="true" />
+                <marker date="1457025095169" expanded="true" signature="412:433" placeholder="SELECT * FRO..options..." />
+                <marker date="1457025095169" expanded="true" signature="10600:10626" placeholder="SELECT * FRO..disabledates..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="edit.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/form/results_table/edit.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-48.384617">
-              <caret line="193" column="1" selection-start-line="193" selection-start-column="1" selection-end-line="193" selection-end-column="1" />
-              <folding>
-                <element signature="n#renderForm#0;n#!!top" expanded="false" />
-                <element signature="e#8353#9502#0#PHP" expanded="false" />
-                <marker date="1456910180695" expanded="true" signature="2313:2358" placeholder="..." />
-                <marker date="1456910180695" expanded="true" signature="7835:8216" placeholder="UPDATE optio..." />
-                <marker date="1456910180695" expanded="true" signature="8504:8525" placeholder="SELECT * FRO..options..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public_html/form/results_table/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.11888112">
-              <caret line="16" column="32" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="error_log" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/form/results_table/error_log">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="stepper.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/form/assets/css/stepper.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="stepper.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/form/assets/js/stepper.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="41" column="9" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jquery.bootstrap-touchspin.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/form/assets/bootstrap/bootstrap-touchspin-master/src/jquery.bootstrap-touchspin.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/form/assets/bootstrap/bootstrap-touchspin-master/demo/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="demo.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/form/assets/bootstrap/bootstrap-touchspin-master/demo/demo.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="demo.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/form/assets/bootstrap/bootstrap-touchspin-master/demo/demo.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -153,15 +89,19 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/public_html/form/testing.php" />
-        <option value="$PROJECT_DIR$/public_html/form/testing/testing.php" />
-        <option value="$PROJECT_DIR$/public_html/form/testing/testing.js" />
         <option value="$PROJECT_DIR$/public_html/form/assets/bootstrap/bootstrap-touchspin-master/demo/demo.php" />
         <option value="$PROJECT_DIR$/public_html/form/assets/bootstrap/bootstrap-touchspin-master/demo/index.html" />
         <option value="$PROJECT_DIR$/public_html/form/assets/stepper.js" />
         <option value="$PROJECT_DIR$/public_html/form/assets/css/stepper.css" />
-        <option value="$PROJECT_DIR$/public_html/form/book-now.php" />
         <option value="$PROJECT_DIR$/public_html/form/assets/js/stepper.js" />
+        <option value="$PROJECT_DIR$/public_html/form/page1.php" />
+        <option value="$PROJECT_DIR$/public_html/form/book-now.php" />
         <option value="$PROJECT_DIR$/public_html/form/results_table/edit.php" />
+        <option value="$PROJECT_DIR$/public_html/form/results_table/connect-db.php" />
+        <option value="$PROJECT_DIR$/public_html/form/testing/testing.js" />
+        <option value="$PROJECT_DIR$/public_html/form/testing/testing.php" />
+        <option value="$PROJECT_DIR$/public_html/form/testing/dynamic-calculation.js" />
+        <option value="$PROJECT_DIR$/public_html/form/book-now-calculation.php" />
       </list>
     </option>
   </component>
@@ -175,10 +115,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP 5.6" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="58" />
-    <option name="y" value="5" />
-    <option name="width" value="1308" />
-    <option name="height" value="758" />
+    <option name="x" value="88" />
+    <option name="width" value="1198" />
+    <option name="height" value="768" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -205,8 +144,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -275,12 +212,14 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="results_table" />
+              <option name="myItemId" value="testing" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -288,7 +227,8 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files (x86)\nodejs\node.exe" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SMSF-Academy-Wordpress" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../shevon/ngedove.com/ngedove.com" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://E:/xampp/htdocs/Tim/naturalcarecleaningservice.com/public_html/form/testing/dynamic-calculation.js" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -351,10 +291,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="58" y="5" width="1308" height="758" extended-state="0" />
-    <editor active="true" />
+    <frame x="88" y="0" width="1198" height="768" extended-state="0" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25400642" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.271529" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -390,13 +330,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public_html/form/book-now.php">
+    <entry file="file://$PROJECT_DIR$/public_html/form/results_table/error_log">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#33#104#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -404,7 +341,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -412,7 +348,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="41" column="9" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -420,7 +355,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -428,7 +362,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -436,7 +369,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -444,31 +376,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/form/assets/bootstrap/bootstrap-touchspin-master/src/jquery.bootstrap-touchspin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/form/testing/testing.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="39" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/form/testing/testing.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="47" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -476,9 +383,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#33#104#0#PHP" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/form/assets/css/stepper.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/form/assets/js/stepper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="41" column="9" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -486,7 +404,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -494,7 +411,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -502,15 +418,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public_html/form/assets/bootstrap/bootstrap-touchspin-master/demo/demo.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="36" selection-end-column="14" />
-          <folding />
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -518,7 +432,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -534,7 +447,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="47" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -542,9 +454,41 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#33#104#0#PHP" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/form/assets/bootstrap/bootstrap-touchspin-master/src/jquery.bootstrap-touchspin.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/form/assets/bootstrap/bootstrap-touchspin-master/demo/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/form/assets/bootstrap/bootstrap-touchspin-master/demo/demo.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/form/assets/bootstrap/bootstrap-touchspin-master/demo/demo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="36" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/form/assets/bootstrap/bootstrap-touchspin-master/src/jquery.bootstrap-touchspin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -560,7 +504,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="47" selection-end-column="1" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/form/book-now.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -569,6 +519,13 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="39" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="39" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/form/testing/testing.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="47" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -579,19 +536,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/form/testing/testing.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="47" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public_html/form/assets/bootstrap/bootstrap-touchspin-master/src/jquery.bootstrap-touchspin.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -599,7 +547,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -607,7 +554,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -622,7 +568,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -630,15 +575,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/form/assets/css/stepper.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -646,17 +582,55 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="41" column="9" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-blog-header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.5">
+          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/form/page1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.3090909">
+          <caret line="1" column="55" selection-start-line="1" selection-start-column="55" selection-end-line="1" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/form/infusionsoft/PHP-iSDK-master/src/isdk.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.1454544">
+          <caret line="111" column="38" selection-start-line="111" selection-start-column="38" selection-end-line="111" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public_html/form/book-now.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.73077">
-          <caret line="2108" column="16" selection-start-line="2108" selection-start-column="16" selection-end-line="2108" selection-end-column="16" />
-          <folding>
-            <element signature="e#33#104#0#PHP" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.3916084">
+          <caret line="597" column="28" selection-start-line="597" selection-start-column="28" selection-end-line="597" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/form/infusionsoft/PHP-iSDK-master/src/conn.cfg.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.05944056">
+          <caret line="2" column="30" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.96153843">
+          <caret line="22" column="29" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/form/results_table/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.763986">
+          <caret line="38" column="6" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -664,29 +638,71 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/form/assets/css/stepper.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.08916084">
+          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public_html/form/results_table/edit.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-48.384617">
-          <caret line="193" column="1" selection-start-line="193" selection-start-column="1" selection-end-line="193" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.7622378">
+          <caret line="183" column="0" selection-start-line="183" selection-start-column="0" selection-end-line="183" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/form/results_table/connect-db.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4160839">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/form/testing/testing.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9431438">
+          <caret line="45" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/form/testing/testing.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="62" selection-start-line="2" selection-start-column="62" selection-end-line="2" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/form/testing/dynamic-calculation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="120" column="0" selection-start-line="120" selection-start-column="0" selection-end-line="125" selection-end-column="60" />
           <folding>
-            <element signature="n#renderForm#0;n#!!top" expanded="false" />
-            <element signature="e#8353#9502#0#PHP" expanded="false" />
-            <marker date="1456910180695" expanded="true" signature="2313:2358" placeholder="..." />
-            <marker date="1456910180695" expanded="true" signature="7835:8216" placeholder="UPDATE optio..." />
-            <marker date="1456910180695" expanded="true" signature="8504:8525" placeholder="SELECT * FRO..options..." />
+            <element signature="n#!!block;n#calculateSqftCalc#0" expanded="false" />
+            <element signature="n#!!block;n#calculateBasePrice#0" expanded="false" />
+            <element signature="n#!!block;n#calculateWeekly#0" expanded="false" />
+            <element signature="n#!!block;n#calculateEvery2Weeks#0" expanded="false" />
+            <element signature="n#!!block;n#calculateEvery4Weeks#0" expanded="false" />
+            <element signature="n#!!block;n#calculateGetItClean#0" expanded="false" />
+            <element signature="n#!!block;n#calculateDeepClean#0" expanded="false" />
+            <element signature="n#!!block;n#calculateMoveInOut#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/form/results_table/index.php">
+    <entry file="file://$PROJECT_DIR$/public_html/form/book-now-calculation.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11888112">
-          <caret line="16" column="32" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
-          <folding />
+        <state vertical-scroll-proportion="0.9794168">
+          <caret line="1564" column="0" selection-start-line="1564" selection-start-column="0" selection-end-line="1564" selection-end-column="0" />
+          <folding>
+            <element signature="e#33#104#0#PHP" expanded="true" />
+            <marker date="1457025095169" expanded="true" signature="412:433" placeholder="SELECT * FRO..options..." />
+            <marker date="1457025095169" expanded="true" signature="10600:10626" placeholder="SELECT * FRO..disabledates..." />
+          </folding>
         </state>
       </provider>
     </entry>
