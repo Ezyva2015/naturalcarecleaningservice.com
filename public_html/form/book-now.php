@@ -699,22 +699,15 @@ $(function() {
 		return parseInt(totalBasePrice);
 	}
 
-	function calculateWeekly() {
-		return basePrice() * weeklyPrice();
-	}
+		function calculateWeekly() { return basePrice() * weeklyPrice(); }
 
-	function calculateEvery2weeks() {
-		return basePrice() * every2WeeksPrice();
-	}
+		function calculateEvery2weeks() { return basePrice() * every2WeeksPrice(); }
 
-	function calculateEvery4weeks() {
-		return basePrice() * every4WeeksPrice();
-	}
+		function calculateEvery4weeks() { return basePrice() * every4WeeksPrice(); }
 
 
 
-
-	function weeklyPrice(){ return parseFloat("0.65"); }
+				function weeklyPrice(){ return parseFloat("0.65"); }
 
 	function every2WeeksPrice(){ return parseFloat("0.7"); }
 
@@ -763,24 +756,38 @@ $(function() {
 		var SQFTInput = parseInt($('#footage').val());
 		var totalBasePrice = getTotalBasePrice(calculate_sqrtFt(SQFTInput), totalBedRooms, totalBathRooms);
 
-		if (text == 'Keep It Clean')
+
+		console.log("INITIALIZED");
+		initialize();
+
+		text = text.toLowerCase();
+		console.log("get it clean " +  calculateGetItClean());
+		console.log("text = " + text);
+
+
+
+		if (text == 'keep it clean')
 		{
-			firstclean = 1;
+			firstclean = calculateBasePrice();
+//			firstclean = 1;
 		}
-		else if (text == 'Get it Clean')
+		else if (text == 'get it clean')
 		{
-			console.log("inside get it clean");
-			firstclean = getItCleanFunc(totalBasePrice, getclean);
+			console.log("inside get it clean")
+			firstclean = calculateGetItClean(); //getItCleanFunc(totalBasePrice, getclean);
+			//firstclean = getItCleanFunc(totalBasePrice, getclean);
 		}
-		else if (text == 'Deep Clean')
+		else if (text == 'deep clean')
 		{
 			console.log("deep clean");
-			firstclean = deepCleanFunc(totalBasePrice, deepclean);
+			firstclean = calculateDeepClean(); //deepCleanFunc(totalBasePrice, deepclean);
+//			firstclean = deepCleanFunc(totalBasePrice, deepclean);
 		}
-		else if (text == 'Move In/Out')
+		else if (text == 'move in/out')
 		{
 			console.log("move in out");
-			firstclean = moveInOutFunc(totalBasePrice, moveinout);
+			firstclean = calculateMoveInOut(); //moveInOutFunc(totalBasePrice, moveinout);
+//			firstclean = moveInOutFunc(totalBasePrice, moveinout);
 		}
 
 		firstclean = Math.round(firstclean);
@@ -789,9 +796,163 @@ $(function() {
 
 
 
- 		$(firstCleanId).text(firstclean);
+		// 		$(firstCleanId).text(firstclean);
+
+		return firstclean;
 
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+				/**
+				 * New coding
+				 */
+
+				function initialize() {
+
+					console.log("initialized : beds " +  memberInputBeds() + " bath " + memberInputBath() + " sqft " + memberInputSqft() );
+					console.log(" admin input beds " + adminInputBeds());
+					console.log("square foot calculation " + Math.round(calculateSqftCalc()));
+					console.log("calculate Base Price " +  calculateBasePrice());
+					console.log("calculate weekly " +  calculateWeekly());
+					console.log("calculate 2 weeks " + calculateEvery2Weeks());
+					console.log("calculate 4 weeks " + calculateEvery4Weeks());
+
+					console.log("Get it clean " + calculateGetItClean());
+					console.log("Deep clean " + calculateDeepClean());
+					console.log("Keep Clean " +  calculateMoveInOut());
+
+					console.log(" memberInputBeds() = " +memberInputBeds());
+					console.log(" memberInputBath() = " +memberInputBath());
+					console.log(" memberInputSqft() = " +memberInputSqft());
+					console.log(" adminInputBeds() = " +adminInputBeds());
+					console.log(" adminInputBath() = " +adminInputBath());
+					console.log(" adminInputSqftBase() = " +adminInputSqftBase());
+					console.log(" adminInputBaseValue() = " +adminInputBaseValue());
+					console.log(" adminInputWeekly() = " +adminInputWeekly());
+					console.log(" adminInputEvery2Weeks() = " +adminInputEvery2Weeks());
+					console.log(" adminInputEvery4Weeks() = " +adminInputEvery4Weeks());
+					console.log(" adminInputGetItClean() = " +adminInputGetItClean());
+					console.log(" adminInputDeepClean() = " +adminInputDeepClean());
+					console.log(" adminInputMoveInOut() = " +adminInputMoveInOut());
+					console.log(" calculateSqftCalc() = " +calculateSqftCalc());
+					console.log(" calculateBasePrice() = " +calculateBasePrice());
+					console.log(" calculateWeekly() = " +calculateWeekly());
+					console.log(" calculateEvery2Weeks() = " +calculateEvery2Weeks());
+					console.log(" calculateEvery4Weeks() = " +calculateEvery4Weeks());
+					console.log(" calculateGetItClean() = " +calculateGetItClean());
+					console.log(" calculateDeepClean() = " +calculateDeepClean());
+					console.log(" calculateMoveInOut() = " +calculateMoveInOut());
+
+				}
+
+
+
+				// User input
+				function memberInputBeds() { return convertNumber($('#bed').val()); }
+
+				function memberInputBath() { return convertNumber($('#bath').val()); }
+
+				function memberInputSqft() { return convertNumber($('#footage').val()); }
+
+				// Admin Input
+				function adminInputBeds() { return beds; /*convertNumber('6.1');*/ }
+
+				function adminInputBath() { return baths; /*convertNumber('14');*/ }
+
+				function adminInputSqftBase() { return sqft; /*convertNumber('1000');*/ }
+
+				function adminInputBaseValue() { return base; /*convertNumber('99');*/ }
+
+				function adminInputWeekly() { return week; /*convertNumber('0.65');*/ }
+
+				function adminInputEvery2Weeks() { return biweek; /*convertNumber('0.7');*/ }
+
+				function adminInputEvery4Weeks() { return month; /*convertNumber('0.75');*/ }
+
+				function adminInputGetItClean() { return getclean; /*convertNumber('1.4');*/ }
+
+				function adminInputDeepClean() { return deepclean; /*convertNumber('1.5');*/ }
+
+				function adminInputMoveInOut() { return moveinout; /*convertNumber('1.75'); */ }
+
+				// Calculation
+				function calculateSqftCalc() {
+					var multiplier1 = 100;
+					var multiplier2 = 3;
+					var answer = 0;
+					if(memberInputSqft() > adminInputSqftBase()) {
+						answer = (memberInputSqft() - adminInputSqftBase())/multiplier1*multiplier2;
+					}
+					return answer;
+				}
+
+				function calculateBasePrice() {
+
+					var totalBedsPrice     = adminInputBeds();
+					var totalBathRoOmPrice = adminInputBath();
+					var totalBaseValue     = adminInputBaseValue();
+					var totalSquareFootCalculation = calculateSqftCalc();
+					var totalBathRoom = memberInputBath();
+					var totalBeds = memberInputBeds();
+					//totalSquareFootCalculation = M3;
+					var totalBasePrice = (totalBeds*totalBedsPrice) + (totalBathRoom*totalBathRoOmPrice) + totalBaseValue+totalSquareFootCalculation;
+					return convertNumber(totalBasePrice);
+				}
+
+				function calculateWeekly() {
+					return convertNumber(calculateBasePrice() * adminInputWeekly());
+				}
+
+				function calculateEvery2Weeks() {
+					return  convertNumber(calculateBasePrice() * adminInputEvery2Weeks() );
+				}
+
+				function calculateEvery4Weeks() {
+					return convertNumber(calculateBasePrice() * adminInputEvery4Weeks() );
+				}
+
+				function calculateGetItClean() {
+					return convertNumber(calculateBasePrice() *  adminInputGetItClean());
+
+				}
+
+				function calculateDeepClean() {
+					return convertNumber(calculateBasePrice() *  adminInputDeepClean());
+				}
+
+				function calculateMoveInOut() {
+
+					return convertNumber(calculateBasePrice() *  adminInputMoveInOut());
+				}
+
+				// Helper
+				function convertNumber(number) { return parseFloat(number) }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -862,6 +1023,13 @@ $(function() {
 		$('#cleantype').val($(this).text());
 		$('#Ihour').text(hours.toFixed(1) + ' hours');
 		$('#hour').text(hours.toFixed(1) + ' hours')
+
+
+
+
+
+
+
 		$('#visit1').text('$' + Math.round(firstclean).toFixed(0));
 		$('#pvisit1').text('$' + Math.round(firstclean).toFixed(0));
 		
@@ -1154,11 +1322,15 @@ $(function() {
 		hours = adjustment / rate;
 
 		// Calculate keep it clean, deep clean and move in out
-	    calculateFirstCleanByKeepItCleanGetCleanMoveInOut(textTab);
+			firstclean =  calculateFirstCleanByKeepItCleanGetCleanMoveInOut(textTab);
+//	    calculateFirstCleanByKeepItCleanGetCleanMoveInOut(textTab);
 
 
 			//$('#visit1').text(Math.floor((Math.random() * 10) + 1));
 		  	//	 	return;
+
+
+			console.log("cleaning total = " + firstclean);
 
 		$('#cleantype').val($(this).text());
 		$('#Ihour').text(hours.toFixed(1) + ' hours');
@@ -1426,25 +1598,53 @@ $(function() {
 
 		console.log('successfully calculated');
 		console.log('visit1 value first clean = ' + firstclean);
-		console.log('visit2 value prices = ' + recurringPrice);
+		console.log('visit2 value prices for weekly = ' + recurringPrice);
+
 		console.log('visit1 repeat  = ' + $('#repeat').val());
+		console.log('base ' + base);
+		console.log('rate  ' + biweek);
+		console.log("member input bed " + memberInputBeds());
 
 
 		console.log("new");
 
 
-		console.log("weekly " + calculateWeekly());
-		console.log("every 2 weeks " + calculateEvery2weeks());
-		console.log("every 4 weeks " + calculateEvery4weeks());
+
+		//		console.log("weekly " + calculateWeekly());
+		//		console.log("every 2 weeks " + calculateEvery2weeks());
+		//		console.log("every 4 weeks " + calculateEvery4weeks());
+		//
+		//		calculateEvery2weeks();
+		//		if ($weekTab == 'Every Week') {
+		//			recurringPrice = calculateWeekly();
+		//		} else if ($weekTab == 'Every 2 Weeks') {
+		//			recurringPrice = calculateEvery2weeks();
+		//		} else if ($weekTab == 'Every 4 Weeks') {
+		//			recurringPrice = calculateEvery4weeks();
+		//		}
+		//
+		//
+
+//		console.log("weekly " + calculateWeekly());
+//		console.log("every 2 weeks " + calculateEvery2weeks());
+//		console.log("every 4 weeks " + calculateEvery4weeks());
+//
+
+//		if ($weekTab == 'Every Week') {
+//			recurringPrice = calculateWeekly();
+//		} else if ($weekTab == 'Every 2 Weeks') {
+//			recurringPrice = calculateEvery2weeks();
+//		} else if ($weekTab == 'Every 4 Weeks') {
+//			recurringPrice = calculateEvery4weeks();
+//		}
+//
+//
 
 
-		if ($weekTab == 'Every Week') {
-			recurringPrice = calculateWeekly();
-		} else if ($weekTab == 'Every 2 Weeks') {
-			recurringPrice = calculateEvery2weeks();
-		} else if ($weekTab == 'Every 4 Weeks') {
-			recurringPrice = calculateEvery4weeks();
-		}
+		var repeatText = $('#repeat').val().toLowerCase();
+
+
+		console.log("repeat text " + repeatText);
 
 
 
@@ -1457,23 +1657,49 @@ $(function() {
 
 
 
-
-
-
+		console.log("repeat text " + repeatText);
 
 
 
 		$('#hour').text(hours.toFixed(1) + ' hours');
 		$('#Ihour').text(hours.toFixed(1) + ' hours');
 
+//
+//		if ($('#repeat').val() == 'One Time') {
+//			$('#visit1').text('$' + basePrice());
+//		} else {
+//
+//		}
 
-		if ($('#repeat').val() == 'One Time') {
-			$('#visit1').text('$' + basePrice());
+		console.log("week tab " + repeatText);
+
+		if(repeatText == 'every week') {
+				console.log("every week");
+			recurringPrice = calculateWeekly();
+		} else if (repeatText == 'every 2 weeks'){
+			console.log("every 2 weeks");
+			recurringPrice = calculateEvery2Weeks();
+		} else if (repeatText == 'every 4 weeks') {
+			console.log("every 4 weeks");
+			recurringPrice =  calculateEvery4Weeks();
+		}
+
+
+
+
+
+		console.log("recurring price " + recurringPrice);
+
+		if (repeatText == 'one time') {
+			$('#visit1').text('$' + calculateBasePrice());
+			$('#pvisit1').text('$' + calculateBasePrice());
+
 		} else {
 
 		}
 
-        $('#pvisit1').text('$' + Math.round(firstclean).toFixed(0));
+
+//			$('#pvisit1').text('$' + Math.round(firstclean).toFixed(0));
         if($('#repeat').val() && $('#cleantype').val() && $('#footage').val())
 		{		
         	if($('#repeat').val() && $('#repeat').val() != "One Time" && ($('#cleantype').val() == 'Keep It Clean' || !$('#cleantype').val()) && $('.addon[value=""]').length == 4)
