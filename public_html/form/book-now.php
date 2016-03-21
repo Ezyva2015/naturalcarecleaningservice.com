@@ -1829,11 +1829,55 @@ $(function() {
 </style>
 
 
+
+
+<script type="text/javascript"> 
+
+	$(document).ready(function(){
+		var explode = function(){
+	 	// 	$('.display-container').css('display','block');
+			// $('.container-cover').css('display', 'none'); 
+			console.log('set time out is working');
+		};
+		setTimeout(explode, 5000); 	
+	});
+
+
+    $( document ).ready(function() {
+        console.log( "1 document loaded" );
+    });
+ 
+    $( window ).load(function() {
+        console.log( "2 window loaded" );
+        $('.display-container').css('display','block');
+		$('.container-cover').css('display', 'none'); 
+		console.log('set time out is working');
+    });
+
+
+	
+</script>
+
+
 	</head>
 	<!-- END HEAD -->
 
 	<!-- BEGIN BODY -->
-	<body style="background-color: white">
+	<body style="background-color: white" >
+
+
+		<center>
+			<div class="container-cover">
+			      <p> 
+			        <img src="https://venturewell.org/wp-content/plugins/venturewell-membership/_img/spinner.gif">
+			   	 </p>
+		     </div> 
+		</center>
+ 
+
+		<div style="display:none" class="display-container">
+
+
 
 
 	    <div style="background: #ddd; height: 7px; display: none"></div>		
