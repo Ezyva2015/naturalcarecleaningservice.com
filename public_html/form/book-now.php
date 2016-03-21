@@ -1827,6 +1827,8 @@ $(function() {
         display: none;
     }
 </style>
+
+
 	</head>
 	<!-- END HEAD -->
 
@@ -1834,17 +1836,75 @@ $(function() {
 	<body style="background-color: white">
 
 
-	    <div style="background: #ddd; height: 7px;"></div>				<!-- TOP ROW HEADER -->
-	    <div class="row" style="background-color: #444; padding-top: 10px;padding-bottom: 10px;">
-            <div class="col-xs-12 col-md-6 col-sm-8 col-lg-5 col-lg-offset-1 col-md-offset-3">
+	    <div style="background: #ddd; height: 7px; display: none"></div>		
+
+	    		<!-- TOP ROW HEADER -->
+	    <div class="row" style="background-color: #444; padding-top: 10px;padding-bottom: 10px; display:none">
+
+
+            <div class="col-xs-12 col-md-6 col-sm-8 col-lg-5 col-lg-offset-1 col-md-offset-3" style="display:none">
                 <a href="https://naturalcarecleaningservice.com/">
-                    <img src="https://naturalcarecleaningservice.com/wp-content/uploads/2015/10/new-logo-on-black.png" height="60px" alt="Naturalcare Cleaning Service" id="logo">
+                    <img src="https://naturalcarecleaningservice.com/wp-content/uploads/2016/01/new-logo-all-white-line-on-black.png" height="60px" alt="Naturalcare Cleaning Service" id="logo">
+    
                 </a>
             </div>
+
+
+
         </div>
+
         <div style="background: #daeef3; height: 7px;"></div>
+
+
+        
 		<!-- MAIN WRAPPER -->
-		<div class="container-fluid" id="wrap" style="padding: 0px">
+		<div class="container-fluid container-header-menu" id="wrap" style="padding: 0px">
+
+
+
+
+<div class="container container-content"> 
+  <div class="testing-logo"><div class="row">
+    <div class="col-sm-6"><a href="https://naturalcarecleaningservice.com/" style="
+    /* border: 1px solid red; */
+">
+                    <img src="https://naturalcarecleaningservice.com/wp-content/uploads/2016/01/new-logo-all-white-line-on-black.png" height="60px" alt="Naturalcare Cleaning Service" id="logo">
+
+               		 
+                </a></div>
+    <div class="col-sm-6">
+
+    <div class="menu-link">
+ 
+        <a href="#"> 
+          FAQ
+        </a> 
+  		&nbsp; &nbsp;
+
+        <a href="#" class="menu-phone-contact-us"> 
+          Contact us
+        </a> 
+        
+        <span class="glyphicon glyphicon-earphone menu-phone" aria-hidden="true"></span>
+    
+
+
+      
+      </div>
+ 
+      </div> 
+  </div>
+  </div> 
+
+</div>
+
+
+
+
+
+
+		 	<div class="page-padding"> </div>
+
 
 			<!--PAGE CONTENT -->
 
