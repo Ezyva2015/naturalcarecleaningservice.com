@@ -28,7 +28,8 @@ margin-left: 0px;
 	}
 	
 .btn-line.btn-default:hover {
-border: 3px solid #FF8604; } 
+/*border: 3px solid #FF8604; */
+} 
 	
 a#applyPromoBtn.btn.btn-lg.btn-default.btn-line, button#continue2 {
 	background-color: #4FB6CD;
@@ -66,6 +67,7 @@ hr.ip-div {
 		width: 800px;
 	}
 }
+
 
 
 p#anytime, p#morning, p#afternoon, p#getclean, p#deepclean, p#moveinout {background-color: #eee; padding: 5px; margin: 20px;}

@@ -2138,16 +2138,16 @@ $(function() {
 									<div style="padding:0px" class="container-fluid">
 									    <div class="row">
 											<div class="phone col-xs-12 col-lg-3">
-										      <a href="#" name="freq" onclick="onetime()" class="btn  btn-default btn-lg btn-line repeat col-xs-12">One Time</a>
+										      <a href="#" name="freq" onclick="onetime()" class="form-control btn  btn-default btn-lg btn-line repeat col-xs-12">One Time</a>
 										    </div>
 										    <div class="phone col-xs-12 col-lg-3">
-										      <a href="#" name="freq" onclick="weekly()" class="btn btn-default btn-lg btn-line repeat col-xs-12">Every Week</a>
+										      <a href="#" name="freq" onclick="weekly()" class="form-control btn btn-default btn-lg btn-line repeat col-xs-12">Every Week</a>
 										    </div>
 										    <div class="phone col-xs-12 col-lg-3">
-										      <a href="#" name="freq" onclick="biweekly()" class="btn btn-default btn-lg btn-line repeat col-xs-12">Every 2 Weeks</a>
+										      <a href="#" name="freq" onclick="biweekly()" class="form-control btn btn-default btn-lg btn-line repeat col-xs-12">Every 2 Weeks</a>
 										    </div>
 										    <div class="phone col-xs-12 col-lg-3">
-										      <a href="#" name="freq" onclick="monthly()" class="btn btn-default btn-lg btn-line repeat col-xs-12">Every 4 Weeks</a>
+										      <a href="#" name="freq" onclick="monthly()" class="form-control btn btn-default btn-lg btn-line repeat col-xs-12">Every 4 Weeks</a>
 										    </div>
 										</div>
 									</div>
@@ -2162,16 +2162,16 @@ $(function() {
 										<div class="row">
 
 									       <div class="col-xs-6 col-md-6 col-lg-3">
-									           <a href="#" id="keep" onclick="keepclean()" class="keep btn  btn-default btn-lg btn-line cleantype col-xs-12">Keep It Clean</a>
+									           <a href="#" id="keep" onclick="keepclean()" class="form-control keep btn  btn-default btn-lg btn-line cleantype col-xs-12">Keep It Clean</a>
 									        </div>
 									        <div class="col-xs-6 col-md-6 col-lg-3">
-										      <a href="#" id="clean" onclick="getclean()" class="clean btn btn-default btn-lg btn-line cleantype col-xs-12">Get it Clean</a>
+										      <a href="#" id="clean" onclick="getclean()" class="form-control clean btn btn-default btn-lg btn-line cleantype col-xs-12">Get it Clean</a>
 										    </div>
 										   <div class="col-xs-6 col-md-6 col-lg-3">
-										      <a href="#" id="deep" onclick="deepclean()" class="deep btn  btn-default btn-lg btn-line cleantype col-xs-12">Deep Clean</a>
+										      <a href="#" id="deep" onclick="deepclean()" class="form-control deep btn  btn-default btn-lg btn-line cleantype col-xs-12">Deep Clean</a>
 										    </div>
 										    <div class="col-xs-6 col-md-6 col-lg-3">
-										      <a href="#" id="move" onclick="moveinout()" class="move btn  btn-default btn-lg btn-line cleantype col-xs-12">Move In/Out</a>
+										      <a href="#" id="move" onclick="moveinout()" class="form-control move btn  btn-default btn-lg btn-line cleantype col-xs-12">Move In/Out</a>
 										    </div>
 										</div>
 									</div>
