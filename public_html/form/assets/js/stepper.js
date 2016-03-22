@@ -5,6 +5,45 @@ bath('#bath');
 
 
 
+ 
+   
+ 
+
+ 
+$( '#bed' )
+  .focusout(function() {
+     
+  })
+  .blur(function() { 
+     var current_value = $(this).val();
+     if(current_value == 1) {
+        $(this).val(current_value + " bedroom");     
+     } else {
+         $(this).val(current_value + " bedrooms"); 
+     }
+     
+  });
+ 
+
+
+$( '#bath' )
+  .focusout(function() {
+     
+  })
+  .blur(function() { 
+     var current_value = $(this).val();
+     if(current_value == 1) {
+        $(this).val(current_value + " bathroom");     
+     } else {
+         $(this).val(current_value + " bathrooms"); 
+     }
+     
+  });
+ 
+
+
+
+
 function bed(id) {
     var bed = 1;
     var bath = 1;
