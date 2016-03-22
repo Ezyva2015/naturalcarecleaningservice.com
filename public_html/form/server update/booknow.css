@@ -1,0 +1,317 @@
+.wizard > .content
+    {
+        display: block;
+        height: auto;
+        overflow: auto;
+        position: relative;
+        width: auto;
+    }
+   .btn {
+       padding-top:11px;
+   }
+	input {
+		display: inline !important;
+	}
+	select {
+		display: inline !important
+	}
+	#summary {
+		left: 30px;
+		background: white;
+		
+	}
+    #phonetotal {
+    	margin-bottom: 25px;
+    	z-index: 10;
+    	background:white;
+    }
+	.summary {
+		padding-left: 5px;
+		padding-top: 10px;
+	}
+	.tablerow {
+		padding-left: 0px !important;
+	}
+	.tablerow span {
+		padding: 0px !important;
+	}
+	.psummary {
+		padding:0px;
+	}
+	.ptablerow {
+		padding-left: 0px !important;
+	}
+	.ptablerow span {
+		padding: 0px !important;
+	}
+	#summary thead {
+		border-bottom: 0px solid #ccc;
+		color: #FF8604;
+	}
+	#summary tfoot {
+		border-top: 0px solid #ccc;
+		
+	}
+	span {
+	    color: #777777;
+	}
+	.addon {
+	    border: none;
+	    height: 150px;
+	}
+	#discountR {
+	    white-space: nowrap;
+	}
+	hr {
+	    width:102%;
+		padding: 0px !important;
+	}
+	h4 {
+	    padding-left: 30px;
+	    padding-right: 30px;
+	}
+	p {
+	    padding-left:30px;
+	    padding-right:30px;
+	    font-size: 14px;
+	    color: #777777;
+	}
+	div {
+	    padding-left: 30px;
+	}
+	.inner-addon { 
+        position: relative; 
+    }
+
+                
+	
+    /* Extra Small (phone) */
+@media(max-width:600px){
+    #form {
+        padding: 1px;
+    }
+
+    .panel-body {
+        padding: 1px;
+        background: white !important;
+    }
+    .content {
+        padding-left: 1px;
+    }
+        li {
+            font-size: 8px;
+            white-space: nowrap;
+         }
+        section {
+            padding: 1px;
+        }
+        h4 {
+            font-size: 15px;
+            
+        }
+ 
+        td {
+            font-size: 8px;
+            padding-right: 5px;
+            width: 90px;
+        }
+        .btn-line {
+            font-size: 14px;
+
+        }
+        .btn {
+        	padding-top:10px;
+        }
+		#any {
+			margin: 0px !important;
+		}
+		#morn {
+			margin: 0px !important;
+		}
+		#after {
+			margin: 0px !important;
+		}
+		.phone {
+			padding-right: 0px !important;
+		}
+		#ccimage {
+			width: 215% !important;
+		}
+		.addon {
+			height: 125px !important;
+			padding-left: 7px;
+		}
+		.cleantype {
+			margin: 0px !important;
+		}
+
+    }
+
+    /* Small (tablet) */
+@media(min-width:601px) and (max-width:866px){
+       #form {
+        padding: 1px;
+    }
+
+    .panel-body {
+        padding: 1px;
+    }
+    .content {
+        padding-left: 1px;
+    }
+        li {
+            font-size: 8px;
+            white-space: nowrap;
+         }
+        section {
+            padding: 1px;
+        }
+        h4 {
+            font-size: 15px;
+            
+        }
+ 
+        td {
+            font-size: 8px;
+            padding-right: 5px;
+            width: 90px;
+        }
+        .btn-line {
+            font-size: 14px;
+
+        }
+        .btn {
+        	padding-top:10px;
+        }
+		#any {
+			margin: 0px !important;
+		}
+		#morn {
+			margin: 0px !important;
+		}
+		#after {
+			margin: 0px !important;
+		}
+		.phone {
+			padding-right: 0px !important;
+		}
+		#ccimage {
+			width: 215% !important;
+		}
+		.addon {
+			height: 125px !important;
+			padding-left: 7px;
+		}
+		.cleantype {
+			margin: 0px !important;
+		}
+
+    }
+
+
+/* Medium (tablet/small laptop screen)*/
+@media(min-width:867px) and (max-width:1400px){
+	.repeat {
+		width: 20%;
+	}
+    #summary th {
+        text-align: center;
+        padding: 5px;
+        font-size: 18px;
+    }
+    #summary td {
+        border: none;
+        border-collapse: collapse;
+        padding: 5px;
+        font-size: 12px;
+        overflow: hidden;
+    }
+    #form {
+        padding: 10px;
+    }
+
+    .panel-body {
+        padding: 10px;
+    }
+    .content {
+        padding-left: 10px;
+        height: auto;
+    }
+    [role="tab"] {
+        min-width: 95px;
+    }
+    li {
+        font-size: 15px;
+        white-space: nowrap;
+     }
+    section {
+        padding: 10px;
+    }
+    h4 {
+        font-size: 25px;
+        
+    }
+
+    td {
+        font-size: 12px;
+        padding-right: 5px;
+    }
+    .btn-line {
+        font-size: 14px;
+    }
+
+
+
+}
+/* Large (full sized desktop screen)*/
+@media(min-width:1401px){
+	.repeat {
+		width: 20%;
+	}
+    #summary th {
+    text-align: center;
+    padding: 15px;
+    font-size: 25px;
+}
+#summary td {
+    border: none;
+    border-collapse: collapse;
+    padding: 10px;
+    font-size: 14px;
+    overflow: hidden;
+}
+    #form {
+        padding: 10px;
+    }
+
+    .panel-body {
+        padding: 10px;
+    }
+    .content {
+        padding-left: 10px;
+    }
+    [role="tab"] {
+        min-width: 95px;
+    }
+    li {
+        font-size: 15px;
+        white-space: nowrap;
+     }
+    section {
+        padding: 10px;
+    }
+    h4 {
+        font-size: 22px;
+        
+    }
+
+    td {
+        font-size: 14px;
+        padding-right: 5px;
+    }
+    .btn-line {
+        font-size: 14px;
+    }
+
+
+}

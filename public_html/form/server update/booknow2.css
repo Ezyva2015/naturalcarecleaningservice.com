@@ -1,0 +1,241 @@
+/*This is custom css*/
+
+
+h3{
+	color:#000 !important;
+	font-size:18px;
+}
+p{
+	padding-left:30px;
+	color:#000;
+	margin:10px 0px;
+}
+
+.logotrigle{
+	width:100%;
+	position:absolute;
+	text-align:center;
+	border-top:20px solid #b4d0c2;
+}
+.ip-subheader{
+	margin-top:65px;
+}
+.btn-line.btn-default{
+	background: #ebedec;
+    border: 1px solid #d9d9d7;
+    border-radius: 10px !important;
+    color: #8c8c8a;
+    font-weight: normal;
+	height:50px;
+	padding:14px;
+    margin-left: 0;
+}
+.btn-line.btn-default:hover{
+	background:#b4d0c2;
+	 border: 1px solid #3e9f6a;
+	  color: #000;
+}
+.triaglelogo2{
+	text-align:center;
+	margin-top:-25px;
+}
+.triaglelogo2_left{
+	padding-left:0px;
+}
+.last_sammary{
+	padding-left:0px;
+	width:90%;
+	margin:0 auto;
+}
+
+
+.last_sammary p{
+	padding-left:0px;
+	background:#f5f5f5;
+}
+.input-group.bootstrap-touchspin, .form_btn_back{
+		padding-left:0px;
+}
+.input-group.bootstrap-touchspin{
+	 background: #ebedec;
+	 border:1px solid #dcdcdc;
+	 border-radius:10px !important;
+}
+.bed-rooms{
+	height:48px;
+	margin-top:0px;
+	border-radius:10px !important;
+}
+input.form-control{
+	border: 1px solid #d9d9d7;
+	height:50px;
+}
+.form-control{
+	height:50px !important;
+}
+span .btn{
+	padding:9px 12px !important;
+	bottom:0px;
+	font-size:18px;
+	border:0px;
+	border-radius:10px;
+}
+span .btn:hover{
+	background:#b4d0c2;
+}
+.input-group-addon{
+	border:1px solid #dcdcdc !important;
+}
+.btn-default{
+	background:#ebedec;
+}
+.addon {
+	margin:0 auto;
+	background:#f5f5f5;
+    border: 2px solid #dadad8;
+    border-radius: 6px;
+    display: block;
+	margin:12px auto;
+}
+.addon:hover{
+	background:#b4d0c2;
+	border:1px solid #3e9f6a;
+}
+.row-fluid{
+	margin-left:0px;
+}
+.add_ons{
+	border:2px solid #d8d8d8;
+	width:100%;
+	margin:0 auto;
+	padding-left:0px;
+}
+select.form-control, select.form-group{
+	border:1px solid #dcdcdc !important;
+}
+.form-group{
+	padding-left:30px;
+}
+.payment{
+	margin:0 auto;
+	padding-top:20px;
+	border:1px solid #dcdcdc ;
+	padding-left:0px;
+}
+.payment_label{
+	border-radius:5px 5px 0px 0px;
+	margin:0 auto;
+	overflow:hidden;
+	border:1px solid #dcdcdc;
+}
+.payment_label .credit_label{
+	float:left;
+	margin:0px;
+	padding:7px 0px;
+}
+.payment_label  img{
+	float:right;
+}
+.row{
+	margin-right:0px;
+}
+a#applyPromoBtn.btn.btn-lg.btn-default.btn-line, button#continue2{
+	background:#e88b45;
+	border:0px;
+	border-radius:10px;
+}
+#continue2{
+	margin-top:20px;
+}
+
+.jsummary{
+	border-top:10px solid #b4d0c2;
+}
+#summary  .triangleft{
+	width:31px;
+	margin:0 auto !important;
+}
+.triagle{
+	width:100%;
+	display:block;
+	text-align:center;
+	padding-left:0px ;
+	margin-top:-4px;
+}
+.add_ons_container{
+	padding-left:30px !important;
+}
+
+p#anytime, p#morning, p#afternoon, p#getclean, p#deepclean, p#moveinout {
+    background-color: #eee;
+    color: #000;
+    font-size: 18px;
+    margin: 20px;
+    padding: 5px;
+    text-align: center;
+}
+
+.payment_sub_text{
+	background:#fef5e6;
+}
+#promo{
+	border-radius:13px;
+}
+#applyPromoBtn{
+	padding-top:15px !important;
+	background:#bfbfbd !important;
+}
+
+.before_main{
+	padding:80px 40px;
+	text-align:center;
+}
+.before_main h1{
+	font-size:33px;
+	color:#000;
+}
+.before_main p{
+	font-size:20px;
+	font-weight:bold;
+	color:#676767;
+}
+.before_main p span{
+	color:#1f8057;
+}
+.summary{
+	margin-top:0px;
+	padding-top:5px;
+}
+.last_sammary > h3{
+	margin-top:8px;
+}
+.btn-default:hover,
+.btn-default:focus, 
+.btn-default:active, 
+.btn-default.active, 
+.open .dropdown-toggle.btn-default{
+	background:#b4d0c2;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

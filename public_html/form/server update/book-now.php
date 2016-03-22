@@ -1838,7 +1838,9 @@ $(function() {
 	    <div class="row" style="background-color: #444; padding-top: 10px;padding-bottom: 10px;">
             <div class="col-xs-12 col-md-6 col-sm-8 col-lg-5 col-lg-offset-1 col-md-offset-3">
                 <a href="https://naturalcarecleaningservice.com/">
-                    <img src="https://naturalcarecleaningservice.com/wp-content/uploads/2015/10/new-logo-on-black.png" height="60px" alt="Naturalcare Cleaning Service" id="logo">
+                    <img src="https://naturalcarecleaningservice.com/wp-content/uploads/2016/01/new-logo-all-white-line-on-black.png" height="60px" alt="Naturalcare Cleaning Service" id="logo">
+
+               			<br><br><br>     
                 </a>
             </div>
         </div>

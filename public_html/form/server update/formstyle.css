@@ -1,0 +1,75 @@
+h2.ip-header {
+font-family: inherit;
+font-size: 2em;
+font-weight: bold;
+color: #4FB6CD;
+text-transform: uppercase;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+
+h3.ip-subheader {
+font-family: inherit;
+font-size: 1.5em;
+font-weight: bold;
+color: #777;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.btn-line.btn-default {
+border: 3px solid #FF8604;
+background-color: #fff;
+border-radius: 0;
+color: #FF8604;
+font-weight: bold;
+margin-left: 0px;
+	}
+	
+.btn-line.btn-default:hover {
+border: 3px solid #FF8604; } 
+	
+a#applyPromoBtn.btn.btn-lg.btn-default.btn-line, button#continue2 {
+	background-color: #4FB6CD;
+	border: 3px solid #4FB6CD;
+	color: #fff;
+	border-radius: 0px;
+}
+
+input.form-control {
+border: 3px solid #ccc;
+background-color: #fff;
+border-radius: 0;}
+
+select.form-control, select.form-group
+ {
+ border: 3px solid #ccc;
+ 	border-radius: 0px;}
+
+hr.ip-div {
+	border: 1px solid #ccc;
+	color: #ccc;
+	width: 100%;
+	
+}
+
+.input-group-addon {
+	border-top: 3px solid #ccc;
+	border-right: 3px solid #ccc;
+	border-bottom: 3px solid #ccc;
+		border-radius: 0px;
+}
+
+@media (min-width: 1200px) {
+	#bookingContent {
+		width: 800px;
+	}
+}
+
+
+p#anytime, p#morning, p#afternoon, p#getclean, p#deepclean, p#moveinout {background-color: #eee; padding: 5px; margin: 20px;}
+
+
+.ipbtn {    padding: 10px 6px !important;}
+.iplinebtn  {    padding: 10px 6px !important;}

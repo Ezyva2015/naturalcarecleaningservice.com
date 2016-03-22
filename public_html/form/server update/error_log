@@ -662,3 +662,4 @@ Stack trace:
 [02-Mar-2016 06:07:28 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting ')' in /home/natural/public_html/form/book-now.php on line 91
 [02-Mar-2016 07:24:56 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting ')' in /home/natural/public_html/form/book-now.php on line 91
 [04-Mar-2016 06:46:09 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/natural/public_html/form/page1.php on line 593
+[15-Mar-2016 07:01:50 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/natural/public_html/form/page1.php on line 561

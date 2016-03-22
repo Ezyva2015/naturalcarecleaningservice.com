@@ -1,6 +1,6 @@
 <?php
     require_once('infusionsoft/PHP-iSDK-master/src/isdk.php');
-    if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['FirstName'] != '' && $_POST['Address'] != '' && $_POST['Email'] != '')
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['FirstName'] != '' && $_POST['Address'] != '' && $_POST['_SquareFootagesize'] != '' && $_POST['Email'] != '')
     {
         @session_start();
 
@@ -23,10 +23,8 @@
             $_SESSION['_baths'] = $_POST['_baths'];
             $_SESSION['FirstName'] = $_POST['FirstName'];
             $_SESSION['LastName'] = $_POST['LastName'];
-			$_SESSION['phonenum'] = $_POST['phonenum'];
-			
             
-            $allowed_zips = file('/home/natural/etc/zipcodes', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+            $allowed_zips = array(77031,77036,77037,77040,77042,77043,77046,77054,77055,77056,77057,77063,77064,77065,77071,77072,77074,77076,77077,77079,77080,77081,77082,77083,77084,77088,77091,77092,77094,77095,77096,77098,77099,77401,77450,77469,77471,77477,77478,77493,77498,77001,77011,77020,77026,77033,77035,77041,77045,77048,77051,77402,77002,77003,77004,77005,77006,77007,77008,77009,77010,77018,77019,77021,77022,77024,77025,77027,77030);
                 if(!in_array($_POST['PostalCode'], $allowed_zips)){
                     $message = "
                     <div style='background:#daeef3; width: 100%; padding-left:20px; padding-right: 20px'>
@@ -35,10 +33,6 @@
                     ";
                 }
                 else{
-					
-						$pieces = explode(" ", $_SESSION['FirstName']);
-											
-					
                     $contact = [
                         'Email' => $_POST['Email'],
                         'StreetAddress1' => $_SESSION['StreetAddress1'],
@@ -47,9 +41,11 @@
                         'State' => $_SESSION['State'],
                         'Country' => $_SESSION['Country'],
                         'PostalCode' => $_SESSION['PostalCode'],
-						'Phone1' => $_SESSION['phonenum'],
-                        'FirstName' => $pieces[0],
-                        'LastName' => $pieces[1]
+                        'FirstName' => $_SESSION['FirstName'],
+                        'LastName' => $_SESSION['LastName'],
+                        '_SquareFootagesize' => $_SESSION['_SquareFootagesize'],
+                        '_Beds' => $_SESSION['_Beds'],
+                        '_baths' => $_SESSION['_baths'],
                     ];
                     
                     $contacts = $app->findByEmail($_SESSION['Email'], array('Id'));
@@ -92,7 +88,6 @@
         <link rel="stylesheet" href="assets/css/theme.css" />
         <link rel="stylesheet" href="assets/css/MoneAdmin.css" />
         <link rel="stylesheet" href="assets/plugins/Font-Awesome/css/font-awesome.css" />
-		        <link rel="stylesheet" href="formstyle.css" />
         <!--END GLOBAL STYLES -->
 
         <!-- PAGE LEVEL STYLES -->
@@ -119,24 +114,15 @@
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
         <script src="assets/js/jquery-scrolltofixed.js" type="text/javascript"></script>
         <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-
-
-
-
-
-        <script src="assets/js/bootstrap-formhelpers-phone.format.js"></script>
-        <script src="assets/js/bootstrap-formhelpers-phone.js"></script>
         <!--END PAGE LEVEL SCRIPTS -->
         <style>
-            /*input {
+            input {
                 display: inline !important
             }
             select {
                 display: inline !important;
 
             }
-			
-			*/
             select.form-control {
               -moz-appearance: none;
                -webkit-appearance: none;
@@ -153,17 +139,6 @@
                 width: 220px;
                 margin-bottom: 15px;
             }
-            .recurring {
-            	font-size: 9px;
-            	background-color: #dbdbdb;
-            	font-weight: bold;
-            }
-            .recurring:hover {
-            	background-color: #c6c6c6;
-            }
-            .recurring.active {
-            	background-color: #c6c6c6;
-            }
             body {
                 font-family: helvetica;
             }
@@ -173,7 +148,6 @@
         <script>
             $(function() {
                 formInit();
-					
             });
         </script>
         <script>
@@ -208,126 +182,22 @@
             };
 
             function initialize() {
-				
-				var firstResult='';
                 // Create the autocomplete object, restricting the search
                 // to geographical location types.
                 autocomplete = new google.maps.places.Autocomplete(
                 /** @type {HTMLInputElement} */(document.getElementById('autocomplete')), {
                     types : ['geocode']
                 });
-                
-                google.maps.event.addDomListener(document.getElementById('autocomplete'), 'keydown', function(e) {
-						
-						var incase = document.getElementById('autocomplete');
-
-						var firstResult = $(".pac-container .pac-item").length;
-						
-						if(firstResult==1){
-							
-							if(e.keyCode===8 || e.keyCode===37 || e.keyCode===39 || e.keyCode===46){		
-
-								
-									
-							}else{
-								
-							
-							var firstResult = $(".pac-container .pac-item:first").text();
-							var stringMatched = $(".pac-container .pac-item:first").find(".pac-item-query").text(); 
-							firstResult = firstResult.replace(stringMatched, stringMatched + " ");
-							
-							
-							//google.maps.event.trigger($('#autocomplete'),'keydown',{keyCode:40}) 
-							//google.maps.event.trigger($('#autocomplete'),'keydown',{keyCode:13,triggered:true}) 
-							//e.preventDefault();							
-							
-							
-							
-/* 							$('.pac-container').remove();
-							
-							setTimeout(function(){
-								
-							$('#autocomplete').val(firstResult);
-							
-							},200); */
-							
-							
-							//$('#address_2').focus();
-							
-							//$('#address_2').focus();					
-							
-							autocomplete = new google.maps.places.Autocomplete(
-							/** @type {HTMLInputElement} */(document.getElementById('autocomplete')), {
-								types : ['geocode']
-							});							
-								
-								
-								
-							}
-							
-							
-							
-
-						}
-							
-						if(e.keyCode===13 && !e.triggered){ 
-						google.maps.event.trigger(this,'keydown',{keyCode:40}) 
-						google.maps.event.trigger(this,'keydown',{keyCode:13,triggered:true}) 
-						e.preventDefault();
-						
-						}
-						
-						if(e.keyCode===9){
-
-                            //console.log("keydown and trigger google maps event key code 40 from 9");
-						    google.maps.event.trigger(this,'keydown',{keyCode:40})
-						}
-
-
-
-
-                        //console.log("keycode " + e.keyCode)
-						
-						google.maps.event.addListener(autocomplete, 'place_changed', function() {
-								fillInAddress();
-						});	
-	
-						
-						
-                });
-				
-
-				$('#autocomplete').focusout(function(autocomplete){
-					
-					 google.maps.event.trigger(this,'keydown',{keyCode:40})
-
-				
-					
-					
-				})				
-				
-				
-
-                
-                setTimeout(function() {
-                    document.getElementById('autocomplete').autocomplete = 'off';
-                }, 1000);
-                
                 // When the user selects an address from the dropdown,
                 // populate the address fields in the form.
                 google.maps.event.addListener(autocomplete, 'place_changed', function() {
                     fillInAddress();
                 });
             }
-            
-            var addrFilled = false;
 
             // [START region_fillform]
             function fillInAddress() {
                 // Get the place details from the autocomplete object.
-				
-				$('#realaddress').val($('#autocomplete').val())
-				
                 var place = autocomplete.getPlace();
 
                 for (var component in componentForm) {
@@ -342,15 +212,12 @@
                  if (componentForm[addressType]) {
                  var val = place.address_components[i][componentForm[addressType]];
                  document.getElementById(addressType).value = val;
-				 
                  }
                  }
                 // $('#street_address').val(place.address_components[0]['short_name'] + ' ' + place.address_components[1]['long_name']);
                 // $('#city').val(place.address_components[2]['long_name']);
                 // $('#state').val(place.address_components[5]['short_name']);
                 // $('#zip').val(place.address_components[7]['short_name']);
-                
-                addrFilled = true;
             }
 
             // [END region_fillform]
@@ -370,105 +237,9 @@
                     });
                 }
             }
-            
-            
-            
-            $(function() {
-            	$('.recurring').click(function() {
-            		$('.recurring').removeClass('active');
-            		$(this).addClass('active');
-            		
-            		$('#recurring').val($(this).text());
-            	});
-            	
-            	$('form').submit(function(e) {
-                	if(!addrFilled)
-                	{
-                    	e.preventDefault();
-                    	alert('Google api did not fill in address');
-                	}
-            	});
-				
-				var checker;
-				
-				$('.needs-value').each(function(){
-					
-					if($(this).val()==""){
-						checker = 1;
-						
-					}
-						
-				})	
 
-					
-				
-				if(checker==1){
-						
-					$('#continue').attr('disabled','disabled').css('opacity','0.5');
-						
-					
-				}else{
-					
-					$('#continue').removeAttr('disabled').css('opacity','1');
-				}
-
-				
-				$('.needs-value').keyup(function(){
-					var checker = 0;
-					$('.needs-value').each(function(){
-						
-					if($(this).val()==""){
-						checker = 1;						
-					}	
-					/* if($('#bfh-phone').val().length<14){
-						checker = 1;						
-					}					
-						 */					
-						
-					})
-					
-					if(checker==1){
-							
-						$('#continue').attr('disabled','disabled').css('opacity','0.5');
-							
-						
-					}else{
-						
-						$('#continue').removeAttr('disabled').css('opacity','1');
-					}	
-						
-					
-				})
-
-/* 				$('.ipbtn').click(function(){
-					var checker = 0;
-					
-					if($('#recurring').val()==""){
-						checker = 1;						
-					}	
-					
-					if(checker==1){
-							
-						$('#continue').attr('disabled','disabled').css('opacity','0.5');
-							
-						
-					}else{
-						
-						$('#continue').removeAttr('disabled').css('opacity','1');
-					}						
-					
-				}) */
-
-
-            });
             // [END region_geolocation]
 
-            function exec_clicked()
-            {
-                $( '#autocomplete' ).attr( 'autocomplete', 'off' );
-            }
-			
-	
         </script>
     </head>
 
@@ -477,40 +248,38 @@
 if(!isset($redirect)):
 ?>
         <!-- MAIN WRAPPER -->
-        <div id="wrap" style="width: 100%">
+        <div id="wrap" style="width: 290px">
 
             <!--PAGE CONTENT -->
-            <div id="content" style="margin-left:0px; margin-right:0px; padding: 0px;">
-                    <div class="row-fluid" style="height:100%;">
-                        
-                        <div class="col-lg-12" style="padding: 0px; height:100%; ">
-                            
-                            <div style="margin-bottom:0px !important; height:100%;" class="panel panel-default">
+            <div id="content" style="margin-left:0px; margin-right:0px; padding: 0px">
 
-                                <div class="panel-body" style="background:#daeef3; height:100%; min-height:530px;">
+                
+                    <div class="row-fluid">
+                        
+                        <div class="col-lg-12" style="padding: 0px">
+                            
+                            <div style="margin-bottom:0px !important" class="panel panel-default">
+
+                                <div class="panel-body" style="background:#daeef3">
                                     <?php if (isset($message))
-                                              echo $message;
-                                       ?>
-                                    <div id="page1">                                        
+                                                          echo $message;
+                                                    ?>
+                                    <div id="page1">
+
+                                        
                                         <section>
-                                            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" name="start" id="start" role="form" autocomplete="off">
+                                            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" name="start" id="start" role="form">
                                                 <div>
                                                     
                                                     <div align="center">
                                                         <h2>Get an Instant Price</h2>
                                                     </div>
-
-
                                                     <div id="locationField" class="form-group center">
-
-														
-														
-                                                        <input onclick="exec_clicked()" autocomplete="false" style="height: 42px" placeholder="Enter your street address…" tabindex="10" g-places-autocomplete="" force-selection="true" required type="search" class="form-control google-addresses-autocomplete needs-value" id="autocomplete" name="Address" placeholder="Enter your address" value=""   >
+                                                        <input style="height: 42px" required class="form-control" id="autocomplete" name="Address" placeholder="Enter your address"
+                                                        onFocus="geolocate()" type="text">
                                                         </input>
-														
-														
                                                     </div>
-                                                    <table id="address" style="display:none">
+                                                    <table id="address">
                                                           <tr>
                                                             <td class="label">Street address</td>
                                                             <td class="slimField"><input class="field" id="street_number"
@@ -537,16 +306,59 @@ if(!isset($redirect)):
                                                           </tr>
                                                         </table>
                                                         <div class="form-group center">
-                                                                    <input autocomplete="off" id="address_2" name="StreetAddress2" class="form-control needs-value" placeholder="Apt # (optional)" />
+                                                                    <input id="address_2" name="StreetAddress2" class="form-control" placeholder="Apt # (optional)" />
                                                                     </div>
                                                     <div class="col-xs-12">
                                                         <p style="font-size:16; text-align: center; color: #434348">Tell us about your home.</p>
                                                     </div>
-                                                    
+
+                                                    <div  class="form-group input-group center">
+                                                        <span class="input-group-btn">
+                                                            <button style="height:42px; top: .0px; background: white; border-top: 1px solid #cccccc; border-bottom: 1px solid #cccccc; border-left: 1px solid #cccccc" id="subbed" class="btn" type="button">
+                                                                <i class="icon-minus"></i>
+                                                            </button> </span>
+
+                                                        <select class="form-control" style="color: #555555; font-size: 14px; height:42px; width:100%; background:white; border: 1px solid #cccccc;"
+                                                         id="bed" name="_Beds"/>
+                                                        <option value="1">1 bedroom</option>
+                                                        <option value="2" selected>2 bedrooms</option>
+                                                        <option value="3">3 bedrooms</option>
+                                                        <option value="4">4 bedrooms</option>
+                                                        <option value="5">5 bedrooms</option>
+                                                        <option value="6">6 bedrooms</option>
+                                                        </select>
+
+                                                        <span class="input-group-btn">
+                                                            <button style="height:42px; top: .0px; background: white; border-top: 1px solid #cccccc; border-bottom: 1px solid #cccccc; border-right: 1px solid #cccccc" id="addbed" class="btn" type="button">
+                                                                <i class="icon-plus"></i>
+                                                            </button> </span>
+                                                    </div>
+                                                    <div class="form-group input-group center">
+                                                        <span class="input-group-btn">
+                                                            <button style="height:42px; top: .0px; background: white; border-top: 1px solid #cccccc; border-bottom: 1px solid #cccccc; border-left: 1px solid #cccccc" id="subbath" class="btn" type="button">
+                                                                <i class="icon-minus"></i>
+                                                            </button> </span>
+                                                        <select class="form-control" style="color: #555555; font-size: 14px; height:42px; width:100%; background:white; border: 1px solid #CCCCCC;"
+                                                         id="bath" name="_baths"/>
+                                                        <option value="1">1 bathroom</option>
+                                                        <option value="2" selected>2 bathrooms</option>
+                                                        <option value="3">3 bathrooms</option>
+                                                        <option value="4">4 bathrooms</option>
+                                                        <option value="5">5 bathrooms</option>
+                                                        <option value="6">6 bathrooms</option>
+                                                        </select>
+                                                        <span  class="input-group-btn">
+                                                            <button style="height:42px; top: .0px; background: white; border-top: 1px solid #cccccc; border-bottom: 1px solid #cccccc; border-right: 1px solid #cccccc" id="addbath" class="btn" type="button">
+                                                                <i class="icon-plus"></i>
+                                                            </button> </span>
+                                                    </div>
+                                                    <div class="form-group center">
+                                                        <input style="height: 42px" type="number" maxlength="4" id="footage" name="_SquareFootagesize" class="form-control" placeholder="Square Footage" />
+                                                    </div>
             
                                                    <div class="form-group center">
                                                         <div style="padding-left:0px; padding-right: 0px" class="col-xs-12 col-md-12">
-                                                        <input autocomplete="off" required id="firstname" name="FirstName" class="form-control needs-value" placeholder="Name" />
+                                                        <input id="firstname" name="FirstName" class="form-control" placeholder="First Name" />
                                                         </div>
                                                     </div>
                                                     <div class="form-group center">
@@ -556,30 +368,9 @@ if(!isset($redirect)):
                                                         </div>
                                                         <div class="form-group center">
                                                         <div style="padding-left:0px; padding-right:0px" class="col-xs-12 col-md-12">
-                                                        <input autocomplete="off" id="email2" name="Email" type="email"  class="form-control needs-value" placeholder="Email" required />
+                                                        <input id="email2" name="Email"  class="form-control" placeholder="Email" />
                                                         </div>
-
-
-                                                            <div class="form-group center">
-                                                                <div style="padding-left:0px; padding-right:0px" class="col-xs-12 col-md-12">
-                                                                    <input name="phonenum" autocomplete="off" type="text" placeholder="Phone Number" id="bfh-phone" class="input-medium bfh-phone" data-format="(ddd) ddd-dddd" style="margin-top: 16px;padding: 10px 10px 10px 9px;color: grey;width: 100%;border: 3px solid #CCCCCC;">
-                                                                </div>
-                                                            </div>
-
-
-
-
                                                         </div><div class="clearfix"></div>
-                                                    <div class="form-group center">
-                                                    	<div class="btn-toolbar">
-                                                    		<div class="btn-group">
-                                                    			<a class="ipbtn btn btn-default recurring" href="javascript:void(0)">One Time</a>
-                                                    			<a class="ipbtn btn btn-default recurring" href="javascript:void(0)">Recurring</a>
-                                                    			<a class="ipbtn btn btn-default recurring" href="javascript:void(0)">Move In/Out</a>
-                                                    		</div>
-                                                    	</div>
-                                                    </div>
-                                                    <input type="hidden" value="" name="ServiceType" id="recurring">
                                                     <div align="center">
                                                     <button type="submit" style="height: 42px; background: #FD7F23; color: white; font-size: 20px" id="continue" name="continue" class="btn2 btn-grad col-xs-12 center">Get Your Price</button>
                                                     </div>

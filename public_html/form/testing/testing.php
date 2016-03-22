@@ -1,7 +1,3 @@
-<script src="testing.js" ></script>
+<script src="dynamic-calculation.js" ></script>
 
-testing
-
-
-
-<input type="button" onclick="calculate()" value="calculate" />
+<input type="button" onclick="initialize()" value="initialized" />

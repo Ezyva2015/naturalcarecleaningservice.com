@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 session_start();
 // If no session variable exists, or unauthorized user_level, redirect the user:
    if (isset($_SESSION['username']))
