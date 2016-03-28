@@ -108,7 +108,7 @@ function bath(id) {
     var bath = 1;
     var bedRoomPlural = 's';
     var string = '';
-    var maxValue = 11;
+    var maxValue = 10;
     var minValue = 1;
     var itemName = 'bathroom';
     var initValue = '1 bathroom';
@@ -163,7 +163,7 @@ function bath(id) {
 }
 
 function bathRoomUnit(index) {
-    var unit = new Array("", "1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5.5", "1.5", "6");
+    var unit = new Array("", "1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5.5", "6");
     return unit[index];
 }
 

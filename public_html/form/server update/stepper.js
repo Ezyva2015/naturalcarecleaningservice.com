@@ -261,7 +261,7 @@ function bath(id) {
 
 function bathRoomUnit(index) {
 
-    var unit = new Array("", "1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5.5", "1.5", "6");
+    var unit = new Array("", "1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5.5", "6");
 
     return unit[index];
 
