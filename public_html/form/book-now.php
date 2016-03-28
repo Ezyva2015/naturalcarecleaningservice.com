@@ -2333,28 +2333,29 @@ $(function() {
 									
 									<h3 class="ip-subheader">Select any add-ons for your first clean</h3>
 									
+
+
+
 									<div class="container add_ons_container">
-										<div class="row add_ons">
+										<div class="row add_ons full-window-width">
 											<input type="hidden" name="_AddOns" id="addon" value="" />
-											<div  class="col-md-3  text-center">
-												<input name="Fridge" id="fridge" value="" class="addon" type="image" src="assets/img/33.png"></input>
 
-												</div>
-												<div class="col-md-3 text-center">
-												<input name="Stove" id="stove" value="" class="addon" type="image" src="assets/img/22.png"></input>
-
-												</div>
-
-												<div class="col-md-3 text-center">
-												<input name="Window" id="window" value="" class="addon" type="image" src="assets/img/44.png"></input>
-
-												</div>
-
+												<div class="addons-left-content col-xs-6 .col-sm-3 text-center">
 												
-												<div class="col-md-3 text-center">
-												<input name="BedSteam" id="wall" value="" class="addon" type="image" src="assets/img/55.png"></input>
+													<input name="Window" id="window" value="" class="addon" type="image" src="assets/img/44.png"></input>
+													<input name="BedSteam" id="wall" value="" class="addon" type="image" src="assets/img/55.png"></input>
+												</div> 
 
+												<div  class="addons-right-content col-xs-6 .col-sm-3 text-center">
+													<input name="Fridge" id="fridge" value="" class="addon" type="image" src="assets/img/33.png"></input>
+													<input name="Stove" id="stove" value="" class="addon" type="image" src="assets/img/22.png"></input>
 												</div>
+
+												<div class="col-xs-6 .col-sm-3 text-center"> 
+												</div>  
+												<div class="col-xs-6 .col-sm-3 text-center"> 
+												</div>
+
 
 												<!--<div class="col-xs-6 col-md-4" >
 												<input name="Laundry" id="laundry" value="" class="addon" type="image" src="assets/img/11.png"></input>
@@ -2363,6 +2364,13 @@ $(function() {
 
 											</div>
 										</div>
+
+									 
+
+
+
+
+
 												<div class="clearfix"></div>
 
 												<hr>
