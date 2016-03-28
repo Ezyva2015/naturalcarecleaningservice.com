@@ -1863,9 +1863,13 @@ $(function() {
 	<!-- END HEAD -->
 
 	<!-- BEGIN BODY -->
-	<body style="background-color: white" >
-
-
+	<body style="background-color: white" > 
+		<!-- Session here for recurring: <br> -->
+		<?php  
+			//echo " Service Type = " . $_SESSION['ServiceType'] . '<br>';
+			// name=
+			// value= Recurring 
+		?> 
 		<center>
 			<div class="container-cover">
 			      <p> 
@@ -2160,10 +2164,11 @@ $(function() {
 									
 									 <h3 class="ip-subheader">Pick the level for your first cleaned?</h3>
 										<div class="row">
-
+										<?php if( $_SESSION['ServiceType'] != 'Recurring'): ?>
 									       <div class="col-xs-6 col-md-6 col-lg-3">
 									           <a href="#" id="keep" onclick="keepclean()" class="form-control keep btn  btn-default btn-lg btn-line cleantype col-xs-12">Keep It Clean</a>
-									        </div>
+									        </div> 
+									     <?php endif;  ?>  
 									        <div class="col-xs-6 col-md-6 col-lg-3">
 										      <a href="#" id="clean" onclick="getclean()" class="form-control clean btn btn-default btn-lg btn-line cleantype col-xs-12">Get it Clean</a>
 										    </div>
