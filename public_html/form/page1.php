@@ -24,7 +24,7 @@
             $_SESSION['FirstName'] = $_POST['FirstName'];
             $_SESSION['LastName'] = $_POST['LastName'];
 			$_SESSION['phonenum'] = $_POST['phonenum'];
-			
+			$_SESSION['ServiceType'] = $_POST['ServiceType'];
             
             $allowed_zips = file('/home/natural/etc/zipcodes', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
                 if(!in_array($_POST['PostalCode'], $allowed_zips)){
@@ -92,7 +92,8 @@
         <link rel="stylesheet" href="assets/css/theme.css" />
         <link rel="stylesheet" href="assets/css/MoneAdmin.css" />
         <link rel="stylesheet" href="assets/plugins/Font-Awesome/css/font-awesome.css" />
-		        <link rel="stylesheet" href="formstyle.css" />
+		<link rel="stylesheet" href="formstyle.css" />
+		<link rel="stylesheet" href="assets/css/res.css" />
         <!--END GLOBAL STYLES -->
 
         <!-- PAGE LEVEL STYLES -->
@@ -137,6 +138,10 @@
             }
 			
 			*/
+			.et_pb_column{
+				width:46% !important;
+				border:1px solid red !important;
+			}
             select.form-control {
               -moz-appearance: none;
                -webkit-appearance: none;
@@ -150,7 +155,6 @@
             }
             .center {
                 margin: 0 auto;
-                width: 220px;
                 margin-bottom: 15px;
             }
             .recurring {
@@ -167,7 +171,22 @@
             body {
                 font-family: helvetica;
             }
-
+			
+			.btn:hover, .btn:focus{
+				
+				background:#b4d0c2 !important;
+							
+			}
+			.btn-group{
+			
+				width:100%;
+				
+			}
+			.ipbtn {
+				padding: 10px 6px !important;
+				width:33.5%;
+			}
+			
         </style>
 
         <script>
@@ -439,6 +458,27 @@
 						
 					
 				})
+				
+				$('input[type=text],input[type=tel],input[type=email],input[type=search]').keyup(function(){
+					
+					if($(this).val()!=""){
+						
+					$(this).prev('.appended-label').remove();
+					$(this).before("<p class='appended-label'>"+$(this).attr("placeholder")+":</p>");
+					$('body').css('height',$('#wrap').height()+'px');
+					
+					
+					}else{
+						
+					$(this).prev('.appended-label').remove();	
+					$('body').css('height',$('#wrap').height()+'px');
+					
+					
+					
+					}
+					
+					
+				})
 
 /* 				$('.ipbtn').click(function(){
 					var checker = 0;
@@ -472,7 +512,7 @@
         </script>
     </head>
 
-    <body onload="initialize()">
+    <body onload="initialize()" style="min-height:532px">
 <?php 
 if(!isset($redirect)):
 ?>
@@ -480,7 +520,7 @@ if(!isset($redirect)):
         <div id="wrap" style="width: 100%">
 
             <!--PAGE CONTENT -->
-            <div id="content" style="margin-left:0px; margin-right:0px; padding: 0px;">
+            <div id="content2" style="margin-left:0px; margin-right:0px; padding: 0px; height:100%; background:#dddddd;">
                     <div class="row-fluid" style="height:100%;">
                         
                         <div class="col-lg-12" style="padding: 0px; height:100%; ">
@@ -505,7 +545,7 @@ if(!isset($redirect)):
 
 														
 														
-                                                        <input onclick="exec_clicked()" autocomplete="false" style="height: 42px" placeholder="Enter your street address…" tabindex="10" g-places-autocomplete="" force-selection="true" required type="search" class="form-control google-addresses-autocomplete needs-value" id="autocomplete" name="Address" placeholder="Enter your address" value=""   >
+                                                        <input onclick="exec_clicked()" autocomplete="false" style="height: 42px; border-radius:0 !important;" placeholder="Enter your street address…" tabindex="10" g-places-autocomplete="" force-selection="true" required type="text" class="form-control google-addresses-autocomplete needs-value" id="autocomplete" name="Address" placeholder="Enter your address" value=""    >
                                                         </input>
 														
 														
@@ -537,41 +577,40 @@ if(!isset($redirect)):
                                                           </tr>
                                                         </table>
                                                         <div class="form-group center">
-                                                                    <input autocomplete="off" id="address_2" name="StreetAddress2" class="form-control needs-value" placeholder="Apt # (optional)" />
+                                                                    <input autocomplete="off" type="text" id="address_2" name="StreetAddress2" class="form-control" placeholder="Apt # (optional)" />
                                                                     </div>
-                                                    <div class="col-xs-12">
+                                                   <!-- <div class="col-xs-12">
                                                         <p style="font-size:16; text-align: center; color: #434348">Tell us about your home.</p>
-                                                    </div>
+                                                    </div>-->
                                                     
             
                                                    <div class="form-group center">
                                                         <div style="padding-left:0px; padding-right: 0px" class="col-xs-12 col-md-12">
-                                                        <input autocomplete="off" required id="firstname" name="FirstName" class="form-control needs-value" placeholder="Name" />
+                                                        <input autocomplete="off" type="text" required id="firstname" name="FirstName" class="form-control needs-value" placeholder="Your Name" />
                                                         </div>
                                                     </div>
+													<div class="form-group center">
+													<!--<div style="padding-left:0px; padding-right: 0px" class="col-xs-12 col-md-12">
+													<input id="lastname" name="LastName"  class="form-control" placeholder="Last Name" />
+													</div>-->
+													</div>
+													<div class="form-group center">
+													<div style="padding-left:0px; padding-right:0px" class="col-xs-12 col-md-12">
+													<input autocomplete="off" id="email2" name="Email" type="email"  class="form-control needs-value" placeholder="Email" required />
+													</div>
+													</div>
+
+													<div class="form-group center">
+														<div style="padding-left:0px; padding-right:0px" class="col-xs-12 col-md-12">
+															<input name="phonenum" autocomplete="off" type="tel" placeholder="Phone Number" id="bfh-phone" class="input-medium bfh-phone" data-format="(ddd) ddd-dddd" style="padding: 10px 10px 10px 9px;color: grey;width: 100%;border: 3px solid #CCCCCC;">
+														</div>
+													</div>													
+
+													
+														<div class="clearfix"></div>
                                                     <div class="form-group center">
-                                                        <!--<div style="padding-left:0px; padding-right: 0px" class="col-xs-12 col-md-12">
-                                                        <input id="lastname" name="LastName"  class="form-control" placeholder="Last Name" />
-                                                        </div>-->
-                                                        </div>
-                                                        <div class="form-group center">
-                                                        <div style="padding-left:0px; padding-right:0px" class="col-xs-12 col-md-12">
-                                                        <input autocomplete="off" id="email2" name="Email" type="email"  class="form-control needs-value" placeholder="Email" required />
-                                                        </div>
-
-
-                                                            <div class="form-group center">
-                                                                <div style="padding-left:0px; padding-right:0px" class="col-xs-12 col-md-12">
-                                                                    <input name="phonenum" autocomplete="off" type="text" placeholder="Phone Number" id="bfh-phone" class="input-medium bfh-phone" data-format="(ddd) ddd-dddd" style="margin-top: 16px;padding: 10px 10px 10px 9px;color: grey;width: 100%;border: 3px solid #CCCCCC;">
-                                                                </div>
-                                                            </div>
-
-
-
-
-                                                        </div><div class="clearfix"></div>
-                                                    <div class="form-group center">
-                                                    	<div class="btn-toolbar">
+                                                    	<div class="btn-toolbar">	
+															<p>What type of cleaning?</p>
                                                     		<div class="btn-group">
                                                     			<a class="ipbtn btn btn-default recurring" href="javascript:void(0)">One Time</a>
                                                     			<a class="ipbtn btn btn-default recurring" href="javascript:void(0)">Recurring</a>

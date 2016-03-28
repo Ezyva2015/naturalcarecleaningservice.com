@@ -662,3 +662,22 @@ Stack trace:
 [02-Mar-2016 06:07:28 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting ')' in /home/natural/public_html/form/book-now.php on line 91
 [02-Mar-2016 07:24:56 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting ')' in /home/natural/public_html/form/book-now.php on line 91
 [04-Mar-2016 06:46:09 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/natural/public_html/form/page1.php on line 593
+[15-Mar-2016 07:01:50 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/natural/public_html/form/page1.php on line 561
+[21-Mar-2016 06:42:40 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting variable (T_VARIABLE) or '$' in /home/natural/public_html/form/book-now-floyd.php on line 106
+[21-Mar-2016 07:00:34 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting variable (T_VARIABLE) or '$' in /home/natural/public_html/form/book-now-floyd.php on line 106
+[21-Mar-2016 07:06:17 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting variable (T_VARIABLE) or '$' in /home/natural/public_html/form/book-now-floyd.php on line 106
+[21-Mar-2016 08:06:52 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting variable (T_VARIABLE) or '$' in /home/natural/public_html/form/book-now-floyd.php on line 106
+[21-Mar-2016 08:21:35 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting variable (T_VARIABLE) or '$' in /home/natural/public_html/form/book-now-floyd.php on line 106
+[21-Mar-2016 10:56:12 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/natural/public_html/form/book-now-floyd.php on line 118
+[22-Mar-2016 01:43:31 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/natural/public_html/form/book-now-floyd.php on line 118
+[22-Mar-2016 01:55:47 UTC] PHP Parse error:  syntax error, unexpected ''S' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/natural/public_html/form/book-now-floyd.php on line 2407
+[22-Mar-2016 02:26:17 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/natural/public_html/form/book-now-floyd.php on line 118
+[22-Mar-2016 04:30:40 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/natural/public_html/form/book-now-floyd.php on line 118
+[22-Mar-2016 05:17:13 UTC] PHP Parse error:  syntax error, unexpected '{' in /home/natural/public_html/form/book-now-floyd.php on line 1911
+[22-Mar-2016 05:17:15 UTC] PHP Parse error:  syntax error, unexpected '{' in /home/natural/public_html/form/book-now-floyd.php on line 1911
+[22-Mar-2016 05:17:17 UTC] PHP Parse error:  syntax error, unexpected '{' in /home/natural/public_html/form/book-now-floyd.php on line 1911
+[22-Mar-2016 05:17:39 UTC] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/natural/public_html/form/book-now-floyd.php on line 1912
+[22-Mar-2016 05:17:41 UTC] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/natural/public_html/form/book-now-floyd.php on line 1912
+[22-Mar-2016 05:17:42 UTC] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/natural/public_html/form/book-now-floyd.php on line 1912
+[22-Mar-2016 09:25:40 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/natural/public_html/form/book-now-floyd3.php on line 111
+[22-Mar-2016 09:40:45 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/natural/public_html/form/book-now-floyd3.php on line 111

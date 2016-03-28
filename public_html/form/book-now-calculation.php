@@ -56,29 +56,6 @@ $app = new iSDK();
 
 $app->cfgCon('naturalcare');
 
-
-//floyd code
-$returnFields = array('Contact.PostalCode');
-$contacts = $app->dsFind('ContactGroupAssign',1000,0,'GroupId',510,$returnFields);
-
-
-foreach($contacts as $contact){
-	
-	if($contact['Contact.PostalCode']==$_SESSION['PostalCode']){
-		
-		
-		$totaljoined[] = 1;
-		
-		
-	}
-	
-	
-}
-
-
-
-
-
 \Stripe\Stripe::setAPiKey($conf['stripe_key']);
 if (isset($_SESSION) && !empty($_SESSION) && isset($_SESSION['contact_id']))
 {
@@ -673,6 +650,7 @@ $(function() {
 		return ret;
 	}
 
+
 	function getItCleanFunc(totalBasePrice, getITcLean)
 	{
 		return parseFloat(totalBasePrice * getITcLean);
@@ -699,28 +677,17 @@ $(function() {
 		return parseInt(totalBasePrice);
 	}
 
-	function calculateWeekly() {
-		return basePrice() * weeklyPrice();
-	}
+//	function calculateWeekly() { return basePrice() * weeklyPrice(); }
 
-	function calculateEvery2weeks() {
-		return basePrice() * every2WeeksPrice();
-	}
+//	function calculateEvery2weeks() { return basePrice() * every2WeeksPrice(); }
 
-	function calculateEvery4weeks() {
-		return basePrice() * every4WeeksPrice();
-	}
-
-
-
+//	function calculateEvery4weeks() { return basePrice() * every4WeeksPrice(); }
 
 	function weeklyPrice(){ return parseFloat("0.65"); }
 
 	function every2WeeksPrice(){ return parseFloat("0.7"); }
 
 	function every4WeeksPrice(){ return parseFloat("0.75"); }
-
-
 
 	function calculate_sqrtFt(SQFTInput)
 	{
@@ -763,24 +730,37 @@ $(function() {
 		var SQFTInput = parseInt($('#footage').val());
 		var totalBasePrice = getTotalBasePrice(calculate_sqrtFt(SQFTInput), totalBedRooms, totalBathRooms);
 
-		if (text == 'Keep It Clean')
+
+		console.log("INITIALIZED");
+		initialize();
+
+		text = text.toLowerCase();
+		console.log("get it clean " +  calculateGetItClean());
+		console.log("text = " + text);
+
+
+
+
+
+
+		if (text == 'keep it clean')
 		{
-			firstclean = 1;
+			firstclean = calculateBasePrice();
 		}
-		else if (text == 'Get it Clean')
+		else if (text == 'get it clean')
 		{
 			console.log("inside get it clean");
-			firstclean = getItCleanFunc(totalBasePrice, getclean);
+			firstclean = calculateGetItClean(); //getItCleanFunc(totalBasePrice, getclean);
 		}
-		else if (text == 'Deep Clean')
+		else if (text == 'deep clean')
 		{
 			console.log("deep clean");
-			firstclean = deepCleanFunc(totalBasePrice, deepclean);
+			firstclean = calculateDeepClean(); //deepCleanFunc(totalBasePrice, deepclean);
 		}
-		else if (text == 'Move In/Out')
+		else if (text == 'move in/out')
 		{
 			console.log("move in out");
-			firstclean = moveInOutFunc(totalBasePrice, moveinout);
+			firstclean = calculateMoveInOut(); //moveInOutFunc(totalBasePrice, moveinout);
 		}
 
 		firstclean = Math.round(firstclean);
@@ -789,9 +769,140 @@ $(function() {
 
 
 
- 		$(firstCleanId).text(firstclean);
+// 		$(firstCleanId).text(firstclean);
+
+		return firstclean;
 
 	}
+
+	/**
+	 * New coding
+	 */
+
+	function initialize() {
+
+		console.log("initialized : beds " +  memberInputBeds() + " bath " + memberInputBath() + " sqft " + memberInputSqft() );
+		console.log(" admin input beds " + adminInputBeds());
+					console.log("square foot calculation " + Math.round(calculateSqftCalc()));
+		console.log("calculate Base Price " +  calculateBasePrice());
+		console.log("calculate weekly " +  calculateWeekly());
+		console.log("calculate 2 weeks " + calculateEvery2Weeks());
+		console.log("calculate 4 weeks " + calculateEvery4Weeks());
+
+		console.log("Get it clean " + calculateGetItClean());
+		console.log("Deep clean " + calculateDeepClean());
+		console.log("Keep Clean " +  calculateMoveInOut()); 
+
+		console.log(" memberInputBeds() = " +memberInputBeds());
+		console.log(" memberInputBath() = " +memberInputBath());
+		console.log(" memberInputSqft() = " +memberInputSqft());
+		console.log(" adminInputBeds() = " +adminInputBeds());
+		console.log(" adminInputBath() = " +adminInputBath());
+		console.log(" adminInputSqftBase() = " +adminInputSqftBase());
+		console.log(" adminInputBaseValue() = " +adminInputBaseValue());
+		console.log(" adminInputWeekly() = " +adminInputWeekly());
+		console.log(" adminInputEvery2Weeks() = " +adminInputEvery2Weeks());
+		console.log(" adminInputEvery4Weeks() = " +adminInputEvery4Weeks());
+		console.log(" adminInputGetItClean() = " +adminInputGetItClean());
+		console.log(" adminInputDeepClean() = " +adminInputDeepClean());
+		console.log(" adminInputMoveInOut() = " +adminInputMoveInOut());
+		console.log(" calculateSqftCalc() = " +calculateSqftCalc());
+		console.log(" calculateBasePrice() = " +calculateBasePrice());
+		console.log(" calculateWeekly() = " +calculateWeekly());
+		console.log(" calculateEvery2Weeks() = " +calculateEvery2Weeks());
+		console.log(" calculateEvery4Weeks() = " +calculateEvery4Weeks());
+		console.log(" calculateGetItClean() = " +calculateGetItClean());
+		console.log(" calculateDeepClean() = " +calculateDeepClean());
+		console.log(" calculateMoveInOut() = " +calculateMoveInOut());
+
+	}
+
+
+
+	// User input
+		function memberInputBeds() { return convertNumber($('#bed').val()); }
+
+		function memberInputBath() { return convertNumber($('#bath').val()); }
+
+		function memberInputSqft() { return convertNumber($('#footage').val()); }
+
+	// Admin Input
+		function adminInputBeds() { return beds; /*convertNumber('6.1');*/ }
+
+		function adminInputBath() { return baths; /*convertNumber('14');*/ }
+
+		function adminInputSqftBase() { return sqft; /*convertNumber('1000');*/ }
+
+		function adminInputBaseValue() { return base; /*convertNumber('99');*/ }
+
+		function adminInputWeekly() { return week; /*convertNumber('0.65');*/ }
+
+		function adminInputEvery2Weeks() { return biweek; /*convertNumber('0.7');*/ }
+
+		function adminInputEvery4Weeks() { return month; /*convertNumber('0.75');*/ }
+
+		function adminInputGetItClean() { return getclean; /*convertNumber('1.4');*/ }
+
+		function adminInputDeepClean() { return deepclean; /*convertNumber('1.5');*/ }
+
+		function adminInputMoveInOut() { return moveinout; /*convertNumber('1.75'); */ }
+
+	// Calculation
+		function calculateSqftCalc() {
+			var multiplier1 = 100;
+			var multiplier2 = 3;
+			var answer = 0;
+			if(memberInputSqft() > adminInputSqftBase()) {
+				answer = (memberInputSqft() - adminInputSqftBase())/multiplier1*multiplier2;
+			}
+			return answer;
+		}
+
+		function calculateBasePrice() {
+
+			var totalBedsPrice     = adminInputBeds();
+			var totalBathRoOmPrice = adminInputBath();
+			var totalBaseValue     = adminInputBaseValue();
+			var totalSquareFootCalculation = calculateSqftCalc();
+			var totalBathRoom = memberInputBath();
+			var totalBeds = memberInputBeds();
+			//totalSquareFootCalculation = M3;
+			var totalBasePrice = (totalBeds*totalBedsPrice) + (totalBathRoom*totalBathRoOmPrice) + totalBaseValue+totalSquareFootCalculation;
+			return convertNumber(totalBasePrice);
+		}
+
+		function calculateWeekly() {
+			return convertNumber(calculateBasePrice() * adminInputWeekly());
+		}
+
+		function calculateEvery2Weeks() {
+			return  convertNumber(calculateBasePrice() * adminInputEvery2Weeks() );
+		}
+
+		function calculateEvery4Weeks() {
+			return convertNumber(calculateBasePrice() * adminInputEvery4Weeks() );
+		}
+
+		function calculateGetItClean() {
+			return convertNumber(calculateBasePrice() *  adminInputGetItClean());
+
+		}
+
+		function calculateDeepClean() {
+			return convertNumber(calculateBasePrice() *  adminInputDeepClean());
+		}
+
+		function calculateMoveInOut() {
+
+			return convertNumber(calculateBasePrice() *  adminInputMoveInOut());
+		}
+
+	// Helper
+	 	function convertNumber(number) { return parseFloat(number) }
+
+
+
+
 
 
 
@@ -1044,6 +1155,7 @@ $(function() {
 	})
 	
 	var oldcleantype = null;
+
 	$('.cleantype').click(function() {
 
 
@@ -1143,8 +1255,6 @@ $(function() {
 
 
 
-
-
 		if(useDiscount)
 		  firstclean = adjustment - discount - promodiscount;
 		else
@@ -1154,11 +1264,17 @@ $(function() {
 		hours = adjustment / rate;
 
 		// Calculate keep it clean, deep clean and move in out
-	    calculateFirstCleanByKeepItCleanGetCleanMoveInOut(textTab);
+
+			firstclean =  calculateFirstCleanByKeepItCleanGetCleanMoveInOut(textTab);
+
 
 
 			//$('#visit1').text(Math.floor((Math.random() * 10) + 1));
 		  	//	 	return;
+
+
+
+			console.log("cleaning total = " + firstclean);
 
 		$('#cleantype').val($(this).text());
 		$('#Ihour').text(hours.toFixed(1) + ' hours');
@@ -1360,6 +1476,7 @@ $(function() {
 		$('#subtotal').text('$' + adjustment.toFixed(0))
 		$('#psubtotal').text('$' + adjustment.toFixed(0))
 	})
+
 	$('.repeat').click(function() {
 		$('#repeat').val($(this).text());
 		
@@ -1370,9 +1487,9 @@ $(function() {
 				$('#cleantype').val('')
 				
 			$('.cleantype').first().css({
-				'border-color': '#b4d0c2',
+				'border-color': '#FF8604',
 				'background-color': '#FFF',
-				'color': '#000'
+				'color': '#FF8604'
 			}).hide();
 			
 		} else {
@@ -1426,29 +1543,31 @@ $(function() {
 
 		console.log('successfully calculated');
 		console.log('visit1 value first clean = ' + firstclean);
-		console.log('visit2 value prices = ' + recurringPrice);
+		console.log('visit2 value prices for weekly = ' + recurringPrice);
 		console.log('visit1 repeat  = ' + $('#repeat').val());
+
+		console.log('base ' + base);
+		console.log('rate  ' + biweek);
+		console.log("member input bed " + memberInputBeds());
 
 
 		console.log("new");
 
-
-		console.log("weekly " + calculateWeekly());
-		console.log("every 2 weeks " + calculateEvery2weeks());
-		console.log("every 4 weeks " + calculateEvery4weeks());
-
-
-		if ($weekTab == 'Every Week') {
-			recurringPrice = calculateWeekly();
-		} else if ($weekTab == 'Every 2 Weeks') {
-			recurringPrice = calculateEvery2weeks();
-		} else if ($weekTab == 'Every 4 Weeks') {
-			recurringPrice = calculateEvery4weeks();
-		}
-
-
-
-
+		
+	//		console.log("weekly " + calculateWeekly());
+	//		console.log("every 2 weeks " + calculateEvery2weeks());
+	//		console.log("every 4 weeks " + calculateEvery4weeks());
+	//
+	//		calculateEvery2weeks();
+	//		if ($weekTab == 'Every Week') {
+	//			recurringPrice = calculateWeekly();
+	//		} else if ($weekTab == 'Every 2 Weeks') {
+	//			recurringPrice = calculateEvery2weeks();
+	//		} else if ($weekTab == 'Every 4 Weeks') {
+	//			recurringPrice = calculateEvery4weeks();
+	//		}
+	//
+	//
 
 
 
@@ -1456,10 +1575,10 @@ $(function() {
 
 
 
+		var repeatText = $('#repeat').val().toLowerCase();
 
 
-
-
+		console.log("repeat text " + repeatText);
 
 
 
@@ -1467,13 +1586,15 @@ $(function() {
 		$('#Ihour').text(hours.toFixed(1) + ' hours');
 
 
-		if ($('#repeat').val() == 'One Time') {
-			$('#visit1').text('$' + basePrice());
+		if (repeatText == 'one time') {
+			$('#visit1').text('$' + calculateBasePrice());
+			$('#pvisit1').text('$' + calculateBasePrice());
+
 		} else {
 
 		}
 
-        $('#pvisit1').text('$' + Math.round(firstclean).toFixed(0));
+		// $('#pvisit1').text('$' + Math.round(firstclean).toFixed(0));
         if($('#repeat').val() && $('#cleantype').val() && $('#footage').val())
 		{		
         	if($('#repeat').val() && $('#repeat').val() != "One Time" && ($('#cleantype').val() == 'Keep It Clean' || !$('#cleantype').val()) && $('.addon[value=""]').length == 4)
@@ -1607,6 +1728,8 @@ $(function() {
 	<!-- BEGIN BODY -->
 	<body style="background-color: white">
 
+		<input type="button" onclick="initialize()" value="calculate" />
+				<H1> Booking calculation..</H1>
 
 	    <div style="background: #ddd; height: 7px;"></div>				<!-- TOP ROW HEADER -->
 	    <div class="row" style="background-color: #444; padding-top: 10px;padding-bottom: 10px;">
@@ -1674,7 +1797,7 @@ $(function() {
 												<br>
 												<div class="row">
 													<div class="col-xs-2">
-														<img style="height: 23px" src="assets/img/Calendar.png">
+														<img style="height: 24px" src="assets/img/Calendar.png">
 													</div>
 													<div class="col-xs-10">
 														<div id="pdate2"></div>
@@ -1701,7 +1824,7 @@ $(function() {
 								<div class="col-xs-12 col-md-6 col-sm-12 col-lg-6 col-lg-offset-1 col-md-offset-2" id="bookingContent" style="background:white; padding-left:0%;">
 									<div class="before_main">
 										<h1>Schedule Your Home Cleaning</h1>
-										<p><span><?php echo count($totaljoined); ?> neigbors</span> in <?php  echo $_SESSION['PostalCode']; ?> already use naturalcare cleaning.</p>
+										<p><span>47 neigbors</span> in 77007 already use naturalcare cleaning.</p>
 										<p>join them today.</p>
 									</div>
 								<div class="logotrigle"><img src="assets/img/logotrigle.png"></div>
@@ -2219,18 +2342,18 @@ $(function() {
 											
 											<div class="row">
 												<div class="col-xs-2"></div>
-												<div class="col-xs-12">
+												<div class="col-xs-8">
 													<div class="row">
-														<div class="col-md-2 col-sm-12 col-md-offset-2 text-center">
-															<table style="margin-top:29px;" width="100%" border="0" cellpadding="2" cellspacing="0" title="Click to Verify - This site chose Symantec SSL for secure e-commerce and confidential communications." style="display:table; margin:0 auto;">
+														<div class="col-md-3 col-md-offset-2 text-center">
+															<table width="135" border="0" cellpadding="2" cellspacing="0" title="Click to Verify - This site chose Symantec SSL for secure e-commerce and confidential communications.">
                                                         		<tr>
                                                             		<td width="135" align="center" valign="top"><script type="text/javascript" src="https://seal.websecurity.norton.com/getseal?host_name=naturalcarecleaningservice.com&amp;size=XS&amp;use_flash=NO&amp;use_transparent=NO&amp;lang=en"></script><br />
-                                                                		<a href="http://www.symantec.com/ssl-certificates" target="_blank"  style="color:#000000; text-decoration:none; font:bold 7px verdana,sans-serif; letter-spacing:.5px; text-align:center;">ABOUT SSL CERTIFICATES</a>
+                                                                		<a href="http://www.symantec.com/ssl-certificates" target="_blank"  style="color:#000000; text-decoration:none; font:bold 7px verdana,sans-serif; letter-spacing:.5px; text-align:center; margin:0px; padding:0px;">ABOUT SSL CERTIFICATES</a>
                                                             		</td>
                                                         		</tr>
                                                     		</table>
                                                     	</div>
-                                                    	<div class="col-md-2 col-md-offset-1 col-sm-12  text-center">
+                                                    	<div class="col-md-3 text-center">
                                                     		<a href="https://ssl.comodo.com">
 																<img src="https://ssl.comodo.com/images/comodo_secure_100x85_white.png" alt="SSL Certificate" width="100" height="85"><br>
 																<span style="font-weight:bold; font-size:7pt">SSL Certificate</span>
@@ -2246,10 +2369,10 @@ $(function() {
 						<div class="triagle"><img src="assets/img/triangleft.png" class="triangleft"></div>
 											<div class="summary">
 											<div class="summary col-sm-12">
-											<div class="col-md-1">
+											<div class="col-sm-3">
 											<img style="height: 24px" src="assets/img/House.png" />
-											</div>
-										<div class="col-md-8">
+										</div>
+										<div class="col-md-9">
 										<span id="t-keepclean" style="display:none;white-space:nowrap">Keep It Clean</span>
 										<span id="t-getclean" style="display:none; white-space: nowrap" >Get it Clean<br></span>
 										<span id="t-deepclean" style="display:none; white-space: nowrap">Deep Clean<br></span>
@@ -2259,22 +2382,23 @@ $(function() {
 										<span id="t-window" style="display:none; white-space: nowrap">Inside Window<br></span>
 										<span id="t-wall" style="display:none; white-space: nowrap">Bed Steam<br></span>
 										</div>
-										</div><div class="clearfix"></div>
+										</div><div class="clearfix"></div><br>
 										<div class="summary col-sm-12">
-										<div class="col-md-1">
-										<img style="height: 23px" src="assets/img/Calendar.png" />
+										<div class="col-md-3">
+										<img style="height: 24px" src="assets/img/Calendar.png" />
 										</div>
-										<div class="col-md-8">
+										<div class="col-md-9">
 										<span id="date2"></span>
 										<span id="schedule2"></span>
 										</div>
-										</div><div class="clearfix"></div>
+										</div><div class="clearfix"></div><br>
 										<div class="summary col-md-12">
 										<div class="col-sm-3">
 									</div>
 								</div>
 						</div>
 						<div class="clearfix"></div>
+						<br>
 						
 						
 						<hr style="width:100%;">
@@ -2314,9 +2438,9 @@ $(function() {
 					<div class="summary col-sm-12" style="padding-top:0px">
 						<div id="multvisit" class="tablerow col-sm-12" style="display:none; padding:0px; height:58px; color: white; background:#b4d0c2">
 						    <div style="padding-top: 15px; padding-right: 15px">
-                                <span class="col-sm-8" id="onewk" style="color:#000; display:none; height:28px; background:#b4d0c2"><b><img src="assets/img/loading.png">&nbsp;Every Week:</b></span>
-                                <span class="col-sm-8" id="twowk" style="color:#000; display:none; height:28px; background:#b4d0c2"><b><img src="assets/img/loading.png">&nbsp;Every 2 Weeks:</b></span>
-                                <span class="col-sm-8" id="fourwk" style="color:#000; display:none; height:28px; background:#b4d0c2"><b><img src="assets/img/loading.png">&nbsp;Every 4 Weeks:</b></span>
+                                <span class="col-sm-8" id="onewk" style="color:#000; display:none; height:28px; background:#b4d0c2"><b><img src="assets/img/loading.png">Every Week:</b></span>
+                                <span class="col-sm-8" id="twowk" style="color:#000; display:none; height:28px; background:#b4d0c2"><b>Every 2 Weeks:</b></span>
+                                <span class="col-sm-8" id="fourwk" style="color:#000; display:none; height:28px; background:#b4d0c2"><b>Every 4 Weeks:</b></span>
                                 <b><span style="color:#000; font-size: 20px; background:#b4d0c2" class="col-sm-4" id="visit2"> visit 2 </span></b>
                                 <sub style="float:right; background:#3dafdc; color:#000">+tax</sub>
                           </div>
@@ -2343,6 +2467,9 @@ $(function() {
 						<p>What's include is a cleaning service.?</p>
 						<p>We all cleaned all your house and more. you will love it to get the detail of the different types of cleans click here</p>
 						<p>What's include is a cleaning service.?</p>
+						<p>What's include is a cleaning service.?</p>
+						<p>What's include is a cleaning service.?</p>
+						
 					</div>
 				
 				

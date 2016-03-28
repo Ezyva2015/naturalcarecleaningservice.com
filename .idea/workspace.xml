@@ -5,6 +5,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/form/assets/css/Downloads/betheme-premium-wordpress-theme.zip" afterPath="$PROJECT_DIR$/public_html/form/assets/css/Downloads/betheme-premium-wordpress-theme.zip" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/form/book-now-calculation.php" afterPath="$PROJECT_DIR$/public_html/form/book-now-calculation.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/form/book-now-merge.php" afterPath="$PROJECT_DIR$/public_html/form/book-now-merge.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/form/book-now.php" afterPath="$PROJECT_DIR$/public_html/form/book-now.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/form/error_log" afterPath="$PROJECT_DIR$/public_html/form/error_log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/form/page1.php" afterPath="$PROJECT_DIR$/public_html/form/page1.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/form/results_table/connect-db.php" afterPath="$PROJECT_DIR$/public_html/form/results_table/connect-db.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/form/results_table/edit.php" afterPath="$PROJECT_DIR$/public_html/form/results_table/edit.php" />
@@ -29,51 +32,74 @@
     <favorites_list name="naturalcarecleaningservice.com" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="testing.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/form/testing/testing.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="2" column="62" selection-start-line="2" selection-start-column="62" selection-end-line="2" selection-end-column="62" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dynamic-calculation.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/form/testing/dynamic-calculation.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="120" column="0" selection-start-line="120" selection-start-column="0" selection-end-line="125" selection-end-column="60" />
-              <folding>
-                <element signature="n#!!block;n#calculateSqftCalc#0" expanded="false" />
-                <element signature="n#!!block;n#calculateBasePrice#0" expanded="false" />
-                <element signature="n#!!block;n#calculateWeekly#0" expanded="false" />
-                <element signature="n#!!block;n#calculateEvery2Weeks#0" expanded="false" />
-                <element signature="n#!!block;n#calculateEvery4Weeks#0" expanded="false" />
-                <element signature="n#!!block;n#calculateGetItClean#0" expanded="false" />
-                <element signature="n#!!block;n#calculateDeepClean#0" expanded="false" />
-                <element signature="n#!!block;n#calculateMoveInOut#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="book-now-calculation.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public_html/form/book-now-calculation.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9794168">
-              <caret line="1564" column="0" selection-start-line="1564" selection-start-column="0" selection-end-line="1564" selection-end-column="0" />
-              <folding>
-                <element signature="e#33#104#0#PHP" expanded="true" />
-                <marker date="1457025095169" expanded="true" signature="412:433" placeholder="SELECT * FRO..options..." />
-                <marker date="1457025095169" expanded="true" signature="10600:10626" placeholder="SELECT * FRO..disabledates..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5008039">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="book-now-merge.php" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/public_html/form/book-now-merge.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.5927835">
+                  <caret line="1670" column="2" selection-start-line="1670" selection-start-column="2" selection-end-line="1670" selection-end-column="2" />
+                  <folding>
+                    <marker date="1457946570642" expanded="true" signature="412:433" placeholder="SELECT * FRO..options..." />
+                    <marker date="1457946570642" expanded="true" signature="10888:10914" placeholder="SELECT * FRO..disabledates..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="book-now-calculation.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/public_html/form/book-now-calculation.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="1157" column="0" selection-start-line="1157" selection-start-column="0" selection-end-line="1157" selection-end-column="0" />
+                  <folding>
+                    <marker date="1457943594058" expanded="true" signature="412:433" placeholder="SELECT * FRO..options..." />
+                    <marker date="1457943594058" expanded="true" signature="10888:10914" placeholder="SELECT * FRO..disabledates..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="book-now-calculation working.php" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/public_html/form/book-now-calculation working.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.3453888">
+                  <caret line="1588" column="0" selection-start-line="1588" selection-start-column="0" selection-end-line="1588" selection-end-column="0" />
+                  <folding>
+                    <marker date="1457946982446" expanded="true" signature="412:433" placeholder="SELECT * FRO..options..." />
+                    <marker date="1457946982446" expanded="true" signature="10600:10626" placeholder="SELECT * FRO..disabledates..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="dynamic-calculation.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/public_html/form/testing/dynamic-calculation.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+                  <folding>
+                    <element signature="n#!!block;n#calculateSqftCalc#0" expanded="false" />
+                    <element signature="n#!!block;n#calculateBasePrice#0" expanded="false" />
+                    <element signature="n#!!block;n#calculateWeekly#0" expanded="false" />
+                    <element signature="n#!!block;n#calculateEvery2Weeks#0" expanded="false" />
+                    <element signature="n#!!block;n#calculateEvery4Weeks#0" expanded="false" />
+                    <element signature="n#!!block;n#calculateGetItClean#0" expanded="false" />
+                    <element signature="n#!!block;n#calculateDeepClean#0" expanded="false" />
+                    <element signature="n#!!block;n#calculateMoveInOut#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -95,13 +121,15 @@
         <option value="$PROJECT_DIR$/public_html/form/assets/css/stepper.css" />
         <option value="$PROJECT_DIR$/public_html/form/assets/js/stepper.js" />
         <option value="$PROJECT_DIR$/public_html/form/page1.php" />
-        <option value="$PROJECT_DIR$/public_html/form/book-now.php" />
         <option value="$PROJECT_DIR$/public_html/form/results_table/edit.php" />
         <option value="$PROJECT_DIR$/public_html/form/results_table/connect-db.php" />
         <option value="$PROJECT_DIR$/public_html/form/testing/testing.js" />
         <option value="$PROJECT_DIR$/public_html/form/testing/testing.php" />
         <option value="$PROJECT_DIR$/public_html/form/testing/dynamic-calculation.js" />
         <option value="$PROJECT_DIR$/public_html/form/book-now-calculation.php" />
+        <option value="$PROJECT_DIR$/public_html/form/book-now.php" />
+        <option value="$PROJECT_DIR$/public_html/form/book-now-calculation working.php" />
+        <option value="$PROJECT_DIR$/public_html/form/book-now-merge.php" />
       </list>
     </option>
   </component>
@@ -115,8 +143,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP 5.6" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="88" />
-    <option name="width" value="1198" />
+    <option name="x" value="62" />
+    <option name="width" value="1304" />
     <option name="height" value="768" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -130,7 +158,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -143,91 +171,14 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="naturalcarecleaningservice.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="naturalcarecleaningservice.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="naturalcarecleaningservice.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="naturalcarecleaningservice.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="naturalcarecleaningservice.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public_html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="naturalcarecleaningservice.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="naturalcarecleaningservice.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public_html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="form" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="naturalcarecleaningservice.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="naturalcarecleaningservice.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public_html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="form" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="testing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files (x86)\nodejs\node.exe" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../shevon/ngedove.com/ngedove.com" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../app.thesmsfacademy.com.au" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://E:/xampp/htdocs/Tim/naturalcarecleaningservice.com/public_html/form/testing/dynamic-calculation.js" />
   </component>
   <component name="RecentsManager">
@@ -291,10 +242,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="88" y="0" width="1198" height="768" extended-state="0" />
-    <editor active="false" />
+    <frame x="62" y="0" width="1304" height="768" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.271529" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28456593" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -330,6 +281,34 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/public_html/form/book-now-calculation working.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1457946982446" expanded="true" signature="412:433" placeholder="SELECT * FRO..options..." />
+            <marker date="1457946982446" expanded="true" signature="10600:10626" placeholder="SELECT * FRO..disabledates..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/form/testing/dynamic-calculation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+          <folding>
+            <element signature="n#!!block;n#calculateSqftCalc#0" expanded="false" />
+            <element signature="n#!!block;n#calculateBasePrice#0" expanded="false" />
+            <element signature="n#!!block;n#calculateWeekly#0" expanded="false" />
+            <element signature="n#!!block;n#calculateEvery2Weeks#0" expanded="false" />
+            <element signature="n#!!block;n#calculateEvery4Weeks#0" expanded="false" />
+            <element signature="n#!!block;n#calculateGetItClean#0" expanded="false" />
+            <element signature="n#!!block;n#calculateDeepClean#0" expanded="false" />
+            <element signature="n#!!block;n#calculateMoveInOut#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public_html/form/results_table/error_log">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -379,13 +358,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/form/book-now.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public_html/form/assets/css/stepper.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -439,7 +411,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="39" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -447,13 +418,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="47" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/form/book-now.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -496,7 +460,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="39" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -507,18 +470,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/form/book-now.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public_html/form/testing/testing.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="39" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -606,13 +561,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/form/book-now.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3916084">
-          <caret line="597" column="28" selection-start-line="597" selection-start-column="28" selection-end-line="597" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public_html/form/infusionsoft/PHP-iSDK-master/src/conn.cfg.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.05944056">
@@ -671,16 +619,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public_html/form/testing/testing.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.0609319">
           <caret line="2" column="62" selection-start-line="2" selection-start-column="62" selection-end-line="2" selection-end-column="62" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public_html/form/testing/dynamic-calculation.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="120" column="0" selection-start-line="120" selection-start-column="0" selection-end-line="125" selection-end-column="60" />
+          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
           <folding>
             <element signature="n#!!block;n#calculateSqftCalc#0" expanded="false" />
             <element signature="n#!!block;n#calculateBasePrice#0" expanded="false" />
@@ -696,12 +643,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public_html/form/book-now-calculation.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9794168">
-          <caret line="1564" column="0" selection-start-line="1564" selection-start-column="0" selection-end-line="1564" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1157" column="0" selection-start-line="1157" selection-start-column="0" selection-end-line="1157" selection-end-column="0" />
           <folding>
-            <element signature="e#33#104#0#PHP" expanded="true" />
-            <marker date="1457025095169" expanded="true" signature="412:433" placeholder="SELECT * FRO..options..." />
-            <marker date="1457025095169" expanded="true" signature="10600:10626" placeholder="SELECT * FRO..disabledates..." />
+            <marker date="1457943594058" expanded="true" signature="412:433" placeholder="SELECT * FRO..options..." />
+            <marker date="1457943594058" expanded="true" signature="10888:10914" placeholder="SELECT * FRO..disabledates..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/form/book-now-calculation working.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3453888">
+          <caret line="1588" column="0" selection-start-line="1588" selection-start-column="0" selection-end-line="1588" selection-end-column="0" />
+          <folding>
+            <marker date="1457946982446" expanded="true" signature="412:433" placeholder="SELECT * FRO..options..." />
+            <marker date="1457946982446" expanded="true" signature="10600:10626" placeholder="SELECT * FRO..disabledates..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/form/book-now-merge.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5927835">
+          <caret line="1670" column="2" selection-start-line="1670" selection-start-column="2" selection-end-line="1670" selection-end-column="2" />
+          <folding>
+            <marker date="1457946570642" expanded="true" signature="412:433" placeholder="SELECT * FRO..options..." />
+            <marker date="1457946570642" expanded="true" signature="10888:10914" placeholder="SELECT * FRO..disabledates..." />
           </folding>
         </state>
       </provider>
