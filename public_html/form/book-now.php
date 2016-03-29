@@ -16,6 +16,17 @@
 require_once ('infusionsoft/PHP-iSDK-master/src/isdk.php');
 require_once ('stripe/init.php');
 require_once ('conf.php');
+require_once 'email/PHPMailer-master/PHPMailerAutoload.php'; 
+
+
+
+
+
+//echo "<pre>";
+//
+//	print_r($_SESSION);
+//
+//echo "</pre>";
 
 // Important value variables
 
@@ -67,13 +78,213 @@ foreach($contacts as $contact){
 	if($contact['Contact.PostalCode']==$_SESSION['PostalCode']){
 		
 		
-		$totaljoined[] = 1;
-		
-		
-	}
-	
-	
+		$totaljoined[] = 1; 
+	} 
 }
+
+
+
+
+
+
+
+/**
+ * Function name
+ * what the function does
+ *
+ * Parameters:
+ *     (name) - about this param
+ */
+
+  //   if ($_SERVER['REQUEST_METHOD']=='POST' && $_POST['_Frequency']!='' && $_POST['_SelectYourDate']!='' && $_POST['_ArrivalWindow']!='' && $_POST['_InitialCleanType']!='' && $_POST['FirstName']!='' && $_POST['City']!='' && $_POST['LastName']!='' && $_POST['Email']!='' && $_POST['Phone1']!='' && $_POST['StreetAddress1']!='' && $_POST['State']!='' && $_POST['PostalCode']!='' && $_POST['credit_card']!='' && $_POST['cvc']!='' && $_POST['expmonth']!='' && $_POST['expyear']!='')
+  //   {
+  //   	$addOnDsp = '';
+    	
+  //   	if($_POST['_AddOns'])
+  //   		$_POST['_AddOns'] = substr($_POST['_AddOns'], 1); // trim leading comma
+    		
+  //   	foreach(explode(',', $_POST['AddOns']) as $addOn)
+		// 	$addOnDsp .= $addOn . '<br>';
+		
+		// $addOnDsp = trim($addOnDsp, '<br>');
+    	
+  //       $contact_data = [];
+  //       foreach ($_POST as $k=>$value)
+  //       {
+  //           if ($k!='credit_card' && $k!='cvc' && $k!='expmonth' && $k!='expyear' && $k!='continue2' && $k!='stripeToken')
+  //           {
+  //               $contact_data[$k] = $value;
+  //               $_SESSION[$k] = $value;
+  //           }
+  //       }
+  //       $_SESSION['credit_card'] = $_POST['credit_card'];
+  //       $_SESSION['cvc'] = $_POST['cvc'];
+  //       $_SESSION['expmonth'] = $_POST['expmonth'];
+  //       $_SESSION['expyear'] = $_POST['expyear'];
+        
+      
+		// // email form
+		// $headers  = 'MIME-Version: 1.0' . "\r\n";
+		// $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+		// // $headers .= 'To: Adam <kauseway@gmail.com>' . "\r\n";
+		// $headers .= 'To: Adam <mrjesuserwinsuarez@gmail.com>' . "\r\n";
+		// $headers .= 'From: ' . $_POST['FirstName'] . ' ' . $_POST['LastName'] . ' <' . $_POST['Email'] . '>' . "\r\n";
+		
+		// $subject = 'Cleaning Confirmation';
+		// // $to = 'kauseway@gmail.com';
+		// $to = 'mrjesuserwinsuarez@gmail.com'; 
+
+		// $message = 
+		// 	'<html>'.
+		// 		'<head>'.
+		// 			'<title>Cleaning Confirmation</title>'.
+		// 		'</head>'.
+		// 		'<body>'.
+		// 			'<p>A customer has paid for cleaning services</p><br />'.
+		// 			'<span><b>Contact Info</b></span><br />'.
+		// 			'<table>'.
+		// 				'<tr>'.
+		// 					'<td><b>Name</b></td>'.
+		// 					'<td>' . $_POST['FirstName'] . ' ' . $_POST['LastName'] . '</td>'.
+		// 				'</tr>'.
+		// 				'<tr>'.
+		// 					'<td><b>Address Line 1</b></td>'.
+		// 					'<td>' . $_POST['StreetAddress1'] . '</td>'.
+		// 				'</tr>'.
+		// 				'<tr>'.
+		// 					'<td><b>Address Line 2</b></td>'.
+		// 					'<td>' . $_POST['StreetAddress2'] . '</td>'.
+		// 				'</tr>'.
+		// 				'<tr>'.
+		// 					'<td><b>City</b></td>'.
+		// 					'<td>' . $_POST['City'] . '</td>'.
+		// 				'</tr>'.
+		// 				'<tr>'.
+		// 					'<td><b>State</b></td>'.
+		// 					'<td>' . $_POST['State'] . '</td>'.
+		// 				'</tr>'.
+		// 				'<tr>'.
+		// 					'<td><b>Zip Code</b></td>'.
+		// 					'<td>' . $_POST['PostalCode'] . '</td>'.
+		// 				'</tr>'.
+		// 				'<tr>'.
+		// 					'<td><b>Email</b></td>'.
+		// 					'<td>' . $_POST['Email'] . '</td>'.
+		// 				'</tr>'.
+		// 			'</table><br />'.
+		// 			'<span><b>Cleaning Info</b></span><br />'.
+		// 			'<table>'.
+		// 				'<tr>'.
+		// 					'<td><b>Clean Type</b></td>'.
+		// 					'<td>' . $_POST['_InitialCleanType'] . '</td>'.
+		// 				'</tr>'.
+		// 				'<tr>'.
+		// 					'<td><b>Reccuring Frequency</b></td>'.
+		// 					'<td>' . $_POST['_Frequency'] . '</td>'.
+		// 				'</tr>'.
+		// 				'<tr>'.
+		// 					'<td><b>Addons</b></td>'.
+		// 					'<td>'. $addOnDsp . '</td>'.
+		// 				'</tr>'.
+		// 				'<tr>'.
+		// 					'<td><b>Appointment Date</b></td>'.
+		// 					'<td>' . $_POST['_SelectYourDate'] . '</td>'.
+		// 				'</tr>'.
+		// 				'<tr>'.
+		// 					'<td><b>Time of Day</b></td>'.
+		// 					'<td>' . $_POST['_ArrivalWindow'] . '</td>'.
+		// 				'</tr>'.
+		// 			'</table>'.
+		// 		'</body>'.
+		// 	'</html>';
+		
+
+
+		// $mail = new PHPMailer; 
+
+		// $mail->setFrom('michael@automationlab.com.au', 'Mailer');
+		// $mail->addAddress('mrjesuserwinsuarez@gmail.com', 'Jesus User');     // Add a recipient 
+
+		// $mail->addReplyTo('michael@automationlab.com.au', 'Information'); 
+
+		// $mail->isHTML(true);                                  // Set email format to HTML
+
+		// $mail->Subject = 'Cleaning Confirmation';
+		// $mail->Body    = $message; 
+
+		// if(!$mail->send()) {
+		//     echo 'Message could not be sent.';
+		//     echo 'Mailer Error: ' . $mail->ErrorInfo;
+		// } else {
+		//     echo 'Message has been sent';
+		// }
+
+
+
+
+		// 	// mail($to, $subject, $message, $headers);
+		
+  //       // $redirect = '<script>window.location = "/form/final.php";</script>';
+  //   } else {
+  //   	echo "Not send yet<br>";
+  //   }
+
+
+
+
+// if (isset($_SESSION) && !empty($_SESSION) && isset($_SESSION['contact_id']))
+// {
+	// if ($_SERVER['REQUEST_METHOD']=='POST' && $_POST['_Frequency']!='' && $_POST['_SelectYourDate']!='' && $_POST['_ArrivalWindow']!='' && $_POST['_InitialCleanType']!='' && $_POST['FirstName']!='' && $_POST['City']!='' && $_POST['LastName']!='' && $_POST['Email']!='' && $_POST['Phone1']!='' && $_POST['StreetAddress1']!='' && $_POST['State']!='' && $_POST['PostalCode']!='' && $_POST['credit_card']!='' && $_POST['cvc']!='' && $_POST['expmonth']!='' && $_POST['expyear']!='') { 
+	// 	print ("Form submitted <br>");  
+
+	//  //    $_SESSION['StreetAddress1']  
+	//  //    $_SESSION['City']  
+	//  //    $_SESSION['State']   
+	//  //    $_SESSION['Country']  
+	//  //    $_SESSION['StreetAddress2']  
+	//  //    $_SESSION['PostalCode']   
+	//  //    $_SESSION['Email'] 
+	//  //    $_SESSION['_SquareFootagesize'] 
+	//  //    $_SESSION['_Beds']   
+	//  //    $_SESSION['_baths']  
+	//  //    $_SESSION['FirstName']  
+	//  //    $_SESSION['LastName']  
+	// 	// $_SESSION['phonenum']  
+	// 	// $_SESSION['ServiceType']  
+
+
+
+
+	// 	// $mail = new PHPMailer; 
+
+	// 	// $mail->setFrom('michael@automationlab.com.au', 'Mailer');
+	// 	// $mail->addAddress('mrjesuserwinsuarez@gmail.com', 'Jesus User');     // Add a recipient 
+
+	// 	// $mail->addReplyTo('michael@automationlab.com.au', 'Information'); 
+
+	// 	// $mail->isHTML(true);                                  // Set email format to HTML
+
+	// 	// $mail->Subject = 'Here is the subject';
+	// 	// $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+	// 	// $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+	// 	// if(!$mail->send()) {
+	// 	//     echo 'Message could not be sent.';
+	// 	//     echo 'Mailer Error: ' . $mail->ErrorInfo;
+	// 	// } else {
+	// 	//     echo 'Message has been sent';
+	// 	// }
+
+
+		 
+
+
+	// } else {
+	// 	print("Form not yet submitted <br>");
+	// }
+
+// }
+
 
 
 
@@ -133,11 +344,39 @@ if (isset($_SESSION) && !empty($_SESSION) && isset($_SESSION['contact_id']))
 		// email form
 		$headers  = 'MIME-Version: 1.0' . "\r\n";
 		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-		$headers .= 'To: Adam <adamclayd@gmail.com>' . "\r\n";
+		 $headers .= 'To: Adam <kauseway@gmail.com>' . "\r\n";
+//		$headers .= 'To: Adam <mrjesuserwinsuarez@gmail.com>' . "\r\n";
 		$headers .= 'From: ' . $_POST['FirstName'] . ' ' . $_POST['LastName'] . ' <' . $_POST['Email'] . '>' . "\r\n";
 		
 		$subject = 'Cleaning Confirmation';
-		$to = 'kauseway@gmail.com';
+		 $to = 'kauseway@gmail.com';
+
+ 
+//		echo "<pre>";
+//			print_r($_POST);
+//		echo "</pre>";
+
+
+		$Country              = $_SESSION['Country'];
+		$_SquareFootagesize   = $_SESSION['_SquareFootagesize'];
+		$_Beds                = $_SESSION['_Beds'];
+	    $_baths               = $_SESSION['_baths']; 
+	    $phonenum             = $_SESSION['phonenum'];
+	    $ServiceType          = $_SESSION['ServiceType'];
+	    $contact_id           = $_SESSION['contact_id']; 
+	    $Phone1               = $_SESSION['Phone1']; 
+	    $_promodiscount       = $_SESSION['_promodiscount'];
+	    $_YourFirstClean      = $_SESSION['_YourFirstClean'];
+	    $_FirstCleanHours     = $_SESSION['_FirstCleanHours'];
+	    $_YourRecurringPrice  = $_SESSION['_YourRecurringPrice'];
+	    $_RecurringDiscount   = $_SESSION['_RecurringDiscount'];
+	    $_OneTimeAdjustment   = $_SESSION['_OneTimeAdjustment'];
+	    $_PromoCode           = $_SESSION['_PromoCode'];
+	    $credit_card          = $_SESSION['credit_card'];
+	    $cvc                  = $_SESSION['cvc'];
+	    $expmonth             = $_SESSION['expmonth'];
+	    $expyear              = $_SESSION['expyear'];
+		
 
 		$message = 
 			'<html>'.
@@ -167,6 +406,10 @@ if (isset($_SESSION) && !empty($_SESSION) && isset($_SESSION['contact_id']))
 						'<tr>'.
 							'<td><b>State</b></td>'.
 							'<td>' . $_POST['State'] . '</td>'.
+						'</tr>'.
+						'<tr>'.
+							'<td><b>Country</b></td>'.
+							'<td>' . $Country . '</td>'.
 						'</tr>'.
 						'<tr>'.
 							'<td><b>Zip Code</b></td>'.
@@ -199,12 +442,80 @@ if (isset($_SESSION) && !empty($_SESSION) && isset($_SESSION['contact_id']))
 							'<td><b>Time of Day</b></td>'.
 							'<td>' . $_POST['_ArrivalWindow'] . '</td>'.
 						'</tr>'.
-					'</table>'.
+					'</table><br />'.
+					'<span><b>Others</b></span><br />'.
+					'<table>'.
+						'<tr>'.
+							'<td><b>Square Footage</b></td>'.
+							'<td>' . $_SquareFootagesize. '</td>'.
+						'</tr>'.
+						'<tr>'.
+							'<td><b>Beds</b></td>'.
+							'<td>' . $_Beds . '</td>'.
+						'</tr>'.
+						'<tr>'.
+							'<td><b>Baths</b></td>'.
+							'<td>'. $_Beds . '</td>'.
+						'</tr>'.
+						'<tr>'.
+							'<td><b>Phone Number</b></td>'.
+							'<td>' . $phonenum . '</td>'.
+						'</tr>'.
+						'<tr>'.
+							'<td><b>Contact Id</b></td>'.
+							'<td>' . $contact_id . '</td>'.
+						'</tr>'.
+
+						'<tr>'.
+							'<td><b>Phone 1</b></td>'.
+							'<td>' . $Phone1 . '</td>'.
+						'</tr>'.
+						'<tr>'.
+							'<td><b>Promo Discount</b></td>'.
+							'<td>' .$_promodiscount . '</td>'.
+						'</tr>'.
+						'<tr>'.
+							'<td><b>Your first clean</b></td>'.
+							'<td>' . $_YourFirstClean . '</td>'.
+						'</tr>'.
+						'<tr>'.
+							'<td><b>Your first clean hours</b></td>'.
+							'<td>' . $_FirstCleanHours . '</td>'.
+						'</tr>'.
+						'<tr>'.
+							'<td><b>Your recurring price</b></td>'.
+							'<td>' . $_YourRecurringPrice . '</td>'.
+						'</tr>'.
+						'<tr>'.
+							'<td><b>Recurring Discount</b></td>'.
+							'<td>' . $_RecurringDiscount . '</td>'.
+						'</tr>'.
+						'<tr>'.
+							'<td><b>One time adjustment </b></td>'.
+							'<td>' .  $_OneTimeAdjustment . '</td>'.
+						'</tr>'.
+						'<tr>'.
+							'<td><b>Promo code</b></td>'.
+							'<td>' . $_PromoCode . '</td>'.
+						'</tr>'.  
+					'</table>' .  
 				'</body>'.
 			'</html>';
-		
+
+
+//			if(
 			mail($to, $subject, $message, $headers);
-		
+			//	){
+//				echo "mail sent <br>";
+//			    $redirect = '<script>window.location = "/form/final.php";</script>';
+
+//			} else {
+//				echo "failed to sent email <br>";
+//			}
+			
+
+
+//			echo "redirect to /form/final.php now! <br>";
         $redirect = '<script>window.location = "/form/final.php";</script>';
     }
 }
@@ -1923,17 +2234,27 @@ $(function() {
     <div class="col-sm-6">
 
     <div class="menu-link">
- 
-        <a href="#"> 
+
+
+		&nbsp; &nbsp;
+
+        <a href="https://naturalcarecleaningservice.com/why-us/" target="_blank" style="float:right; padding-left:20px;">
           FAQ
-        </a> 
+        </a>
+
   		&nbsp; &nbsp;
 
-        <a href="#" class="menu-phone-contact-us"> 
+		<a href="tel:281-531-0544" >
+			<span class="glyphicon glyphicon-earphone menu-phone" aria-hidden="true" style="border: 1px solid #2EA3F2;padding-right: 18px;padding-bottom: 3px;padding-top: 3px;padding-left: 4px;"></span>
+		</a>
+
+		&nbsp; &nbsp;
+
+        <a  class="menu-phone-contact-us" href="tel:281-531-0544" >
           Contact us
-        </a> 
-        
-        <span class="glyphicon glyphicon-earphone menu-phone" aria-hidden="true"></span>
+        </a>
+
+
     
 
 
