@@ -43,6 +43,11 @@ include('results_table/connect-db.php');
 
     
     // check that the 'id' matches up with a row in the databse
+
+    // echo "<pre>";
+    // 	print_r($row);
+    // echo "</pre>";
+ 
     if($row)
     {
     
@@ -344,12 +349,17 @@ if (isset($_SESSION) && !empty($_SESSION) && isset($_SESSION['contact_id']))
 		// email form
 		$headers  = 'MIME-Version: 1.0' . "\r\n";
 		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-		 $headers .= 'To: Adam <kauseway@gmail.com>' . "\r\n";
+		 // $headers .= 'To: Adam <kauseway@gmail.com>' . "\r\n";
+	     $headers .= 'To: Adam <support@gmail.com>' . "\r\n";
+		 
 //		$headers .= 'To: Adam <mrjesuserwinsuarez@gmail.com>' . "\r\n";
 		$headers .= 'From: ' . $_POST['FirstName'] . ' ' . $_POST['LastName'] . ' <' . $_POST['Email'] . '>' . "\r\n";
 		
 		$subject = 'Cleaning Confirmation';
-		 $to = 'kauseway@gmail.com';
+		 // $to = 'kauseway@gmail.com';
+		 $to = 'support@gmail.com';
+
+		 
 
  
 //		echo "<pre>";
@@ -572,7 +582,6 @@ if (isset($_SESSION) && !empty($_SESSION) && isset($_SESSION['contact_id']))
         <script src="assets/plugins/jquery-validation-1.11.1/dist/jquery.validate.js"></script>
         <script src="assets/plugins/jasny/js/bootstrap-inputmask.js"></script>
         <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
-        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
         <script src="assets/js/jquery-scrolltofixed.js" type="text/javascript"></script>
         <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 
@@ -594,7 +603,7 @@ if (isset($_SESSION) && !empty($_SESSION) && isset($_SESSION['contact_id']))
 
 		<link href="assets/css/stepper.css"  rel="stylesheet" type="text/css" media="all" >
 		<link rel="stylesheet" href="assets/css/booknow2.css" />
-
+		<link rel="stylesheet" href="assets/css/res.css" />
 
 
 
@@ -1057,19 +1066,24 @@ $(function() {
 	 */
 	function calculateFirstCleanByKeepItCleanGetCleanMoveInOut(text)
 	{
-		var tabClass = '.cleantype';
-		var firstCleanId = '#visit1';
-		var totalBathRooms = parseFloat($('#bath').val());
-		var totalBedRooms = parseInt($('#bed').val());
-		getclean  = parseFloat("1.25");
-		deepclean = parseFloat("1.5");
-		moveinout = parseFloat("1.75");
-		var SQFTInput = parseInt($('#footage').val());
-		var totalBasePrice = getTotalBasePrice(calculate_sqrtFt(SQFTInput), totalBedRooms, totalBathRooms);
 
 
 		console.log("INITIALIZED");
 		initialize();
+
+
+		var tabClass = '.cleantype';
+		var firstCleanId = '#visit1';
+		var totalBathRooms = parseFloat($('#bath').val());
+		var totalBedRooms = parseInt($('#bed').val());
+		// getclean  = parseFloat("1.25");
+		// deepclean = parseFloat("1.5");
+		// moveinout = parseFloat("1.75");
+		var SQFTInput = parseInt($('#footage').val());
+		var totalBasePrice = getTotalBasePrice(calculate_sqrtFt(SQFTInput), totalBedRooms, totalBathRooms);
+
+
+		
 
 		text = text.toLowerCase();
 		console.log("get it clean " +  calculateGetItClean());
@@ -1534,9 +1548,9 @@ $(function() {
 	    {
 
 
-			getclean  = parseFloat("1.25");
-			deepclean = parseFloat("1.5");
-			moveinout = parseFloat("1.75");
+			// getclean  = parseFloat("1.25");
+			// deepclean = parseFloat("1.5");
+			// moveinout = parseFloat("1.75");
 			var textTab  = $(this).text();
 
 
@@ -2174,7 +2188,88 @@ $(function() {
 	<!-- END HEAD -->
 
 	<!-- BEGIN BODY -->
-	<body style="background-color: white" > 
+	<body style="background-color: white" onload="init();"> 
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
+	<!--FSHEEN-->
+	<div class="modal_body_faq">
+		<div class="modal_content_faq">
+		<div class="triagle"><img src="assets/img/triangleft.png" class="triangleft"></div>
+		<a class="close" id="close1">&times;</a>
+		<h2>FOR ASK AND QUESTION</h2>
+		
+		</div>
+	</div>
+	
+	
+	
+	
+	<div class="modal_body">
+		<div class="modal_content">
+		<?php
+			if(isset($_POST['name']) OR isset($_POST['address'])){
+				print_r($_POST['name']);
+			}
+
+		?>
+		<div class="triagle"><img src="assets/img/triangleft.png" class="triangleft"></div>
+		<a class="close"id="close">&times;</a>
+		<h2>Edit your Information</h2>
+			<div style="padding-left:0px;" class="error-success-wrapper"></div>
+			<form role="form"  id="idForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+				<div class="form-group" style="padding-left:0px !important;">
+					<label for="Name">Name:</label>
+					<input type="text" name="fname" class="form-control" value="<?= isset($_SESSION['FirstName'])?$_SESSION['FirstName']:'' ?>" required>
+				</div>
+				<div class="form-group" style="padding-left:0px !important;">
+					<label for="address">Address:</label>
+					<input type="text" id="locationTextField" name="address" class="form-control"  value="<?= isset($_SESSION['StreetAddress1'])?$_SESSION['StreetAddress1']:'' ?>" required>
+					
+				</div>
+				 <table id="address" style="display:none">
+					  <tr>
+						
+						<td class="label">Street address</td>
+						<td class="slimField"><input class="field" id="street_number" name="street_number"
+							  readonly></input>
+							  
+							  <input name="Email2" value="<?= isset($_SESSION['Email'])?$_SESSION['Email']:'' ?>"  class="form-control" placeholder="Email" />
+							  </td>
+						<td class="wideField" colspan="2"><input class="field" id="route" name="route"
+							  readonly></input></td>
+					  </tr>
+					  <tr>
+						<td class="label">City</td>
+						<td class="wideField" colspan="3"><input class="field" name="locality" id="locality"
+							  readonly></input></td>
+					  </tr>
+					  <tr>
+						<td class="label">State</td>
+						<td class="slimField"><input class="field" name="State"
+							  id="administrative_area_level_1" readonly></input></td>
+						<td class="label">Zip code</td>
+						<td class="wideField"><input class="field" name="PostalCode" id="postal_code" readonly/></td>
+					  </tr>
+					  <tr>
+						<td class="label">Country</td>
+						<td class="wideField" colspan="3"><input class="field"
+							  id="country" readonly></input></td>
+					  </tr>
+					</table>
+				<input type="submit" class="btn btn-default" value = "Update">
+			</form>
+		</div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 		<!-- Session here for recurring: <br> -->
 		<?php  
 			//echo " Service Type = " . $_SESSION['ServiceType'] . '<br>';
@@ -2190,7 +2285,7 @@ $(function() {
 		</center>
  
 
-		<div style="display:none" class="display-container">
+		<div style="display:none; padding-left:0px;" class="display-container">
 
 
 
@@ -2217,58 +2312,59 @@ $(function() {
 
         
 		<!-- MAIN WRAPPER -->
-		<div class="container-fluid container-header-menu" id="wrap" style="padding: 0px">
+		<div class="container-fluid container-header-menu" id="wrap" style="padding: 0px ">
 
 
 
-
-<div class="container container-content"> 
-  <div class="testing-logo"><div class="row">
-    <div class="col-sm-6"><a href="https://naturalcarecleaningservice.com/" style="
-    /* border: 1px solid red; */
-">
-                    <img src="https://naturalcarecleaningservice.com/wp-content/uploads/2016/01/new-logo-all-white-line-on-black.png" height="60px" alt="Naturalcare Cleaning Service" id="logo">
-
-               		 
-                </a></div>
-    <div class="col-sm-6">
-
-    <div class="menu-link">
-
-
-		&nbsp; &nbsp;
-
-        <a href="https://naturalcarecleaningservice.com/why-us/" target="_blank" style="float:right; padding-left:20px;">
-          FAQ
-        </a>
-
-  		&nbsp; &nbsp;
-
-		<a href="tel:281-531-0544" >
-			<span class="glyphicon glyphicon-earphone menu-phone" aria-hidden="true" style="border: 1px solid #2EA3F2;padding-right: 18px;padding-bottom: 3px;padding-top: 3px;padding-left: 4px;"></span>
-		</a>
-
-		&nbsp; &nbsp;
-
-        <a  class="menu-phone-contact-us" href="tel:281-531-0544" >
-          Contact us
-        </a>
-
-
-    
-
-
-      
-      </div>
- 
-      </div> 
-  </div>
-  </div> 
-
-</div>
-
-
-
+		<div class="container container-content"> 
+		    <div class="testing-logo">
+			    <div class="row">
+				    <div class="col-sm-6"> 
+					    <a href="https://naturalcarecleaningservice.com/" style=" ">
+							<img src="https://naturalcarecleaningservice.com/wp-content/uploads/2016/01/new-logo-all-white-line-on-black.png" height="60px" alt="Naturalcare Cleaning Service" id="logo"> 
+						</a>
+				   	</div> 
+				    <div class="col-sm-6"> 
+					    <div class="menu-link"> 
+							&nbsp; &nbsp; 
+					        <a href="https://naturalcarecleaningservice.com/why-us/" target="_blank" style="float:right; padding-left:20px;">
+					          FAQ
+					        </a> 
+					  		&nbsp; &nbsp; 
+							<a href="tel:281-531-0544" >
+								<span class="glyphicon glyphicon-earphone menu-phone" aria-hidden="true" style="border: 1px solid #2EA3F2;padding-right: 18px;padding-bottom: 3px;padding-top: 3px;padding-left: 4px;"></span>
+							</a> 
+							&nbsp; &nbsp; 
+					        <a  class="menu-phone-contact-us" href="tel:281-531-0544" >
+					          Contact us
+					        </a> 
+					      </div>
+				      </div>
+			      </div>
+		      </div>
+	      </div>
+ 	<!-- 
+			<div class="container container-content" style="display:none"> 
+				<div class="testing-logo">
+					<div class="row" style="padding-left:0px !important;">
+						<div class="col-md-6" >
+							<a href="https://naturalcarecleaningservice.com/" style="/* border: 1px solid red; */">
+								<img src="https://naturalcarecleaningservice.com/wp-content/uploads/2016/01/new-logo-all-white-line-on-black.png" height="60px" alt="Naturalcare Cleaning Service" id="logo">
+							</a>
+						</div>
+						<div class="col-md-2  col-md-offset-4 link" >
+							<div class="col-md-4">
+								<a href="#" class="desktop">FAQ<span class="glyphicon glyphicon-earphone menu-phone" aria-hidden="true"></span></a>
+								<a href="#" class="mobile" id="modal_form_faq">FAQ<span class="glyphicon glyphicon-earphone menu-phone" aria-hidden="true"></span></a>
+							</div>
+							<div class="col-md-8">
+								<a href="#">Contact us</a>
+							</div>
+						</div> 
+					</div>
+				</div> 
+		 
+ -->
 
 
 
@@ -2356,7 +2452,7 @@ $(function() {
 								<div class="col-xs-12 col-md-6 col-sm-12 col-lg-6 col-lg-offset-1 col-md-offset-2" id="bookingContent" style="background:white; padding-left:0%;">
 									<div class="before_main">
 										<h1>Schedule Your Home Cleaning</h1>
-										<p><span><?php echo count($totaljoined); ?> neigbors</span> in <?php  echo $_SESSION['PostalCode']; ?> already use naturalcare cleaning.</p>
+										<p><span><?php echo count($totaljoined); ?> neighbors</span> in <?php  echo $_SESSION['PostalCode']; ?> already use naturalcare cleaning.</p>
 										<p>join them today.</p>
 									</div>
 								<div class="logotrigle"><img src="assets/img/logotrigle.png"></div>
@@ -2485,7 +2581,7 @@ $(function() {
 									
 									 <h3 class="ip-subheader">Pick the level for your first cleaned?</h3>
 										<div class="row">
-										<?php if( $_SESSION['ServiceType'] != 'Recurring'): ?>
+										<?php if( $_SESSION['ServiceType'] == 'Recurring'): ?>
 									       <div class="col-xs-6 col-md-6 col-lg-3">
 									           <a href="#" id="keep" onclick="keepclean()" class="form-control keep btn  btn-default btn-lg btn-line cleantype col-xs-12">Keep It Clean</a>
 									        </div> 
@@ -2905,39 +3001,72 @@ $(function() {
 											</div>
 											
 											</div>
-
+<!--start-->
 						<div id="summary" class="col-md-3 hidden-sm jsummary" style="width: 278px !important; margin-top:0px !important;">
 						<div class="triagle"><img src="assets/img/triangleft.png" class="triangleft"></div>
-											<div class="summary">
-											<div class="summary col-sm-12">
-											<div class="col-md-1">
-											<img style="height: 24px" src="assets/img/House.png" />
-											</div>
-										<div class="col-md-8">
-										<span id="t-keepclean" style="display:none;white-space:nowrap">Keep It Clean</span>
-										<span id="t-getclean" style="display:none; white-space: nowrap" >Get it Clean<br></span>
-										<span id="t-deepclean" style="display:none; white-space: nowrap">Deep Clean<br></span>
-										<span id="t-move" style="display:none; white-space: nowrap">Move In/Out<br></span>
-										<span id="t-fridge" style="display:none; white-space: nowrap">Inside Fridge<br></span>
-										<span id="t-stove" style="display:none; white-space: nowrap">Inside Oven<br></span>
-										<span id="t-window" style="display:none; white-space: nowrap">Inside Window<br></span>
-										<span id="t-wall" style="display:none; white-space: nowrap">Bed Steam<br></span>
-										</div>
-										</div><div class="clearfix"></div>
-										<div class="summary col-sm-12">
-										<div class="col-md-1">
-										<img style="height: 23px" src="assets/img/Calendar.png" />
-										</div>
-										<div class="col-md-8">
-										<span id="date2"></span>
-										<span id="schedule2"></span>
-										</div>
-										</div><div class="clearfix"></div>
-										<div class="summary col-md-12">
-										<div class="col-sm-3">
+						
+						<div class="summary" style="padding-left:15px;">
+							<div class="summary row">
+								<div class="col-md-1">
+									<img style="height: 24px" src="assets/img/street.png" />
+								</div>
+								<div class="col-md-5">
+									<span class="name-edit"><?= isset($_SESSION['FirstName'])?$_SESSION['FirstName']:'' ?></span>
+								</div>
+								<div class="col-md-1 col-md-offset-2">
+									<a href="#" id = "modal_form" ><img style="height: 24px" src="assets/img/edit.png" /></a>
+								</div>
+							</div>
+							
+							<div class="summary row">
+								<div class="col-md-1">
+									<img style="height: 23px" src="assets/img/location.png" />
+								</div>
+								<div class="col-md-8">
+									<span class="location-edit"><?= isset($_SESSION['StreetAddress1'])?$_SESSION['StreetAddress1']:'' ?></span>
+								</div>
+								
+							</div>
+							<br/><br/>
+							
+						</div>
+						<div class="clearfix"></div>
+						
+						<div id="summary" class="jsummary" style="width: 278px !important; margin-top:0px !important;">
+							<div class="triagle"><img src="assets/img/triangleft.png" class="triangleft"></div>
+						</div>
+						
+							<div class="summary">
+								<div class="summary col-sm-12">
+								<div class="col-md-1">
+								<img style="height: 24px" src="assets/img/House.png" />
+								</div>
+								<div class="col-md-8">
+								<span id="t-keepclean" style="display:none;white-space:nowrap">Keep It Clean</span>
+								<span id="t-getclean" style="display:none; white-space: nowrap" >Get it Clean<br></span>
+								<span id="t-deepclean" style="display:none; white-space: nowrap">Deep Clean<br></span>
+								<span id="t-move" style="display:none; white-space: nowrap">Move In/Out<br></span>
+								<span id="t-fridge" style="display:none; white-space: nowrap">Inside Fridge<br></span>
+								<span id="t-stove" style="display:none; white-space: nowrap">Inside Oven<br></span>
+								<span id="t-window" style="display:none; white-space: nowrap">Inside Window<br></span>
+								<span id="t-wall" style="display:none; white-space: nowrap">Bed Steam<br></span>
+								</div>
+								</div>
+								<div class="clearfix"></div>
+								<div class="summary col-sm-12">
+									<div class="col-md-1">
+									<img style="height: 23px" src="assets/img/Calendar.png" />
+									</div>
+									<div class="col-md-8">
+									<span id="date2"></span>
+									<span id="schedule2"></span>
 									</div>
 								</div>
-						</div>
+								<div class="clearfix"></div>
+								<div class="summary col-md-12">
+									<div class="col-sm-3"></div>
+								</div>
+							</div>
 						<div class="clearfix"></div>
 						
 						
@@ -2994,7 +3123,7 @@ $(function() {
 												<div style="padding-left:0px" class="col-md-8">
 													<input id="promo" value="<?= isset($_SESSION['_PromoCode'])?$_SESSION['_PromoCode']:'' ?>" name="_PromoCode" class="form-control" placeholder="Promo code (optional)" />
 												</div>
-												<a href="#" style="bottom:5px; padding-top:11px" class="btn btn-lg btn-default btn-line col-xs-3 col-md-3" id="applyPromoBtn">Apply</a>
+												<a href="#" style="bottom:5px;padding-top:11px;width: 87px;margin-left: 0px;height: 46px;margin-top: 7px;" class="btn btn-lg btn-default btn-line col-xs-3 col-md-3" id="applyPromoBtn">Apply</a>
 											</div>
 					
 					
@@ -3029,8 +3158,7 @@ $(function() {
 					
 						
 				</div>
-				
-				
+				<!--end summar-->
 				
 				
 				
@@ -3087,12 +3215,158 @@ $(function() {
                 </div>
     </footer>-->
 
+
+		
+		<!--fsheen-->
 		<script>
 			prettyPrint();
 		</script>
 
 		<script src="assets/js/stepper.js" ></script>
+		<script>
+		
+            var placeSearch,
+                autocomplete;
+            var componentForm = {
+                street_number : 'short_name',
+                route : 'long_name',
+                locality : 'long_name',
+                administrative_area_level_1 : 'short_name',
+                country : 'long_name',
+                postal_code : 'short_name'
+            };
+            function init() {
+                var input = document.getElementById('locationTextField');
+                autocomplete = new google.maps.places.Autocomplete(input);
+				autocomplete.addListener('place_changed', function() {
 
+				fillInAddress();
+				})	
+				
+            }
+			//google.maps.event.addDomListener(window, 'load', init);
+
+			function fillInAddress() {
+				// Get the place details from the autocomplete object.
+				
+				//$('#realaddress').val($('#autocomplete').val())
+			
+				var place = autocomplete.getPlace();
+
+					console.log(place.address_components)
+				
+				for (var component in componentForm) {
+				 document.getElementById(component).value = '';
+				 document.getElementById(component).disabled = false;
+				 }
+
+				 // Get each component of the address from the place details
+				 // and fill the corresponding field on the form.
+				 for (var i = 0; i < place.address_components.length; i++) {
+				 var addressType = place.address_components[i].types[0];
+				 if (componentForm[addressType]) {
+				 var val = place.address_components[i][componentForm[addressType]];
+				 document.getElementById(addressType).value = val;
+				 
+				 }
+				 }
+				// $('#street_address').val(place.address_components[0]['short_name'] + ' ' + place.address_components[1]['long_name']);
+				// $('#city').val(place.address_components[2]['long_name']);
+				// $('#state').val(place.address_components[5]['short_name']);
+				// $('#zip').val(place.address_components[7]['short_name']);
+				
+				addrFilled = true;
+			}			
+			
+        </script>
+		
+		
+		
+		<script type="text/javascript">
+			$("#modal_form").click(function(){
+				$(".modal_body").slideDown(200, function(){
+					$("#close").click(function(){
+						$(".modal_body").slideUp(200);
+					});
+				});
+			});
+			
+			$("#modal_form_faq").click(function(){
+				$(".modal_body_faq").slideDown(200, function(){
+					$("#close1").click(function(){
+						$(".modal_body_faq").slideUp(200);
+					});
+				});
+			});
+		 </script>
+		 
+		 <script type="text/javascript">
+			$(document).ready(function(){
+				$("#idForm").submit(function() {
+					
+						var fnmehndler = $('#idForm input[name=fname]').val();
+						var fullname = fnmehndler.split(' ')
+					
+						$('.name-edit').html($('#idForm input[name=fname]').val());
+						
+						$('#firstname').val(fullname[0]);
+						
+						$('#lastname').val(fullname[1]);
+						
+						
+						$('.location-edit').html($('#idForm input[name=address]').val());
+						$('#street_address').val($('#idForm input[name=address]').val());
+						$('#city').val($('#idForm table #locality').val());
+						$('#zip').val($('#idForm table #postal_code').val());
+						$('#state').val($('#idForm table #administrative_area_level_1').val());
+						
+						
+						var that = $(this),
+						url = that.attr('action'),
+						type = that.attr('method'),
+						data={};
+
+						that.find('[name]').each(function(index, value){
+						   var that=$(this),
+								name = that.attr('name'),
+								value = that.val();
+								data[name] = value;
+						});
+
+
+						  $.ajax({
+							url:'inc/book-nowajax.php',
+							type:'post',
+							data:data,
+							success:function(datus){
+							
+								$('.error-success-wrapper').html(datus);
+									
+								if(datus.match('Sorry')){
+								
+								
+								}else{
+								$('#idForm input[name=fname]').val("");
+								$('#idForm input[name=address]').val("");
+													
+								setTimeout(function(){
+									$('.modal_body').hide(500);
+									
+								},2000); 
+								
+								}
+							}
+							
+						  }); 
+					
+						return false;
+
+				});
+				 
+			});
+		 </script>
+		
+		
 
 
 	</body>

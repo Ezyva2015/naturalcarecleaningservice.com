@@ -417,11 +417,12 @@ p#anytime, p#morning, p#afternoon, p#getclean, p#deepclean, p#moveinout {
 
 .open .dropdown-toggle.btn-default{
 
-	background:#b4d0c2;
+	/*background:#b4d0c2;*/
+	background:#ebedec;
 
 }
 
 .btn.btn-default.bootstrap-touchspin-up:hover, .btn.btn-default.bootstrap-touchspin-down:hover {
 	color:#000;
-	background-color:#daeef3;
+	background-color:#EBEDEC;
 }
