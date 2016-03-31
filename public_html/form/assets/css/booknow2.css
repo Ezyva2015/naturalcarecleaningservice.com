@@ -24,17 +24,7 @@ p{
 
 
 
-.logotrigle{
-
-	width:100%;
-
-	position:absolute;
-
-	text-align:center;
-
-	border-top:20px solid #b4d0c2;
-
-}
+.logotrigle{width:100%;position:absolute;text-align:center;border-top: 20px solid  #daeef3;}
 
 .ip-subheader{
 
@@ -64,13 +54,14 @@ p{
 
 .btn-line.btn-default:hover{
 
-	background:#b4d0c2;
+	background: #DAEEF3;
 
-	 /*border: 1px solid #3e9f6a;*/
+	border: 1px solid #2EA3F2;
 
-	  color: #000;
+	color: #000;
 
 }
+
 
 .triaglelogo2{
 
@@ -198,10 +189,10 @@ span .btn:hover{
 
 .addon:hover{
 
-	background:#b4d0c2;
-
-	border:1px solid #3e9f6a;
-
+	/*background:#b4d0c2;*/
+	/*border:1px solid #3e9f6a;*/
+	background:#daeef3;
+	/*border:1px solid #2EA3F2;*/
 }
 
 .row-fluid{
@@ -298,11 +289,7 @@ a#applyPromoBtn.btn.btn-lg.btn-default.btn-line, button#continue2{
 
 
 
-.jsummary{
-
-	border-top:10px solid #b4d0c2;
-
-}
+.jsummary{border-top: 10px solid  #daeef3;}
 
 #summary  .triangleft{
 
@@ -434,49 +421,7 @@ p#anytime, p#morning, p#afternoon, p#getclean, p#deepclean, p#moveinout {
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.btn.btn-default.bootstrap-touchspin-up:hover, .btn.btn-default.bootstrap-touchspin-down:hover {
+	color:#000;
+	background-color:#daeef3;
+}

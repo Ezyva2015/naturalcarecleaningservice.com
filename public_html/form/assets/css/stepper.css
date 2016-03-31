@@ -9,7 +9,7 @@
 
 .container-header-menu {
   padding: 0px;
-  background-color: black !important;
+  background-color: #666666 !important;
   padding-top: 10px !important;
   /* padding-bottom: 400px !important; */
   height:200px !important;
@@ -64,7 +64,12 @@
     display:none;
     float: right; 
   }
- @media only screen and (max-width: 767px) {  
+ @media only screen and (max-width: 767px) {
+
+     /*.container-header-menu {*/
+         /*background-color: #ffffff !important;*/
+     /*}*/
+
   .menu-phone {
     display:block; 
     float: right;
