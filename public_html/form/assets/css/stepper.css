@@ -64,42 +64,7 @@
     display:none;
     float: right; 
   }
- @media only screen and (max-width: 767px) {
-
-     /*.container-header-menu {*/
-         /*background-color: #ffffff !important;*/
-     /*}*/
-
-  .menu-phone {
-    display:block; 
-    float: right;
-  }
-
-
-  .menu-phone-contact-us {
-    display: none; 
-    float: right;
-  }
   
-  .menu-link {
-    margin-top: -70px;
-    padding-bottom:20px;
-  }
-
-  .menu-link a { 
-    color:white; 
-  }
-
-  #logo {  
-     margin-bottom:40px; 
-  } 
-
-  
-}
-
- 
-
-
   .container-cover {
     /* border:1px solid red; */
     min-height: 10em;
@@ -178,60 +143,13 @@ textarea:focus, input:focus{
     float:right; 
     margin-right:30px;
  }
-
-
-  @media (max-width: 552px) {
+ 
+  .header-logo-mobile {
+    display: none;
+    
+  } 
+  .header-logo-desktop {
+    display: block; 
+  }
   
-     .addons-left-content input:nth-child(2) { 
-        float:right !important;
-/*         border:1px solid green; */
-        margin-right:-85px !important;
-        margin-top:160px !important;
-     }       
 
-      .addons-right-content input:nth-child(2) { 
-              float:left !important;
-/*               border:1px solid green; */
-              margin-left:-85px !important;
-              margin-top:160px !important;
-       }
-  }
-
-
-   @media only screen and (min-device-width: 869px) and ( max-device-width: 1138px) { 
-    
-      
-     .addons-left-content input:nth-child(2) {
-        float:right !important;
-/*         border:1px solid green; */
-        margin-right: -92px !important;
-        margin-top: 194px !important;
-     }       
-
-      .addons-right-content input:nth-child(2) {
-              float:left !important;
-/*               border:1px solid green; */
-              margin-left: -92px !important;
-              margin-top: 193px !important;
-       }
-  }
-
-
-
-   @media only screen and (min-width: 869px) and ( max-width: 1138px) { 
-    
-      
-     .addons-left-content input:nth-child(2) {
-        float:right !important;
-/*         border:1px solid green; */
-        margin-right: -92px !important;
-        margin-top: 194px !important;
-     }       
-
-      .addons-right-content input:nth-child(2) {
-              float:left !important;
-/*               border:1px solid green; */
-              margin-left: -92px !important;
-              margin-top: 193px !important;
-       }
-  }

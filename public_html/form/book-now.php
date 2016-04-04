@@ -605,6 +605,8 @@ if (isset($_SESSION) && !empty($_SESSION) && isset($_SESSION['contact_id']))
 		<link rel="stylesheet" href="assets/css/booknow2.css" />
 		<link rel="stylesheet" href="assets/css/res.css" />
 
+		<link rel="stylesheet" href="assets/css/mobile.css" />
+
 
 
 
@@ -2196,7 +2198,37 @@ $(function() {
 		<div class="triagle"><img src="assets/img/triangleft.png" class="triangleft"></div>
 		<a class="close" id="close1">&times;</a>
 		<h2>FOR ASK AND QUESTION</h2>
-		
+			<div class=" et_pb_row et_pb_row_0">
+				
+				<div class="et_pb_column et_pb_column_4_4 et_pb_column_0">
+				<div class="et_pb_text et_pb_module et_pb_bg_layout_light et_pb_text_align_left  et_pb_text_0">
+									
+					<p><strong>Why Us?</strong></p>
+					<p><strong>Our Advanced&nbsp;</strong><strong>Cleaning Approach</strong></p>
+					<p>Naturalcare Cleaning Service takes a smarter approach to cleaning your home. Conventional cleaning methods merely mask dirt and bacteria and leave a residue that can actually attract dust and grime. Naturalcare’s high-temperature cleaning system and scientifically-balanced cleaning products, on the other hand, eliminate bacteria and prevent future build-up.</p>
+					<p>We start by applying advanced steam technology to all your hard surfaces, including kitchen and bathroom counters, sinks, faucets, toilets, tubs, and floors. Our dry steam vapor system:</p>
+					<ul>
+					<li>kills bacteria and germs;</li>
+					<li>removes grease and oil;</li>
+					<li>deodorizes surfaces on contact;</li>
+					<li>eliminates dirt and grime;</li>
+					<li>wipes out mold, mildew, dust, and other allergens;</li>
+					<li>uses less than one quart of water to clean an entire home;</li>
+					<li>is safe for all flooring and hard surfaces; and</li>
+					<li>leaves no residue.</li>
+					</ul>
+					<p>The superheated LadyBug Dry Steam Vapor System penetrates deep into all hard surfaces to completely remove dirt and odors instead of spreading them around or covering them up like conventional chemical cleaners. An EPA-certified disinfectant, our steam vapor system cleans more effectively than chemical alternatives and prevents future build-up better than any other cleaning method.</p>
+					<p>For heavier build-up and stains, we apply a powder peroxide in hot water, adding citric acid and natural oils as needed. Our microfiber cloths eliminate 99% of all bacteria, compared to the 33% that regular cloths remove. And because we color-code our cloths, bathroom cloths will only be used in the bathroom, not in the kitchen or on other surfaces, preventing cross-contamination.</p>
+					<p>Get a smarter clean today.&nbsp;<a href="https://naturalcarecleaningservice.com/estimate/">Contact us for a quote</a>&nbsp;or to&nbsp;<a href="https://naturalcarecleaningservice.com/contact-us/">learn more about what we do</a>&nbsp;. We are more than happy to explain our processes and the technology behind Naturalcare’s advanced clean.</p>
+					<p><strong>Our Customer Service Pledge</strong></p>
+					<p>Naturalcare does not stop with a superior clean. We also deliver superior customer service. After every clean, you will receive an e-mail through which you can review your latest cleaning. We follow up for details about any complaints and call all of our customers who do not respond via e-mail.</p>
+					<p>We average the rankings for each of our cleaners and post them for our employees so that they know how well they are doing and what they can do to improve. Due to these efforts, we’ve been the highest-rated cleaning service in Houston on Angie’s List since ____.</p>
+					<p><a href="https://naturalcarecleaningservice.com/contact-us/">Contact us today to schedule your first cleaning.</a></p>
+
+			</div> <!-- .et_pb_text -->
+			</div> <!-- .et_pb_column -->
+					
+			</div>
 		</div>
 	</div>
 	
@@ -2220,6 +2252,12 @@ $(function() {
 					<label for="Name">Name:</label>
 					<input type="text" name="fname" class="form-control" value="<?= isset($_SESSION['FirstName'])?$_SESSION['FirstName']:'' ?>" required>
 				</div>
+				
+				<div class="form-group" style="padding-left:0px !important;">
+					<label for="phone">Phone Number:</label>
+					<input id="number" name="Phone1" value="<?= isset($_SESSION['Phone1'])?$_SESSION['Phone1']:'' ?>" class="form-control phone1" data-mask="(999) 999-9999" placeholder="Phone" />
+				</div>
+				
 				<div class="form-group" style="padding-left:0px !important;">
 					<label for="address">Address:</label>
 					<input type="text" id="locationTextField" name="address" class="form-control"  value="<?= isset($_SESSION['StreetAddress1'])?$_SESSION['StreetAddress1']:'' ?>" required>
@@ -2319,24 +2357,39 @@ $(function() {
 		<div class="container container-content"> 
 		    <div class="testing-logo">
 			    <div class="row">
+
 				    <div class="col-sm-6"> 
-					    <a href="https://naturalcarecleaningservice.com/" style=" ">
+ 
+					    <a class="header-logo-desktop" href="https://naturalcarecleaningservice.com/" style=" ">
 							<img src="https://naturalcarecleaningservice.com/wp-content/uploads/2016/01/new-logo-all-white-line-on-black.png" height="60px" alt="Naturalcare Cleaning Service" id="logo"> 
 						</a>
+
+						<a class="header-logo-mobile" href="https://naturalcarecleaningservice.com/" style=" ">
+							<img src="https://naturalcarecleaningservice.com/wp-content/uploads/2016/01/header-logo-mobile.png" height="60px" alt="Naturalcare Cleaning Service" id="logo"> 
+						</a>
 				   	</div> 
+
+
 				    <div class="col-sm-6"> 
 					    <div class="menu-link"> 
+
+
 							&nbsp; &nbsp; 
-					        <a href="https://naturalcarecleaningservice.com/why-us/" target="_blank" style="float:right; padding-left:20px;">
+					        <a id="modal_form_faq-desktop" class="desktop header-faq-desktop" target="_blank" style="float:right; padding-left:20px;">
+					          FAQ
+					        </a> 
+
+
+							<a href="#" id="modal_form_faq" class="mobile header-faq-mobile" style="float:right; padding-left:20px;">
 					          FAQ
 					        </a> 
 					  		&nbsp; &nbsp; 
 							<a href="tel:281-531-0544" >
-								<span class="glyphicon glyphicon-earphone menu-phone" aria-hidden="true" style="border: 1px solid #2EA3F2;padding-right: 18px;padding-bottom: 3px;padding-top: 3px;padding-left: 4px;"></span>
+								<span class="glyphicon glyphicon-earphone menu-phone" aria-hidden="true" ></span>
 							</a> 
 							&nbsp; &nbsp; 
 					        <a  class="menu-phone-contact-us" href="tel:281-531-0544" >
-					          Contact us
+					       		281-531-0544
 					        </a> 
 					      </div>
 				      </div>
@@ -2386,7 +2439,15 @@ $(function() {
 
 								<div id="phonetotal" class="summary col-xs-12 hidden-md hidden-lg">
 
-									<div class="summary col-xs-12">
+
+
+
+									<div class="summary col-xs-12 header2-mobile-pricing-and-info"> 
+
+									<div class="header2-arrow-down">  
+										<img src="assets/img/triangleft.png" /> 
+									</div>
+
 										<div class="summary col-xs-12">
 											<!--<div id="psub" style="display:none" class="tablerow col-xs-12">
 												<span class="col-xs-10">Subtotal:</span>
@@ -2433,15 +2494,84 @@ $(function() {
 													</div>
 												</div>
 											</div>
-											<div class="ptablerow col-xs-5" style="float:right; margin-right:15px">
-												<span class="col-xs-7" style="vertical-align: middle">First Clean:</span>
-												<b><span style="font-size: 20px; color: #3dafdc" class="col-xs-5" id="pvisit1"></span></b>
-												<br><br>
-												<span class="col-xs-7" id="ponewk" style="display:none; vertical-align: middle">Every Week</span>
-												<span class="col-xs-7" id="ptwowk" style="display:none; vertical-align: middle">Every 2 Weeks</span>
-												<span class="col-xs-7" id="pfourwk" style="display:none; vertical-align: middle">Every 4 Weeks</span>
-												<b><span style="color:#3dafdc; font-size: 20px" class="col-xs-5" id="pvisit2"></span></b>
-											</div><div class="clearfix"></div>
+
+
+											<div class="ptablerow col-xs-5  header2-right-container"  > 
+
+												<div class="header2-right-firstclean">
+
+													<table border="0" cellspacing="0" cellpadding="0" > 
+												 		<tr> 
+
+												 			<td>  
+												 				<img src="assets/img/loading.png" style="visibility:hidden">
+												 			</td> 
+
+												 			<td>
+															 	<span  style="vertical-align: middle">First Clean:</span>		
+												 			</td>  
+
+												 			<td> 
+												 				<b><span id="pvisit1"></span></b> 
+												 			</td>  
+
+												 			<td> 
+												 				<b><span>+ tax</span></b>
+												 			</td>
+
+												 		</tr> 
+													</table> 
+
+													<div class="header2-arrow-down-div">
+														<img src="assets/img/arrow-down-white.png">
+													</div> 
+												</div>  
+												<div class="header2-right-weeks">
+												 	<table border="0" cellspacing="0" cellpadding="0" > 
+												 		<tr> 
+												 			<td> 
+												 				<img src="assets/img/loading.png">
+												 			</td>
+
+												 			<td>
+															 	<span id="ponewk" style="display:none; vertical-align: middle">Every Week</span>
+																<span id="ptwowk" style="display:none; vertical-align: middle">Every 2 Weeks</span>
+																<span id="pfourwk" style="display:none; vertical-align: middle">Every 4 Weeks</span>		
+												 			</td> 
+
+												 			<td> 
+												 				<b><span class="col-xs-5" id="pvisit2"></span></b> 
+												 				
+												 			</td> 
+
+												 			<td> 
+												 				<b><span >+ tax</span></b>
+												 			</td>
+												 		</tr>
+												 		<tr> 
+  													 		<td> 
+
+													 		</td>
+
+													 		<td> 
+													 			<span style="color:white !important;font-size: 13px;"> (After 1st Clean) </span> 
+													 		</td>	 
+
+													 		<td> 
+
+													 		</td> 
+
+													 		<td> 
+
+													 		</td>
+														</tr>  
+													</table>
+												</div>
+											</div>
+
+											<div class="clearfix">
+												
+											</div>
 											<div id="pmultvisit" class="ptablerow col-xs-5" style="display:none; float:right; margin-right:15px">
 												
 											</div>
@@ -3298,6 +3428,14 @@ $(function() {
 					});
 				});
 			});
+
+			$("#modal_form_faq-desktop").click(function(){
+				$(".modal_body_faq").slideDown(200, function(){
+					$("#close1").click(function(){
+						$(".modal_body_faq").slideUp(200);
+					});
+				});
+			});
 		 </script>
 		 
 		 <script type="text/javascript">
@@ -3318,6 +3456,7 @@ $(function() {
 						$('#street_address').val($('#idForm input[name=address]').val());
 						$('#city').val($('#idForm table #locality').val());
 						$('#zip').val($('#idForm table #postal_code').val());
+						$('.phone #number').val($('#idForm #number').val());
 						$('#state').val($('#idForm table #administrative_area_level_1').val());
 						
 						
