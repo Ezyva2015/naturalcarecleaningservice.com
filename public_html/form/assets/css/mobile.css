@@ -42,6 +42,45 @@
 		
 		
  		 
+	/** header 2 left side content */
+
+	.header2-left-container-1 { 
+		
+	}	
+
+	.header2-left-container-1 table { 
+		
+	}	
+
+	.header2-left-container-1 table td { 
+/* 		border:1px solid red; */
+	}	
+
+
+	.header2-left-container-1 table td:nth-child(1), .header2-left-container-2 table td:nth-child(1) { 
+/* 		border:2px solid green; */
+		width:0px;
+		padding:0px; 
+	}	
+	
+	.header2-left-container-1 table td:nth-child(3) img {
+		float:left ;
+/* 		border:1px solid red; */
+
+	}
+	.header2-left-container-1 table td:nth-child(2), .header2-left-container-2 table td:nth-child(2) {/* 		border:1px solid yellow; */width: 100%;}
+
+
+	.header2-left-container-1, .header2-left-container-2  { 
+		padding:0px;
+
+	}	
+	
+	.header2-left-container-1 span, .header2-left-container-2 span {
+		color:black;
+		font-size: 15px;
+	}
+
 
 	/* 	 Header 2 and pricing */
  	.panel-default {
@@ -59,10 +98,11 @@
 
 	 
 	.header2-right-container {
-		width: 58%;
+		width: 52%;
 		float: right;
 		padding: 0px;
 		margin-top: -9px;
+		/* border: 1px solid red; */
 	} 
 
 	.header2-right-container span {  
@@ -73,7 +113,7 @@
 	
 	 .header2-right-firstclean {
 	 	 padding:0px;
-	 	 width:92.1%;
+	 	 width: 100%;
 	 	 float:right;
 	 	 background-color: #fff;
 	 	 border: 2px solid #CCCCCC;
@@ -83,13 +123,13 @@
 	 }
 	.header2-right-weeks   {
 		/* 		 border: 1px solid red; */
-		 padding:0px;
-		 width:92.1%;
-		 float:right;
-		 background-color: #DAEEF3;
-		 padding-top:15px;
-		 padding-bottom:15px; 
-		 padding-left:10px;  
+		padding:0px;
+		width: 100%;
+		float:right;
+		background-color: #DAEEF3;
+		padding-top:15px;
+		padding-bottom:15px;
+		padding-left:10px;
 	}
 
 	.header2-right-weeks table, .header2-right-firstclean table { 

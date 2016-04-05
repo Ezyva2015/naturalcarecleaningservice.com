@@ -2470,7 +2470,78 @@ $(function() {
 										<div class="clearfix"></div>
 
 										<div class="psummary row">
-											<div class="col-xs-5" style="float:left">
+											<div class="col-xs-5" style="float:left;padding-right: 0px;/* border: 1px solid red; */width: 44%;">
+
+
+ 											<div class="header2-left-container-1" >
+												<table border="0" cellpadding="0" cellspacing="0"> 
+													<tr> 
+														<td> 
+															<img style="height: 24px" src="assets/img/street.png" />
+														</td>
+														
+														<td> 
+															<span class="name-edit"><?= isset($_SESSION['FirstName'])?$_SESSION['FirstName']:'' ?></span>
+														</td>
+														
+														<td> 
+															<a href="#" id = "modal_form" ><img style="height: 24px" src="assets/img/edit.png" /></a>
+														</td> 
+												</table> 
+											</div> 
+
+											<div class="header2-left-container-2" >
+												<table border="0" cellpadding="0" cellspacing="0"> 
+													<tr>
+														<td> 
+															<img style="height: 23px" src="assets/img/location.png" />
+														</td>
+
+	 													<td> 
+	 														<span class="location-edit"><?= isset($_SESSION['StreetAddress1'])?$_SESSION['StreetAddress1']:'' ?></span>
+														</td>
+												</table>
+											</div>
+
+
+
+
+
+
+
+
+<!-- 
+											<div class="summary" style="padding-left:15px;">
+
+
+
+												<div class="summary row">
+													<div class="col-md-1">
+														<img style="height: 24px" src="assets/img/street.png" />
+													</div>
+													<div class="col-md-5">
+														<span class="name-edit"><?= isset($_SESSION['FirstName'])?$_SESSION['FirstName']:'' ?></span>
+													</div>
+													<div class="col-md-1 col-md-offset-2">
+														<a href="#" id = "modal_form" ><img style="height: 24px" src="assets/img/edit.png" /></a>
+													</div>
+												</div>
+												
+												<div class="summary row">
+													<div class="col-md-1">
+														<img style="height: 23px" src="assets/img/location.png" />
+													</div>
+													<div class="col-md-8">
+														<span class="location-edit"><?= isset($_SESSION['StreetAddress1'])?$_SESSION['StreetAddress1']:'' ?></span>
+													</div>
+													
+												</div>
+												<br/><br/>
+												
+											</div> -->
+
+
+											<!-- 
 												<div class="row">
 													<div class="col-xs-2">
 														<img style="height: 24px" src="assets/img/House.png">
@@ -2492,7 +2563,7 @@ $(function() {
 														<div id="pdate2"></div>
 														<div id="pschedule2"> </div>
 													</div>
-												</div>
+												</div> -->
 											</div>
 
 
