@@ -2658,9 +2658,9 @@ $(function() {
 									</div>
 								<div class="logotrigle"><img src="assets/img/logotrigle.png"></div>
 										
-                                    	<h3 class="ip-subheader">Tell us about your home?</h3>
+                                    	<h3 class="ip-subheader about-home-title">Tell us about your home?</h3>
 									
-									<div style="padding:0px" class="container-fluid">
+									<div style="padding:0px" class="container-fluid container-fluid-mobile">
 												<div class="row">
 													<div class="col-md-4">
 														<div class="form-group" style="padding-left: 0px">
@@ -2711,7 +2711,7 @@ $(function() {
 
 
                                                    		<div  class="form-group" style="padding-left: 0px">
-                                                   			<label class="control-label col-xs-12" style="font-size: 20px; padding-left: 0px; padding-right: 0px; font-weight: inherit"></label>
+                                                   			  
                                                    			<div class="col-xs-12 center" style="padding-left: 0px; padding-right: 0px">
 
 
@@ -2744,7 +2744,7 @@ $(function() {
                                                    		<div class="form-group" style="padding-left: 0px">
                                                    			<label class="control-label col-xs-12" style="font-size: 20px; padding-left: 0px; padding-right: 0px; font-weight: inherit"></label>
                                                    			<div class="col-xs-12" style="padding-left: 0px; padding-right: 0px">
-                                                   				<input style="height: 42px" min="500" max="9999" type="number" maxlength="4" id="footage" name="_SquareFootagesize" class="form-control" placeholder="Square Footage" required />
+                                                   				<input style="height: 42px" min="500" max="9999" type="number" maxlength="4" id="footage" name="_SquareFootagesize" class="form-control square-foot-field" placeholder="Square Footage" required />
                                                    			</div>
                                                    		</div>
 													</div>
@@ -2755,9 +2755,9 @@ $(function() {
 									
 									
 									
-									<h3 class="ip-subheader">How often would you like your home cleaned?</h3>
+									<h3 class="ip-subheader about-home-often">How often would you like your home cleaned?</h3>
 										<br class="hidden-xs">
-									<div style="padding:0px" class="container-fluid">
+									<div style="padding:0px" class="container-fluid weekly-container">
 									    <div class="row">
 											<div class="phone col-xs-12 col-lg-3">
 										      <a href="#" name="freq" onclick="onetime()" class="form-control btn  btn-default btn-lg btn-line repeat col-xs-12">One Time</a>
@@ -2773,27 +2773,37 @@ $(function() {
 										    </div>
 										</div>
 									</div>
+
+
+									<div class="weeks-frequency-container" >
 									<center><span style="padding-left:30px; width:50%">
 									<input type="hidden" value="" id="repeat" name="_Frequency" />
 									</span></center>
+									</div>
+
+
+
 									<div class="clearfix"></div>
 									<hr>
 									<div class="triaglelogo2"><img src="assets/img/trilaglelogo2.png"></div>
 									
-									 <h3 class="ip-subheader">Pick the level for your first cleaned?</h3>
-										<div class="row">
+									 <h3 class="ip-subheader pick-level-first-clean">Pick the level for your first cleaned?</h3>
+										
+
+
+										<div class="row cleaning-container">
 										<?php if( $_SESSION['ServiceType'] == 'Recurring'): ?>
-									       <div class="col-xs-6 col-md-6 col-lg-3">
+									       <div class="col-xs-12 col-lg-3">
 									           <a href="#" id="keep" onclick="keepclean()" class="form-control keep btn  btn-default btn-lg btn-line cleantype col-xs-12">Keep It Clean</a>
 									        </div> 
 									     <?php endif;  ?>  
-									        <div class="col-xs-6 col-md-6 col-lg-3">
+									        <div class="col-xs-12 col-lg-3">
 										      <a href="#" id="clean" onclick="getclean()" class="form-control clean btn btn-default btn-lg btn-line cleantype col-xs-12">Get it Clean</a>
 										    </div>
-										   <div class="col-xs-6 col-md-6 col-lg-3">
+										   <div class="col-xs-12 col-lg-3">
 										      <a href="#" id="deep" onclick="deepclean()" class="form-control deep btn  btn-default btn-lg btn-line cleantype col-xs-12">Deep Clean</a>
 										    </div>
-										    <div class="col-xs-6 col-md-6 col-lg-3">
+										    <div class="col-xs-12 col-lg-3">
 										      <a href="#" id="move" onclick="moveinout()" class="form-control move btn  btn-default btn-lg btn-line cleantype col-xs-12">Move In/Out</a>
 										    </div>
 										</div>
@@ -2802,7 +2812,7 @@ $(function() {
 									<input type="hidden" value="" id="cleantype" name="_InitialCleanType" />
 									</span></center>
 									<div class="clearfix" style="height:0px;"></div>
-									<div style="padding-left:0px; height: 56px">
+									<div class="cleaning-message-container" style="padding-left:0px;">
 										<p style="display:none" id="getclean" class="getclean">
 											A maintenance clean recommended for returning clients or homes that have been cleaned and maintained within the last 30 to 60 days.
 										</p>
@@ -2813,148 +2823,162 @@ $(function() {
 											An extremely thorough cleaning where everything is hand wiped from the ceiling fans down to the baseboards. Also includes cleaning inside empty cabinets and drawers.
 										</p>
 									</div>
+									<div class="triaglelogo2-line-mobile">
+										<hr>
+									</div>
+									<div class="triaglelogo2 triaglelogo2-mobile"><img src="assets/img/trilaglelogo2.png"></div>
 									
-									<hr>
-									<div class="triaglelogo2"><img src="assets/img/trilaglelogo2.png"></div>
-									
-									<h3 class="ip-subheader">Select your cleaning date and arrival window</h3>
+									<h3 class="ip-subheader cleaning-date-arrival-title">Select your cleaning date and arrival window</h3>
 												
-												<div class="form-group">
-												<div class="row">
-												<div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
-												<input style="text-align: center" type="text" placeholder="mm/dd/yyyy" class="form-control datepicker col-xs-12" name="_SelectYourDate" data-date-format="mm/dd/yyyy" id="datepicker" />
-												</div>
-												<div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
-												    <a href="#" id="any" onclick="anytime()" style="margin: 3px 0px 0px 0px; " class="btn btn-default btn-lg btn-line repeat col-xs-12 daytime form-control">Anytime</a>
-												</div>
-												<div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
-												    <a href="#" id="morn" onclick="morning()" style="margin:  3px 0px 0px 0px;" class="btn btn-default btn-lg btn-line repeat col-xs-12 daytime form-control">Morning</a>
-												</div>
-												<div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
-												    <a href="#" id="after" onclick="afternoon()" style="margin: 3px 0px 0px 0px;" class="btn btn-default btn-lg btn-line repeat col-xs-12 daytime form-control">Afternoon</a>
-												</div>
-												</div>
+										<div class="form-group">
+										<div class="row cleaning-date-arrival-field-container">
+										<div class="col-xs-12 col-lg-3">
+										<input style="text-align: center" type="text" placeholder="mm/dd/yyyy" class="form-control datepicker col-xs-12" name="_SelectYourDate" data-date-format="mm/dd/yyyy" id="datepicker" />
+										</div>
+										<div class="col-xs-12 col-lg-3">
+										    <a href="#" id="any" onclick="anytime()" style="margin: 3px 0px 0px 0px; " class="btn btn-default btn-lg btn-line repeat col-xs-12 daytime form-control">Anytime</a>
+										</div>
+										<div class="col-xs-12 col-lg-3">
+										    <a href="#" id="morn" onclick="morning()" style="margin:  3px 0px 0px 0px;" class="btn btn-default btn-lg btn-line repeat col-xs-12 daytime form-control">Morning</a>
+										</div>
+										<div class="col-xs-12 col-lg-3">
+										    <a href="#" id="after" onclick="afternoon()" style="margin: 3px 0px 0px 0px;" class="btn btn-default btn-lg btn-line repeat col-xs-12 daytime form-control">Afternoon</a>
+										</div>
+										</div>
+								
+										<center><span style="padding-left:30px; width:50%">
+                                        <input type="hidden" value="" id="daytime" name="_ArrivalWindow" />
+                                        </span></center>
+										</div>
 										
-												<center><span style="padding-left:30px; width:50%">
-                                                <input type="hidden" value="" id="daytime" name="_ArrivalWindow" />
-                                                </span></center>
-												</div>
-												
-												<div class="clearfix"></div>
-												<div style="padding-left: 0px">
-												<p style="display:none" id="anytime" >We will arrive between 8:30 am and 4:00 pm. Exact arrival time cannot be guaranteed, but you can opt in for a 30 minute call ahead.</p>
-												<p style="display:none" id="morning" >We will arrive between 8:30 am and 12:00 pm. Exact arrival time cannot be guaranteed, but you can opt in for a 30 minute call ahead.</p>
-												<p style="display:none" id="afternoon" >We will arrive between 12:00 pm and 4:00 pm. Exact arrival time cannot be guaranteed, but you can opt in for a 30 minute call ahead.</p>
-												</div>
+										<div class="clearfix"></div>
+										<div style="padding-left: 0px" class="cleaning-message-container" >
+										<p style="display:none" id="anytime" >We will arrive between 8:30 am and 4:00 pm. Exact arrival time cannot be guaranteed, but you can opt in for a 30 minute call ahead.</p>
+										<p style="display:none" id="morning" >We will arrive between 8:30 am and 12:00 pm. Exact arrival time cannot be guaranteed, but you can opt in for a 30 minute call ahead.</p>
+										<p style="display:none" id="afternoon" >We will arrive between 12:00 pm and 4:00 pm. Exact arrival time cannot be guaranteed, but you can opt in for a 30 minute call ahead.</p>
+										</div>
 
-												<div class="clearfix"></div>
 
-												<hr>
-												<div class="triaglelogo2"><img src="assets/img/trilaglelogo2.png"></div>
-												
-																		<h3 class="ip-subheader">Contact Information</h3>
-												<p>
-												We will use this to send you information about your cleanings.
-												</p>
-												<div class="form-group">
-												<div style="padding-left:0px" class="phone col-xs-12 col-sm-6 col-md-6">
-												<input id="firstname" name="FirstName" value="<?= isset($_SESSION['FirstName'])?$_SESSION['FirstName']:'' ?>" class="form-control" placeholder="First Name" />
-												</div>
-												<div style="padding-left:0px" class="phone col-xs-12 col-sm-6  col-md-6">
-												<input id="lastname" name="LastName" value="<?= isset($_SESSION['LastName'])?$_SESSION['LastName']:'' ?>"  class="form-control" placeholder="Last Name" />
-												</div>
-												</div>
-												<div class="clearfix"></div><br>
-												<div class="form-group">
-												<div style="padding-left:0px" class="phone col-xs-12 col-md-6">
-												<input id="email2" name="Email" value="<?= isset($_SESSION['Email'])?$_SESSION['Email']:'' ?>"  class="form-control" placeholder="Email" />
-												</div>
-												<div style="padding-left:0px" class="phone col-xs-12 col-md-6">
-												<input id="number" name="Phone1" value="<?= isset($_SESSION['Phone1'])?$_SESSION['Phone1']:'' ?>" class="form-control" data-mask="(999) 999-9999" placeholder="Phone" />
-												</div>
-												</div><div class="clearfix"></div><br>
-												<hr>
-												<div class="triaglelogo2"><img src="assets/img/trilaglelogo2.png"></div>
-												<h3 class="ip-subheader">Service Address</h3>
-												<p>
-												Hope we are not being too forward, but we do need to know where to go!
-												</p>
-												<div class="form-group">
-												<div style="padding-left:0px" class="phone col-xs-12 col-md-6">
-												<input id="street_address" name="StreetAddress1" value="<?= isset($_SESSION['StreetAddress1'])?$_SESSION['StreetAddress1']:'' ?>" class="form-control" placeholder="Street Address" />
-												</div>
-												<div style="padding-left:0px" class="phone col-xs-12 col-md-6">
-												<input id="address_2" name="StreetAddress2" value="<?= isset($_SESSION['StreetAddress2'])?$_SESSION['StreetAddress2']:'' ?>" class="form-control" placeholder="Apt # (optional)" />
-												</div>
-												<div class="clearfix"></div><br>
+										<div class="service-address-and-contact-info" >	
 
-												<div style="padding-left:0px" class="phone col-xs-12 col-md-4">
-												<input id="city" name="City" value="<?= isset($_SESSION['City'])?$_SESSION['City']:'' ?>" class="form-control" placeholder="City" />
-												</div>
-												<div style="padding-left:0px" class="phone col-xs-12 col-md-4">
-												<select id="state" class="form-control" name="State">
-												<option value="AL" <?= $_SESSION['State'] == 'AL' ? 'selected' : '' ?>>Alabama</option>
-												<option value="AK" <?= $_SESSION['State'] == 'AK' ? 'selected' : '' ?>>Alaska</option>
-												<option value="AZ" <?= $_SESSION['State'] == 'AZ' ? 'selected' : '' ?>>Arizona</option>
-												<option value="AR" <?= $_SESSION['State'] == 'AR' ? 'selected' : '' ?>>Arkansas</option>
-												<option value="CA" <?= $_SESSION['State'] == 'CA' ? 'selected' : '' ?>>California</option>
-												<option value="CO" <?= $_SESSION['State'] == 'CO' ? 'selected' : '' ?>>Colorado</option>
-												<option value="CT" <?= $_SESSION['State'] == 'CT' ? 'selected' : '' ?>>Connecticut</option>
-												<option value="DE" <?= $_SESSION['State'] == 'DE' ? 'selected' : '' ?>>Delaware</option>
-												<option value="DC" <?= $_SESSION['State'] == 'DC' ? 'selected' : '' ?>>District Of Columbia</option>
-												<option value="FL" <?= $_SESSION['State'] == 'FL' ? 'selected' : '' ?>>Florida</option>
-												<option value="GA" <?= $_SESSION['State'] == 'GA' ? 'selected' : '' ?>>Georgia</option>
-												<option value="HI" <?= $_SESSION['State'] == 'HI' ? 'selected' : '' ?>>Hawaii</option>
-												<option value="ID" <?= $_SESSION['State'] == 'ID' ? 'selected' : '' ?>>Idaho</option>
-												<option value="IL" <?= $_SESSION['State'] == 'IL' ? 'selected' : '' ?>>Illinois</option>
-												<option value="IN" <?= $_SESSION['State'] == 'IN' ? 'selected' : '' ?>>Indiana</option>
-												<option value="IA" <?= $_SESSION['State'] == 'IA' ? 'selected' : '' ?>>Iowa</option>
-												<option value="KS" <?= $_SESSION['State'] == 'KS' ? 'selected' : '' ?>>Kansas</option>
-												<option value="KY" <?= $_SESSION['State'] == 'KY' ? 'selected' : '' ?>>Kentucky</option>
-												<option value="LA" <?= $_SESSION['State'] == 'LA' ? 'selected' : '' ?>>Louisiana</option>
-												<option value="ME" <?= $_SESSION['State'] == 'ME' ? 'selected' : '' ?>>Maine</option>
-												<option value="MD" <?= $_SESSION['State'] == 'MD' ? 'selected' : '' ?>>Maryland</option>
-												<option value="MA" <?= $_SESSION['State'] == 'MA' ? 'selected' : '' ?>>Massachusetts</option>
-												<option value="MI" <?= $_SESSION['State'] == 'MI' ? 'selected' : '' ?>>Michigan</option>
-												<option value="MN" <?= $_SESSION['State'] == 'MN' ? 'selected' : '' ?>>Minnesota</option>
-												<option value="MS" <?= $_SESSION['State'] == 'MS' ? 'selected' : '' ?>>Mississippi</option>
-												<option value="MO" <?= $_SESSION['State'] == 'MO' ? 'selected' : '' ?>>Missouri</option>
-												<option value="MT" <?= $_SESSION['State'] == 'MT' ? 'selected' : '' ?>>Montana</option>
-												<option value="NE" <?= $_SESSION['State'] == 'NE' ? 'selected' : '' ?>>Nebraska</option>
-												<option value="NV" <?= $_SESSION['State'] == 'NV' ? 'selected' : '' ?>>Nevada</option>
-												<option value="NH" <?= $_SESSION['State'] == 'NH' ? 'selected' : '' ?>>New Hampshire</option>
-												<option value="NJ" <?= $_SESSION['State'] == 'NJ' ? 'selected' : '' ?>>New Jersey</option>
-												<option value="NM" <?= $_SESSION['State'] == 'NM' ? 'selected' : '' ?>>New Mexico</option>
-												<option value="NY" <?= $_SESSION['State'] == 'NY' ? 'selected' : '' ?>>New York</option>
-												<option value="NC" <?= $_SESSION['State'] == 'NC' ? 'selected' : '' ?>>North Carolina</option>
-												<option value="ND" <?= $_SESSION['State'] == 'ND' ? 'selected' : '' ?>>North Dakota</option>
-												<option value="OH" <?= $_SESSION['State'] == 'OH' ? 'selected' : '' ?>>Ohio</option>
-												<option value="OK" <?= $_SESSION['State'] == 'OK' ? 'selected' : '' ?>>Oklahoma</option>
-												<option value="OR" <?= $_SESSION['State'] == 'OR' ? 'selected' : '' ?>>Oregon</option>
-												<option value="PA" <?= $_SESSION['State'] == 'PA' ? 'selected' : '' ?>>Pennsylvania</option>
-												<option value="RI" <?= $_SESSION['State'] == 'RI' ? 'selected' : '' ?>>Rhode Island</option>
-												<option value="SC" <?= $_SESSION['State'] == 'SC' ? 'selected' : '' ?>>South Carolina</option>
-												<option value="SD" <?= $_SESSION['State'] == 'SD' ? 'selected' : '' ?>>South Dakota</option>
-												<option value="TN" <?= $_SESSION['State'] == 'TN' ? 'selected' : '' ?>>Tennessee</option>
-												<option value="TX" <?= $_SESSION['State'] == 'TX' ? 'selected' : '' ?>>Texas</option>
-												<option value="UT" <?= $_SESSION['State'] == 'UT' ? 'selected' : '' ?>>Utah</option>
-												<option value="VT" <?= $_SESSION['State'] == 'VT' ? 'selected' : '' ?>>Vermont</option>
-												<option value="VA" <?= $_SESSION['State'] == 'VA' ? 'selected' : '' ?>>Virginia</option>
-												<option value="WA" <?= $_SESSION['State'] == 'WA' ? 'selected' : '' ?>>Washington</option>
-												<option value="WV" <?= $_SESSION['State'] == 'WV' ? 'selected' : '' ?>>West Virginia</option>
-												<option value="WI" <?= $_SESSION['State'] == 'WI' ? 'selected' : '' ?>>Wisconsin</option>
-												<option value="WY" <?= $_SESSION['State'] == 'WY' ? 'selected' : '' ?>>Wyoming</option>
-												</select>
-												</div>
-												<div style="padding-left:0px" class="phone col-xs-12 col-md-4">
-												<input id="zip" class="form-control" value="<?= isset($_SESSION['PostalCode'])?$_SESSION['PostalCode']:'' ?>" placeholder="Zipcode" name="PostalCode" />
-												</div>
+											<div class="clearfix"></div> 
+											<hr>
+											<div class="triaglelogo2"><img src="assets/img/trilaglelogo2.png"></div> 
+										 	<h3 class="ip-subheader">Contact Information</h3>
+											<p>
+											We will use this to send you information about your cleanings.
+											</p>
+											<div class="form-group">
+											<div style="padding-left:0px" class="phone col-xs-12 col-sm-6 col-md-6">
+											<input id="firstname" name="FirstName" value="<?= isset($_SESSION['FirstName'])?$_SESSION['FirstName']:'' ?>" class="form-control" placeholder="First Name" />
+											</div>
+											<div style="padding-left:0px" class="phone col-xs-12 col-sm-6  col-md-6">
+											<input id="lastname" name="LastName" value="<?= isset($_SESSION['LastName'])?$_SESSION['LastName']:'' ?>"  class="form-control" placeholder="Last Name" />
+											</div>
+											</div>
+											<div class="clearfix"></div><br>
+											<div class="form-group">
+											<div style="padding-left:0px" class="phone col-xs-12 col-md-6">
+											<input id="email2" name="Email" value="<?= isset($_SESSION['Email'])?$_SESSION['Email']:'' ?>"  class="form-control" placeholder="Email" />
+											</div>
+											<div style="padding-left:0px" class="phone col-xs-12 col-md-6">
+											<input id="number" name="Phone1" value="<?= isset($_SESSION['Phone1'])?$_SESSION['Phone1']:'' ?>" class="form-control" data-mask="(999) 999-9999" placeholder="Phone" />
+											</div>
+											</div><div class="clearfix"></div><br>
+											<hr>
+											<div class="triaglelogo2"><img src="assets/img/trilaglelogo2.png"></div>
+											<h3 class="ip-subheader">Service Address</h3>
+											<p>
+											Hope we are not being too forward, but we do need to know where to go!
+											</p>
+											<div class="form-group">
+											<div style="padding-left:0px" class="phone col-xs-12 col-md-6">
+											<input id="street_address" name="StreetAddress1" value="<?= isset($_SESSION['StreetAddress1'])?$_SESSION['StreetAddress1']:'' ?>" class="form-control" placeholder="Street Address" />
+											</div>
+											<div style="padding-left:0px" class="phone col-xs-12 col-md-6">
+											<input id="address_2" name="StreetAddress2" value="<?= isset($_SESSION['StreetAddress2'])?$_SESSION['StreetAddress2']:'' ?>" class="form-control" placeholder="Apt # (optional)" />
+											</div>
+											<div class="clearfix"></div><br>
 
-												</div><div class="clearfix"></div><br>
-												<hr>
-												<div class="triaglelogo2"><img src="assets/img/trilaglelogo2.png"></div>
-									
-									<h3 class="ip-subheader">Select any add-ons for your first clean</h3>
+											<div style="padding-left:0px" class="phone col-xs-12 col-md-4">
+											<input id="city" name="City" value="<?= isset($_SESSION['City'])?$_SESSION['City']:'' ?>" class="form-control" placeholder="City" />
+											</div>
+											<div style="padding-left:0px" class="phone col-xs-12 col-md-4">
+											<select id="state" class="form-control" name="State">
+											<option value="AL" <?= $_SESSION['State'] == 'AL' ? 'selected' : '' ?>>Alabama</option>
+											<option value="AK" <?= $_SESSION['State'] == 'AK' ? 'selected' : '' ?>>Alaska</option>
+											<option value="AZ" <?= $_SESSION['State'] == 'AZ' ? 'selected' : '' ?>>Arizona</option>
+											<option value="AR" <?= $_SESSION['State'] == 'AR' ? 'selected' : '' ?>>Arkansas</option>
+											<option value="CA" <?= $_SESSION['State'] == 'CA' ? 'selected' : '' ?>>California</option>
+											<option value="CO" <?= $_SESSION['State'] == 'CO' ? 'selected' : '' ?>>Colorado</option>
+											<option value="CT" <?= $_SESSION['State'] == 'CT' ? 'selected' : '' ?>>Connecticut</option>
+											<option value="DE" <?= $_SESSION['State'] == 'DE' ? 'selected' : '' ?>>Delaware</option>
+											<option value="DC" <?= $_SESSION['State'] == 'DC' ? 'selected' : '' ?>>District Of Columbia</option>
+											<option value="FL" <?= $_SESSION['State'] == 'FL' ? 'selected' : '' ?>>Florida</option>
+											<option value="GA" <?= $_SESSION['State'] == 'GA' ? 'selected' : '' ?>>Georgia</option>
+											<option value="HI" <?= $_SESSION['State'] == 'HI' ? 'selected' : '' ?>>Hawaii</option>
+											<option value="ID" <?= $_SESSION['State'] == 'ID' ? 'selected' : '' ?>>Idaho</option>
+											<option value="IL" <?= $_SESSION['State'] == 'IL' ? 'selected' : '' ?>>Illinois</option>
+											<option value="IN" <?= $_SESSION['State'] == 'IN' ? 'selected' : '' ?>>Indiana</option>
+											<option value="IA" <?= $_SESSION['State'] == 'IA' ? 'selected' : '' ?>>Iowa</option>
+											<option value="KS" <?= $_SESSION['State'] == 'KS' ? 'selected' : '' ?>>Kansas</option>
+											<option value="KY" <?= $_SESSION['State'] == 'KY' ? 'selected' : '' ?>>Kentucky</option>
+											<option value="LA" <?= $_SESSION['State'] == 'LA' ? 'selected' : '' ?>>Louisiana</option>
+											<option value="ME" <?= $_SESSION['State'] == 'ME' ? 'selected' : '' ?>>Maine</option>
+											<option value="MD" <?= $_SESSION['State'] == 'MD' ? 'selected' : '' ?>>Maryland</option>
+											<option value="MA" <?= $_SESSION['State'] == 'MA' ? 'selected' : '' ?>>Massachusetts</option>
+											<option value="MI" <?= $_SESSION['State'] == 'MI' ? 'selected' : '' ?>>Michigan</option>
+											<option value="MN" <?= $_SESSION['State'] == 'MN' ? 'selected' : '' ?>>Minnesota</option>
+											<option value="MS" <?= $_SESSION['State'] == 'MS' ? 'selected' : '' ?>>Mississippi</option>
+											<option value="MO" <?= $_SESSION['State'] == 'MO' ? 'selected' : '' ?>>Missouri</option>
+											<option value="MT" <?= $_SESSION['State'] == 'MT' ? 'selected' : '' ?>>Montana</option>
+											<option value="NE" <?= $_SESSION['State'] == 'NE' ? 'selected' : '' ?>>Nebraska</option>
+											<option value="NV" <?= $_SESSION['State'] == 'NV' ? 'selected' : '' ?>>Nevada</option>
+											<option value="NH" <?= $_SESSION['State'] == 'NH' ? 'selected' : '' ?>>New Hampshire</option>
+											<option value="NJ" <?= $_SESSION['State'] == 'NJ' ? 'selected' : '' ?>>New Jersey</option>
+											<option value="NM" <?= $_SESSION['State'] == 'NM' ? 'selected' : '' ?>>New Mexico</option>
+											<option value="NY" <?= $_SESSION['State'] == 'NY' ? 'selected' : '' ?>>New York</option>
+											<option value="NC" <?= $_SESSION['State'] == 'NC' ? 'selected' : '' ?>>North Carolina</option>
+											<option value="ND" <?= $_SESSION['State'] == 'ND' ? 'selected' : '' ?>>North Dakota</option>
+											<option value="OH" <?= $_SESSION['State'] == 'OH' ? 'selected' : '' ?>>Ohio</option>
+											<option value="OK" <?= $_SESSION['State'] == 'OK' ? 'selected' : '' ?>>Oklahoma</option>
+											<option value="OR" <?= $_SESSION['State'] == 'OR' ? 'selected' : '' ?>>Oregon</option>
+											<option value="PA" <?= $_SESSION['State'] == 'PA' ? 'selected' : '' ?>>Pennsylvania</option>
+											<option value="RI" <?= $_SESSION['State'] == 'RI' ? 'selected' : '' ?>>Rhode Island</option>
+											<option value="SC" <?= $_SESSION['State'] == 'SC' ? 'selected' : '' ?>>South Carolina</option>
+											<option value="SD" <?= $_SESSION['State'] == 'SD' ? 'selected' : '' ?>>South Dakota</option>
+											<option value="TN" <?= $_SESSION['State'] == 'TN' ? 'selected' : '' ?>>Tennessee</option>
+											<option value="TX" <?= $_SESSION['State'] == 'TX' ? 'selected' : '' ?>>Texas</option>
+											<option value="UT" <?= $_SESSION['State'] == 'UT' ? 'selected' : '' ?>>Utah</option>
+											<option value="VT" <?= $_SESSION['State'] == 'VT' ? 'selected' : '' ?>>Vermont</option>
+											<option value="VA" <?= $_SESSION['State'] == 'VA' ? 'selected' : '' ?>>Virginia</option>
+											<option value="WA" <?= $_SESSION['State'] == 'WA' ? 'selected' : '' ?>>Washington</option>
+											<option value="WV" <?= $_SESSION['State'] == 'WV' ? 'selected' : '' ?>>West Virginia</option>
+											<option value="WI" <?= $_SESSION['State'] == 'WI' ? 'selected' : '' ?>>Wisconsin</option>
+											<option value="WY" <?= $_SESSION['State'] == 'WY' ? 'selected' : '' ?>>Wyoming</option>
+											</select>
+											</div>
+											<div style="padding-left:0px" class="phone col-xs-12 col-md-4">
+											<input id="zip" class="form-control" value="<?= isset($_SESSION['PostalCode'])?$_SESSION['PostalCode']:'' ?>" placeholder="Zipcode" name="PostalCode" />
+											</div> 
+										</div>
+
+
+									</div>
+
+										<div class="mobile-hidden" >
+											<div class="clearfix"></div><br>
+										</div>
+
+										<div class="mobile-height">
+
+										</div>
+
+
+										<hr>
+										<div class="triaglelogo2"><img src="assets/img/trilaglelogo2.png"></div> 
+ 
+									<h3 class="ip-subheader cleaning-date-arrival-title">Select any add-ons for your first clean</h3>
 									
 
 
@@ -3078,10 +3102,23 @@ $(function() {
 												<hr>
 												<div class="triaglelogo2"><img src="assets/img/trilaglelogo2.png"></div>-->
 												
-
-											
+												<div class="mobile-promo-code-container" >  
+													<table border="0" cellspacing="0" cellpadding="0">
+														<tr> 
+															<td> 
+																<div style="padding-left:0px" >
+																	<input id="promo" value="<?= isset($_SESSION['_PromoCode'])?$_SESSION['_PromoCode']:'' ?>" name="_PromoCode" class="form-control" placeholder="Promo code (optional)" />
+																</div>
+															</td> 
+															<td>
+																<div>
+																	<a href="#" style="bottom:5px;padding-top:11px;width: 87px;margin-left: 0px;height: 46px;margin-top: 7px;" class="btn btn-lg btn-default btn-line col-xs-3 col-md-3" id="applyPromoBtn">Apply</a>
+																</div>
+															</td> 
+													</table> 
+												</div>
 												
-												<h3 class="ip-subheader">Payment Information</h3>
+												<h3 class="ip-subheader cleaning-date-arrival-title">Payment Information</h3>
 												<p>
 													<span class="payment_sub_text">You will not be charged untill after your services is complete.</span>
 												</p>
@@ -3320,12 +3357,12 @@ $(function() {
 					
 					
 					
-											<div class="container-fluid" style="background:#daeef3; overflow:hidden; padding-left:0px; padding-top:12px;"> 
-												<div style="padding-left:0px" class="col-md-8">
-													<input id="promo" value="<?= isset($_SESSION['_PromoCode'])?$_SESSION['_PromoCode']:'' ?>" name="_PromoCode" class="form-control" placeholder="Promo code (optional)" />
-												</div>
-												<a href="#" style="bottom:5px;padding-top:11px;width: 87px;margin-left: 0px;height: 46px;margin-top: 7px;" class="btn btn-lg btn-default btn-line col-xs-3 col-md-3" id="applyPromoBtn">Apply</a>
-											</div>
+					<div class="container-fluid" style="background:#daeef3; overflow:hidden; padding-left:0px; padding-top:12px;"> 
+						<div style="padding-left:0px" class="col-md-8">
+							<input id="promo" value="<?= isset($_SESSION['_PromoCode'])?$_SESSION['_PromoCode']:'' ?>" name="_PromoCode" class="form-control" placeholder="Promo code (optional)" />
+						</div>
+						<a href="#" style="bottom:5px;padding-top:11px;width: 87px;margin-left: 0px;height: 46px;margin-top: 7px;" class="btn btn-lg btn-default btn-line col-xs-3 col-md-3" id="applyPromoBtn">Apply</a>
+					</div>
 					
 					
 					

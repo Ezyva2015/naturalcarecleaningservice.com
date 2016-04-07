@@ -17,9 +17,9 @@ $( '#bed' )
   .blur(function() { 
      var current_value = $(this).val();
      if(current_value == 1) {
-        $(this).val(current_value + " bedroom");     
+        $(this).val(current_value + " Bedroom");     
      } else {
-         $(this).val(current_value + " bedrooms"); 
+         $(this).val(current_value + " Bedrooms"); 
      }
      
   });
@@ -33,9 +33,9 @@ $( '#bath' )
   .blur(function() { 
      var current_value = $(this).val();
      if(current_value == 1) {
-        $(this).val(current_value + " bathroom");     
+        $(this).val(current_value + " Bathroom");     
      } else {
-         $(this).val(current_value + " bathrooms"); 
+         $(this).val(current_value + " Bathrooms"); 
      }
      
   });
@@ -51,8 +51,8 @@ function bed(id) {
     var string = '';
     var maxValue = 6;
     var minValue = 1;
-    var itemName = 'bedroom';
-    var initValue = '1 bedroom';
+    var itemName = 'Bedroom';
+    var initValue = '1 Bedroom';
     //var fieldCurrentValue = $(id).val();
     //id = '#bed';
 
@@ -110,8 +110,8 @@ function bath(id) {
     var string = '';
     var maxValue = 10;
     var minValue = 1;
-    var itemName = 'bathroom';
-    var initValue = '1 bathroom';
+    var itemName = 'Bathroom';
+    var initValue = '1 Bathroom';
     //id = '#bed';
 
     /** */

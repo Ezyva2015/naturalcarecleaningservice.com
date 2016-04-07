@@ -25,6 +25,7 @@
 		
   @media only screen and (min-width: 761px) and (max-width: 986px) {
        
+
 		.container {
  			height: 67px !important;
  			max-width:1024px;
@@ -39,9 +40,234 @@
  	
 
  	@media only screen and (max-width: 986px) {
+		 
+	
+
+
+
+ 		/** general */
+
+ 		.mobile-hidden {
+ 			display: none;
+ 		}
+
+ 		.mobile-height {
+ 		height: 1px;
+ 		}
+
+
+
+
+
+	/** promo code*/
+	 
+ 	.mobile-promo-code-container { 
+
+ 		display:block !important;
+ 		margin-top:20px !important; 
+		padding:0px; 
+		margin:0px; 
+		padding-left:30px;
+		padding-right:4px;
+ 	}	
+
+ 	.mobile-promo-code-container table { 
+		width:100%; 
+ 	}
+  
+ 	.mobile-promo-code-container table  td {  
+		padding:0px; 
+		padding:0px; 
+		margin:0px; 
+ 	}
+ 
+ 	.mobile-promo-code-container table td:nth-child(1) {
+		width: 90%;
+		}
+
+  	.mobile-promo-code-container table td:nth-child(1) input {    
+		width:100% !important; 
+		height:46px !important;
+
+ 	}
+ 
+ 	.mobile-promo-code-container table td:nth-child(2)  div {    
+ 		padding:0px !important;
+ 		margin:0px !important; 
+	    float:right !important;  
+	    margin-left:4px !important; 	 
+	    margin-top:10px !important; 
+ 	}
+    
+   .mobile-promo-code-container table td:nth-child(2)  div a {    
+   		padding:0px !important;
+   		margin:0px !important;  
+   		padding-bottom:30px !important;
+ 	 	border-radius:10px !important; 
+ 	    height:40px !important;  
+ 	    width:110px !important;
+ 	}
+
+
+ 	/** Payment information */
+
+ 		.payment-information-title {
+
+			/* padding:0px !important; */
+ 			margin-top:20px !important;
+ 		}
+
+   
+	/** addons */
+
+	.adons-title { 
+		margin-top:20px !important;
+	}
+
+	.add_ons_container { 
+		padding-bottom:10px; 
+	}
+
+	 /**  Contact information and service address */
+
+ 		.service-address-and-contact-info {
+ 			display: none;
+ 		}
+
+
+    /** cleaning date arrival*/		 
+		.cleaning-date-arrival-field-container div:nth-child(1) { 
+			padding-bottom:10px;
+		}
 		
-		
+    	.cleaning-date-arrival-field-container div { 
+    		padding:0px; 
+    		margin-left:-15px;
+    		padding-bottom:6px;
+    	}
+
+    	 
+		.cleaning-date-arrival-title {  
+			/* border:1px solid red; */
+			margin-top:0px;
+			font-size:15px !important;
+		}
+	 
+	/** cleaning option */ 
+	
+
+
+	 .cleaning-date-arrival-title {
+	 	margin-top: 34px;
+	 }
+ 	
+
+ 	 
+	.cleaning-container a { 
+		font-size:15px !important; 
+	}
+	  
+	 .cleaning-message-container p {  
+	 	font-size:13px !important;
+	 	 
+	 }
+	 
+	 .triaglelogo2-mobile, .triaglelogo2-line-mobile {
+	 	display:none; 
+	 }
+	 .cleaning-message-container   { 
+	 	color:red !important;
+	 	margin-top:-40px;
+	 	margin-left:10px;
+	   /* 	 	border:1px solid red;  */
+	   clear:both !important; 
+	   width:99%;
+	 }
+	
+	
+	.cleaning-container div { 
+		padding-bottom:9px; 
+	}
+	.pick-level-first-clean { 
+		padding:0px;  
+		margin:0px;  
+		font-size:15px !important;
+		padding-bottom:10px;
+		padding-top:20px; 
+	}
+
+	/** weeks 	*/
+	
+
+ 	.weekly-container div { 
+/* 		border:1px solid red; */
+		width:100%; 
+ 	}
+	.weeks-frequency-container {  
+		display:none; 
+		border:1px solid red ;
+	}
+
+	.btn-line.btn-default {
+		border-radius:2px !important; 
+	}
+
+
+	/** room often */		
+
+	.about-home-often {
+		padding-top:25px; 
+		/* border:1px solid red; */
+		margin: 0px;
+		font-size: 15px !important;
+	}
+
  		 
+	/** bed and bath rooms  */	
+	
+
+	.bed-rooms, .bed-rooms  { 
+		color:grey;
+		text-align:center;
+	}
+
+	.square-foot-field {
+		color:grey;
+		border-radius:5px !important;
+		margin-top:-20px;
+		background-color: #EEEEEE !important;
+	}
+
+	.form-group { 
+	  margin-bottom:10px !important;   
+	}
+
+
+
+	.container-fluid-mobile {
+		padding-top:50px !important;
+	}
+
+	#phonetotal {
+		margin-bottom: 0px !important;
+	}
+
+	.before_main, .logotrigle{ 
+		 display:none;  
+	}
+
+	.about-home-title { 
+		position:relative;
+		font-size:15px !important; 
+		padding: 0px;
+		margin: 0px;
+		margin-top: 49px !important; 
+		position: absolute;  
+	}
+ 		 
+
+
+
 	/** header 2 left side content */
 
 	.header2-left-container-1 { 
@@ -55,7 +281,10 @@
 	.header2-left-container-1 table td { 
 /* 		border:1px solid red; */
 	}	
-
+	
+	 .header2-left-container-2 table {
+	 	margin-top: 14px;
+	 }
 
 	.header2-left-container-1 table td:nth-child(1), .header2-left-container-2 table td:nth-child(1) { 
 /* 		border:2px solid green; */
@@ -290,4 +519,9 @@
   		margin-left: -92px !important;
       	margin-top: 193px !important;
     }
+}
+
+
+.mobile-promo-code-container {
+	display:none;
 }
