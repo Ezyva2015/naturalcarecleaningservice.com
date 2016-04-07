@@ -2985,6 +2985,50 @@ $(function() {
 
 									<div class="container add_ons_container">
 										<div class="row add_ons full-window-width">
+
+											<input type="hidden" name="_AddOns" id="addon" value="" />
+	
+											<center>
+												<ul> 
+													<li>
+														<input name="Window" id="window" value="" class="addon" type="image" src="assets/img/44.png"></input>
+													</li>
+													<li>
+														<input name="BedSteam" id="wall" value="" class="addon" type="image" src="assets/img/55.png"></input>
+													</li>
+													<li>
+														<input name="Fridge" id="fridge" value="" class="addon" type="image" src="assets/img/33.png"></input>
+													</li>
+													<li>
+														<input name="Stove" id="stove" value="" class="addon" type="image" src="assets/img/22.png"></input>
+													</li>
+												</ul>
+											</center>
+
+											<!-- <br><br>
+
+											<table border="1" cellpadding="0" cellspacing="0" > 
+												<tr>
+													<td> 
+														<input name="Window" id="window" value="" class="addon" type="image" src="assets/img/44.png"></input>
+													</td>
+
+													<td>  
+														<input name="BedSteam" id="wall" value="" class="addon" type="image" src="assets/img/55.png"></input>
+													</td> 
+
+													<td> 
+														<input name="Fridge" id="fridge" value="" class="addon" type="image" src="assets/img/33.png"></input>
+													</td>
+
+													<td> 
+														<input name="Stove" id="stove" value="" class="addon" type="image" src="assets/img/22.png"></input>
+													</td>
+											</table>
+
+											<br><br>
+
+
 											<input type="hidden" name="_AddOns" id="addon" value="" />
 
 												<div class="addons-left-content col-xs-6 .col-sm-3 text-center">
@@ -3001,15 +3045,10 @@ $(function() {
 												<div class="col-xs-6 .col-sm-3 text-center"> 
 												</div>  
 												<div class="col-xs-6 .col-sm-3 text-center"> 
-												</div>
-
-
-												<!--<div class="col-xs-6 col-md-4" >
-												<input name="Laundry" id="laundry" value="" class="addon" type="image" src="assets/img/11.png"></input>
-												<p style="text-align:center">Load of laundry</p>
-												</div>-->
-
+												</div> 
 											</div>
+
+											 -->
 										</div>
 
 									 
@@ -3118,77 +3157,87 @@ $(function() {
 													</table> 
 												</div>
 												
-												<h3 class="ip-subheader cleaning-date-arrival-title">Payment Information</h3>
-												<p>
-													<span class="payment_sub_text">You will not be charged untill after your services is complete.</span>
-												</p>
+
+
+
+
+
+											
 						
-											<div class="container-fluid" style="padding-right:15px;">
-											<div class="payment_label row"> 
-												<h3 class="credit_label">Credit card</h3> <img id="ccimage" style="width: 200px !important; padding-right: 5px; margin: 0px;" src="assets/img/cc_logo.png"> 
+											<div class="container-fluid payment-information-container" >
+
+												<div class="header-title">
+													<h3 class="ip-subheader cleaning-date-arrival-title">Payment Information</h3>
+													<p>
+														<span class="payment_sub_text">You will not be charged untill after your services is complete.</span>
+													</p>
 												</div>
-											<div class="payment row" >
+
+												<div class="payment_label row"> 
+													<h3 class="credit_label">Credit card</h3> <img id="ccimage" style="width: 200px !important; padding-right: 5px; margin: 0px;" src="assets/img/cc_logo.png"> 
+													</div>
+												<div class="payment row" >
 
 											
 												<div class="form-group" style="padding-left:0px;">
 												<div class="clearfix"></div><br>
-											<div class="container">
-												
-												<div style="padding-left:0px" class="phone col-xs-12 col-md-6 input-group">
-												<input style="border-right:none" value="<?= isset($_SESSION['creditcard'])?$_SESSION['creditcard']:''?>" autocomplete="off" data-stripe="number" id="creditcard" name="credit_card" data-mask="9999-9999-9999-9999" class="form-control" placeholder="Credit Card Number"
-												onblur="creditcard_saved = this.value;
-												this.value = this.value.replace(/[^\d]/g, '');
-												if(!checkLuhn(this.value)) {
-												alert('Sorry, that is not a valid number - please try again!');
-												this.value = '';
-												}"
-												onfocus="
-												if(this.value != cc_number_saved) this.value = cc_number_saved;"/>
-												<span class="input-group-addon">
-												<i class="icon-lock"></i>
-												</span>
-												</div>
-												<div style="padding-left:0px" class="phone col-xs-12 col-md-2">
-																								<input id="expmonth" value="<?= isset($_SESSION['expmonth'])?$_SESSION['expmonth']:''?>" name="expmonth" data-stripe="exp-month" class="form-control" data-mask="99" placeholder="MM" />
+												<div class="container">
+													
+													<div style="padding-left:0px" class="phone col-xs-12 col-md-6 input-group">
+													<input style="border-right:none" value="<?= isset($_SESSION['creditcard'])?$_SESSION['creditcard']:''?>" autocomplete="off" data-stripe="number" id="creditcard" name="credit_card" data-mask="9999-9999-9999-9999" class="form-control" placeholder="Credit Card Number"
+													onblur="creditcard_saved = this.value;
+													this.value = this.value.replace(/[^\d]/g, '');
+													if(!checkLuhn(this.value)) {
+													alert('Sorry, that is not a valid number - please try again!');
+													this.value = '';
+													}"
+													onfocus="
+													if(this.value != cc_number_saved) this.value = cc_number_saved;"/>
+													<span class="input-group-addon">
+													<i class="icon-lock"></i>
+													</span>
+													</div>
+													<div style="padding-left:0px" class="phone col-xs-12 col-md-2">
+																									<input id="expmonth" value="<?= isset($_SESSION['expmonth'])?$_SESSION['expmonth']:''?>" name="expmonth" data-stripe="exp-month" class="form-control" data-mask="99" placeholder="MM" />
 
-												</div>
-												<div style="padding-left:0px" class="phone col-xs-6 col-md-2">
-																								<input id="expyear" value="<?= isset($_SESSION['expyear']) ? $_SESSION['expyear'] : '' ?>" name="expyear" data-stripe="exp-year" class="form-control" data-mask="9999" placeholder="YYYY" />
+													</div>
+													<div style="padding-left:0px" class="phone col-xs-12 col-md-2">
+																									<input id="expyear" value="<?= isset($_SESSION['expyear']) ? $_SESSION['expyear'] : '' ?>" name="expyear" data-stripe="exp-year" class="form-control" data-mask="9999" placeholder="YYYY" />
 
+													</div>
+													<div style="padding-left:0px" class="phone col-xs-12 col-md-2">
+													<input id="cvc" value="<?= isset($_SESSION['cvc'])?$_SESSION['cvc']:''?>" name="cvc" data-stripe="cvc" data-mask="999" class="form-control" placeholder="CVC" />
+													</div>
+													
 												</div>
-												<div style="padding-left:0px" class="phone col-xs-6 col-md-2">
-												<input id="cvc" value="<?= isset($_SESSION['cvc'])?$_SESSION['cvc']:''?>" name="cvc" data-stripe="cvc" data-mask="999" class="form-control" placeholder="CVC" />
+												<br>
+												<!--<div class="container ">
+													<div style="padding-left:0px" class="phone col-xs-12 col-sm-6 col-md-4">
+													<input id="firstname" name="FirstName" value="<?= isset($_SESSION['FirstName'])?$_SESSION['FirstName']:'' ?>" class="form-control" placeholder="First Name" />
+													</div>
+													
+													<div style="padding-left:0px" class="phone col-xs-12 col-sm-6  col-md-4">
+													<input id="lastname" name="LastName" value="<?= isset($_SESSION['LastName'])?$_SESSION['LastName']:'' ?>"  class="form-control" placeholder="Last Name" />
+													</div>
+													
+													<div style="padding-left:0px" class="phone col-xs-12 col-md-4">
+													<input id="number" name="Phone1" value="<?= isset($_SESSION['Phone1'])?$_SESSION['Phone1']:'' ?>" class="form-control" data-mask="(999) 999-9999" placeholder="Phone" />
+													</div>
+												</div>-->
+												
+												<div class="clearfix"></div>
+												
 												</div>
 												
-											</div>
-											<br>
-											<!--<div class="container ">
-												<div style="padding-left:0px" class="phone col-xs-12 col-sm-6 col-md-4">
-												<input id="firstname" name="FirstName" value="<?= isset($_SESSION['FirstName'])?$_SESSION['FirstName']:'' ?>" class="form-control" placeholder="First Name" />
-												</div>
+												<br>
 												
-												<div style="padding-left:0px" class="phone col-xs-12 col-sm-6  col-md-4">
-												<input id="lastname" name="LastName" value="<?= isset($_SESSION['LastName'])?$_SESSION['LastName']:'' ?>"  class="form-control" placeholder="Last Name" />
-												</div>
 												
-												<div style="padding-left:0px" class="phone col-xs-12 col-md-4">
-												<input id="number" name="Phone1" value="<?= isset($_SESSION['Phone1'])?$_SESSION['Phone1']:'' ?>" class="form-control" data-mask="(999) 999-9999" placeholder="Phone" />
 												</div>
-											</div>-->
-											
-											<div class="clearfix"></div>
-											
-											</div>
-											
-											<br>
-											
-											
-											</div>
-											<div class="containter" style="padding-left:0px; border:1px solid #dcdcdc; border-radius:0px 0px 5px 5px;">	
-												<div  class="phone col-xs-12 text-center">
-                                                <p>All tracsactions are safe and secure with 256 BIT SSL encryption via Stripe.</p>
+												<div class="containter" style="padding-left:0px; border:1px solid #dcdcdc; border-radius:0px 0px 5px 5px;">	
+													<div  class="phone col-xs-12 text-center">
+	                                                <p>All tracsactions are safe and secure with 256 BIT SSL encryption via Stripe.</p>
+													</div>
 												</div>
-											</div>
 											</div>
 											
 											
