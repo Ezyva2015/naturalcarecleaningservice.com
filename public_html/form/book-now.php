@@ -3046,10 +3046,12 @@ $(function() {
 												</div>  
 												<div class="col-xs-6 .col-sm-3 text-center"> 
 												</div> 
-											</div>
+											
 
 											 -->
+
 										</div>
+									</div>
 
 									 
 
@@ -3141,109 +3143,105 @@ $(function() {
 												<hr>
 												<div class="triaglelogo2"><img src="assets/img/trilaglelogo2.png"></div>-->
 												
-												<div class="mobile-promo-code-container" >  
-													<table border="0" cellspacing="0" cellpadding="0">
-														<tr> 
-															<td> 
-																<div style="padding-left:0px" >
-																	<input id="promo" value="<?= isset($_SESSION['_PromoCode'])?$_SESSION['_PromoCode']:'' ?>" name="_PromoCode" class="form-control" placeholder="Promo code (optional)" />
-																</div>
-															</td> 
-															<td>
-																<div>
-																	<a href="#" style="bottom:5px;padding-top:11px;width: 87px;margin-left: 0px;height: 46px;margin-top: 7px;" class="btn btn-lg btn-default btn-line col-xs-3 col-md-3" id="applyPromoBtn">Apply</a>
-																</div>
-															</td> 
-													</table> 
-												</div>
-												
-
-
-
-
-
-											
-						
-											<div class="container-fluid payment-information-container" >
-
-												<div class="header-title">
-													<h3 class="ip-subheader cleaning-date-arrival-title">Payment Information</h3>
-													<p>
-														<span class="payment_sub_text">You will not be charged untill after your services is complete.</span>
-													</p>
-												</div>
-
-												<div class="payment_label row"> 
-													<h3 class="credit_label">Credit card</h3> <img id="ccimage" style="width: 200px !important; padding-right: 5px; margin: 0px;" src="assets/img/cc_logo.png"> 
-													</div>
-												<div class="payment row" >
-
-											
-												<div class="form-group" style="padding-left:0px;">
-												<div class="clearfix"></div><br>
-												<div class="container">
-													
-													<div style="padding-left:0px" class="phone col-xs-12 col-md-6 input-group">
-													<input style="border-right:none" value="<?= isset($_SESSION['creditcard'])?$_SESSION['creditcard']:''?>" autocomplete="off" data-stripe="number" id="creditcard" name="credit_card" data-mask="9999-9999-9999-9999" class="form-control" placeholder="Credit Card Number"
-													onblur="creditcard_saved = this.value;
-													this.value = this.value.replace(/[^\d]/g, '');
-													if(!checkLuhn(this.value)) {
-													alert('Sorry, that is not a valid number - please try again!');
-													this.value = '';
-													}"
-													onfocus="
-													if(this.value != cc_number_saved) this.value = cc_number_saved;"/>
-													<span class="input-group-addon">
-													<i class="icon-lock"></i>
-													</span>
-													</div>
-													<div style="padding-left:0px" class="phone col-xs-12 col-md-2">
-																									<input id="expmonth" value="<?= isset($_SESSION['expmonth'])?$_SESSION['expmonth']:''?>" name="expmonth" data-stripe="exp-month" class="form-control" data-mask="99" placeholder="MM" />
-
-													</div>
-													<div style="padding-left:0px" class="phone col-xs-12 col-md-2">
-																									<input id="expyear" value="<?= isset($_SESSION['expyear']) ? $_SESSION['expyear'] : '' ?>" name="expyear" data-stripe="exp-year" class="form-control" data-mask="9999" placeholder="YYYY" />
-
-													</div>
-													<div style="padding-left:0px" class="phone col-xs-12 col-md-2">
-													<input id="cvc" value="<?= isset($_SESSION['cvc'])?$_SESSION['cvc']:''?>" name="cvc" data-stripe="cvc" data-mask="999" class="form-control" placeholder="CVC" />
-													</div>
-													
-												</div>
-												<br>
-												<!--<div class="container ">
-													<div style="padding-left:0px" class="phone col-xs-12 col-sm-6 col-md-4">
-													<input id="firstname" name="FirstName" value="<?= isset($_SESSION['FirstName'])?$_SESSION['FirstName']:'' ?>" class="form-control" placeholder="First Name" />
-													</div>
-													
-													<div style="padding-left:0px" class="phone col-xs-12 col-sm-6  col-md-4">
-													<input id="lastname" name="LastName" value="<?= isset($_SESSION['LastName'])?$_SESSION['LastName']:'' ?>"  class="form-control" placeholder="Last Name" />
-													</div>
-													
-													<div style="padding-left:0px" class="phone col-xs-12 col-md-4">
-													<input id="number" name="Phone1" value="<?= isset($_SESSION['Phone1'])?$_SESSION['Phone1']:'' ?>" class="form-control" data-mask="(999) 999-9999" placeholder="Phone" />
-													</div>
-												</div>-->
-												
-												<div class="clearfix"></div>
-												
-												</div>
-												
-												<br>
-												
-												
-												</div>
-												<div class="containter" style="padding-left:0px; border:1px solid #dcdcdc; border-radius:0px 0px 5px 5px;">	
-													<div  class="phone col-xs-12 text-center">
-	                                                <p>All tracsactions are safe and secure with 256 BIT SSL encryption via Stripe.</p>
-													</div>
-												</div>
-											</div>
-											
-											
-											
 										
-											
+
+											<center> 
+												<div class="container-fluid payment-information-container" >
+
+												    <div class="mobile-promo-code-container" >  
+														<table border="0" cellspacing="0" cellpadding="0">
+															<tr> 
+																<td> 
+																	<div style="padding-left:0px" >
+																		<input id="promo" value="<?= isset($_SESSION['_PromoCode'])?$_SESSION['_PromoCode']:'' ?>" name="_PromoCode" class="form-control" placeholder="Promo code (optional)" />
+																	</div>
+																</td> 
+																<td>
+																	<div>
+																		<a href="#" style="bottom:5px;padding-top:11px;width: 87px;margin-left: 0px;height: 46px;margin-top: 7px;" class="btn btn-lg btn-default btn-line col-xs-3 col-md-3" id="applyPromoBtn">Apply</a>
+																	</div>
+																</td> 
+														</table> 
+													</div>
+													
+
+
+
+
+
+													<div class="header-title">
+														<h3 class="ip-subheader cleaning-date-arrival-title">Payment Information</h3>
+														<p>
+															<span class="payment_sub_text">You will not be charged untill after your services is complete.</span>
+														</p>
+													</div>
+
+													<div class="payment_label row"> 
+														<h3 class="credit_label">Credit card</h3> <img id="ccimage" style="width: 200px !important; padding-right: 5px; margin: 0px;" src="assets/img/cc_logo.png"> 
+														</div>
+													<div class="payment row" >
+
+												
+													<div class="form-group" style="padding-left:0px;">
+													<div class="clearfix"></div> 
+
+													<div class="container">
+														
+														<div style="padding-left:0px" class="phone col-xs-12 col-md-6 input-group">
+														<input style="border-right:none" value="<?= isset($_SESSION['creditcard'])?$_SESSION['creditcard']:''?>" autocomplete="off" data-stripe="number" id="creditcard" name="credit_card" data-mask="9999-9999-9999-9999" class="form-control" placeholder="Credit Card Number"
+														onblur="creditcard_saved = this.value;
+														this.value = this.value.replace(/[^\d]/g, '');
+														if(!checkLuhn(this.value)) {
+														alert('Sorry, that is not a valid number - please try again!');
+														this.value = '';
+														}"
+														onfocus="
+														if(this.value != cc_number_saved) this.value = cc_number_saved;"/>
+														<span class="input-group-addon">
+														<i class="icon-lock"></i>
+														</span>
+														</div>
+														<div style="padding-left:0px" class="phone col-xs-12 col-md-2">
+																										<input id="expmonth" value="<?= isset($_SESSION['expmonth'])?$_SESSION['expmonth']:''?>" name="expmonth" data-stripe="exp-month" class="form-control" data-mask="99" placeholder="MM" />
+
+														</div>
+														<div style="padding-left:0px" class="phone col-xs-12 col-md-2">
+																										<input id="expyear" value="<?= isset($_SESSION['expyear']) ? $_SESSION['expyear'] : '' ?>" name="expyear" data-stripe="exp-year" class="form-control" data-mask="9999" placeholder="YYYY" />
+
+														</div>
+														<div style="padding-left:0px" class="phone col-xs-12 col-md-2">
+														<input id="cvc" value="<?= isset($_SESSION['cvc'])?$_SESSION['cvc']:''?>" name="cvc" data-stripe="cvc" data-mask="999" class="form-control" placeholder="CVC" />
+														</div>
+														
+													</div> 
+													<!--<div class="container ">
+														<div style="padding-left:0px" class="phone col-xs-12 col-sm-6 col-md-4">
+														<input id="firstname" name="FirstName" value="<?= isset($_SESSION['FirstName'])?$_SESSION['FirstName']:'' ?>" class="form-control" placeholder="First Name" />
+														</div>
+														
+														<div style="padding-left:0px" class="phone col-xs-12 col-sm-6  col-md-4">
+														<input id="lastname" name="LastName" value="<?= isset($_SESSION['LastName'])?$_SESSION['LastName']:'' ?>"  class="form-control" placeholder="Last Name" />
+														</div>
+														
+														<div style="padding-left:0px" class="phone col-xs-12 col-md-4">
+														<input id="number" name="Phone1" value="<?= isset($_SESSION['Phone1'])?$_SESSION['Phone1']:'' ?>" class="form-control" data-mask="(999) 999-9999" placeholder="Phone" />
+														</div>
+													</div>-->
+													
+													<div class="clearfix"></div>
+													
+													</div>
+													  
+													
+													
+													</div>
+													<div class="containter" style="padding-left:0px; border:1px solid #dcdcdc; border-radius:0px 0px 5px 5px;">	
+														<div  class="phone col-xs-12 text-center payment-info-secure-text">
+		                                                	 All tracsactions are safe and secure with 256 BIT SSL encryption via Stripe.</p>
+														</div>
+													</div>
+												</div>
+											</center>
 											<div class="container">
 												<div style="display:none">
 												<input name="_promodiscount" id="promodisc5" />
@@ -3256,34 +3254,50 @@ $(function() {
 												</div>
 												<button style="height: 52px; font-size: 24px; color: white; margin-left:10px;" type="submit" id="continue2" name="continue2" class="btn btn-grad col-xs-12">Book My Cleaning</button>
 											</div>
-											
-											<div >
-											<p style="padding: 0px">
-											By clicking "Book My Cleaning", you are agreeing to our <a href="https://naturalcarecleaningservice.com/terms-conditions/" target="_blank">Terms of Service</a>.
-											</p>
+											<div> 
+												<p style="padding: 0px">
+													By clicking "Book My Cleaning", you are agreeing to our <a href="https://naturalcarecleaningservice.com/terms-conditions/" target="_blank">Terms of Service</a>.
+												</p>
 											</div>
-											
-											
 											<div class="row">
 												<div class="col-xs-2"></div>
-												<div class="col-xs-12">
-													<div class="row">
+												<div class="col-xs-12">  
+												<div>
+													<ul class="mobile-view-footer-security" >
+														<li>  
+															<table style="margin-top:29px;" width="100%" border="0" cellpadding="2" cellspacing="0" title="Click to Verify - This site chose Symantec SSL for secure e-commerce and confidential communications." style="display:table; margin:0 auto;">
+	                                                    		<tr>
+	                                                        		<td width="135" align="center" valign="top"><script type="text/javascript" src="https://seal.websecurity.norton.com/getseal?host_name=naturalcarecleaningservice.com&amp;size=XS&amp;use_flash=NO&amp;use_transparent=NO&amp;lang=en"></script><br />
+	                                                            		<a href="http://www.symantec.com/ssl-certificates" target="_blank"  style="color:#000000; text-decoration:none; font:bold 7px verdana,sans-serif; letter-spacing:.5px; text-align:center;">ABOUT SSL CERTIFICATES</a>
+	                                                        		</td>
+	                                                    		</tr>
+	                                                		</table>
+														</li> 
+														<li> 
+															<a href="https://ssl.comodo.com">
+																<img src="https://ssl.comodo.com/images/comodo_secure_100x85_white.png" alt="SSL Certificate" width="100" height="85"><br>
+																<span style="font-weight:bold; font-size:7pt">SSL Certificate</span>
+															</a> 
+														</li> 
+													</ul>	 
+												</div>		 
+													<div class="row desktop-view-footer-security">  
 														<div class="col-md-2 col-sm-12 col-md-offset-2 text-center">
 															<table style="margin-top:29px;" width="100%" border="0" cellpadding="2" cellspacing="0" title="Click to Verify - This site chose Symantec SSL for secure e-commerce and confidential communications." style="display:table; margin:0 auto;">
-                                                        		<tr>
-                                                            		<td width="135" align="center" valign="top"><script type="text/javascript" src="https://seal.websecurity.norton.com/getseal?host_name=naturalcarecleaningservice.com&amp;size=XS&amp;use_flash=NO&amp;use_transparent=NO&amp;lang=en"></script><br />
-                                                                		<a href="http://www.symantec.com/ssl-certificates" target="_blank"  style="color:#000000; text-decoration:none; font:bold 7px verdana,sans-serif; letter-spacing:.5px; text-align:center;">ABOUT SSL CERTIFICATES</a>
-                                                            		</td>
-                                                        		</tr>
-                                                    		</table>
-                                                    	</div>
-                                                    	<div class="col-md-2 col-md-offset-1 col-sm-12  text-center">
-                                                    		<a href="https://ssl.comodo.com">
+	                                                    		<tr>
+	                                                        		<td width="135" align="center" valign="top"><script type="text/javascript" src="https://seal.websecurity.norton.com/getseal?host_name=naturalcarecleaningservice.com&amp;size=XS&amp;use_flash=NO&amp;use_transparent=NO&amp;lang=en"></script><br />
+	                                                            		<a href="http://www.symantec.com/ssl-certificates" target="_blank"  style="color:#000000; text-decoration:none; font:bold 7px verdana,sans-serif; letter-spacing:.5px; text-align:center;">ABOUT SSL CERTIFICATES</a>
+	                                                        		</td>
+	                                                    		</tr>
+	                                                		</table>
+	                                                	</div>
+	                                                	<div class="col-md-2 col-md-offset-1 col-sm-12  text-center">
+	                                                		<a href="https://ssl.comodo.com">
 																<img src="https://ssl.comodo.com/images/comodo_secure_100x85_white.png" alt="SSL Certificate" width="100" height="85"><br>
 																<span style="font-weight:bold; font-size:7pt">SSL Certificate</span>
 															</a>
-                                                    	</div>
-                                                   </div>
+	                                                	</div> 
+	                                               </div>
 												</div>
 											</div>
 											
@@ -3439,11 +3453,8 @@ $(function() {
 					
 					
 					
-					
-					
-					
-					
-						
+				<div>  
+						asdasd
 				</div>
 				<!--end summar-->
 				
@@ -3667,4 +3678,4 @@ $(function() {
 
 	</body>
 <!-- END BODY -->
-</html>
+</html>a
