@@ -130,7 +130,7 @@ padding-right:4px;
 			display: none !important;
  		} 
  		  
-		.mobile-view-footer-security  {
+		.mobile-view-footer-security, .customer-information-mobile {
 			padding:0px;
 			display: block !important;
 		}
@@ -630,6 +630,9 @@ general
 	display: none;
 }
 
+.customer-information-mobile {
+	display: none;
+}
 
 
 /*

@@ -6,7 +6,7 @@
 //
 
 
-?>
+?> 
 
 
 
@@ -17,6 +17,9 @@ require_once ('infusionsoft/PHP-iSDK-master/src/isdk.php');
 require_once ('stripe/init.php');
 require_once ('conf.php');
 require_once 'email/PHPMailer-master/PHPMailerAutoload.php'; 
+
+
+
 
 
 
@@ -2870,19 +2873,19 @@ $(function() {
 											</p>
 											<div class="form-group">
 											<div style="padding-left:0px" class="phone col-xs-12 col-sm-6 col-md-6">
-											<input id="firstname" name="FirstName" value="<?= isset($_SESSION['FirstName'])?$_SESSION['FirstName']:'' ?>" class="form-control" placeholder="First Name" />
+												<input id="firstname" name="FirstName" value="<?= isset($_SESSION['FirstName'])?$_SESSION['FirstName']:'' ?>" class="form-control" placeholder="First Name" />
 											</div>
 											<div style="padding-left:0px" class="phone col-xs-12 col-sm-6  col-md-6">
-											<input id="lastname" name="LastName" value="<?= isset($_SESSION['LastName'])?$_SESSION['LastName']:'' ?>"  class="form-control" placeholder="Last Name" />
+												<input id="lastname" name="LastName" value="<?= isset($_SESSION['LastName'])?$_SESSION['LastName']:'' ?>"  class="form-control" placeholder="Last Name" />
 											</div>
 											</div>
 											<div class="clearfix"></div><br>
 											<div class="form-group">
 											<div style="padding-left:0px" class="phone col-xs-12 col-md-6">
-											<input id="email2" name="Email" value="<?= isset($_SESSION['Email'])?$_SESSION['Email']:'' ?>"  class="form-control" placeholder="Email" />
+												<input id="email2" name="Email" value="<?= isset($_SESSION['Email'])?$_SESSION['Email']:'' ?>"  class="form-control" placeholder="Email" />
 											</div>
 											<div style="padding-left:0px" class="phone col-xs-12 col-md-6">
-											<input id="number" name="Phone1" value="<?= isset($_SESSION['Phone1'])?$_SESSION['Phone1']:'' ?>" class="form-control" data-mask="(999) 999-9999" placeholder="Phone" />
+												<input id="number" name="Phone1" value="<?= isset($_SESSION['Phone1'])?$_SESSION['Phone1']:'' ?>" class="form-control" data-mask="(999) 999-9999" placeholder="Phone" />
 											</div>
 											</div><div class="clearfix"></div><br>
 											<hr>
@@ -3201,18 +3204,32 @@ $(function() {
 														<i class="icon-lock"></i>
 														</span>
 														</div>
-														<div style="padding-left:0px" class="phone col-xs-12 col-md-2">
-																										<input id="expmonth" value="<?= isset($_SESSION['expmonth'])?$_SESSION['expmonth']:''?>" name="expmonth" data-stripe="exp-month" class="form-control" data-mask="99" placeholder="MM" />
 
+														<!-- credit card information -->
+														<div style="padding-left:0px" class="phone col-xs-12 col-md-2">
+															<input id="expmonth" value="<?= isset($_SESSION['expmonth'])?$_SESSION['expmonth']:''?>" name="expmonth" data-stripe="exp-month" class="form-control" data-mask="99" placeholder="MM" /> 
 														</div>
 														<div style="padding-left:0px" class="phone col-xs-12 col-md-2">
-																										<input id="expyear" value="<?= isset($_SESSION['expyear']) ? $_SESSION['expyear'] : '' ?>" name="expyear" data-stripe="exp-year" class="form-control" data-mask="9999" placeholder="YYYY" />
-
+															<input id="expyear" value="<?= isset($_SESSION['expyear']) ? $_SESSION['expyear'] : '' ?>" name="expyear" data-stripe="exp-year" class="form-control" data-mask="9999" placeholder="YYYY" /> 
 														</div>
 														<div style="padding-left:0px" class="phone col-xs-12 col-md-2">
 														<input id="cvc" value="<?= isset($_SESSION['cvc'])?$_SESSION['cvc']:''?>" name="cvc" data-stripe="cvc" data-mask="999" class="form-control" placeholder="CVC" />
 														</div>
-														
+ 
+														<!-- customer information -->
+														<div class="customer-information-mobile">
+															<div style="padding-left:0px" class="phone col-xs-12 col-md-2">
+																<input id="firstname" name="FirstName" value="<?= isset($_SESSION['FirstName'])?$_SESSION['FirstName']:'' ?>" class="form-control" placeholder="First Name" />
+															</div>
+															<div style="padding-left:0px" class="phone col-xs-12 col-md-2">
+																<input id="lastname" name="LastName" value="<?= isset($_SESSION['LastName'])?$_SESSION['LastName']:'' ?>"  class="form-control" placeholder="Last Name" />
+															</div>
+															<div style="padding-left:0px" class="phone col-xs-12 col-md-2">
+																<input id="number" name="Phone1" value="<?= isset($_SESSION['Phone1'])?$_SESSION['Phone1']:'' ?>" class="form-control" data-mask="(999) 999-9999" placeholder="Phone Number" />
+															</div>  
+														</div>
+
+
 													</div> 
 													<!--<div class="container ">
 														<div style="padding-left:0px" class="phone col-xs-12 col-sm-6 col-md-4">
