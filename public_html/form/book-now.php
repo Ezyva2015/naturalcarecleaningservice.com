@@ -33,9 +33,11 @@ function isMobile() {
 if(isMobile()){
     // Do something for only mobile users
 
+    //echo "<h3> This is a mobile </h3>";
 }
 else {
 
+	//echo "<h3> This is not a mobile</h3>";
     // Do something for only desktop users
 }
 
@@ -2125,12 +2127,14 @@ $(function() {
 		
 		$('#onetimeadjust').val('$' + adjustment.toFixed(0));
 	})
+	
 
-	$('#applyPromoBtn').click(function(e) {
+	// Desktop
+	$('.applyPromoBtn-desktop').click(function(e) {
 		e.preventDefault();
 
 		$.ajax({
-			url : 'get_coupon.php?code=' + $('#promo').val().trim(),
+			url : 'get_coupon.php?code=' + $('.promo-desktop').val().trim(),
 			type : 'get',
 			dataType : 'json',
 			success : function(data) {
@@ -2166,6 +2170,47 @@ $(function() {
 		})
 	});
 
+	// Mobile 
+	$('.applyPromoBtn-mobile').click(function(e) {
+		e.preventDefault();
+
+		$.ajax({
+			url : 'get_coupon.php?code=' + $('.promo-mobile').val().trim(),
+			type : 'get',
+			dataType : 'json',
+			success : function(data) {
+				if (data) {
+					if (data.percent_off) {
+						promodiscount = (data.percent_off / 100) * adjustment;
+						firstclean = adjustment - recurringDiscount - promodiscount;
+					} else if (data.amount_off) {
+						promodiscount = data.amount_off / 100;
+						firstclean = adjustment - recurringDiscount - promodiscount;
+					}
+
+					if(useDiscount)
+                        firstclean = adjustment - discount - promodiscount;
+                    else
+                        firstclean = adjustment - recurringDiscount - promodiscount;
+
+					$('#discountP').text('-$' + promodiscount.toFixed(0)).parent().show().parent().show();
+					$('#pdiscountP').text('-$' + promodiscount.toFixed(0)).parent().show().parent().show();
+					document.getElementById('sub').style.display = "block";
+					$('#Ivisit1').val((firstclean * 100).toFixed(0));
+					$('#visit1').text('$' + firstclean.toFixed(0));
+					$('#pvisit1').text('$' + firstclean.toFixed(0));
+
+				} else {
+					alert("Invalid promo code");
+				}
+			},
+			error : function(xhr) {
+				xhr = JSON.parse(xhr.responseText);
+				alert(xhr.Message);
+			}
+		})
+	}); 
+ 
 	});
 		</script>
 <style>
@@ -2491,44 +2536,42 @@ $(function() {
 										<div class="psummary row">
 											<div class="col-xs-5" style="float:left;padding-right: 0px;/* border: 1px solid red; */width: 44%;">
 
-
- 											<div class="header2-left-container-1" >
-												<table border="0" cellpadding="0" cellspacing="0"> 
-													<tr> 
-														<td> 
-															<img style="height: 24px" src="assets/img/street.png" />
-														</td>
-														
-														<td> 
-															<span class="name-edit"><?= isset($_SESSION['FirstName'])?$_SESSION['FirstName']:'' ?></span>
-														</td>
-														
-														<td> 
-															<a href="#" id = "modal_form" ><img style="height: 24px" src="assets/img/edit.png" /></a>
-														</td> 
-												</table> 
-											</div> 
-
-											<div class="header2-left-container-2" >
-												<table border="0" cellpadding="0" cellspacing="0"> 
-													<tr>
-														<td> 
-															<img style="height: 23px" src="assets/img/location.png" />
-														</td>
-
-	 													<td> 
-	 														<span class="location-edit"><?= isset($_SESSION['StreetAddress1'])?$_SESSION['StreetAddress1']:'' ?></span>
-														</td>
-												</table>
-											</div>
+											<?php //if(isMobile()): ?>
+											 	<!-- Start Mobile -->
+		 											<div class="header2-left-container-1" >
 
 
+		 											
+														<table border="0" cellpadding="0" cellspacing="0"> 
+															<tr> 
+																<td> 
+																	<img style="height: 24px" src="assets/img/street.png" />
+																</td>
+																
+																<td> 
+																	<span class="name-edit"><?= isset($_SESSION['FirstName'])?$_SESSION['FirstName']:'' ?></span>
+																</td>
+																
+																<td> 
+																	<a href="#" id = "modal_form_mobile" ><img style="height: 24px" src="assets/img/edit.png" /></a>
+																</td> 
+														</table>  
+													</div> 
 
+													<div class="header2-left-container-2" >
+														<table border="0" cellpadding="0" cellspacing="0"> 
+															<tr>
+																<td> 
+																	<img style="height: 23px" src="assets/img/location.png" />
+																</td>
 
-
-
-
-
+			 													<td> 
+			 														<span class="location-edit"><?= isset($_SESSION['StreetAddress1'])?$_SESSION['StreetAddress1']:'' ?></span>
+																</td>
+														</table>
+													</div> 
+										 		<!-- End Mobile -->
+										 	<?php //endif; ?> 
 <!-- 
 											<div class="summary" style="padding-left:15px;">
 
@@ -2729,18 +2772,18 @@ $(function() {
 
 
 
-                                                   		<div  class="form-group" style="padding-left: 0px">
+                                                   		<div  class="form-group beedroom-container" style="padding-left: 0px">
                                                    			  
                                                    			<div class="col-xs-12 center" style="padding-left: 0px; padding-right: 0px">
 
 
 																	<input
-																			class="form-control has-success bed-rooms"
-																			id="bed"
-																			name="_Beds"
-																			required=""
-																			type="text"
-																			readonly>
+																		class="form-control has-success bed-rooms"
+																		id="bed"
+																		name="_Beds"
+																		required=""
+																		type="text"
+																		readonly>
 <!--																    <input class="form-control" style="color: #555555; font-size: 14px; height:42px; width:100%;" id="bed" name="_Beds" required />-->
 <!---->
 
@@ -3172,12 +3215,12 @@ $(function() {
 															<tr> 
 																<td> 
 																	<div style="padding-left:0px" >
-																		<input id="promo" value="<?= isset($_SESSION['_PromoCode'])?$_SESSION['_PromoCode']:'' ?>" name="_PromoCode" class="form-control" placeholder="Promo code (optional)" />
+																		<input id="promo"  value="<?= isset($_SESSION['_PromoCode'])?$_SESSION['_PromoCode']:'' ?>" name="_PromoCode" class="form-control promo-mobile" placeholder="Promo code (optional)" />
 																	</div>
 																</td> 
 																<td>
 																	<div>
-																		<a href="#" style="bottom:5px;padding-top:11px;width: 87px;margin-left: 0px;height: 46px;margin-top: 7px;" class="btn btn-lg btn-default btn-line col-xs-3 col-md-3" id="applyPromoBtn">Apply</a>
+																		<a href="#" style="bottom:5px;padding-top:11px;width: 87px;margin-left: 0px;height: 46px;margin-top: 7px;" class="btn btn-lg btn-default btn-line col-xs-3 col-md-3 applyPromoBtn-mobile" id="applyPromoBtn"  >Apply</a>
 																	</div>
 																</td> 
 														</table> 
@@ -3335,33 +3378,60 @@ $(function() {
 											</div>
 											
 											</div>
-<!--start-->
-						<div id="summary" class="col-md-3 hidden-sm jsummary" style="width: 278px !important; margin-top:0px !important;">
-						<div class="triagle"><img src="assets/img/triangleft.png" class="triangleft"></div>
-						
-						<div class="summary" style="padding-left:15px;">
-							<div class="summary row">
-								<div class="col-md-1">
-									<img style="height: 24px" src="assets/img/street.png" />
-								</div>
-								<div class="col-md-5">
-									<span class="name-edit"><?= isset($_SESSION['FirstName'])?$_SESSION['FirstName']:'' ?></span>
-								</div>
-								<div class="col-md-1 col-md-offset-2">
-									<a href="#" id = "modal_form" ><img style="height: 24px" src="assets/img/edit.png" /></a>
-								</div>
-							</div>
+
+
+
+
+							<!--start-->
+
 							
-							<div class="summary row">
-								<div class="col-md-1">
-									<img style="height: 23px" src="assets/img/location.png" />
-								</div>
-								<div class="col-md-8">
-									<span class="location-edit"><?= isset($_SESSION['StreetAddress1'])?$_SESSION['StreetAddress1']:'' ?></span>
-								</div>
-								
-							</div>
-							<br/><br/>
+							<div id="summary" class="col-md-3 hidden-sm jsummary" style="width: 278px !important; margin-top:0px !important;">
+							<div class="triagle"><img src="assets/img/triangleft.png" class="triangleft"></div>
+							
+							<div class="summary" style="padding-left:15px;">
+
+ 
+								<?php //if(!isMobile()): ?>
+									<!-- Start desktop -->
+									<div class="summary row">
+										<div class="col-md-1">
+											<img style="height: 24px" src="assets/img/street.png" />
+										</div>
+										<div class="col-md-5">
+											<span class="name-edit"><?= isset($_SESSION['FirstName'])?$_SESSION['FirstName']:'' ?></span>
+										</div>
+										<div class="col-md-1 col-md-offset-2">
+											<a href="#" id = "modal_form_desktop" ><img style="height: 24px" src="assets/img/edit.png" /></a>
+										</div>
+									</div>
+									
+									<div class="summary row">
+										<div class="col-md-1">
+											<img style="height: 23px" src="assets/img/location.png" />
+										</div>
+										<div class="col-md-8">
+											<span class="location-edit"><?= isset($_SESSION['StreetAddress1'])?$_SESSION['StreetAddress1']:'' ?></span>
+										</div> 
+									</div>
+									<br/><br/>
+									<!-- End desktop  -->
+								<?php //endif; ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 							
 						</div>
 						<div class="clearfix"></div>
@@ -3455,9 +3525,9 @@ $(function() {
 					
 					<div class="container-fluid" style="background:#daeef3; overflow:hidden; padding-left:0px; padding-top:12px;"> 
 						<div style="padding-left:0px" class="col-md-8">
-							<input id="promo" value="<?= isset($_SESSION['_PromoCode'])?$_SESSION['_PromoCode']:'' ?>" name="_PromoCode" class="form-control" placeholder="Promo code (optional)" />
+							<input id="promo"   value="<?= isset($_SESSION['_PromoCode'])?$_SESSION['_PromoCode']:'' ?>" name="_PromoCode" class="form-control promo-desktop" placeholder="Promo code (optional)" />
 						</div>
-						<a href="#" style="bottom:5px;padding-top:11px;width: 87px;margin-left: 0px;height: 46px;margin-top: 7px;" class="btn btn-lg btn-default btn-line col-xs-3 col-md-3" id="applyPromoBtn">Apply</a>
+						<a href="#" style="bottom:5px;padding-top:11px;width: 87px;margin-left: 0px;height: 46px;margin-top: 7px;" class="btn btn-lg btn-default btn-line col-xs-3 col-md-3 applyPromoBtn-desktop" id="applyPromoBtn"   >Apply</a>
 					</div>
 					
 					
@@ -3614,7 +3684,7 @@ $(function() {
 		
 		
 		<script type="text/javascript">
-			$("#modal_form").click(function(){
+			$(" #modal_form_mobile, #modal_form_desktop").click(function(){
 				$(".modal_body").slideDown(200, function(){
 					$("#close").click(function(){
 						$(".modal_body").slideUp(200);
