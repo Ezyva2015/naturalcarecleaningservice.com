@@ -784,6 +784,13 @@ $(function() {
 			}
 
 			function onetime() {
+
+
+
+			
+
+
+
 				document.getElementById('disctime').style.display = "none";
 				document.getElementById('multvisit').style.display = "none";
 				document.getElementById('pmultvisit').style.display = "none";
@@ -2244,10 +2251,12 @@ $(function() {
 		$('.container-cover').css('display', 'none'); 
 		console.log('set time out is working');
     });
-
-
-	
+  
 </script>
+
+
+ 
+	<script type="text/javascript" src="assets/js/buttons.js"></script>
 
 
 	</head>
@@ -2821,17 +2830,21 @@ $(function() {
 										<br class="hidden-xs">
 									<div style="padding:0px" class="container-fluid weekly-container">
 									    <div class="row">
-											<div class="phone col-xs-12 col-lg-3">
-										      <a href="#" name="freq" onclick="onetime()" class="form-control btn  btn-default btn-lg btn-line repeat col-xs-12">One Time</a>
+											<div class="phone col-xs-12 col-lg-3"> 
+												<div class="circle-design-non-clicked circle-design" id="circle-design-1" ></div> 
+										        <a id="one-time" href="#" name="freq" onclick="onetime()" class="form-control btn  btn-default btn-lg btn-line repeat col-xs-12">One Time</a>
 										    </div>
 										    <div class="phone col-xs-12 col-lg-3">
-										      <a href="#" name="freq" onclick="weekly()" class="form-control btn btn-default btn-lg btn-line repeat col-xs-12">Every Week</a>
+										    	<div class="circle-design-non-clicked circle-design" id="circle-design-2" ></div> 
+										      	<a id="every-week" href="#" name="freq" onclick="weekly()" class="form-control btn btn-default btn-lg btn-line repeat col-xs-12">Every Week</a>
 										    </div>
 										    <div class="phone col-xs-12 col-lg-3">
-										      <a href="#" name="freq" onclick="biweekly()" class="form-control btn btn-default btn-lg btn-line repeat col-xs-12">Every 2 Weeks</a>
+										    	<div class="circle-design-non-clicked circle-design" id="circle-design-3" ></div> 
+										        <a id="every-2-weeks" href="#" name="freq" onclick="biweekly()" class="form-control btn btn-default btn-lg btn-line repeat col-xs-12">Every 2 Weeks</a>
 										    </div>
 										    <div class="phone col-xs-12 col-lg-3">
-										      <a href="#" name="freq" onclick="monthly()" class="form-control btn btn-default btn-lg btn-line repeat col-xs-12">Every 4 Weeks</a>
+										    	<div class="circle-design-non-clicked circle-design" id="circle-design-4" ></div> 
+										      	<a id="every-4-weeks" href="#" name="freq" onclick="monthly()" class="form-control btn btn-default btn-lg btn-line repeat col-xs-12">Every 4 Weeks</a>
 										    </div>
 										</div>
 									</div>
@@ -2856,17 +2869,21 @@ $(function() {
 										<div class="row cleaning-container">
 										<?php if( $_SESSION['ServiceType'] == 'Recurring'): ?>
 									       <div class="col-xs-12 col-lg-3">
-									           <a href="#" id="keep" onclick="keepclean()" class="form-control keep btn  btn-default btn-lg btn-line cleantype col-xs-12">Keep It Clean</a>
+									       		<div class="circle-design-non-clicked circle-design" id="circle-design-5" ></div> 
+									            <a href="#" id="keep" onclick="keepclean()" class="form-control keep btn  btn-default btn-lg btn-line cleantype col-xs-12">Keep It Clean</a>
 									        </div> 
 									     <?php endif;  ?>  
 									        <div class="col-xs-12 col-lg-3">
-										      <a href="#" id="clean" onclick="getclean()" class="form-control clean btn btn-default btn-lg btn-line cleantype col-xs-12">Get it Clean</a>
+									        	<div class="circle-design-non-clicked circle-design" id="circle-design-6" ></div> 
+										       	<a href="#" id="clean" onclick="getclean()" class="form-control clean btn btn-default btn-lg btn-line cleantype col-xs-12">Get it Clean</a>
 										    </div>
 										   <div class="col-xs-12 col-lg-3">
-										      <a href="#" id="deep" onclick="deepclean()" class="form-control deep btn  btn-default btn-lg btn-line cleantype col-xs-12">Deep Clean</a>
+										   		<div class="circle-design-non-clicked circle-design" id="circle-design-7" ></div> 
+										        <a href="#" id="deep" onclick="deepclean()" class="form-control deep btn  btn-default btn-lg btn-line cleantype col-xs-12">Deep Clean</a>
 										    </div>
 										    <div class="col-xs-12 col-lg-3">
-										      <a href="#" id="move" onclick="moveinout()" class="form-control move btn  btn-default btn-lg btn-line cleantype col-xs-12">Move In/Out</a>
+										    	<div class="circle-design-non-clicked circle-design" id="circle-design-8" ></div> 
+										        <a href="#" id="move" onclick="moveinout()" class="form-control move btn  btn-default btn-lg btn-line cleantype col-xs-12">Move In/Out</a>
 										    </div>
 										</div>
 									</div>
@@ -3053,16 +3070,28 @@ $(function() {
 											<center>
 												<ul> 
 													<li>
-														<input name="Window" id="window" value="" class="addon" type="image" src="assets/img/44.png"></input>
+														<div class="addons-container">
+															<div class="circle-addons circle-design-non-clicked circle-design" id="circle-design-9" ></div> 
+															<input name="Window" id="window" value="" class="addon" type="image" src="assets/img/44.png"></input>
+														</div>
 													</li>
 													<li>
-														<input name="BedSteam" id="wall" value="" class="addon" type="image" src="assets/img/55.png"></input>
+														<div class="addons-container">
+															<div class="circle-addons circle-design-non-clicked circle-design" id="circle-design-10" ></div> 
+															<input name="BedSteam" id="wall" value="" class="addon" type="image" src="assets/img/55.png"></input>
+														
 													</li>
 													<li>
-														<input name="Fridge" id="fridge" value="" class="addon" type="image" src="assets/img/33.png"></input>
+														<div class="addons-container">
+															<div class="circle-addons circle-design-non-clicked circle-design" id="circle-design-11" ></div> 
+															<input name="Fridge" id="fridge" value="" class="addon" type="image" src="assets/img/33.png"></input>
+														</div>		
 													</li>
 													<li>
-														<input name="Stove" id="stove" value="" class="addon" type="image" src="assets/img/22.png"></input>
+														<div class="addons-container">
+															<div class="circle-addons circle-design-non-clicked circle-design" id="circle-design-13" ></div> 
+															<input name="Stove" id="stove" value="" class="addon" type="image" src="assets/img/22.png"></input>
+														</div>
 													</li>
 												</ul>
 											</center>

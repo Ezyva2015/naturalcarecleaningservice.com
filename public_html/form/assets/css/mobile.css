@@ -68,7 +68,9 @@
 
 
 	/** promo code*/
-	 
+	.mobile-promo-code-container { 
+
+	} 	
  	.mobile-promo-code-container {
 
 		display:block !important;
@@ -207,8 +209,12 @@
 			padding:0px;
 			margin:0px;
 			padding-top:20px; 
-		}
-		 
+		} 
+		.payment_label  {
+			padding:0px; 
+			padding-left:5px; 
+			padding-top:4px;
+		} 
 		.payment_label h3 {
 			font-size:12px; 
 			text-align:left; 
@@ -564,7 +570,17 @@
      	margin-top: 7px;
      	margin-left: -42px;
    } 
-  
+  	
+
+/*   	Add Ons  */
+
+.circle-addons {
+   margin-top: 68px !important;
+   margin-left: 0px !important;
+}
+
+
+
 }
   
 
@@ -606,9 +622,9 @@
 general
 */
 
-.add_ons {
-/* 	padding-left:10%;  */
-}
+ 
+
+
 .add_ons ul {
 
  	padding:0px;
@@ -645,6 +661,73 @@ general
 .beedroom-container {
 	margin-top:20px;
 }
+
+.before_main {
+	padding:10px 0px 30px 0px;
+}
+
+
+
+
+
+
+/** circle design */
+
+
+.addons-container {
+/* 	border:1px solid red; */
+	width:100px !important; 
+	padding:0px !important;
+	margin:0px !important; 
+}
+
+.circle-design {
+	padding:0px;
+	margin:0px;
+	border: 1px solid white;
+	width: 15px !important;
+	height: 15px;
+	border-radius:10px !important;
+	position:absolute;
+	z-index:1;
+	margin-top:20px;
+	margin-left:-8px;
+	background-color:red;
+
+}
+
+.circle-addons {
+    margin-top: 82px;
+    margin-left: -5px;
+}
+
+.circle-design-non-clicked {
+	background:url('https://naturalcarecleaningservice.com/form/assets/img/circle-clicked-non.png');
+    background-repeat: no-repeat;
+	background-size: 15px 15px;
+}
+
+.cicle-design-clicked { 
+	background:url('https://naturalcarecleaningservice.com/form/assets/img/circle-clicked.png'); */
+    background-repeat: no-repeat;
+  	background-size: 15px 15px;
+}  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
 
