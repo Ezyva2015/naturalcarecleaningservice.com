@@ -27,7 +27,7 @@
        
 
 		.container {
- 			height: 67px !important;
+ 			/* height: 67px !important; */
  			max-width:1024px;
  		}
 
@@ -570,17 +570,7 @@
      	margin-top: 7px;
      	margin-left: -42px;
    } 
-  	
-
-/*   	Add Ons  */
-
-.circle-addons {
-   margin-top: 68px !important;
-   margin-left: 0px !important;
-}
-
-
-
+  
 }
   
 
@@ -613,7 +603,29 @@
 }
 
 
+/*  
+* Created for addons purposes
+* screen min size 872px 
+*/ 
+@media only screen and (min-device-width: 872px) {    
+	.addons-container .circle-design {   
+		margin-left:-3px !important; 
+		margin-top:80px;
+	}
+} 
 
+/**
+* button compress in desktop view
+*/ 
+@media only screen and (min-width: 992px) and (max-width: 1205px) {    
+	.baths-bdes-sqrft-container .col-md-4 {
+		width: 94% !important;
+		padding:0px !important;
+		margin:0px !important;
+		height:63px;
+		margin-left: 13px !important;
+	} 
+}
 
 
 
@@ -622,9 +634,9 @@
 general
 */
 
- 
-
-
+.add_ons {
+/* 	padding-left:10%;  */
+}
 .add_ons ul {
 
  	padding:0px;
@@ -663,7 +675,7 @@ general
 }
 
 .before_main {
-	padding:10px 0px 30px 0px;
+	padding: 5px 0px 11px 0px;
 }
 
 
@@ -685,20 +697,19 @@ general
 	padding:0px;
 	margin:0px;
 	border: 1px solid white;
-	width: 15px !important;
-	height: 15px;
+	width: 17px !important;
+	height: 17px;
 	border-radius:10px !important;
 	position:absolute;
 	z-index:1;
 	margin-top:20px;
 	margin-left:-8px;
 	background-color:red;
-
 }
 
 .circle-addons {
-    margin-top: 82px;
-    margin-left: -5px;
+		margin-top: 68px;
+		margin-left: 0px;
 }
 
 .circle-design-non-clicked {
@@ -846,6 +857,6 @@ general
 	.addons-right-content input { 
 		 
 	}
-}
-
+} 
+*/ 
 

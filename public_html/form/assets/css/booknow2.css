@@ -377,15 +377,7 @@ p#anytime, p#morning, p#afternoon, p#getclean, p#deepclean, p#moveinout {
 
 }
 
-.before_main p{
-
-	font-size:20px;
-
-	font-weight:bold;
-
-	color:#676767;
-
-}
+.before_main p{font-size: 15px;font-weight:bold;color:#676767;}
 
 .before_main p span{
 

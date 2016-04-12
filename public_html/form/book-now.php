@@ -2723,16 +2723,17 @@ $(function() {
 								
 								<div class="col-xs-12 col-md-6 col-sm-12 col-lg-6 col-lg-offset-1 col-md-offset-2" id="bookingContent" style="background:white; padding-left:0%;">
 									<div class="before_main">
-										<h1>Schedule Your Home Cleaning</h1>
-										<p><span><?php echo count($totaljoined); ?> neighbors</span> in <?php  echo $_SESSION['PostalCode']; ?> already use naturalcare cleaning.</p>
-										<p>join them today.</p>
+										<h4>Schedule Your Home Cleaning</h4>
+										<p 
+										style="padding: 0px;margin: 0px;"><span><?php echo count($totaljoined); ?> neighbors</span> in <?php  echo $_SESSION['PostalCode']; ?> already use naturalcare cleaning. Join them today. </p>
+										
 									</div>
 								<div class="logotrigle"><img src="assets/img/logotrigle.png"></div>
 										
                                     	<h3 class="ip-subheader about-home-title">Tell us about your home?</h3>
 									
 									<div style="padding:0px" class="container-fluid container-fluid-mobile">
-												<div class="row">
+												<div class="row baths-bdes-sqrft-container">
 													<div class="col-md-4">
 														<div class="form-group" style="padding-left: 0px">
 														
@@ -2867,12 +2868,18 @@ $(function() {
 
 
 										<div class="row cleaning-container">
-										<?php if( $_SESSION['ServiceType'] == 'Recurring'): ?>
-									       <div class="col-xs-12 col-lg-3">
+										<?php if( $_SESSION['ServiceType'] == 'Recurring'):  
+											$keepCleanStyle = 'display:block';
+										else : 
+											$keepCleanStyle = 'display:none';
+										endif;  ?>  	
+
+									       <div class="col-xs-12 col-lg-3" id="keepCleanContainer" style="<?php echo $keepCleanStyle; ?>">
 									       		<div class="circle-design-non-clicked circle-design" id="circle-design-5" ></div> 
-									            <a href="#" id="keep" onclick="keepclean()" class="form-control keep btn  btn-default btn-lg btn-line cleantype col-xs-12">Keep It Clean</a>
-									        </div> 
-									     <?php endif;  ?>  
+									            <a style="background:#ebedec" href="#" id="keep" onclick="keepclean()" class="form-control keep btn  btn-default btn-lg btn-line cleantype col-xs-12">Keep It Clean</a>
+									        </div>  
+
+
 									        <div class="col-xs-12 col-lg-3">
 									        	<div class="circle-design-non-clicked circle-design" id="circle-design-6" ></div> 
 										       	<a href="#" id="clean" onclick="getclean()" class="form-control clean btn btn-default btn-lg btn-line cleantype col-xs-12">Get it Clean</a>
