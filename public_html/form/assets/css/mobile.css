@@ -628,6 +628,47 @@
 }
 
 
+/** 
+* 
+* Desktop view
+*/ 
+@media only screen and (min-width: 992px) {    
+	
+	.customer-information-mobile {
+		padding-top:60px; 
+		margin-left:-30px;
+	} 
+	
+	.customer-information-mobile .phone {
+		width:33.3%;
+	}  
+
+	.payment{
+		margin:0 auto;
+		padding-top:20px;
+		background-color: #F5F5F5;
+		padding-left:0px;
+	}
+	
+	 .payment-info-secure-text {
+		padding-top: 6px;
+		 
+	 }
+ 
+	.book-my-cleaning {
+         width:95% !important; 
+         margin-left:34px !important;
+	}
+ 
+	.payment-information-container {
+
+		width:95% !important;
+	} 
+}
+
+
+
+
 
 
 /**
@@ -661,7 +702,7 @@ general
 	display: none;
 }
 
-.customer-information-mobile, .mobile-promo-code-container {
+.mobile-promo-code-container {
  
 	display: none;
 }
@@ -722,8 +763,13 @@ general
 	background:url('https://naturalcarecleaningservice.com/form/assets/img/circle-clicked.png'); */
     background-repeat: no-repeat;
   	background-size: 15px 15px;
-}  
-
+}   
+.book-my-cleaning {
+	height: 52px; 
+	font-size: 24px; 
+	color: white; 
+	margin-left:10px; 
+}
 
 
 

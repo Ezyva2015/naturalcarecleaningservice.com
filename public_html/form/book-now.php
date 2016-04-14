@@ -2945,108 +2945,110 @@ $(function() {
 										</div>
 
 
-										<div class="service-address-and-contact-info" >	
+										<div class="service-address-and-contact-info" >	 
+											<div class="contact-information-container" style="display:none" > 
+												<div class="clearfix"></div> 
+												<hr>
+												<div class="triaglelogo2"><img src="assets/img/trilaglelogo2.png"></div> 
+											 	<h3 class="ip-subheader">Contact Information</h3>
+												<p>
+												We will use this to send you information about your cleanings.
+												</p>
+												<div class="form-group">
+												<div style="padding-left:0px" class="phone col-xs-12 col-sm-6 col-md-6">
+													<input id="firstname" name="FirstName" value="<?= isset($_SESSION['FirstName'])?$_SESSION['FirstName']:'' ?>" class="form-control" placeholder="First Name" />
+												</div>
+												<div style="padding-left:0px" class="phone col-xs-12 col-sm-6  col-md-6">
+													<input id="lastname" name="LastName" value="<?= isset($_SESSION['LastName'])?$_SESSION['LastName']:'' ?>"  class="form-control" placeholder="Last Name" />
+												</div>
+												</div>
+												<div class="clearfix"></div><br>
+												<div class="form-group">
+												<div style="padding-left:0px" class="phone col-xs-12 col-md-6">
+													<input id="email2" name="Email" value="<?= isset($_SESSION['Email'])?$_SESSION['Email']:'' ?>"  class="form-control" placeholder="Email" />
+												</div>
+												<div style="padding-left:0px" class="phone col-xs-12 col-md-6">
+													<input id="number" name="Phone1" value="<?= isset($_SESSION['Phone1'])?$_SESSION['Phone1']:'' ?>" class="form-control" data-mask="(999) 999-9999" placeholder="Phone" />
+												</div>
+												</div><div class="clearfix"></div><br>
+												<hr> 
+												<div class="triaglelogo2"><img src="assets/img/trilaglelogo2.png"></div>
+										
+												<h3 class="ip-subheader">Service Address</h3>
+												<p>
+												Hope we are not being too forward, but we do need to know where to go!
+												</p>
+												<div class="form-group">
+												<div style="padding-left:0px" class="phone col-xs-12 col-md-6">
+												<input id="street_address" name="StreetAddress1" value="<?= isset($_SESSION['StreetAddress1'])?$_SESSION['StreetAddress1']:'' ?>" class="form-control" placeholder="Street Address" />
+												</div>
+												<div style="padding-left:0px" class="phone col-xs-12 col-md-6">
+												<input id="address_2" name="StreetAddress2" value="<?= isset($_SESSION['StreetAddress2'])?$_SESSION['StreetAddress2']:'' ?>" class="form-control" placeholder="Apt # (optional)" />
+												</div>
+												<div class="clearfix"></div><br>
 
-											<div class="clearfix"></div> 
-											<hr>
-											<div class="triaglelogo2"><img src="assets/img/trilaglelogo2.png"></div> 
-										 	<h3 class="ip-subheader">Contact Information</h3>
-											<p>
-											We will use this to send you information about your cleanings.
-											</p>
-											<div class="form-group">
-											<div style="padding-left:0px" class="phone col-xs-12 col-sm-6 col-md-6">
-												<input id="firstname" name="FirstName" value="<?= isset($_SESSION['FirstName'])?$_SESSION['FirstName']:'' ?>" class="form-control" placeholder="First Name" />
-											</div>
-											<div style="padding-left:0px" class="phone col-xs-12 col-sm-6  col-md-6">
-												<input id="lastname" name="LastName" value="<?= isset($_SESSION['LastName'])?$_SESSION['LastName']:'' ?>"  class="form-control" placeholder="Last Name" />
-											</div>
-											</div>
-											<div class="clearfix"></div><br>
-											<div class="form-group">
-											<div style="padding-left:0px" class="phone col-xs-12 col-md-6">
-												<input id="email2" name="Email" value="<?= isset($_SESSION['Email'])?$_SESSION['Email']:'' ?>"  class="form-control" placeholder="Email" />
-											</div>
-											<div style="padding-left:0px" class="phone col-xs-12 col-md-6">
-												<input id="number" name="Phone1" value="<?= isset($_SESSION['Phone1'])?$_SESSION['Phone1']:'' ?>" class="form-control" data-mask="(999) 999-9999" placeholder="Phone" />
-											</div>
-											</div><div class="clearfix"></div><br>
-											<hr>
-											<div class="triaglelogo2"><img src="assets/img/trilaglelogo2.png"></div>
-											<h3 class="ip-subheader">Service Address</h3>
-											<p>
-											Hope we are not being too forward, but we do need to know where to go!
-											</p>
-											<div class="form-group">
-											<div style="padding-left:0px" class="phone col-xs-12 col-md-6">
-											<input id="street_address" name="StreetAddress1" value="<?= isset($_SESSION['StreetAddress1'])?$_SESSION['StreetAddress1']:'' ?>" class="form-control" placeholder="Street Address" />
-											</div>
-											<div style="padding-left:0px" class="phone col-xs-12 col-md-6">
-											<input id="address_2" name="StreetAddress2" value="<?= isset($_SESSION['StreetAddress2'])?$_SESSION['StreetAddress2']:'' ?>" class="form-control" placeholder="Apt # (optional)" />
-											</div>
-											<div class="clearfix"></div><br>
-
-											<div style="padding-left:0px" class="phone col-xs-12 col-md-4">
-											<input id="city" name="City" value="<?= isset($_SESSION['City'])?$_SESSION['City']:'' ?>" class="form-control" placeholder="City" />
-											</div>
-											<div style="padding-left:0px" class="phone col-xs-12 col-md-4">
-											<select id="state" class="form-control" name="State">
-											<option value="AL" <?= $_SESSION['State'] == 'AL' ? 'selected' : '' ?>>Alabama</option>
-											<option value="AK" <?= $_SESSION['State'] == 'AK' ? 'selected' : '' ?>>Alaska</option>
-											<option value="AZ" <?= $_SESSION['State'] == 'AZ' ? 'selected' : '' ?>>Arizona</option>
-											<option value="AR" <?= $_SESSION['State'] == 'AR' ? 'selected' : '' ?>>Arkansas</option>
-											<option value="CA" <?= $_SESSION['State'] == 'CA' ? 'selected' : '' ?>>California</option>
-											<option value="CO" <?= $_SESSION['State'] == 'CO' ? 'selected' : '' ?>>Colorado</option>
-											<option value="CT" <?= $_SESSION['State'] == 'CT' ? 'selected' : '' ?>>Connecticut</option>
-											<option value="DE" <?= $_SESSION['State'] == 'DE' ? 'selected' : '' ?>>Delaware</option>
-											<option value="DC" <?= $_SESSION['State'] == 'DC' ? 'selected' : '' ?>>District Of Columbia</option>
-											<option value="FL" <?= $_SESSION['State'] == 'FL' ? 'selected' : '' ?>>Florida</option>
-											<option value="GA" <?= $_SESSION['State'] == 'GA' ? 'selected' : '' ?>>Georgia</option>
-											<option value="HI" <?= $_SESSION['State'] == 'HI' ? 'selected' : '' ?>>Hawaii</option>
-											<option value="ID" <?= $_SESSION['State'] == 'ID' ? 'selected' : '' ?>>Idaho</option>
-											<option value="IL" <?= $_SESSION['State'] == 'IL' ? 'selected' : '' ?>>Illinois</option>
-											<option value="IN" <?= $_SESSION['State'] == 'IN' ? 'selected' : '' ?>>Indiana</option>
-											<option value="IA" <?= $_SESSION['State'] == 'IA' ? 'selected' : '' ?>>Iowa</option>
-											<option value="KS" <?= $_SESSION['State'] == 'KS' ? 'selected' : '' ?>>Kansas</option>
-											<option value="KY" <?= $_SESSION['State'] == 'KY' ? 'selected' : '' ?>>Kentucky</option>
-											<option value="LA" <?= $_SESSION['State'] == 'LA' ? 'selected' : '' ?>>Louisiana</option>
-											<option value="ME" <?= $_SESSION['State'] == 'ME' ? 'selected' : '' ?>>Maine</option>
-											<option value="MD" <?= $_SESSION['State'] == 'MD' ? 'selected' : '' ?>>Maryland</option>
-											<option value="MA" <?= $_SESSION['State'] == 'MA' ? 'selected' : '' ?>>Massachusetts</option>
-											<option value="MI" <?= $_SESSION['State'] == 'MI' ? 'selected' : '' ?>>Michigan</option>
-											<option value="MN" <?= $_SESSION['State'] == 'MN' ? 'selected' : '' ?>>Minnesota</option>
-											<option value="MS" <?= $_SESSION['State'] == 'MS' ? 'selected' : '' ?>>Mississippi</option>
-											<option value="MO" <?= $_SESSION['State'] == 'MO' ? 'selected' : '' ?>>Missouri</option>
-											<option value="MT" <?= $_SESSION['State'] == 'MT' ? 'selected' : '' ?>>Montana</option>
-											<option value="NE" <?= $_SESSION['State'] == 'NE' ? 'selected' : '' ?>>Nebraska</option>
-											<option value="NV" <?= $_SESSION['State'] == 'NV' ? 'selected' : '' ?>>Nevada</option>
-											<option value="NH" <?= $_SESSION['State'] == 'NH' ? 'selected' : '' ?>>New Hampshire</option>
-											<option value="NJ" <?= $_SESSION['State'] == 'NJ' ? 'selected' : '' ?>>New Jersey</option>
-											<option value="NM" <?= $_SESSION['State'] == 'NM' ? 'selected' : '' ?>>New Mexico</option>
-											<option value="NY" <?= $_SESSION['State'] == 'NY' ? 'selected' : '' ?>>New York</option>
-											<option value="NC" <?= $_SESSION['State'] == 'NC' ? 'selected' : '' ?>>North Carolina</option>
-											<option value="ND" <?= $_SESSION['State'] == 'ND' ? 'selected' : '' ?>>North Dakota</option>
-											<option value="OH" <?= $_SESSION['State'] == 'OH' ? 'selected' : '' ?>>Ohio</option>
-											<option value="OK" <?= $_SESSION['State'] == 'OK' ? 'selected' : '' ?>>Oklahoma</option>
-											<option value="OR" <?= $_SESSION['State'] == 'OR' ? 'selected' : '' ?>>Oregon</option>
-											<option value="PA" <?= $_SESSION['State'] == 'PA' ? 'selected' : '' ?>>Pennsylvania</option>
-											<option value="RI" <?= $_SESSION['State'] == 'RI' ? 'selected' : '' ?>>Rhode Island</option>
-											<option value="SC" <?= $_SESSION['State'] == 'SC' ? 'selected' : '' ?>>South Carolina</option>
-											<option value="SD" <?= $_SESSION['State'] == 'SD' ? 'selected' : '' ?>>South Dakota</option>
-											<option value="TN" <?= $_SESSION['State'] == 'TN' ? 'selected' : '' ?>>Tennessee</option>
-											<option value="TX" <?= $_SESSION['State'] == 'TX' ? 'selected' : '' ?>>Texas</option>
-											<option value="UT" <?= $_SESSION['State'] == 'UT' ? 'selected' : '' ?>>Utah</option>
-											<option value="VT" <?= $_SESSION['State'] == 'VT' ? 'selected' : '' ?>>Vermont</option>
-											<option value="VA" <?= $_SESSION['State'] == 'VA' ? 'selected' : '' ?>>Virginia</option>
-											<option value="WA" <?= $_SESSION['State'] == 'WA' ? 'selected' : '' ?>>Washington</option>
-											<option value="WV" <?= $_SESSION['State'] == 'WV' ? 'selected' : '' ?>>West Virginia</option>
-											<option value="WI" <?= $_SESSION['State'] == 'WI' ? 'selected' : '' ?>>Wisconsin</option>
-											<option value="WY" <?= $_SESSION['State'] == 'WY' ? 'selected' : '' ?>>Wyoming</option>
-											</select>
-											</div>
-											<div style="padding-left:0px" class="phone col-xs-12 col-md-4">
-											<input id="zip" class="form-control" value="<?= isset($_SESSION['PostalCode'])?$_SESSION['PostalCode']:'' ?>" placeholder="Zipcode" name="PostalCode" />
-											</div> 
+												<div style="padding-left:0px" class="phone col-xs-12 col-md-4">
+												<input id="city" name="City" value="<?= isset($_SESSION['City'])?$_SESSION['City']:'' ?>" class="form-control" placeholder="City" />
+												</div>
+												<div style="padding-left:0px" class="phone col-xs-12 col-md-4">
+												<select id="state" class="form-control" name="State">
+												<option value="AL" <?= $_SESSION['State'] == 'AL' ? 'selected' : '' ?>>Alabama</option>
+												<option value="AK" <?= $_SESSION['State'] == 'AK' ? 'selected' : '' ?>>Alaska</option>
+												<option value="AZ" <?= $_SESSION['State'] == 'AZ' ? 'selected' : '' ?>>Arizona</option>
+												<option value="AR" <?= $_SESSION['State'] == 'AR' ? 'selected' : '' ?>>Arkansas</option>
+												<option value="CA" <?= $_SESSION['State'] == 'CA' ? 'selected' : '' ?>>California</option>
+												<option value="CO" <?= $_SESSION['State'] == 'CO' ? 'selected' : '' ?>>Colorado</option>
+												<option value="CT" <?= $_SESSION['State'] == 'CT' ? 'selected' : '' ?>>Connecticut</option>
+												<option value="DE" <?= $_SESSION['State'] == 'DE' ? 'selected' : '' ?>>Delaware</option>
+												<option value="DC" <?= $_SESSION['State'] == 'DC' ? 'selected' : '' ?>>District Of Columbia</option>
+												<option value="FL" <?= $_SESSION['State'] == 'FL' ? 'selected' : '' ?>>Florida</option>
+												<option value="GA" <?= $_SESSION['State'] == 'GA' ? 'selected' : '' ?>>Georgia</option>
+												<option value="HI" <?= $_SESSION['State'] == 'HI' ? 'selected' : '' ?>>Hawaii</option>
+												<option value="ID" <?= $_SESSION['State'] == 'ID' ? 'selected' : '' ?>>Idaho</option>
+												<option value="IL" <?= $_SESSION['State'] == 'IL' ? 'selected' : '' ?>>Illinois</option>
+												<option value="IN" <?= $_SESSION['State'] == 'IN' ? 'selected' : '' ?>>Indiana</option>
+												<option value="IA" <?= $_SESSION['State'] == 'IA' ? 'selected' : '' ?>>Iowa</option>
+												<option value="KS" <?= $_SESSION['State'] == 'KS' ? 'selected' : '' ?>>Kansas</option>
+												<option value="KY" <?= $_SESSION['State'] == 'KY' ? 'selected' : '' ?>>Kentucky</option>
+												<option value="LA" <?= $_SESSION['State'] == 'LA' ? 'selected' : '' ?>>Louisiana</option>
+												<option value="ME" <?= $_SESSION['State'] == 'ME' ? 'selected' : '' ?>>Maine</option>
+												<option value="MD" <?= $_SESSION['State'] == 'MD' ? 'selected' : '' ?>>Maryland</option>
+												<option value="MA" <?= $_SESSION['State'] == 'MA' ? 'selected' : '' ?>>Massachusetts</option>
+												<option value="MI" <?= $_SESSION['State'] == 'MI' ? 'selected' : '' ?>>Michigan</option>
+												<option value="MN" <?= $_SESSION['State'] == 'MN' ? 'selected' : '' ?>>Minnesota</option>
+												<option value="MS" <?= $_SESSION['State'] == 'MS' ? 'selected' : '' ?>>Mississippi</option>
+												<option value="MO" <?= $_SESSION['State'] == 'MO' ? 'selected' : '' ?>>Missouri</option>
+												<option value="MT" <?= $_SESSION['State'] == 'MT' ? 'selected' : '' ?>>Montana</option>
+												<option value="NE" <?= $_SESSION['State'] == 'NE' ? 'selected' : '' ?>>Nebraska</option>
+												<option value="NV" <?= $_SESSION['State'] == 'NV' ? 'selected' : '' ?>>Nevada</option>
+												<option value="NH" <?= $_SESSION['State'] == 'NH' ? 'selected' : '' ?>>New Hampshire</option>
+												<option value="NJ" <?= $_SESSION['State'] == 'NJ' ? 'selected' : '' ?>>New Jersey</option>
+												<option value="NM" <?= $_SESSION['State'] == 'NM' ? 'selected' : '' ?>>New Mexico</option>
+												<option value="NY" <?= $_SESSION['State'] == 'NY' ? 'selected' : '' ?>>New York</option>
+												<option value="NC" <?= $_SESSION['State'] == 'NC' ? 'selected' : '' ?>>North Carolina</option>
+												<option value="ND" <?= $_SESSION['State'] == 'ND' ? 'selected' : '' ?>>North Dakota</option>
+												<option value="OH" <?= $_SESSION['State'] == 'OH' ? 'selected' : '' ?>>Ohio</option>
+												<option value="OK" <?= $_SESSION['State'] == 'OK' ? 'selected' : '' ?>>Oklahoma</option>
+												<option value="OR" <?= $_SESSION['State'] == 'OR' ? 'selected' : '' ?>>Oregon</option>
+												<option value="PA" <?= $_SESSION['State'] == 'PA' ? 'selected' : '' ?>>Pennsylvania</option>
+												<option value="RI" <?= $_SESSION['State'] == 'RI' ? 'selected' : '' ?>>Rhode Island</option>
+												<option value="SC" <?= $_SESSION['State'] == 'SC' ? 'selected' : '' ?>>South Carolina</option>
+												<option value="SD" <?= $_SESSION['State'] == 'SD' ? 'selected' : '' ?>>South Dakota</option>
+												<option value="TN" <?= $_SESSION['State'] == 'TN' ? 'selected' : '' ?>>Tennessee</option>
+												<option value="TX" <?= $_SESSION['State'] == 'TX' ? 'selected' : '' ?>>Texas</option>
+												<option value="UT" <?= $_SESSION['State'] == 'UT' ? 'selected' : '' ?>>Utah</option>
+												<option value="VT" <?= $_SESSION['State'] == 'VT' ? 'selected' : '' ?>>Vermont</option>
+												<option value="VA" <?= $_SESSION['State'] == 'VA' ? 'selected' : '' ?>>Virginia</option>
+												<option value="WA" <?= $_SESSION['State'] == 'WA' ? 'selected' : '' ?>>Washington</option>
+												<option value="WV" <?= $_SESSION['State'] == 'WV' ? 'selected' : '' ?>>West Virginia</option>
+												<option value="WI" <?= $_SESSION['State'] == 'WI' ? 'selected' : '' ?>>Wisconsin</option>
+												<option value="WY" <?= $_SESSION['State'] == 'WY' ? 'selected' : '' ?>>Wyoming</option>
+												</select>
+												</div>
+												<div style="padding-left:0px" class="phone col-xs-12 col-md-4">
+												<input id="zip" class="form-control" value="<?= isset($_SESSION['PostalCode'])?$_SESSION['PostalCode']:'' ?>" placeholder="Zipcode" name="PostalCode" />
+												</div> 
+									 		</div>
 										</div>
 
 
@@ -3267,11 +3269,9 @@ $(function() {
 
 
 
-													<div class="header-title">
-														<h3 class="ip-subheader cleaning-date-arrival-title">Payment Information</h3>
-														<p>
-															<span class="payment_sub_text">You will not be charged untill after your services is complete.</span>
-														</p>
+													<div class="header-title payment-information-title"> 
+														<h3 class="ip-subheader cleaning-date-arrival-title">Payment Information</h3>  
+														<span class="payment_sub_text">You will not be charged untill after your services is complete.</span> 
 													</div>
 
 													<div class="payment_label row"> 
@@ -3364,7 +3364,10 @@ $(function() {
 												<input name="_OneTimeAdjustment" id="onetimeadjust" />
 												<input name="stripeToken" id="stripetoken" />
 												</div>
-												<button style="height: 52px; font-size: 24px; color: white; margin-left:10px;" type="submit" id="continue2" name="continue2" class="btn btn-grad col-xs-12">Book My Cleaning</button>
+
+												<button type="submit" id="continue2" name="continue2" class="btn btn-grad col-xs-12">Book My Cleaning</button>
+
+
 											</div>
 											<div> 
 												<p style="padding: 0px">
