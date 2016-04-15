@@ -2842,11 +2842,13 @@ $(function() {
 										    <div class="phone col-xs-12 col-lg-3">
 										    	<div class="circle-design-non-clicked circle-design" id="circle-design-3" ></div> 
 										        <a id="every-2-weeks" href="#" name="freq" onclick="biweekly()" class="form-control btn btn-default btn-lg btn-line repeat col-xs-12">Every 2 Weeks</a>
+										        <div class="every2weeks-most-popular weekly-most-popular"> -- Most Popular -- </div>
 										    </div>
 										    <div class="phone col-xs-12 col-lg-3">
 										    	<div class="circle-design-non-clicked circle-design" id="circle-design-4" ></div> 
 										      	<a id="every-4-weeks" href="#" name="freq" onclick="monthly()" class="form-control btn btn-default btn-lg btn-line repeat col-xs-12">Every 4 Weeks</a>
 										    </div>
+
 										</div>
 									</div>
 
@@ -3363,13 +3365,12 @@ $(function() {
 												<input name="_RecurringDiscount" id="IdiscountR" />
 												<input name="_OneTimeAdjustment" id="onetimeadjust" />
 												<input name="stripeToken" id="stripetoken" />
-												</div>
-
-												<button type="submit" id="continue2" name="continue2" class="btn btn-grad col-xs-12">Book My Cleaning</button>
-
-
+												</div> 
+												<div class="container-continue2">  
+													<button type="submit" id="continue2" name="continue2" class="btn btn-grad col-xs-12">Book My Cleaning</button>  
+												</div> 
 											</div>
-											<div> 
+											<div class="footer-book-cleaing" > 
 												<p style="padding: 0px">
 													By clicking "Book My Cleaning", you are agreeing to our <a href="https://naturalcarecleaningservice.com/terms-conditions/" target="_blank">Terms of Service</a>.
 												</p>

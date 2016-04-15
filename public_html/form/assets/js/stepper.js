@@ -4,11 +4,6 @@ bed('#bed');
 bath('#bath');
 
 
-
- 
-   
- 
-
  
 $( '#bed' )
   .focusout(function() {
@@ -27,8 +22,7 @@ $( '#bed' )
 
 
 $( '#bath' )
-  .focusout(function() {
-     
+  .focusout(function() { 
   })
   .blur(function() { 
      var current_value = $(this).val();
@@ -99,10 +93,9 @@ function bed(id) {
         $(id).val(str);
 
         calculateFirstCleanByKeepItCleanGetCleanMoveInOut();
-    });
-
-
+    }); 
 }
+
 function bath(id) {
     var bed = 1;
     var bath = 1;
