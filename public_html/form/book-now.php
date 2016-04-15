@@ -1008,6 +1008,26 @@ $(function() {
 	var useDiscount = <?php echo $useDiscount; ?>;
 	var discount = <?php echo $discount; ?>;
 
+
+
+	// add to session 
+	localStorage.setItem('base', base);
+	localStorage.setItem('keepclean', keepclean);
+	localStorage.setItem('getclean', getclean);
+	localStorage.setItem('deepclean', deepclean);
+	localStorage.setItem('moveinout', moveinout);
+	localStorage.setItem('addon', addon);
+	localStorage.setItem('beds', beds);
+	localStorage.setItem('baths', baths);
+	localStorage.setItem('sqft', sqft);
+	localStorage.setItem('week', week);
+	localStorage.setItem('biweek', biweek);
+	localStorage.setItem('month', month);
+	localStorage.setItem('rate', rate);
+	localStorage.setItem('useDiscount', useDiscount);
+	localStorage.setItem('discount', discount);
+
+
 	function numBeds() {
 		var ret =  isNaN(parseInt($('#bed').val())) ? 0 : parseInt($('#bed').val());
 		return ret;
@@ -1099,7 +1119,7 @@ $(function() {
 
 
 		console.log("INITIALIZED");
-		initialize();
+		$.fn.initialize();
 
 
 		var tabClass = '.cleantype';
@@ -1159,13 +1179,42 @@ $(function() {
 
 
 
+ 
+			// $.fn.loadData  = function() {
+			// 	 console.log("initialized : beds " +  memberInputBeds() + " bath " + memberInputBath() + " sqft " + memberInputSqft() );
+			// 	console.log(" admin input beds " + adminInputBeds());
+			// 	console.log("square foot calculation " + Math.round(calculateSqftCalc()));
+			// 	console.log("calculate Base Price " +  calculateBasePrice());
+			// 	console.log("calculate weekly " +  calculateWeekly());
+			// 	console.log("calculate 2 weeks " + calculateEvery2Weeks());
+			// 	console.log("calculate 4 weeks " + calculateEvery4Weeks());
 
+			// 	console.log("Get it clean " + calculateGetItClean());
+			// 	console.log("Deep clean " + calculateDeepClean());
+			// 	console.log("Keep Clean " +  calculateMoveInOut());
 
-
-
-
-
-
+			// 	console.log(" memberInputBeds() = " +memberInputBeds());
+			// 	console.log(" memberInputBath() = " +memberInputBath());
+			// 	console.log(" memberInputSqft() = " +memberInputSqft());
+			// 	console.log(" adminInputBeds() = " +adminInputBeds());
+			// 	console.log(" adminInputBath() = " +adminInputBath());
+			// 	console.log(" adminInputSqftBase() = " +adminInputSqftBase());
+			// 	console.log(" adminInputBaseValue() = " +adminInputBaseValue());
+			// 	console.log(" adminInputWeekly() = " +adminInputWeekly());
+			// 	console.log(" adminInputEvery2Weeks() = " +adminInputEvery2Weeks());
+			// 	console.log(" adminInputEvery4Weeks() = " +adminInputEvery4Weeks());
+			// 	console.log(" adminInputGetItClean() = " +adminInputGetItClean());
+			// 	console.log(" adminInputDeepClean() = " +adminInputDeepClean());
+			// 	console.log(" adminInputMoveInOut() = " +adminInputMoveInOut());
+			// 	console.log(" calculateSqftCalc() = " +calculateSqftCalc());
+			// 	console.log(" calculateBasePrice() = " +calculateBasePrice());
+			// 	console.log(" calculateWeekly() = " +calculateWeekly());
+			// 	console.log(" calculateEvery2Weeks() = " +calculateEvery2Weeks());
+			// 	console.log(" calculateEvery4Weeks() = " +calculateEvery4Weeks());
+			// 	console.log(" calculateGetItClean() = " +calculateGetItClean());
+			// 	console.log(" calculateDeepClean() = " +calculateDeepClean());
+			// 	console.log(" calculateMoveInOut() = " +calculateMoveInOut());
+			// }
 
 
 
@@ -1173,7 +1222,7 @@ $(function() {
 				 * New coding
 				 */
 
-				function initialize() {
+				$.fn.initialize = function() {
 
 					console.log("initialized : beds " +  memberInputBeds() + " bath " + memberInputBath() + " sqft " + memberInputSqft() );
 					console.log(" admin input beds " + adminInputBeds());
@@ -1357,6 +1406,11 @@ $(function() {
 	$('#prodisc').hide();
 	
 	$('#bath, #bed').change(function() {
+
+
+		console.log("change button");
+
+
 		recurringDiscount /= adjustment;
 		adjustment -= subtotal;
 		
@@ -1463,6 +1517,21 @@ $(function() {
 		
 		$('#onetimeadjust').val('$' + adjustment.toFixed(0))
 	});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
 	$('#footage').keyup(function(e) {
 		if(e.keyCode != 13)
