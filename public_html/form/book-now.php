@@ -1107,6 +1107,30 @@ $(function() {
 		return totalBasePrice;
 	}
 
+
+
+
+	function getWeeklyPrice(text) {
+
+		var repeatValue = 0;
+		text = text.toLowerCase(); 
+ 
+		if(text == 'one time') {
+			
+		} else if (text == 'every week') {
+			console.log(" inside every week");
+			repeatValue = calculateWeekly(); 
+		} else if (text == 'every 2 weeks') {
+			console.log(" inside every 2 weeks");
+			repeatValue = calculateEvery2Weeks(); 
+		} else if(text == 'every 4 weeks'){
+			console.log(" inside every 4 weeks");
+			repeatValue = calculateEvery4Weeks(); 
+		}
+ 
+		console.log(" text " + text + " price " + repeatValue);
+		return Math.round(repeatValue);
+	}
 	/**
 	 * Caluclate first clean for
 	 * Tabs:
@@ -1118,6 +1142,9 @@ $(function() {
 	{
 
 
+
+
+		text = text.toLowerCase();
 		console.log("INITIALIZED");
 		$.fn.initialize();
 
@@ -1126,6 +1153,9 @@ $(function() {
 		var firstCleanId = '#visit1';
 		var totalBathRooms = parseFloat($('#bath').val());
 		var totalBedRooms = parseInt($('#bed').val());
+
+
+
 		// getclean  = parseFloat("1.25");
 		// deepclean = parseFloat("1.5");
 		// moveinout = parseFloat("1.75");
@@ -1408,6 +1438,8 @@ $(function() {
 	$('#bath, #bed').change(function() {
 
 
+
+		/*
 		console.log("change button");
 
 
@@ -1511,11 +1543,36 @@ $(function() {
 		$('#subtotal').text('$' + adjustment.toFixed(0));
 		$('#psubtotal').text('$' + adjustment.toFixed(0));
 		$('#discountR').text('-$' + Math.round(recurringDiscount).toFixed(0));
-		$('#pdiscountR').text('-$' + Math.round(recurringDiscount).toFixed(0));
-		
-		
-		
+		$('#pdiscountR').text('-$' + Math.round(recurringDiscount).toFixed(0)); 
 		$('#onetimeadjust').val('$' + adjustment.toFixed(0))
+
+		*/
+			
+
+
+		/**
+		* Issue is that javascript won't recognize the decimal so need to change to a text field
+		*/
+		var cleanType = $('#cleantype').val().toLowerCase();  
+		var firstclean = calculateFirstCleanByKeepItCleanGetCleanMoveInOut(cleanType); 
+		$('#visit1').text( '$' + Math.round(firstclean));
+		$('#pvisit1').text( '$' + Math.round(firstclean));
+ 
+
+
+
+
+
+
+
+
+		var repeatText = $('#repeat').val().toLowerCase(); 
+
+		var weeklyVal = getWeeklyPrice(repeatText); 
+
+
+		$('#visit2').text('$' +weeklyVal);
+		$('#pvisit2').text('$' + weeklyVal); 
 	});
 
 
