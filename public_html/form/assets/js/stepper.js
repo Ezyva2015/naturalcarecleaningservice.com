@@ -107,6 +107,9 @@ $(window).load(function(){
             }
 
             $(id).val(str); 
+
+            plusAndMinusButtonClickedAutoCalculate();
+ 
         }); 
         i.on("touchspin.on.startdownspin", function () {
             if(bed > minValue ) {
@@ -121,6 +124,10 @@ $(window).load(function(){
                 str += bedRoomPlural;
             }
             $(id).val(str); 
+
+            plusAndMinusButtonClickedAutoCalculate();
+
+             
         }); 
     }
 
@@ -157,8 +164,9 @@ $(window).load(function(){
                 str += bedRoomPlural;
             }
 
-            $(id).val(str);
-            //$('#bed-room-stepper').val(str);
+            $(id).val(str); 
+
+            plusAndMinusButtonClickedAutoCalculate(); 
      
         }); 
         i.on("touchspin.on.startdownspin", function () {
@@ -173,6 +181,9 @@ $(window).load(function(){
                 str += bedRoomPlural;
             }
             $(id).val(str); 
+
+
+            plusAndMinusButtonClickedAutoCalculate(); 
         }); 
     } 
 
@@ -182,8 +193,22 @@ $(window).load(function(){
         var unit = new Array("", "1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5.5", "6");
         return unit[index];
     }  
+ 
+    function plusAndMinusButtonClickedAutoCalculate() {
+        //$('#field-bath').val(bathRoomUnit(bed)); 
+        var cleanType = $('#cleantype').val().toLowerCase();  
+        var firstclean = $.fn.calculateFirstCleanByKeepItCleanGetCleanMoveInOut(cleanType); 
+        $('#visit1').text( '$' + Math.round(firstclean));
+        $('#pvisit1').text( '$' + Math.round(firstclean)); 
 
-
+        /**
+        * Repeat
+        */  
+        var repeatText = $('#repeat').val().toLowerCase();  
+        var weeklyVal = $.fn.getWeeklyPrice(repeatText);  
+        $('#visit2').text('$' +weeklyVal);
+        $('#pvisit2').text('$' + weeklyVal);  
+    } 
+ 
 
 });
- 

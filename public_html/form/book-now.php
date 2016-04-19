@@ -1,4 +1,4 @@
-﻿<?php @session_start();?>
+<?php @session_start();?>
 <?php
  //require("assets/bootstrap/bootstrap-touchspin-master/demo/demo.php");
 //
@@ -990,8 +990,12 @@ $(function() {
 		</script>
 
 		<script type="text/javascript" language="javascript">
-			$(function(){
+			$(function(global){
+ 
 
+	// var objData = new object();
+	// objData.totalAddOns = 0;
+	global.totalAddOns = 0;
 	var base = <?php echo $base; ?>;
 	var keepclean = <?php echo $keepclean; ?>;
 	var getclean = <?php echo $getclean; ?>;
@@ -1110,6 +1114,30 @@ $(function() {
 
 
 
+
+	$.fn.getWeeklyPrice = function (text) {
+
+		var repeatValue = 0;
+		text = text.toLowerCase(); 
+ 
+		if(text == 'one time') {
+			
+		} else if (text == 'every week') {
+			console.log(" inside every week");
+			repeatValue = calculateWeekly(); 
+		} else if (text == 'every 2 weeks') {
+			console.log(" inside every 2 weeks");
+			repeatValue = calculateEvery2Weeks(); 
+		} else if(text == 'every 4 weeks'){
+			console.log(" inside every 4 weeks");
+			repeatValue = calculateEvery4Weeks(); 
+		}
+ 
+		console.log(" text " + text + " price " + repeatValue);
+		return Math.round(repeatValue);
+	}
+
+
 	function getWeeklyPrice(text) {
 
 		var repeatValue = 0;
@@ -1131,6 +1159,9 @@ $(function() {
 		console.log(" text " + text + " price " + repeatValue);
 		return Math.round(repeatValue);
 	}
+
+
+
 	/**
 	 * Caluclate first clean for
 	 * Tabs:
@@ -1138,15 +1169,15 @@ $(function() {
 	 * Get Clean
 	 * Move In Out
 	 */
-	function calculateFirstCleanByKeepItCleanGetCleanMoveInOut(text)
+	$.fn.calculateFirstCleanByKeepItCleanGetCleanMoveInOut = function (text)
 	{
 
 
 
 
 		text = text.toLowerCase();
-		console.log("INITIALIZED");
-		$.fn.initialize();
+		// console.log("INITIALIZED");
+		// $.fn.initialize();
 
 
 		var tabClass = '.cleantype';
@@ -1174,7 +1205,7 @@ $(function() {
 		if (text == 'keep it clean')
 		{
 			firstclean = calculateBasePrice();
-//			firstclean = 1;
+		//			firstclean = 1;
 		}
 		else if (text == 'get it clean')
 		{
@@ -1186,13 +1217,113 @@ $(function() {
 		{
 			console.log("deep clean");
 			firstclean = calculateDeepClean(); //deepCleanFunc(totalBasePrice, deepclean);
-//			firstclean = deepCleanFunc(totalBasePrice, deepclean);
+		//			firstclean = deepCleanFunc(totalBasePrice, deepclean);
 		}
 		else if (text == 'move in/out')
 		{
 			console.log("move in out");
 			firstclean = calculateMoveInOut(); //moveInOutFunc(totalBasePrice, moveinout);
-//			firstclean = moveInOutFunc(totalBasePrice, moveinout);
+			//			firstclean = moveInOutFunc(totalBasePrice, moveinout);
+		}
+
+
+ 
+
+		firstclean = Math.round(firstclean); 
+	      firstclean = firstclean + parseInt(global.totalAddOns);
+		// get addons value selected 
+
+		console.log(" text tab = " + text + " clicked tab " + $(tabClass).text() + "  " + SQFTInput + " totalBasePrice " + totalBasePrice + " firstclean " + firstclean + " total bath room " + totalBathRooms + " total bed rooms " + totalBedRooms );
+
+
+
+		// 		$(firstCleanId).text(firstclean);
+
+		return firstclean; 
+	}
+
+
+	/**
+	* Auto calculate weekly and cleaning type
+	*/
+    $.fn.plusAndMinusButtonClickedAutoCalculate = function() {
+        //$('#field-bath').val(bathRoomUnit(bed)); 
+        var cleanType = $('#cleantype').val().toLowerCase();  
+        var firstclean = $.fn.calculateFirstCleanByKeepItCleanGetCleanMoveInOut(cleanType); 
+        $('#visit1').text( '$' + Math.round(firstclean));
+        $('#pvisit1').text( '$' + Math.round(firstclean)); 
+
+        /**
+        * Repeat
+        */  
+        var repeatText = $('#repeat').val().toLowerCase();  
+        var weeklyVal = $.fn.getWeeklyPrice(repeatText);  
+        $('#visit2').text('$' +weeklyVal);
+        $('#pvisit2').text('$' + weeklyVal);  
+    } 
+
+	/**
+	 * Caluclate first clean for
+	 * Tabs:
+	 * Keep It Clean
+	 * Get Clean
+	 * Move In Out
+	 */
+	function calculateFirstCleanByKeepItCleanGetCleanMoveInOut(text)
+	{
+
+
+
+
+		text = text.toLowerCase();
+		// console.log("INITIALIZED");
+		// $.fn.initialize();
+
+
+		var tabClass = '.cleantype';
+		var firstCleanId = '#visit1';
+		var totalBathRooms = parseFloat($('#bath').val());
+		var totalBedRooms = parseInt($('#bed').val());
+
+
+
+		// getclean  = parseFloat("1.25");
+		// deepclean = parseFloat("1.5");
+		// moveinout = parseFloat("1.75");
+		var SQFTInput = parseInt($('#footage').val());
+		var totalBasePrice = getTotalBasePrice(calculate_sqrtFt(SQFTInput), totalBedRooms, totalBathRooms);
+
+
+		
+
+		text = text.toLowerCase();
+		console.log("get it clean " +  calculateGetItClean());
+		console.log("text = " + text);
+
+
+
+		if (text == 'keep it clean')
+		{
+			firstclean = calculateBasePrice();
+		//			firstclean = 1;
+		}
+		else if (text == 'get it clean')
+		{
+			console.log("inside get it clean")
+			firstclean = calculateGetItClean(); //getItCleanFunc(totalBasePrice, getclean);
+			//firstclean = getItCleanFunc(totalBasePrice, getclean);
+		}
+		else if (text == 'deep clean')
+		{
+			console.log("deep clean");
+			firstclean = calculateDeepClean(); //deepCleanFunc(totalBasePrice, deepclean);
+		//			firstclean = deepCleanFunc(totalBasePrice, deepclean);
+		}
+		else if (text == 'move in/out')
+		{
+			console.log("move in out");
+			firstclean = calculateMoveInOut(); //moveInOutFunc(totalBasePrice, moveinout);
+			//			firstclean = moveInOutFunc(totalBasePrice, moveinout);
 		}
 
 		firstclean = Math.round(firstclean);
@@ -1203,8 +1334,7 @@ $(function() {
 
 		// 		$(firstCleanId).text(firstclean);
 
-		return firstclean;
-
+		return firstclean; 
 	}
 
 
@@ -1435,6 +1565,12 @@ $(function() {
 	$('#pdiscountR').hide();
 	$('#prodisc').hide();
 	
+
+	$('#field-bath').change(function(){
+      alert("change field value now");
+	})
+
+
 	$('#bath, #bed').change(function() {
 
 
@@ -1552,27 +1688,17 @@ $(function() {
 
 		/**
 		* Issue is that javascript won't recognize the decimal so need to change to a text field
-		*/
-		var cleanType = $('#cleantype').val().toLowerCase();  
-		var firstclean = calculateFirstCleanByKeepItCleanGetCleanMoveInOut(cleanType); 
-		$('#visit1').text( '$' + Math.round(firstclean));
-		$('#pvisit1').text( '$' + Math.round(firstclean));
- 
+		*/ 
 
 
 
 
+		// var bathTotal = parseFloat($('#field-bath').val());
 
+		// alert("total bath " + bathTotal);
 
-
-
-		var repeatText = $('#repeat').val().toLowerCase(); 
-
-		var weeklyVal = getWeeklyPrice(repeatText); 
-
-
-		$('#visit2').text('$' +weeklyVal);
-		$('#pvisit2').text('$' + weeklyVal); 
+		
+  
 	});
 
 
@@ -1803,7 +1929,7 @@ $(function() {
 		hours = adjustment / rate;
 
 		// Calculate keep it clean, deep clean and move in out
-			firstclean =  calculateFirstCleanByKeepItCleanGetCleanMoveInOut(textTab);
+			firstclean =  $.fn.calculateFirstCleanByKeepItCleanGetCleanMoveInOut(textTab);
 //	    calculateFirstCleanByKeepItCleanGetCleanMoveInOut(textTab);
 
 
@@ -1900,7 +2026,12 @@ $(function() {
 		}
 	})
 
+
+/*
+
 	$('.addon').click(function() {
+
+
 		recurringDiscount *= 1 / adjustment;
 		if ($(this).val() == 0) {
 			adjustment -= addon;
@@ -1937,6 +2068,8 @@ $(function() {
           firstclean = adjustment - recurringDiscount - promodiscount;
           
 		hours = adjustment / rate;
+
+
 		$('#hour').text(hours.toFixed(1) + ' hours')
 		$('#Ihour').text(hours.toFixed(1) + ' hours')
 		$('#visit2').text('$' + Math.round(recurringPrice).toFixed(0))
@@ -2013,6 +2146,167 @@ $(function() {
 		$('#subtotal').text('$' + adjustment.toFixed(0))
 		$('#psubtotal').text('$' + adjustment.toFixed(0))
 	})
+
+*/
+
+
+	
+
+
+
+	
+
+	$('.addon').click(function() {
+
+
+
+		// alert("addons clicked  addons " + addon);
+
+
+
+		 //$('#field-bath').val(bathRoomUnit(bed)); 
+        // var cleanType = $('#cleantype').val().toLowerCase();  
+        // var firstclean = $.fn.calculateFirstCleanByKeepItCleanGetCleanMoveInOut(cleanType);    
+        // $('#visit1').text( '$' + Math.round(firstclean));
+        // $('#pvisit1').text( '$' + Math.round(firstclean)); 
+ 
+ 
+
+	
+		// recurringDiscount *= 1 / adjustment;
+		if ($(this).val() == 0) {
+		 	
+
+
+			 global.totalAddOns-= addon;
+
+
+			
+			if($(this).is('#fridge'))
+				$('#pfridge').hide();
+			else if($(this).is('#stove'))
+				$('#pstove').hide();
+			else if($(this).is('#window'))
+				$('#pwindow').hide();
+			else if($(this).is('#wall'))
+				$('#pbedsteam').hide();
+				
+		} else {
+
+			  global.totalAddOns+= addon;
+
+
+			 
+			if($(this).is('#fridge'))
+				$('#pfridge').show();
+			else if($(this).is('#stove'))
+				$('#pstove').show();
+			else if($(this).is('#window'))
+				$('#pwindow').show();
+			else if($(this).is('#wall'))
+				$('#pbedsteam').show();
+		}	 
+		// alert(" global addons " + global.totalAddOns);  
+		$.fn.plusAndMinusButtonClickedAutoCalculate(); 
+		/*
+		recurringDiscount *= adjustment;
+
+		if(useDiscount)
+          firstclean = adjustment - discount - promodiscount;
+        else
+          firstclean = adjustment - recurringDiscount - promodiscount;
+          
+		hours = adjustment / rate;
+
+		
+		$('#hour').text(hours.toFixed(1) + ' hours')
+		$('#Ihour').text(hours.toFixed(1) + ' hours')
+		$('#visit2').text('$' + Math.round(recurringPrice).toFixed(0))
+		$('#pvisit2').text('$' + Math.round(recurringPrice).toFixed(0))
+		$('#visit1').text('$' + Math.round(firstclean).toFixed(0));
+        $('#pvisit1').text('$' + Math.round(firstclean).toFixed(0));
+        if($('#repeat').val() && $('#cleantype').val() && $('#footage').val())
+		{		
+        	if($('#repeat').val() && $('#repeat').val() != "One Time" && ($('#cleantype').val() == 'Keep It Clean' || !$('#cleantype').val()) && $('.addon[value=""]').length == 4)
+        	{
+          		$('#visit1').parent().parent().parent().hide();
+          		$('#pvisit1').parent().parent().parent().hide();
+          		$('#visit2').parent().parent().parent().show();
+          		$('#pvisit2').parent().parent().parent().show();
+        	}
+        	else if($('#repeat').val() != 'One Time' && $('#cleantype').val() != 'Keep It Clean')
+        	{
+          		$('#visit1').parent().parent().parent().show();
+          		$('#pvisit1').parent().parent().parent().show();
+          		$('#visit2').parent().parent().parent().show();
+          		$('#pvisit2').parent().parent().parent().show();
+        	}
+        	else if($('#cleantype').val() != 'Keep It Clean')
+        	{
+        		$('#visit1').parent().parent().parent().show();
+          		$('#pvisit1').parent().parent().parent().show();
+        	}
+        	
+        	$('#subtotal').parent().show();
+			$('#psubtotal').parent().show();
+			
+			if(promodiscount <= 0)
+			{
+				$('#sub').hide();
+			}
+			else
+			{
+				$('#sub').show();
+			}
+			
+			if(recurringDiscount <= 0 || $('#cleantype').val() == 'Keep It Clean')
+			{
+		    	$('#discountR').parent().hide();
+            	$('#pdiscountR').hide();
+			}
+			else if($('#cleantype').val() != 'Keep It Clean')
+			{
+		    	$('#discountR').parent().show();
+            	$('#pdiscountR').show();
+			}
+			
+			$('#discountR').parent().hide();
+            $('#pdiscountR').hide();
+       }
+       else
+       {
+       		$('#visit1').parent().parent().parent().hide();
+          	$('#pvisit1').parent().parent().parent().hide();
+          	$('#visit2').parent().parent().parent().hide();
+          	$('#pvisit2').parent().parent().parent().hide();
+       		$('#subtotal').parent().hide();
+			$('#psubtotal').parent().hide();
+			$('#discountR').parent().hide();
+			$('#pdiscountR').hide();
+			$('#prodisc').hide();
+       }
+		$('#Ivisit1').val(Math.round(firstclean).toFixed(0))
+		$('#Ivisit2').val(Math.round(recurringPrice).toFixed(0))
+		$('#IdiscountR').val(Math.round(recurringDiscount).toFixed(0))
+		$('#discountR').text('-$' + Math.round(recurringDiscount).toFixed(0))
+		$('#pdiscountR').text('-$' + Math.round(recurringDiscount).toFixed(0))
+		
+		$('#onetimeadjust').val('$' + adjustment.toFixed(0))
+		$('#subtotal').text('$' + adjustment.toFixed(0))
+		$('#psubtotal').text('$' + adjustment.toFixed(0))
+
+		*/
+	})
+
+
+
+
+
+
+
+
+
+
 	$('.repeat').click(function() {
 		$('#repeat').val($(this).text());
 		
@@ -2876,8 +3170,7 @@ $(function() {
 																		name="_baths"
 																		required=""
 																		type="text"
-																		readonly>
-
+																		readonly> 
 
 <!--                                                        		<select class="form-control" style="color: #555555; font-size: 14px; height:42px; width:100%;" id="bath" name="_baths" required />-->
 <!--                                                        			<option value="1">1 bathroom</option>-->
