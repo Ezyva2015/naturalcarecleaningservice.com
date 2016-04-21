@@ -1711,12 +1711,77 @@ $(function() {
 
 
 
+	$.fn.detectHideShowPriceContainer = function () { 
+ 
+		if($('#footage').val() == '') {
+
+			// alert("footage is emoty")
+			// $('.right-container-price1').css('display', 'none');
+		} else { 
+			//che
+			if($('#visit1').text() == '') {
+				// $('.right-container-price1').css('display', 'none'); 
+				// alert("footage is not empty");
+			} else {
+				// alert("footage is not empty and has price");
+				// $('.right-container-price1').css('display', 'block');
+			} 
+		} 
+	} 
+
+
+
+	/**
+	* Show hide right side container 
+	*
+	*/
+	global.footage1 = 'empty';  
+	global.weekly = '';  	
+	global.clean = '';  
+
+
+
+	$('.cleaning-container').click(function(){
+		global.weekly = 'clicked'; 
+		$.fn.hideShowPrice(); 
+	});  
+	$('.phone').click(function(){
+	 	global.clean = 'clicked';  
+		$.fn.hideShowPrice();
+	}) 
+
+
+
+	$.fn.hideShowPrice = function() {
+		if(global.weekly  == 'clicked' && global.clean == 'clicked' && global.footage1 == 'not empty'){
+			//display price 
+			$('.right-container-price1').css('display', 'block');
+		} else {
+			$('.right-container-price1').css('display', 'none');
+		} 
+		// alert("price = " + global.showPrice)
+	} 
+
+
+
+	$('#footage').keyup(function(e) { 
+		/**
+		* if the footage field is empty
+		* if not empty then show this field
+		*/  
+		// $.fn.detectHideShowPriceContainer(); 
+		if($('#footage').val() == "") {
+			global.footage1 = 'empty';  	
+		} else {
+			global.footage1 = 'not empty';  
+		}
+		$.fn.hideShowPrice();
+		
 
 
 
 
-	
-	$('#footage').keyup(function(e) {
+
 		if(e.keyCode != 13)
 		{
 			recurringDiscount /= adjustment;
@@ -1747,6 +1812,9 @@ $(function() {
 			{		
         		if($('#repeat').val() && $('#repeat').val() != "One Time" && ($('#cleantype').val() == 'Keep It Clean' || !$('#cleantype').val()) && $('.addon[value=""]').length == 4)
         		{
+
+
+
           			$('#visit1').parent().parent().parent().hide();
           			$('#pvisit1').parent().parent().parent().hide();
           			$('#visit2').parent().parent().parent().show();
@@ -2810,7 +2878,7 @@ $(function() {
 		<center>
 			<div class="container-cover">
 			      <p> 
-			        <img src="https://venturewell.org/wp-content/plugins/venturewell-membership/_img/spinner.gif">
+			        <img src="http://naturalcarecleaningservice.com/wp-content/uploads/2016/04/spinner.gif">
 			   	 </p>
 		     </div> 
 		</center>
@@ -3899,7 +3967,7 @@ $(function() {
 							<div class="triagle"><img src="assets/img/triangleft.png" class="triangleft"></div>
 						</div>
 						
-							<div class="summary">
+							<div class="summary" style="padding-bottom:5px;">
 								<div class="summary col-sm-12">
 								<div class="col-md-1">
 								<img style="height: 24px" src="assets/img/House.png" />
@@ -3933,7 +4001,12 @@ $(function() {
 						<div class="clearfix"></div>
 						
 						
+						
+
+					<div class="right-container-price1" style="display: none; padding: 0px;" >	
+						<!-- starts here -->
 						<hr style="width:100%;">
+
 						<div class="triaglelogo2 triaglelogo2_left"><img src="assets/img/trilaglelogo2.png"></div>
 						
 						<div class="summary col-sm-12">
@@ -3965,8 +4038,16 @@ $(function() {
     								</div></b><div class="clearfix"></div>
     								<br>
 								</div>
-							</div>
-						</div><div class="clearfix"></div>
+							</div> 
+						
+						</div>
+						<div class="clearfix"></div> 
+					<!-- end here --> 
+					</div>
+
+
+
+
 					<div class="summary col-sm-12" style="padding-top:0px">
 						<div id="multvisit" class="tablerow col-sm-12" style="display:none; padding:0px; height:58px; color: white; background:#b4d0c2">
 						    <div style="padding-top: 15px; padding-right: 15px">
@@ -3978,6 +4059,10 @@ $(function() {
                           </div>
                         </div>
                     </div>
+
+
+
+
 					
 					
 					

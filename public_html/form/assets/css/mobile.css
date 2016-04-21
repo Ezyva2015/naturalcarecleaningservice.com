@@ -153,6 +153,7 @@
 		.mobile-view-footer-security, .customer-information-mobile {
 			padding:0px;
 			display: block !important;
+			padding-top: 6px;
 		}
 		 
 		.mobile-view-footer-security  li {
@@ -793,7 +794,7 @@
 
 
 	.footer-book-cleaing {
-		/*display:none;*/
+/* 		display:none; */
 	}
 
      .footer-book-cleaing {
