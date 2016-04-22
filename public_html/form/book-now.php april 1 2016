@@ -1,9 +1,4 @@
-<?php @session_start();?>
-
-
-
-
-
+﻿<?php @session_start();?>
 <?php
  //require("assets/bootstrap/bootstrap-touchspin-master/demo/demo.php");
 //
@@ -13,27 +8,46 @@
 
 ?>
 
+
+
+
+
 <?php
 require_once ('infusionsoft/PHP-iSDK-master/src/isdk.php');
 require_once ('stripe/init.php');
 require_once ('conf.php');
+require_once 'email/PHPMailer-master/PHPMailerAutoload.php'; 
 
+
+
+
+
+//echo "<pre>";
+//
+//	print_r($_SESSION);
+//
+//echo "</pre>";
 
 // Important value variables
 
 // connect to the database to grab option values
-
-
-
-
 include('results_table/connect-db.php');
 
+// query db
     $result = mysql_query("SELECT * FROM options")
     or die(mysql_error());
     $row = mysql_fetch_array($result);
+	// echo"<pre>";
+	// print_r( $row );
+	// echo"</pre>";
 
     
     // check that the 'id' matches up with a row in the databse
+
+    // echo "<pre>";
+    // 	print_r($row);
+    // echo "</pre>";
+ 
     if($row)
     {
     
@@ -59,7 +73,7 @@ $app = new iSDK();
 $app->cfgCon('naturalcare');
 
 
-//fsheen code
+//floyd code
 $returnFields = array('Contact.PostalCode');
 $contacts = $app->dsFind('ContactGroupAssign',1000,0,'GroupId',510,$returnFields);
 
@@ -69,13 +83,213 @@ foreach($contacts as $contact){
 	if($contact['Contact.PostalCode']==$_SESSION['PostalCode']){
 		
 		
-		$totaljoined[] = 1;
-		
-		
-	}
-	
-	
+		$totaljoined[] = 1; 
+	} 
 }
+
+
+
+
+
+
+
+/**
+ * Function name
+ * what the function does
+ *
+ * Parameters:
+ *     (name) - about this param
+ */
+
+  //   if ($_SERVER['REQUEST_METHOD']=='POST' && $_POST['_Frequency']!='' && $_POST['_SelectYourDate']!='' && $_POST['_ArrivalWindow']!='' && $_POST['_InitialCleanType']!='' && $_POST['FirstName']!='' && $_POST['City']!='' && $_POST['LastName']!='' && $_POST['Email']!='' && $_POST['Phone1']!='' && $_POST['StreetAddress1']!='' && $_POST['State']!='' && $_POST['PostalCode']!='' && $_POST['credit_card']!='' && $_POST['cvc']!='' && $_POST['expmonth']!='' && $_POST['expyear']!='')
+  //   {
+  //   	$addOnDsp = '';
+    	
+  //   	if($_POST['_AddOns'])
+  //   		$_POST['_AddOns'] = substr($_POST['_AddOns'], 1); // trim leading comma
+    		
+  //   	foreach(explode(',', $_POST['AddOns']) as $addOn)
+		// 	$addOnDsp .= $addOn . '<br>';
+		
+		// $addOnDsp = trim($addOnDsp, '<br>');
+    	
+  //       $contact_data = [];
+  //       foreach ($_POST as $k=>$value)
+  //       {
+  //           if ($k!='credit_card' && $k!='cvc' && $k!='expmonth' && $k!='expyear' && $k!='continue2' && $k!='stripeToken')
+  //           {
+  //               $contact_data[$k] = $value;
+  //               $_SESSION[$k] = $value;
+  //           }
+  //       }
+  //       $_SESSION['credit_card'] = $_POST['credit_card'];
+  //       $_SESSION['cvc'] = $_POST['cvc'];
+  //       $_SESSION['expmonth'] = $_POST['expmonth'];
+  //       $_SESSION['expyear'] = $_POST['expyear'];
+        
+      
+		// // email form
+		// $headers  = 'MIME-Version: 1.0' . "\r\n";
+		// $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+		// // $headers .= 'To: Adam <kauseway@gmail.com>' . "\r\n";
+		// $headers .= 'To: Adam <mrjesuserwinsuarez@gmail.com>' . "\r\n";
+		// $headers .= 'From: ' . $_POST['FirstName'] . ' ' . $_POST['LastName'] . ' <' . $_POST['Email'] . '>' . "\r\n";
+		
+		// $subject = 'Cleaning Confirmation';
+		// // $to = 'kauseway@gmail.com';
+		// $to = 'mrjesuserwinsuarez@gmail.com'; 
+
+		// $message = 
+		// 	'<html>'.
+		// 		'<head>'.
+		// 			'<title>Cleaning Confirmation</title>'.
+		// 		'</head>'.
+		// 		'<body>'.
+		// 			'<p>A customer has paid for cleaning services</p><br />'.
+		// 			'<span><b>Contact Info</b></span><br />'.
+		// 			'<table>'.
+		// 				'<tr>'.
+		// 					'<td><b>Name</b></td>'.
+		// 					'<td>' . $_POST['FirstName'] . ' ' . $_POST['LastName'] . '</td>'.
+		// 				'</tr>'.
+		// 				'<tr>'.
+		// 					'<td><b>Address Line 1</b></td>'.
+		// 					'<td>' . $_POST['StreetAddress1'] . '</td>'.
+		// 				'</tr>'.
+		// 				'<tr>'.
+		// 					'<td><b>Address Line 2</b></td>'.
+		// 					'<td>' . $_POST['StreetAddress2'] . '</td>'.
+		// 				'</tr>'.
+		// 				'<tr>'.
+		// 					'<td><b>City</b></td>'.
+		// 					'<td>' . $_POST['City'] . '</td>'.
+		// 				'</tr>'.
+		// 				'<tr>'.
+		// 					'<td><b>State</b></td>'.
+		// 					'<td>' . $_POST['State'] . '</td>'.
+		// 				'</tr>'.
+		// 				'<tr>'.
+		// 					'<td><b>Zip Code</b></td>'.
+		// 					'<td>' . $_POST['PostalCode'] . '</td>'.
+		// 				'</tr>'.
+		// 				'<tr>'.
+		// 					'<td><b>Email</b></td>'.
+		// 					'<td>' . $_POST['Email'] . '</td>'.
+		// 				'</tr>'.
+		// 			'</table><br />'.
+		// 			'<span><b>Cleaning Info</b></span><br />'.
+		// 			'<table>'.
+		// 				'<tr>'.
+		// 					'<td><b>Clean Type</b></td>'.
+		// 					'<td>' . $_POST['_InitialCleanType'] . '</td>'.
+		// 				'</tr>'.
+		// 				'<tr>'.
+		// 					'<td><b>Reccuring Frequency</b></td>'.
+		// 					'<td>' . $_POST['_Frequency'] . '</td>'.
+		// 				'</tr>'.
+		// 				'<tr>'.
+		// 					'<td><b>Addons</b></td>'.
+		// 					'<td>'. $addOnDsp . '</td>'.
+		// 				'</tr>'.
+		// 				'<tr>'.
+		// 					'<td><b>Appointment Date</b></td>'.
+		// 					'<td>' . $_POST['_SelectYourDate'] . '</td>'.
+		// 				'</tr>'.
+		// 				'<tr>'.
+		// 					'<td><b>Time of Day</b></td>'.
+		// 					'<td>' . $_POST['_ArrivalWindow'] . '</td>'.
+		// 				'</tr>'.
+		// 			'</table>'.
+		// 		'</body>'.
+		// 	'</html>';
+		
+
+
+		// $mail = new PHPMailer; 
+
+		// $mail->setFrom('michael@automationlab.com.au', 'Mailer');
+		// $mail->addAddress('mrjesuserwinsuarez@gmail.com', 'Jesus User');     // Add a recipient 
+
+		// $mail->addReplyTo('michael@automationlab.com.au', 'Information'); 
+
+		// $mail->isHTML(true);                                  // Set email format to HTML
+
+		// $mail->Subject = 'Cleaning Confirmation';
+		// $mail->Body    = $message; 
+
+		// if(!$mail->send()) {
+		//     echo 'Message could not be sent.';
+		//     echo 'Mailer Error: ' . $mail->ErrorInfo;
+		// } else {
+		//     echo 'Message has been sent';
+		// }
+
+
+
+
+		// 	// mail($to, $subject, $message, $headers);
+		
+  //       // $redirect = '<script>window.location = "/form/final.php";</script>';
+  //   } else {
+  //   	echo "Not send yet<br>";
+  //   }
+
+
+
+
+// if (isset($_SESSION) && !empty($_SESSION) && isset($_SESSION['contact_id']))
+// {
+	// if ($_SERVER['REQUEST_METHOD']=='POST' && $_POST['_Frequency']!='' && $_POST['_SelectYourDate']!='' && $_POST['_ArrivalWindow']!='' && $_POST['_InitialCleanType']!='' && $_POST['FirstName']!='' && $_POST['City']!='' && $_POST['LastName']!='' && $_POST['Email']!='' && $_POST['Phone1']!='' && $_POST['StreetAddress1']!='' && $_POST['State']!='' && $_POST['PostalCode']!='' && $_POST['credit_card']!='' && $_POST['cvc']!='' && $_POST['expmonth']!='' && $_POST['expyear']!='') { 
+	// 	print ("Form submitted <br>");  
+
+	//  //    $_SESSION['StreetAddress1']  
+	//  //    $_SESSION['City']  
+	//  //    $_SESSION['State']   
+	//  //    $_SESSION['Country']  
+	//  //    $_SESSION['StreetAddress2']  
+	//  //    $_SESSION['PostalCode']   
+	//  //    $_SESSION['Email'] 
+	//  //    $_SESSION['_SquareFootagesize'] 
+	//  //    $_SESSION['_Beds']   
+	//  //    $_SESSION['_baths']  
+	//  //    $_SESSION['FirstName']  
+	//  //    $_SESSION['LastName']  
+	// 	// $_SESSION['phonenum']  
+	// 	// $_SESSION['ServiceType']  
+
+
+
+
+	// 	// $mail = new PHPMailer; 
+
+	// 	// $mail->setFrom('michael@automationlab.com.au', 'Mailer');
+	// 	// $mail->addAddress('mrjesuserwinsuarez@gmail.com', 'Jesus User');     // Add a recipient 
+
+	// 	// $mail->addReplyTo('michael@automationlab.com.au', 'Information'); 
+
+	// 	// $mail->isHTML(true);                                  // Set email format to HTML
+
+	// 	// $mail->Subject = 'Here is the subject';
+	// 	// $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+	// 	// $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+	// 	// if(!$mail->send()) {
+	// 	//     echo 'Message could not be sent.';
+	// 	//     echo 'Mailer Error: ' . $mail->ErrorInfo;
+	// 	// } else {
+	// 	//     echo 'Message has been sent';
+	// 	// }
+
+
+		 
+
+
+	// } else {
+	// 	print("Form not yet submitted <br>");
+	// }
+
+// }
+
 
 
 
@@ -135,11 +349,44 @@ if (isset($_SESSION) && !empty($_SESSION) && isset($_SESSION['contact_id']))
 		// email form
 		$headers  = 'MIME-Version: 1.0' . "\r\n";
 		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-		$headers .= 'To: Adam <adamclayd@gmail.com>' . "\r\n";
+		 // $headers .= 'To: Adam <kauseway@gmail.com>' . "\r\n";
+	     $headers .= 'To: Adam <support@gmail.com>' . "\r\n";
+		 
+//		$headers .= 'To: Adam <mrjesuserwinsuarez@gmail.com>' . "\r\n";
 		$headers .= 'From: ' . $_POST['FirstName'] . ' ' . $_POST['LastName'] . ' <' . $_POST['Email'] . '>' . "\r\n";
 		
 		$subject = 'Cleaning Confirmation';
-		$to = 'kauseway@gmail.com';
+		 // $to = 'kauseway@gmail.com';
+		 $to = 'support@gmail.com';
+
+		 
+
+ 
+//		echo "<pre>";
+//			print_r($_POST);
+//		echo "</pre>";
+
+
+		$Country              = $_SESSION['Country'];
+		$_SquareFootagesize   = $_SESSION['_SquareFootagesize'];
+		$_Beds                = $_SESSION['_Beds'];
+	    $_baths               = $_SESSION['_baths']; 
+	    $phonenum             = $_SESSION['phonenum'];
+	    $ServiceType          = $_SESSION['ServiceType'];
+	    $contact_id           = $_SESSION['contact_id']; 
+	    $Phone1               = $_SESSION['Phone1']; 
+	    $_promodiscount       = $_SESSION['_promodiscount'];
+	    $_YourFirstClean      = $_SESSION['_YourFirstClean'];
+	    $_FirstCleanHours     = $_SESSION['_FirstCleanHours'];
+	    $_YourRecurringPrice  = $_SESSION['_YourRecurringPrice'];
+	    $_RecurringDiscount   = $_SESSION['_RecurringDiscount'];
+	    $_OneTimeAdjustment   = $_SESSION['_OneTimeAdjustment'];
+	    $_PromoCode           = $_SESSION['_PromoCode'];
+	    $credit_card          = $_SESSION['credit_card'];
+	    $cvc                  = $_SESSION['cvc'];
+	    $expmonth             = $_SESSION['expmonth'];
+	    $expyear              = $_SESSION['expyear'];
+		
 
 		$message = 
 			'<html>'.
@@ -169,6 +416,10 @@ if (isset($_SESSION) && !empty($_SESSION) && isset($_SESSION['contact_id']))
 						'<tr>'.
 							'<td><b>State</b></td>'.
 							'<td>' . $_POST['State'] . '</td>'.
+						'</tr>'.
+						'<tr>'.
+							'<td><b>Country</b></td>'.
+							'<td>' . $Country . '</td>'.
 						'</tr>'.
 						'<tr>'.
 							'<td><b>Zip Code</b></td>'.
@@ -201,12 +452,80 @@ if (isset($_SESSION) && !empty($_SESSION) && isset($_SESSION['contact_id']))
 							'<td><b>Time of Day</b></td>'.
 							'<td>' . $_POST['_ArrivalWindow'] . '</td>'.
 						'</tr>'.
-					'</table>'.
+					'</table><br />'.
+					'<span><b>Others</b></span><br />'.
+					'<table>'.
+						'<tr>'.
+							'<td><b>Square Footage</b></td>'.
+							'<td>' . $_SquareFootagesize. '</td>'.
+						'</tr>'.
+						'<tr>'.
+							'<td><b>Beds</b></td>'.
+							'<td>' . $_Beds . '</td>'.
+						'</tr>'.
+						'<tr>'.
+							'<td><b>Baths</b></td>'.
+							'<td>'. $_Beds . '</td>'.
+						'</tr>'.
+						'<tr>'.
+							'<td><b>Phone Number</b></td>'.
+							'<td>' . $phonenum . '</td>'.
+						'</tr>'.
+						'<tr>'.
+							'<td><b>Contact Id</b></td>'.
+							'<td>' . $contact_id . '</td>'.
+						'</tr>'.
+
+						'<tr>'.
+							'<td><b>Phone 1</b></td>'.
+							'<td>' . $Phone1 . '</td>'.
+						'</tr>'.
+						'<tr>'.
+							'<td><b>Promo Discount</b></td>'.
+							'<td>' .$_promodiscount . '</td>'.
+						'</tr>'.
+						'<tr>'.
+							'<td><b>Your first clean</b></td>'.
+							'<td>' . $_YourFirstClean . '</td>'.
+						'</tr>'.
+						'<tr>'.
+							'<td><b>Your first clean hours</b></td>'.
+							'<td>' . $_FirstCleanHours . '</td>'.
+						'</tr>'.
+						'<tr>'.
+							'<td><b>Your recurring price</b></td>'.
+							'<td>' . $_YourRecurringPrice . '</td>'.
+						'</tr>'.
+						'<tr>'.
+							'<td><b>Recurring Discount</b></td>'.
+							'<td>' . $_RecurringDiscount . '</td>'.
+						'</tr>'.
+						'<tr>'.
+							'<td><b>One time adjustment </b></td>'.
+							'<td>' .  $_OneTimeAdjustment . '</td>'.
+						'</tr>'.
+						'<tr>'.
+							'<td><b>Promo code</b></td>'.
+							'<td>' . $_PromoCode . '</td>'.
+						'</tr>'.  
+					'</table>' .  
 				'</body>'.
 			'</html>';
-		
+
+
+//			if(
 			mail($to, $subject, $message, $headers);
-		
+			//	){
+//				echo "mail sent <br>";
+//			    $redirect = '<script>window.location = "/form/final.php";</script>';
+
+//			} else {
+//				echo "failed to sent email <br>";
+//			}
+			
+
+
+//			echo "redirect to /form/final.php now! <br>";
         $redirect = '<script>window.location = "/form/final.php";</script>';
     }
 }
@@ -263,7 +582,6 @@ if (isset($_SESSION) && !empty($_SESSION) && isset($_SESSION['contact_id']))
         <script src="assets/plugins/jquery-validation-1.11.1/dist/jquery.validate.js"></script>
         <script src="assets/plugins/jasny/js/bootstrap-inputmask.js"></script>
         <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
-        
         <script src="assets/js/jquery-scrolltofixed.js" type="text/javascript"></script>
         <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 
@@ -280,24 +598,13 @@ if (isset($_SESSION) && !empty($_SESSION) && isset($_SESSION['contact_id']))
 		<script src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.js"></script>
 		<script src="assets/bootstrap/bootstrap-touchspin-master/src/jquery.bootstrap-touchspin.js"></script>
 		<!--		<script src="../src/jquery.bootstrap-touchspin.js"></script>-->
-		
-		 
-
-		
-		
-<!-- THIS IS GEOCODE-->
-					
-
-<!--END OF GEOCODE-->
-
 
 
 
 		<link href="assets/css/stepper.css"  rel="stylesheet" type="text/css" media="all" >
 		<link rel="stylesheet" href="assets/css/booknow2.css" />
-		
 		<link rel="stylesheet" href="assets/css/res.css" />
-		
+
 
 
 
@@ -759,19 +1066,24 @@ $(function() {
 	 */
 	function calculateFirstCleanByKeepItCleanGetCleanMoveInOut(text)
 	{
-		var tabClass = '.cleantype';
-		var firstCleanId = '#visit1';
-		var totalBathRooms = parseFloat($('#bath').val());
-		var totalBedRooms = parseInt($('#bed').val());
-		getclean  = parseFloat("1.25");
-		deepclean = parseFloat("1.5");
-		moveinout = parseFloat("1.75");
-		var SQFTInput = parseInt($('#footage').val());
-		var totalBasePrice = getTotalBasePrice(calculate_sqrtFt(SQFTInput), totalBedRooms, totalBathRooms);
 
 
 		console.log("INITIALIZED");
 		initialize();
+
+
+		var tabClass = '.cleantype';
+		var firstCleanId = '#visit1';
+		var totalBathRooms = parseFloat($('#bath').val());
+		var totalBedRooms = parseInt($('#bed').val());
+		// getclean  = parseFloat("1.25");
+		// deepclean = parseFloat("1.5");
+		// moveinout = parseFloat("1.75");
+		var SQFTInput = parseInt($('#footage').val());
+		var totalBasePrice = getTotalBasePrice(calculate_sqrtFt(SQFTInput), totalBedRooms, totalBathRooms);
+
+
+		
 
 		text = text.toLowerCase();
 		console.log("get it clean " +  calculateGetItClean());
@@ -1236,9 +1548,9 @@ $(function() {
 	    {
 
 
-			getclean  = parseFloat("1.25");
-			deepclean = parseFloat("1.5");
-			moveinout = parseFloat("1.75");
+			// getclean  = parseFloat("1.25");
+			// deepclean = parseFloat("1.5");
+			// moveinout = parseFloat("1.75");
 			var textTab  = $(this).text();
 
 
@@ -1835,38 +2147,92 @@ $(function() {
 
 	});
 		</script>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		<style>
-			.payment-errors {
-				display: none;
-			}
-		</style>
+<style>
+    .payment-errors {
+        display: none;
+    }
+</style>
+
+
+
+
+<script type="text/javascript"> 
+
+	$(document).ready(function(){
+		var explode = function(){
+	 	// 	$('.display-container').css('display','block');
+			// $('.container-cover').css('display', 'none'); 
+			console.log('set time out is working');
+		};
+		setTimeout(explode, 5000); 	
+	});
+
+
+    $( document ).ready(function() {
+        console.log( "1 document loaded" );
+    });
+ 
+    $( window ).load(function() {
+        console.log( "2 window loaded" );
+        $('.display-container').css('display','block');
+		$('.container-cover').css('display', 'none'); 
+		console.log('set time out is working');
+    });
+
+
+	
+</script>
 
 
 	</head>
-
 	<!-- END HEAD -->
 
 	<!-- BEGIN BODY -->
-	<body style="background-color: white; padding-top:0px;" onload="init();">
-
+	<body style="background-color: white" onload="init();"> 
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
+	<!--FSHEEN-->
 	<div class="modal_body_faq">
 		<div class="modal_content_faq">
 		<div class="triagle"><img src="assets/img/triangleft.png" class="triangleft"></div>
 		<a class="close" id="close1">&times;</a>
 		<h2>FOR ASK AND QUESTION</h2>
-		
+			<div class=" et_pb_row et_pb_row_0">
+				
+				<div class="et_pb_column et_pb_column_4_4 et_pb_column_0">
+				<div class="et_pb_text et_pb_module et_pb_bg_layout_light et_pb_text_align_left  et_pb_text_0">
+									
+					<p><strong>Why Us?</strong></p>
+					<p><strong>Our Advanced&nbsp;</strong><strong>Cleaning Approach</strong></p>
+					<p>Naturalcare Cleaning Service takes a smarter approach to cleaning your home. Conventional cleaning methods merely mask dirt and bacteria and leave a residue that can actually attract dust and grime. Naturalcare’s high-temperature cleaning system and scientifically-balanced cleaning products, on the other hand, eliminate bacteria and prevent future build-up.</p>
+					<p>We start by applying advanced steam technology to all your hard surfaces, including kitchen and bathroom counters, sinks, faucets, toilets, tubs, and floors. Our dry steam vapor system:</p>
+					<ul>
+					<li>kills bacteria and germs;</li>
+					<li>removes grease and oil;</li>
+					<li>deodorizes surfaces on contact;</li>
+					<li>eliminates dirt and grime;</li>
+					<li>wipes out mold, mildew, dust, and other allergens;</li>
+					<li>uses less than one quart of water to clean an entire home;</li>
+					<li>is safe for all flooring and hard surfaces; and</li>
+					<li>leaves no residue.</li>
+					</ul>
+					<p>The superheated LadyBug Dry Steam Vapor System penetrates deep into all hard surfaces to completely remove dirt and odors instead of spreading them around or covering them up like conventional chemical cleaners. An EPA-certified disinfectant, our steam vapor system cleans more effectively than chemical alternatives and prevents future build-up better than any other cleaning method.</p>
+					<p>For heavier build-up and stains, we apply a powder peroxide in hot water, adding citric acid and natural oils as needed. Our microfiber cloths eliminate 99% of all bacteria, compared to the 33% that regular cloths remove. And because we color-code our cloths, bathroom cloths will only be used in the bathroom, not in the kitchen or on other surfaces, preventing cross-contamination.</p>
+					<p>Get a smarter clean today.&nbsp;<a href="https://naturalcarecleaningservice.com/estimate/">Contact us for a quote</a>&nbsp;or to&nbsp;<a href="https://naturalcarecleaningservice.com/contact-us/">learn more about what we do</a>&nbsp;. We are more than happy to explain our processes and the technology behind Naturalcare’s advanced clean.</p>
+					<p><strong>Our Customer Service Pledge</strong></p>
+					<p>Naturalcare does not stop with a superior clean. We also deliver superior customer service. After every clean, you will receive an e-mail through which you can review your latest cleaning. We follow up for details about any complaints and call all of our customers who do not respond via e-mail.</p>
+					<p>We average the rankings for each of our cleaners and post them for our employees so that they know how well they are doing and what they can do to improve. Due to these efforts, we’ve been the highest-rated cleaning service in Houston on Angie’s List since ____.</p>
+					<p><a href="https://naturalcarecleaningservice.com/contact-us/">Contact us today to schedule your first cleaning.</a></p>
+
+			</div> <!-- .et_pb_text -->
+			</div> <!-- .et_pb_column -->
+					
+			</div>
 		</div>
 	</div>
+	
+	
+	
+	
 	<div class="modal_body">
 		<div class="modal_content">
 		<?php
@@ -1923,11 +2289,36 @@ $(function() {
 			</form>
 		</div>
 	</div>
-		
-		
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+		<!-- Session here for recurring: <br> -->
+		<?php  
+			//echo " Service Type = " . $_SESSION['ServiceType'] . '<br>';
+			// name=
+			// value= Recurring 
+		?> 
+		<center>
+			<div class="container-cover">
+			      <p> 
+			        <img src="https://venturewell.org/wp-content/plugins/venturewell-membership/_img/spinner.gif">
+			   	 </p>
+		     </div> 
+		</center>
+ 
+
+		<div style="display:none; padding-left:0px;" class="display-container">
+
+
+
 
 	    <div style="background: #ddd; height: 7px; display: none"></div>		
 
@@ -1951,30 +2342,62 @@ $(function() {
 
         
 		<!-- MAIN WRAPPER -->
-<div class="container-fluid container-header-menu" id="wrap" style="padding: 0px">
-	<div class="container container-content"> 
-		<div class="testing-logo">
-			<div class="row" style="padding-left:0px !important;">
-				<div class="col-md-6" >
-					<a href="https://naturalcarecleaningservice.com/" style="/* border: 1px solid red; */">
-						<img src="https://naturalcarecleaningservice.com/wp-content/uploads/2016/01/new-logo-all-white-line-on-black.png" height="60px" alt="Naturalcare Cleaning Service" id="logo">
-					</a>
-				</div>
-				<div class="col-md-2  col-md-offset-4 link" >
-					<div class="col-md-4">
-						<a href="#" class="desktop">FAQ<span class="glyphicon glyphicon-earphone menu-phone" aria-hidden="true"></span></a>
-						<a href="#" class="mobile" id="modal_form_faq">FAQ<span class="glyphicon glyphicon-earphone menu-phone" aria-hidden="true"></span></a>
-					</div>
-					<div class="col-md-8">
-						<a href="#">Contact us</a>
+		<div class="container-fluid container-header-menu" id="wrap" style="padding: 0px ">
+
+
+
+		<div class="container container-content"> 
+		    <div class="testing-logo">
+			    <div class="row">
+				    <div class="col-sm-6"> 
+					    <a href="https://naturalcarecleaningservice.com/" style=" ">
+							<img src="https://naturalcarecleaningservice.com/wp-content/uploads/2016/01/new-logo-all-white-line-on-black.png" height="60px" alt="Naturalcare Cleaning Service" id="logo"> 
+						</a>
+				   	</div> 
+				    <div class="col-sm-6"> 
+					    <div class="menu-link"> 
+							&nbsp; &nbsp; 
+					        <a href="https://naturalcarecleaningservice.com/why-us/" class="desktop" target="_blank" style="float:right; padding-left:20px;">
+					          FAQ
+					        </a> 
+							<a href="#" id="modal_form_faq" class="mobile" style="float:right; padding-left:20px;">
+					          FAQ
+					        </a> 
+					  		&nbsp; &nbsp; 
+							<a href="tel:281-531-0544" >
+								<span class="glyphicon glyphicon-earphone menu-phone" aria-hidden="true" style="border: 1px solid #2EA3F2;padding-right: 18px;padding-bottom: 3px;padding-top: 3px;padding-left: 4px;"></span>
+							</a> 
+							&nbsp; &nbsp; 
+					        <a  class="menu-phone-contact-us" href="tel:281-531-0544" >
+					          Contact us
+					        </a> 
+					      </div>
+				      </div>
+			      </div>
+		      </div>
+	      </div>
+ 	<!-- 
+			<div class="container container-content" style="display:none"> 
+				<div class="testing-logo">
+					<div class="row" style="padding-left:0px !important;">
+						<div class="col-md-6" >
+							<a href="https://naturalcarecleaningservice.com/" style="/* border: 1px solid red; */">
+								<img src="https://naturalcarecleaningservice.com/wp-content/uploads/2016/01/new-logo-all-white-line-on-black.png" height="60px" alt="Naturalcare Cleaning Service" id="logo">
+							</a>
+						</div>
+						<div class="col-md-2  col-md-offset-4 link" >
+							<div class="col-md-4">
+								<a href="#" class="desktop">FAQ<span class="glyphicon glyphicon-earphone menu-phone" aria-hidden="true"></span></a>
+								<a href="#" class="mobile" id="modal_form_faq">FAQ<span class="glyphicon glyphicon-earphone menu-phone" aria-hidden="true"></span></a>
+							</div>
+							<div class="col-md-8">
+								<a href="#">Contact us</a>
+							</div>
+						</div> 
 					</div>
 				</div> 
-			</div>
-		</div> 
-	</div>
-
-
-
+		 
+ -->
 
 
 
@@ -2062,7 +2485,7 @@ $(function() {
 								<div class="col-xs-12 col-md-6 col-sm-12 col-lg-6 col-lg-offset-1 col-md-offset-2" id="bookingContent" style="background:white; padding-left:0%;">
 									<div class="before_main">
 										<h1>Schedule Your Home Cleaning</h1>
-										<p><span><?php echo count($totaljoined); ?> neigbors</span> in <?php  echo $_SESSION['PostalCode']; ?> already use naturalcare cleaning.</p>
+										<p><span><?php echo count($totaljoined); ?> neighbors</span> in <?php  echo $_SESSION['PostalCode']; ?> already use naturalcare cleaning.</p>
 										<p>join them today.</p>
 									</div>
 								<div class="logotrigle"><img src="assets/img/logotrigle.png"></div>
@@ -2169,16 +2592,16 @@ $(function() {
 									<div style="padding:0px" class="container-fluid">
 									    <div class="row">
 											<div class="phone col-xs-12 col-lg-3">
-										      <a href="#" name="freq" onclick="onetime()" class="btn  btn-default btn-lg btn-line repeat col-xs-12">One Time</a>
+										      <a href="#" name="freq" onclick="onetime()" class="form-control btn  btn-default btn-lg btn-line repeat col-xs-12">One Time</a>
 										    </div>
 										    <div class="phone col-xs-12 col-lg-3">
-										      <a href="#" name="freq" onclick="weekly()" class="btn btn-default btn-lg btn-line repeat col-xs-12">Every Week</a>
+										      <a href="#" name="freq" onclick="weekly()" class="form-control btn btn-default btn-lg btn-line repeat col-xs-12">Every Week</a>
 										    </div>
 										    <div class="phone col-xs-12 col-lg-3">
-										      <a href="#" name="freq" onclick="biweekly()" class="btn btn-default btn-lg btn-line repeat col-xs-12">Every 2 Weeks</a>
+										      <a href="#" name="freq" onclick="biweekly()" class="form-control btn btn-default btn-lg btn-line repeat col-xs-12">Every 2 Weeks</a>
 										    </div>
 										    <div class="phone col-xs-12 col-lg-3">
-										      <a href="#" name="freq" onclick="monthly()" class="btn btn-default btn-lg btn-line repeat col-xs-12">Every 4 Weeks</a>
+										      <a href="#" name="freq" onclick="monthly()" class="form-control btn btn-default btn-lg btn-line repeat col-xs-12">Every 4 Weeks</a>
 										    </div>
 										</div>
 									</div>
@@ -2190,22 +2613,21 @@ $(function() {
 									<div class="triaglelogo2"><img src="assets/img/trilaglelogo2.png"></div>
 									
 									 <h3 class="ip-subheader">Pick the level for your first cleaned?</h3>
-										<div class="container">
 										<div class="row">
-
+										<?php if( $_SESSION['ServiceType'] == 'Recurring'): ?>
 									       <div class="col-xs-6 col-md-6 col-lg-3">
-									           <a href="#" id="keep" onclick="keepclean()" class="keep btn  btn-default btn-lg btn-line cleantype col-xs-12">Keep It Clean</a>
-									        </div>
+									           <a href="#" id="keep" onclick="keepclean()" class="form-control keep btn  btn-default btn-lg btn-line cleantype col-xs-12">Keep It Clean</a>
+									        </div> 
+									     <?php endif;  ?>  
 									        <div class="col-xs-6 col-md-6 col-lg-3">
-										      <a href="#" id="clean" onclick="getclean()" class="clean btn btn-default btn-lg btn-line cleantype col-xs-12">Get it Clean</a>
+										      <a href="#" id="clean" onclick="getclean()" class="form-control clean btn btn-default btn-lg btn-line cleantype col-xs-12">Get it Clean</a>
 										    </div>
 										   <div class="col-xs-6 col-md-6 col-lg-3">
-										      <a href="#" id="deep" onclick="deepclean()" class="deep btn  btn-default btn-lg btn-line cleantype col-xs-12">Deep Clean</a>
+										      <a href="#" id="deep" onclick="deepclean()" class="form-control deep btn  btn-default btn-lg btn-line cleantype col-xs-12">Deep Clean</a>
 										    </div>
 										    <div class="col-xs-6 col-md-6 col-lg-3">
-										      <a href="#" id="move" onclick="moveinout()" class="move btn  btn-default btn-lg btn-line cleantype col-xs-12">Move In/Out</a>
+										      <a href="#" id="move" onclick="moveinout()" class="form-control move btn  btn-default btn-lg btn-line cleantype col-xs-12">Move In/Out</a>
 										    </div>
-										</div>
 										</div>
 									</div>
 									<center><span style="padding-left:30px; width: 50%">
@@ -2291,7 +2713,7 @@ $(function() {
 												</p>
 												<div class="form-group">
 												<div style="padding-left:0px" class="phone col-xs-12 col-md-6">
-												<input id="street_address" name="StreetAddress1" value="<?php isset($_SESSION['StreetAddress1'])?$_SESSION['StreetAddress1']:'' ?>" class="form-control" placeholder="Street Address" />
+												<input id="street_address" name="StreetAddress1" value="<?= isset($_SESSION['StreetAddress1'])?$_SESSION['StreetAddress1']:'' ?>" class="form-control" placeholder="Street Address" />
 												</div>
 												<div style="padding-left:0px" class="phone col-xs-12 col-md-6">
 												<input id="address_2" name="StreetAddress2" value="<?= isset($_SESSION['StreetAddress2'])?$_SESSION['StreetAddress2']:'' ?>" class="form-control" placeholder="Apt # (optional)" />
@@ -2366,28 +2788,29 @@ $(function() {
 									
 									<h3 class="ip-subheader">Select any add-ons for your first clean</h3>
 									
+
+
+
 									<div class="container add_ons_container">
-										<div class="row add_ons">
+										<div class="row add_ons full-window-width">
 											<input type="hidden" name="_AddOns" id="addon" value="" />
-											<div  class="col-md-3  text-center">
-												<input name="Fridge" id="fridge" value="" class="addon" type="image" src="assets/img/33.png"></input>
 
-												</div>
-												<div class="col-md-3 text-center">
-												<input name="Stove" id="stove" value="" class="addon" type="image" src="assets/img/22.png"></input>
-
-												</div>
-
-												<div class="col-md-3 text-center">
-												<input name="Window" id="window" value="" class="addon" type="image" src="assets/img/44.png"></input>
-
-												</div>
-
+												<div class="addons-left-content col-xs-6 .col-sm-3 text-center">
 												
-												<div class="col-md-3 text-center">
-												<input name="BedSteam" id="wall" value="" class="addon" type="image" src="assets/img/55.png"></input>
+													<input name="Window" id="window" value="" class="addon" type="image" src="assets/img/44.png"></input>
+													<input name="BedSteam" id="wall" value="" class="addon" type="image" src="assets/img/55.png"></input>
+												</div> 
 
+												<div  class="addons-right-content col-xs-6 .col-sm-3 text-center">
+													<input name="Fridge" id="fridge" value="" class="addon" type="image" src="assets/img/33.png"></input>
+													<input name="Stove" id="stove" value="" class="addon" type="image" src="assets/img/22.png"></input>
 												</div>
+
+												<div class="col-xs-6 .col-sm-3 text-center"> 
+												</div>  
+												<div class="col-xs-6 .col-sm-3 text-center"> 
+												</div>
+
 
 												<!--<div class="col-xs-6 col-md-4" >
 												<input name="Laundry" id="laundry" value="" class="addon" type="image" src="assets/img/11.png"></input>
@@ -2396,6 +2819,13 @@ $(function() {
 
 											</div>
 										</div>
+
+									 
+
+
+
+
+
 												<div class="clearfix"></div>
 
 												<hr>
@@ -2726,7 +3156,7 @@ $(function() {
 												<div style="padding-left:0px" class="col-md-8">
 													<input id="promo" value="<?= isset($_SESSION['_PromoCode'])?$_SESSION['_PromoCode']:'' ?>" name="_PromoCode" class="form-control" placeholder="Promo code (optional)" />
 												</div>
-												<a href="#" style="bottom:5px; padding-top:11px" class="btn btn-lg btn-default btn-line col-xs-3 col-md-3" id="applyPromoBtn">Apply</a>
+												<a href="#" style="bottom:5px;padding-top:11px;width: 87px;margin-left: 0px;height: 46px;margin-top: 7px;" class="btn btn-lg btn-default btn-line col-xs-3 col-md-3" id="applyPromoBtn">Apply</a>
 											</div>
 					
 					
@@ -2762,7 +3192,6 @@ $(function() {
 						
 				</div>
 				<!--end summar-->
-				
 				
 				
 				
@@ -2819,6 +3248,9 @@ $(function() {
                 </div>
     </footer>-->
 
+
+		
+		<!--fsheen-->
 		<script>
 			prettyPrint();
 		</script>
@@ -2880,7 +3312,10 @@ $(function() {
 			}			
 			
         </script>
-		 <script type="text/javascript">
+		
+		
+		
+		<script type="text/javascript">
 			$("#modal_form").click(function(){
 				$(".modal_body").slideDown(200, function(){
 					$("#close").click(function(){
@@ -2897,7 +3332,8 @@ $(function() {
 				});
 			});
 		 </script>
-		  <script type="text/javascript">
+		 
+		 <script type="text/javascript">
 			$(document).ready(function(){
 				$("#idForm").submit(function() {
 					
@@ -2962,8 +3398,10 @@ $(function() {
 				 
 			});
 		 </script>
+		
+		
 
-	
+
 	</body>
 <!-- END BODY -->
 </html>

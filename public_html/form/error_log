@@ -681,3 +681,28 @@ Stack trace:
 [22-Mar-2016 05:17:42 UTC] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/natural/public_html/form/book-now-floyd.php on line 1912
 [22-Mar-2016 09:25:40 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/natural/public_html/form/book-now-floyd3.php on line 111
 [22-Mar-2016 09:40:45 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/natural/public_html/form/book-now-floyd3.php on line 111
+[28-Mar-2016 05:03:04 UTC] PHP Parse error:  syntax error, unexpected 'endif' (T_ENDIF) in /home/natural/public_html/form/book-now.php on line 2171
+[28-Mar-2016 06:08:12 UTC] PHP Fatal error:  Call to undefined function bloginfo() in /home/natural/public_html/form/page1.php on line 513
+[28-Mar-2016 06:08:36 UTC] PHP Fatal error:  Call to undefined function bloginfo() in /home/natural/public_html/form/page1.php on line 513
+[28-Mar-2016 12:08:30 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/natural/public_html/form/page1.php on line 659
+[28-Mar-2016 12:41:58 UTC] PHP Parse error:  syntax error, unexpected ''<' (T_ENCAPSED_AND_WHITESPACE) in /home/natural/public_html/form/page1.php on line 64
+[29-Mar-2016 03:38:03 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/natural/public_html/form/book-now.php on line 96
+[29-Mar-2016 03:38:08 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/natural/public_html/form/book-now.php on line 96
+[29-Mar-2016 03:56:30 UTC] PHP Parse error:  syntax error, unexpected '$_SESSION' (T_VARIABLE) in /home/natural/public_html/form/book-now.php on line 232
+[29-Mar-2016 03:56:33 UTC] PHP Parse error:  syntax error, unexpected '$_SESSION' (T_VARIABLE) in /home/natural/public_html/form/book-now.php on line 232
+[29-Mar-2016 05:06:31 UTC] PHP Fatal error:  Uncaught exception 'Stripe\Error\InvalidRequest' with message 'You cannot use a Stripe token more than once: tok_17uF1JBUEgzEoiryr6ffU0GK.' in /home/natural/public_html/form/stripe/lib/ApiRequestor.php:151
+Stack trace:
+#0 /home/natural/public_html/form/stripe/lib/ApiRequestor.php(268): Stripe\ApiRequestor->handleApiError('{\n  "error": {\n...', 400, Array)
+#1 /home/natural/public_html/form/stripe/lib/ApiRequestor.php(114): Stripe\ApiRequestor->_interpretResponse('{\n  "error": {\n...', 400)
+#2 /home/natural/public_html/form/stripe/lib/ApiResource.php(105): Stripe\ApiRequestor->request('post', '/v1/customers', Array, Array)
+#3 /home/natural/public_html/form/stripe/lib/ApiResource.php(137): Stripe\ApiResource::_staticRequest('post', '/v1/customers', Array, NULL)
+#4 /home/natural/public_html/form/stripe/lib/Customer.php(37): Stripe\ApiResource::_create(Array, NULL)
+#5 /home/natural/public_html/form/book-now.php(330): Stripe\Customer::create(Array)
+#6 {main}
+  thrown in /home/natural/public_html/form/stripe/lib/ApiRequestor.php on line 151
+[29-Mar-2016 05:31:32 UTC] PHP Parse error:  syntax error, unexpected '$redirect' (T_VARIABLE) in /home/natural/public_html/form/book-now.php on line 511
+[31-Mar-2016 02:38:28 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting variable (T_VARIABLE) or '$' in /home/natural/public_html/form/book-now-floyd.php on line 109
+[01-Apr-2016 02:21:07 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/natural/public_html/form/book-now.php on line 301
+[11-Apr-2016 09:07:22 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/natural/public_html/form/book-now.php on line 2871
+[11-Apr-2016 09:42:12 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting ',' or ';' in /home/natural/public_html/form/book-now.php on line 2508
+[16-Apr-2016 00:42:39 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/natural/public_html/form/book-now.php on line 3168

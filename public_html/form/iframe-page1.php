@@ -138,10 +138,6 @@
             }
 			
 			*/
-			form h2{
-				font-size:20px;
-				float:left;
-			}
 			.et_pb_column{
 				width:46% !important;
 				border:1px solid red !important;
@@ -159,7 +155,7 @@
             }
             .center {
                 margin: 0 auto;
-                margin-bottom: 5px;
+                margin-bottom: 15px;
             }
             .recurring {
             	font-size: 9px;
@@ -190,20 +186,6 @@
 				padding: 10px 6px !important;
 				width:33.5%;
 			}
-			.panel-body{
-				height:auto;
-				background:#fff;
-			}
-			input.form-control{
-				border:1px solid #ccc;
-				height:30px;
-			}
-			.clear{
-				clear:both;
-			}
-			md-input-container .md-input {
-    border-color: #000 !important;
-}
 			
         </style>
 
@@ -477,8 +459,6 @@
 					
 				})
 				
-				
-				/*
 				$('input[type=text],input[type=tel],input[type=email],input[type=search]').keyup(function(){
 					
 					if($(this).val()!=""){
@@ -499,8 +479,6 @@
 					
 					
 				})
-				
-				*/
 
 /* 				$('.ipbtn').click(function(){
 					var checker = 0;
@@ -532,10 +510,9 @@
 			
 	
         </script>
-		
     </head>
 
-    <body onload="initialize()" style="background-color:rgba(0, 0, 0, 0); height:200px;">
+    <body onload="initialize()" style="min-height:532px">
 <?php 
 if(!isset($redirect)):
 ?>
@@ -550,35 +527,26 @@ if(!isset($redirect)):
                             
                             <div style="margin-bottom:0px !important; height:100%;" class="panel panel-default">
 
-                                <div class="panel-body" style="background:#ffffff; height:100%;">
+                                <div class="panel-body" style="background:#daeef3; height:100%; min-height:530px;">
                                     <?php if (isset($message))
                                               echo $message;
                                        ?>
                                     <div id="page1">                                        
                                         <section>
-										  <link rel='stylesheet prefetch' href='js/angular-material.css'>
-
-										<div ng-app="MyApp" class="inputdemoBasicUsage" ng-controller="DemoCtrl" layout="column">
-											<md-content layout-padding="">
                                             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" name="start" id="start" role="form" autocomplete="off">
                                                 <div>
                                                     
                                                     <div align="center">
                                                         <h2>Get an Instant Price</h2>
                                                     </div>
-													<div class="clear">
-													</div>
+
 
                                                     <div id="locationField" class="form-group center">
 
-													  <md-content md-theme="docs-dark" layout-padding="" layout="row" layout-sm="column">
-														<md-input-container>
-														  <label>Enter a location</label>
-														  <input ng-model="user.address" onclick="exec_clicked()" autocomplete="false" style="height: 30px; border-radius:0 !important;" placeholder="Enter your street addressâ€¦" tabindex="10" g-places-autocomplete="" force-selection="true" type="text" class="input-medium google-addresses-autocomplete needs-value" id="autocomplete" name="Address" value=""    >
-														</md-input-container>
-													  </md-content>														
 														
-                                                        
+														
+                                                        <input onclick="exec_clicked()" autocomplete="false" style="height: 42px; border-radius:0 !important;" placeholder="Enter your street address…" tabindex="10" g-places-autocomplete="" force-selection="true" required type="text" class="form-control google-addresses-autocomplete needs-value" id="autocomplete" name="Address" placeholder="Enter your address" value=""    >
+                                                        </input>
 														
 														
                                                     </div>
@@ -609,13 +577,8 @@ if(!isset($redirect)):
                                                           </tr>
                                                         </table>
                                                         <div class="form-group center">
-														  <md-content md-theme="docs-dark" layout-padding="" layout="row" layout-sm="column">
-															<md-input-container>
-															  <label>Apt # (optional)</label>
-															  <input ng-model="user.StreetAddress2" autocomplete="off" type="text" id="address_2" name="StreetAddress2" class="input-medium" placeholder="Apt # (optional)"   >
-															</md-input-container>
-														  </md-content>															                                                                   
-														</div>
+                                                                    <input autocomplete="off" type="text" id="address_2" name="StreetAddress2" class="form-control" placeholder="Apt # (optional)" />
+                                                                    </div>
                                                    <!-- <div class="col-xs-12">
                                                         <p style="font-size:16; text-align: center; color: #434348">Tell us about your home.</p>
                                                     </div>-->
@@ -623,17 +586,7 @@ if(!isset($redirect)):
             
                                                    <div class="form-group center">
                                                         <div style="padding-left:0px; padding-right: 0px" class="col-xs-12 col-md-12">
-														
-                                                 
-														  <md-content md-theme="docs-dark" layout-padding="" layout="row" layout-sm="column">
-															<md-input-container>
-															  <label>Your Name</label>
-															  <input ng-model="user.firstname" autocomplete="off" type="text" id="firstname" name="FirstName" class="input-medium needs-value" placeholder="Your Name"    >
-															</md-input-container>
-														  </md-content>														
-																													
-														
-														
+                                                        <input autocomplete="off" type="text" required id="firstname" name="FirstName" class="form-control needs-value" placeholder="Your Name" />
                                                         </div>
                                                     </div>
 													<div class="form-group center">
@@ -643,31 +596,18 @@ if(!isset($redirect)):
 													</div>
 													<div class="form-group center">
 													<div style="padding-left:0px; padding-right:0px" class="col-xs-12 col-md-12">
-														  <md-content md-theme="docs-dark" layout-padding="" layout="row" layout-sm="column">
-															<md-input-container>
-															  <label>Email</label>
-															  <input ng-model="user.email" autocomplete="off" id="email2" name="Email" type="email"  class="input-medium needs-value" placeholder="Email">
-															</md-input-container>
-														  </md-content>															
+													<input autocomplete="off" id="email2" name="Email" type="email"  class="form-control needs-value" placeholder="Email" required />
 													</div>
 													</div>
 
 													<div class="form-group center">
 														<div style="padding-left:0px; padding-right:0px" class="col-xs-12 col-md-12">
-
-														  <md-content md-theme="docs-dark" layout-padding="" layout="row" layout-sm="column">
-															<md-input-container>
-															  <label>Phone</label>
-															  <input ng-model="user.phonenum" name="phonenum" autocomplete="off" type="tel" placeholder="Phone Number" id="bfh-phone" class="input-medium bfh-phone" data-format="(ddd) ddd-dddd" style="padding: 5px 10px 5px 9px;color: grey;width: 100%;" >
-															</md-input-container>
-														  </md-content>																
-														
-															
+															<input name="phonenum" autocomplete="off" type="tel" placeholder="Phone Number" id="bfh-phone" class="input-medium bfh-phone" data-format="(ddd) ddd-dddd" style="padding: 10px 10px 10px 9px;color: grey;width: 100%;border: 3px solid #CCCCCC;">
 														</div>
 													</div>													
 
 													
-													<div class="clearfix"></div>
+														<div class="clearfix"></div>
                                                     <div class="form-group center">
                                                     	<div class="btn-toolbar">	
 															<p>What type of cleaning?</p>
@@ -684,8 +624,6 @@ if(!isset($redirect)):
                                                     </div>
                                                 </div>
                                             </form>
-											 </md-content>
-										</div>
                                         </section>
 <?php
 else:
@@ -696,26 +634,5 @@ else:
 <?php
 endif;
 ?>
-
-<script src='js/angular.js'></script>
-<script src='js/angular-animate.min.js'></script>
-<script src='js/angular-route.min.js'></script>
-<script src='js/angular-aria.min.js'></script>
-<script src='js/angular-messages.min.js'></script>
-<script src='js/angular-material.js'></script>
-<script src='js/assets-cache.js'></script>
-
-<script src="js/index.js"></script>
-
-<script>
-$(document).ready(function(){
-	
-
-$('input').attr('placeholder','');
-
-
-});
-</script>
-
-</body>
+    </body>
 </html>
