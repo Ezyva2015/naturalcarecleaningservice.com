@@ -2882,6 +2882,11 @@ $(function() {
 			   	 </p>
 		     </div> 
 		</center>
+
+
+
+
+		
  
 
 		<div style="display:none; padding-left:0px;" class="display-container">
@@ -3050,7 +3055,10 @@ $(function() {
 																</td>
 																
 																<td> 
-																	<a href="#" id = "modal_form_mobile" ><img style="height: 24px" src="assets/img/edit.png" /></a>
+																	<a href="#" id = "modal_form_mobile" >
+																		<input type="image" src="assets/img/edit.png" alt="Submit" id="edit-button" >
+																		<!-- <img style="height: 24px" src="assets/img/edit.png" /> -->
+																	</a>
 																</td> 
 														</table>  
 													</div> 
@@ -3428,9 +3436,14 @@ $(function() {
 										
 										<div class="clearfix"></div>
 										<div style="padding-left: 0px" class="cleaning-message-container" >
-										<p style="display:none" id="anytime" >We will arrive between 8:30 am and 4:00 pm. Exact arrival time cannot be guaranteed, but you can opt in for a 30 minute call ahead.</p>
-										<p style="display:none" id="morning" >We will arrive between 8:30 am and 12:00 pm. Exact arrival time cannot be guaranteed, but you can opt in for a 30 minute call ahead.</p>
-										<p style="display:none" id="afternoon" >We will arrive between 12:00 pm and 4:00 pm. Exact arrival time cannot be guaranteed, but you can opt in for a 30 minute call ahead.</p>
+
+
+
+										 
+
+										<p style="display:none" id="anytime" >We will arrive between 8:30am and 4:00pm on the day of your clean. We can also provide you a 30 minute call or text ahead.</p>
+										<p style="display:none" id="morning" >Morning arrival: We will arrive between 8:30am and 12:00pm on the day of your clean. We can also provide you a 30 minute call or text ahead.</p>
+										<p style="display:none" id="afternoon" >Afternoon arrival: We will arrive between 12:00pm and 4:00pm on the day of your clean. We can also provide you a 30 minute call or text ahead.</p>
 										</div>
 
 
@@ -3927,9 +3940,18 @@ $(function() {
 										<div class="col-md-5">
 											<span class="name-edit"><?= isset($_SESSION['FirstName'])?$_SESSION['FirstName']:'' ?></span>
 										</div>
+										
+
 										<div class="col-md-1 col-md-offset-2">
-											<a href="#" id = "modal_form_desktop" ><img style="height: 24px" src="assets/img/edit.png" /></a>
+
+
+											<a href="#" id = "modal_form_desktop" >
+												<input type="image" src="assets/img/edit.png" alt="Submit" id="edit-button" >
+												<!-- <button>Edit</button> -->
+												<!-- <img style="height: 24px" src="assets/img/edit.png" /> -->
+											</a>
 										</div>
+
 									</div>
 									
 									<div class="summary row">

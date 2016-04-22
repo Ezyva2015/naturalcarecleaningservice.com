@@ -1,0 +1,99 @@
+
+html, body{height:100%;}
+.et_pb_gutters3 .et_pb_column_2_3, .et_pb_gutters3.et_pb_row .et_pb_column_2_3{
+	width:46% !important;
+	border:1px solid red;
+	
+}
+
+.modal_body{
+	display:none;
+	z-index: 2000;
+	background-color: rgba(0, 0, 0, 0.68);
+	position:fixed;
+	padding:0px !important;
+	width:100%;
+	height:100%;
+	overflow:auto;
+}
+.modal_content{
+	z-index:9999;
+	border-radius:3px;
+	background:#fff;
+	border-top:10px solid #b4d0c2;
+	padding:0px 20px 20px 20px !important;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	/* bring your own prefixes */
+	transform: translate(-50%, -50%);
+	-webkit-box-shadow: 0px 0px 18px -2px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 18px -2px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 18px -2px rgba(0,0,0,0.75);
+}
+
+
+
+.modal_body_faq{
+	display:none;
+	z-index:999;
+	background-color: rgba(0, 0, 0, 0.68);
+	position:fixed;
+	padding:0px !important;
+	width:100%;
+	height:100%;
+	overflow:auto;
+}
+.modal_content_faq {
+    background: #fff none repeat scroll 0 0;
+    border-radius: 3px;
+    border-top: 10px solid #b4d0c2;
+    box-shadow: 0 0 18px -2px rgba(0, 0, 0, 0.75);
+    margin: 0 auto;
+    padding: 0 20px 20px !important;
+    width: 90% !important;
+    z-index: 1001 !important;
+}
+.modal_content_faq p, .modal_content_faq .et_pb_column.et_pb_column_4_4.et_pb_column_0, .modal_content_faq .et_pb_row.et_pb_row_0, .modal_content_faq .et_pb_column  .et_pb_column_4_4.et_pb_column_0, .modal_content_faq .et_pb_text.et_pb_module.et_pb_bg_layout_light.et_pb_text_align_left.et_pb_text_0{
+	padding:0px !important;
+}
+.modal_content_faq p{
+	font-size:11px;
+	color:#666;
+}
+
+
+
+
+#summary{
+	z-index:22 !important;
+}
+.link{
+	padding:24px 0px 24px 0px;
+}
+.link a{
+	display:block;
+	color:#fff;
+}
+.mobile{
+	display:none !important;
+}
+.desktop{
+	display:block ;
+}
+@media screen and (max-width: 480px) {
+    .mobile{
+		display:block !important;
+	}
+	.desktop{
+		display:none !important;
+	}
+	.btn-line.btn-default{
+		padding:19px 12px !important;
+	}
+	.cleantype{
+		font-size:9px !important;
+	}
+}
+
+

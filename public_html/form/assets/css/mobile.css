@@ -43,7 +43,7 @@
 
 		.container {
  			/* height: 67px !important; */
- 			max-width:1024px;
+ 			max-width: 100%;
  		}
 
  		.menu-link { 
@@ -563,13 +563,14 @@
 	 	padding-left: 17px;
 	 	border-radius: 5px;
 	 	margin-top: -22px;
+	 	color: white;
 	}
 
   	.container-header-menu {
-	  	padding: 0px;	
-	  	background-color: #fff !important;
-	  	padding-top: 10px !important; 
-	  	height:200px !important; 
+	  	padding: 0px;
+	  	background-color: #666666 !important;
+	  	padding-top: 10px !important;
+	  	height:200px !important;
 	  	margin-top: -18px !important;
 	}
 
@@ -711,6 +712,8 @@
 } 
 
 @media only screen and (min-width: 992px)  {
+
+	 
 	.cleaning-message-container { 
 		
 /* 		border:1px solid red; */
@@ -1126,3 +1129,35 @@ general
 	}
 } 
 */  
+
+
+
+.cleaning-message-container {
+	/*border:1px solid red;*/
+	/*display:none;*/
+}
+
+
+#edit-button {
+	background-image: url('http://naturalcarecleaningservice.com/form/assets/img/edit.png');
+	/* 	border:1px solid red; */
+	height: 26px;
+	width: 55px;
+	background-repeat:no-repeat;
+	border:none;
+	background-color: white;
+	border-radius:5px;
+	border: 1px solid #DBDEDD;
+}
+
+
+
+
+
+
+/*mobile responsive*/
+@media only screen and (max-width: 681px) {    
+	.modal_content {
+		width:90%;
+	}
+}
