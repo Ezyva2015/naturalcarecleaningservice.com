@@ -24,7 +24,9 @@ p{
 
 
 
-.logotrigle{width:100%;position:absolute;text-align:center;border-top: 20px solid  #daeef3;}
+.logotrigle{
+	 	width:100%;position:absolute;text-align:center;  border-top: 20px solid  #EEEEEE;  
+ }
 
 .ip-subheader{
 
@@ -289,7 +291,7 @@ a#applyPromoBtn.btn.btn-lg.btn-default.btn-line, button#continue2{
 
 
 
-.jsummary{border-top: 10px solid  #daeef3;}
+.jsummary{border-top: 10px solid  #EEEEEE;}
 
 #summary  .triangleft{
 
@@ -418,3 +420,9 @@ p#anytime, p#morning, p#afternoon, p#getclean, p#deepclean, p#moveinout {
 	color:#000;
 	background-color:#EBEDEC;
 }
+
+
+.logotrigle, .panel-body, .jsummary {
+   background-color: #EEEEEE !important;
+  
+}  

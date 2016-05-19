@@ -8,7 +8,7 @@ html, body{height:100%;}
 
 .modal_body{
 	display:none;
-	z-index: 2000;
+    z-index: 1000;
 	background-color: rgba(0, 0, 0, 0.68);
 	position:fixed;
 	padding:0px !important;

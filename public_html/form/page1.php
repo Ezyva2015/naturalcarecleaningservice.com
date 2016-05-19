@@ -23,7 +23,7 @@
             $app->cfgCon('naturalcare');
         
         
-            $_SESSION['StreetAddress1'] = $address[0];
+            $_SESSION['StreetAddress1'] = $_POST['Address'];
             $_SESSION['City'] = $address[1];
             $_SESSION['State'] = $_POST['State'];
             $_SESSION['Country'] = $address[3];
@@ -103,6 +103,25 @@
             margin-left: 15px;
             margin-top: -2px;    
         } 
+	.md-input {
+		-webkit-flex: 1 1 auto !important;
+		-ms-flex: 1 1 auto !important;
+		flex: 1 1 auto !important;
+		-webkit-order: 2 !important;
+		-ms-flex-order: 2 !important;
+		order: 2 !important;
+		display: block;
+		background: none !important;
+		padding-top: 2px;
+		padding-bottom: 1px !important;
+		padding-left: 2px !important;
+		padding-right: 2px;
+		border-width: 0 0 1px 0 !important;
+		line-height: 26px !important;
+		-ms-flex-preferred-size: 26px !important;
+		border-radius: 0 !important;
+	}
+		
     </style>
  
 <?php 
@@ -237,9 +256,22 @@ if(isset($redirect)) {  ?>
 				clear:both;
 			}
 			md-input-container .md-input {
-    border-color: #000 !important;
-}
-			
+			border-color: #000 !important;
+			}
+
+			md-input-container {
+				display: flex;
+				flex-direction: column;
+				font-size: 16px;
+				padding: 2px 2px 0;
+				position: relative;
+				width: 295px !important;
+			}
+			.form-group{
+				
+				float:left !important;
+				
+			}				
         </style>
 
         <script>

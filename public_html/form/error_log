@@ -706,3 +706,5 @@ Stack trace:
 [11-Apr-2016 09:07:22 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/natural/public_html/form/book-now.php on line 2871
 [11-Apr-2016 09:42:12 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting ',' or ';' in /home/natural/public_html/form/book-now.php on line 2508
 [16-Apr-2016 00:42:39 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/natural/public_html/form/book-now.php on line 3168
+[22-Apr-2016 06:39:17 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/natural/public_html/form/page1.php on line 767
+[22-Apr-2016 06:39:28 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/natural/public_html/form/page1.php on line 767

@@ -9,9 +9,6 @@
 ?> 
 
 
-
-
-
 <?php
 require_once ('infusionsoft/PHP-iSDK-master/src/isdk.php');
 require_once ('stripe/init.php');
@@ -122,7 +119,7 @@ foreach($contacts as $contact){
  *     (name) - about this param
  */
 
-  //   if ($_SERVER['REQUEST_METHOD']=='POST' && $_POST['_Frequency']!='' && $_POST['_SelectYourDate']!='' && $_POST['_ArrivalWindow']!='' && $_POST['_InitialCleanType']!='' && $_POST['FirstName']!='' && $_POST['City']!='' && $_POST['LastName']!='' && $_POST['Email']!='' && $_POST['Phone1']!='' && $_POST['StreetAddress1']!='' && $_POST['State']!='' && $_POST['PostalCode']!='' && $_POST['credit_card']!='' && $_POST['cvc']!='' && $_POST['expmonth']!='' && $_POST['expyear']!='')
+  //   if ($_SERVER['REQUEST_METHOD']=='POST' && $_POST['_Frequency']!='' && $_POST['_SelectYourDate']!='' && $_POST['_ArrivalWindow']!='' && $_POST['_InitialCleanType']!='' && $_POST['FirstName']!='' && $_POST['City']!='' && $_POST['LastName']!='' && $_POST['Email']!='' && $_POST['phonenum']!='' && $_POST['StreetAddress1']!='' && $_POST['State']!='' && $_POST['PostalCode']!='' && $_POST['credit_card']!='' && $_POST['cvc']!='' && $_POST['expmonth']!='' && $_POST['expyear']!='')
   //   {
   //   	$addOnDsp = '';
     	
@@ -260,7 +257,7 @@ foreach($contacts as $contact){
 
 // if (isset($_SESSION) && !empty($_SESSION) && isset($_SESSION['contact_id']))
 // {
-	// if ($_SERVER['REQUEST_METHOD']=='POST' && $_POST['_Frequency']!='' && $_POST['_SelectYourDate']!='' && $_POST['_ArrivalWindow']!='' && $_POST['_InitialCleanType']!='' && $_POST['FirstName']!='' && $_POST['City']!='' && $_POST['LastName']!='' && $_POST['Email']!='' && $_POST['Phone1']!='' && $_POST['StreetAddress1']!='' && $_POST['State']!='' && $_POST['PostalCode']!='' && $_POST['credit_card']!='' && $_POST['cvc']!='' && $_POST['expmonth']!='' && $_POST['expyear']!='') { 
+	// if ($_SERVER['REQUEST_METHOD']=='POST' && $_POST['_Frequency']!='' && $_POST['_SelectYourDate']!='' && $_POST['_ArrivalWindow']!='' && $_POST['_InitialCleanType']!='' && $_POST['FirstName']!='' && $_POST['City']!='' && $_POST['LastName']!='' && $_POST['Email']!='' && $_POST['phonenum']!='' && $_POST['StreetAddress1']!='' && $_POST['State']!='' && $_POST['PostalCode']!='' && $_POST['credit_card']!='' && $_POST['cvc']!='' && $_POST['expmonth']!='' && $_POST['expyear']!='') { 
 	// 	print ("Form submitted <br>");  
 
 	//  //    $_SESSION['StreetAddress1']  
@@ -319,7 +316,7 @@ foreach($contacts as $contact){
 \Stripe\Stripe::setAPiKey($conf['stripe_key']);
 if (isset($_SESSION) && !empty($_SESSION) && isset($_SESSION['contact_id']))
 {
-    if ($_SERVER['REQUEST_METHOD']=='POST' && $_POST['_Frequency']!='' && $_POST['_SelectYourDate']!='' && $_POST['_ArrivalWindow']!='' && $_POST['_InitialCleanType']!='' && $_POST['FirstName']!='' && $_POST['City']!='' && $_POST['LastName']!='' && $_POST['Email']!='' && $_POST['Phone1']!='' && $_POST['StreetAddress1']!='' && $_POST['State']!='' && $_POST['PostalCode']!='' && $_POST['credit_card']!='' && $_POST['cvc']!='' && $_POST['expmonth']!='' && $_POST['expyear']!='')
+    if ($_SERVER['REQUEST_METHOD']=='POST' && $_POST['_Frequency']!='' && $_POST['_SelectYourDate']!='' && $_POST['_ArrivalWindow']!='' && $_POST['_InitialCleanType']!='' && $_POST['FirstName']!='' && $_POST['City']!='' && $_POST['LastName']!='' && $_POST['Email']!='' && $_POST['phonenum']!='' && $_POST['StreetAddress1']!='' && $_POST['State']!='' && $_POST['PostalCode']!='' && $_POST['credit_card']!='' && $_POST['cvc']!='' && $_POST['expmonth']!='' && $_POST['expyear']!='')
     {
     	$addOnDsp = '';
     	
@@ -378,7 +375,7 @@ if (isset($_SESSION) && !empty($_SESSION) && isset($_SESSION['contact_id']))
 		
 		$subject = 'Cleaning Confirmation';
 		 // $to = 'kauseway@gmail.com';
-		 $to = 'support@gmail.com';
+		 $to = 'support@gmail.com,tim@automationlab.com.au,michael@automationlab.com.au';
 
 		 
 
@@ -395,7 +392,7 @@ if (isset($_SESSION) && !empty($_SESSION) && isset($_SESSION['contact_id']))
 	    $phonenum             = $_SESSION['phonenum'];
 	    $ServiceType          = $_SESSION['ServiceType'];
 	    $contact_id           = $_SESSION['contact_id']; 
-	    $Phone1               = $_SESSION['Phone1']; 
+	    $phonenum               = $_SESSION['phonenum']; 
 	    $_promodiscount       = $_SESSION['_promodiscount'];
 	    $_YourFirstClean      = $_SESSION['_YourFirstClean'];
 	    $_FirstCleanHours     = $_SESSION['_FirstCleanHours'];
@@ -499,7 +496,7 @@ if (isset($_SESSION) && !empty($_SESSION) && isset($_SESSION['contact_id']))
 
 						'<tr>'.
 							'<td><b>Phone 1</b></td>'.
-							'<td>' . $Phone1 . '</td>'.
+							'<td>' . $phonenum . '</td>'.
 						'</tr>'.
 						'<tr>'.
 							'<td><b>Promo Discount</b></td>'.
@@ -2712,6 +2709,49 @@ $(function() {
     .payment-errors {
         display: none;
     }
+    
+   .input-group-addon:last-child {
+    border-left: 0 none;
+}
+.input-group .form-control:last-child, .input-group-addon:last-child, .input-group-btn:last-child > .btn, .input-group-btn:last-child > .dropdown-toggle, .input-group-btn:first-child > .btn:not(:first-child) {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+.input-group-addon2 {
+    border: 1px solid #dcdcdc !important;
+}
+.input-group-addon2 {
+    border-bottom: 3px solid #ccc;
+    border-radius: 0;
+    border-right: 3px solid #ccc;
+    border-top: 3px solid #ccc;
+}
+.input-group-addon2 {
+    background-color: #ffffff;
+    border-bottom: 1px solid #cccccc;
+    border-radius: 4px;
+    border-right: 1px solid #cccccc;
+    border-top: 1px solid #cccccc;
+    color: #555555;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1;
+    padding: 6px 12px;
+    text-align: center;
+}
+.input-group-addon2, .input-group-btn {
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 1%;
+} 
+.input-group-addon2, .input-group-btn, .input-group .form-control {
+    display: table-cell;
+}
+.ccCard span.has-error{
+    bottom: -21px;
+    left: 0;
+    position: absolute;
+}    
 </style>
 
 
@@ -2811,47 +2851,47 @@ $(function() {
 			<form role="form"  id="idForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
 				<div class="form-group" style="padding-left:0px !important;">
 					<label for="Name">Name:</label>
-					<input type="text" name="fname" class="form-control" value="<?= isset($_SESSION['FirstName'])?$_SESSION['FirstName']:'' ?>" required>
+					<input type="text" name="fname" class="form-control" value="<?= isset($_SESSION['FirstName'])?$_SESSION['FirstName']:'' ?> <?= isset($_SESSION['LastName'])?$_SESSION['LastName']:'' ?>" required>
 				</div>
 				
 				<div class="form-group" style="padding-left:0px !important;">
 					<label for="phone">Phone Number:</label>
-					<input id="number" name="Phone1" value="<?= isset($_SESSION['Phone1'])?$_SESSION['Phone1']:'' ?>" class="form-control phone1" data-mask="(999) 999-9999" placeholder="Phone" />
+					<input id="number" name="phonenum" value="<?= isset($_SESSION['phonenum'])?$_SESSION['phonenum']:'' ?>" class="form-control phonenum" data-mask="(999) 999-9999" placeholder="Phone" />
 				</div>
 				
 				<div class="form-group" style="padding-left:0px !important;">
 					<label for="address">Address:</label>
-					<input type="text" id="locationTextField" name="address" class="form-control"  value="<?= isset($_SESSION['StreetAddress1'])?$_SESSION['StreetAddress1']:'' ?>" required>
+					<input type="text" id="locationTextField" name="Address" class="form-control"  value="<?= isset($_SESSION['Address'])?$_SESSION['Address']:'' ?>" required>
 					
 				</div>
 				 <table id="address" style="display:none">
 					  <tr>
 						
 						<td class="label">Street address</td>
-						<td class="slimField"><input class="field" id="street_number" name="street_number"
-							  readonly></input>
+						<td class="slimField"><input value="<?= isset($_SESSION['street_number'])?$_SESSION['street_number']:'' ?>" class="field" id="street_number" name="street_number"
+							  ></input>
 							  
-							  <input name="Email2" value="<?= isset($_SESSION['Email'])?$_SESSION['Email']:'' ?>"  class="form-control" placeholder="Email" />
+					 <input name="Email2" value="<?= isset($_SESSION['Email'])?$_SESSION['Email']:'' ?>"  class="form-control" placeholder="Email" />
 							  </td>
-						<td class="wideField" colspan="2"><input class="field" id="route" name="route"
-							  readonly></input></td>
+						<td class="wideField" colspan="2"><input name="route"  value="<?= isset($_SESSION['route'])?$_SESSION['route']:'' ?>"  class="field" id="route" name="route"
+							  ></input></td>
 					  </tr>
 					  <tr>
 						<td class="label">City</td>
-						<td class="wideField" colspan="3"><input class="field" name="locality" id="locality"
-							  readonly></input></td>
+						<td class="wideField" colspan="3"><input name="city" value="<?= isset($_SESSION['city'])?$_SESSION['city']:'' ?>" class="field" name="locality" id="locality"
+							  ></input></td>
 					  </tr>
 					  <tr>
 						<td class="label">State</td>
-						<td class="slimField"><input class="field" name="State"
-							  id="administrative_area_level_1" readonly></input></td>
+						<td class="slimField"><input name="State" value="<?= isset($_SESSION['State'])?$_SESSION['State']:'' ?>" class="field" name="State"
+							  id="administrative_area_level_1" ></input></td>
 						<td class="label">Zip code</td>
-						<td class="wideField"><input class="field" name="PostalCode" id="postal_code" readonly/></td>
+						<td class="wideField"><input name="PostalCode" value="<?= isset($_SESSION['PostalCode'])?$_SESSION['PostalCode']:'' ?>" class="field" name="PostalCode" id="postal_code" /></td>
 					  </tr>
 					  <tr>
 						<td class="label">Country</td>
-						<td class="wideField" colspan="3"><input class="field"
-							  id="country" readonly></input></td>
+						<td class="wideField" colspan="3"><input name="country" value="<?= isset($_SESSION['Country'])?$_SESSION['Country']:'' ?>" class="field"
+							  id="country" ></input></td>
 					  </tr>
 					</table>
 				<input type="submit" class="btn btn-default" value = "Update">
@@ -2995,7 +3035,7 @@ $(function() {
 			<div id="form" class="container-fluid" style="min-height:0px; padding:0px"></div>
 			<div style="padding:0px" class="panel panel-default" >
 
-				<div class="panel-body container-fluid" style="padding:0px; background: #daeef3">
+				<div class="panel-body container-fluid" style="padding:0px;">
 				    
 				    
 					<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" id="step1" role="form">
@@ -3103,6 +3143,8 @@ $(function() {
 													</div>
 													
 												</div>
+												
+												
 												<br/><br/>
 												
 											</div> -->
@@ -3224,7 +3266,9 @@ $(function() {
 										style="padding: 0px;margin: 0px;"><span><?php echo count($totaljoined); ?> neighbors</span> in <?php  echo $_SESSION['PostalCode']; ?> already use naturalcare cleaning. Join them today. </p>
 										
 									</div>
-								<div class="logotrigle"><img src="assets/img/logotrigle.png"></div>
+								<div class="logotrigle">
+									<img src="assets/img/logotrigle.png" style="margin-top:-1px;">
+									</div>
 										
                                     	<h3 class="ip-subheader about-home-title">Tell us about your home?</h3>
 									
@@ -3242,11 +3286,11 @@ $(function() {
 
 																<input
 																		class="form-control has-success bed-rooms"
-																		id="bath"
-																		name="_baths"
+																		id="bed"
+																		name="_Beds"
 																		required=""
 																		type="text"
-																		readonly> 
+																		>
 
 <!--                                                        		<select class="form-control" style="color: #555555; font-size: 14px; height:42px; width:100%;" id="bath" name="_baths" required />-->
 <!--                                                        			<option value="1">1 bathroom</option>-->
@@ -3281,14 +3325,14 @@ $(function() {
                                                    			  
                                                    			<div class="col-xs-12 center" style="padding-left: 0px; padding-right: 0px">
 
-
 																	<input
 																		class="form-control has-success bed-rooms"
-																		id="bed"
-																		name="_Beds"
+																		id="bath"
+																		name="_baths"
 																		required=""
 																		type="text"
-																		readonly>
+																		> 
+																	
 <!--																    <input class="form-control" style="color: #555555; font-size: 14px; height:42px; width:100%;" id="bed" name="_Beds" required />-->
 <!---->
 
@@ -3470,7 +3514,7 @@ $(function() {
 													<input id="email2" name="Email" value="<?= isset($_SESSION['Email'])?$_SESSION['Email']:'' ?>"  class="form-control" placeholder="Email" />
 												</div>
 												<div style="padding-left:0px" class="phone col-xs-12 col-md-6">
-													<input id="number" name="Phone1" value="<?= isset($_SESSION['Phone1'])?$_SESSION['Phone1']:'' ?>" class="form-control" data-mask="(999) 999-9999" placeholder="Phone" />
+													<input id="number" name="phonenum" value="<?= isset($_SESSION['phonenum'])?$_SESSION['phonenum']:'' ?>" class="form-control" data-mask="(999) 999-9999" placeholder="Phone" />
 												</div>
 												</div><div class="clearfix"></div><br>
 												<hr> 
@@ -3787,8 +3831,8 @@ $(function() {
 
 													<div class="container">
 														
-														<div style="padding-left:0px" class="phone col-xs-12 col-md-6 input-group">
-														<input style="border-right:none" value="<?= isset($_SESSION['creditcard'])?$_SESSION['creditcard']:''?>" autocomplete="off" data-stripe="number" id="creditcard" name="credit_card" data-mask="9999-9999-9999-9999" class="form-control" placeholder="Credit Card Number"
+														<div style="padding-left:0px" class="ccCard phone col-xs-12 col-md-6 input-group">
+														<input style="border-right:none; max-width:299px;" value="<?= isset($_SESSION['creditcard'])?$_SESSION['creditcard']:''?>" autocomplete="off" data-stripe="number" id="creditcard" name="credit_card" data-mask="9999-9999-9999-9999" class="form-control" placeholder="Credit Card Number"
 														onblur="creditcard_saved = this.value;
 														this.value = this.value.replace(/[^\d]/g, '');
 														if(!checkLuhn(this.value)) {
@@ -3812,18 +3856,19 @@ $(function() {
 														<div style="padding-left:0px" class="phone col-xs-12 col-md-2">
 														<input id="cvc" value="<?= isset($_SESSION['cvc'])?$_SESSION['cvc']:''?>" name="cvc" data-stripe="cvc" data-mask="999" class="form-control" placeholder="CVC" />
 														</div>
- 
+ 														<div style="clear:both;"></div>	
 														<!-- customer information -->
-														<div class="customer-information-mobile">
+														<div class="customer-information-mobile" style="padding-top:0; margin-top:10px;">
 															<div style="padding-left:0px" class="phone col-xs-12 col-md-2">
-																<input id="firstname" name="FirstName" value="<?= isset($_SESSION['FirstName'])?$_SESSION['FirstName']:'' ?>" class="form-control" placeholder="First Name" />
+																<input id="firstnameCredit" name="FirstName" value="<?= isset($_SESSION['FirstName'])?$_SESSION['FirstName']:'' ?>" class="form-control" placeholder="Name" />
 															</div>
 															<div style="padding-left:0px" class="phone col-xs-12 col-md-2">
-																<input id="lastname" name="LastName" value="<?= isset($_SESSION['LastName'])?$_SESSION['LastName']:'' ?>"  class="form-control" placeholder="Last Name" />
+																<input id="lastnameCredit" name="LastName" value="<?= isset($_SESSION['LastName'])?$_SESSION['LastName']:'' ?>"  class="form-control" placeholder="Last Name" />
 															</div>
 															<div style="padding-left:0px" class="phone col-xs-12 col-md-2">
-																<input id="number" name="Phone1" value="<?= isset($_SESSION['Phone1'])?$_SESSION['Phone1']:'' ?>" class="form-control" data-mask="(999) 999-9999" placeholder="Phone Number" />
+																<input id="number" name="phonenum" value="<?= isset($_SESSION['phonenum'])?$_SESSION['phonenum']:'' ?>" class="form-control" data-mask="(999) 999-9999" placeholder="Phone Number" />
 															</div>  
+															<div style="clear:both;"></div>
 														</div>
 
 
@@ -3838,7 +3883,7 @@ $(function() {
 														</div>
 														
 														<div style="padding-left:0px" class="phone col-xs-12 col-md-4">
-														<input id="number" name="Phone1" value="<?= isset($_SESSION['Phone1'])?$_SESSION['Phone1']:'' ?>" class="form-control" data-mask="(999) 999-9999" placeholder="Phone" />
+														<input id="number" name="phonenum" value="<?= isset($_SESSION['phonenum'])?$_SESSION['phonenum']:'' ?>" class="form-control" data-mask="(999) 999-9999" placeholder="Phone" />
 														</div>
 													</div>-->
 													
@@ -3938,7 +3983,7 @@ $(function() {
 											<img style="height: 24px" src="assets/img/street.png" />
 										</div>
 										<div class="col-md-5">
-											<span class="name-edit"><?= isset($_SESSION['FirstName'])?$_SESSION['FirstName']:'' ?></span>
+											<span class="name-edit"><?= isset($_SESSION['FirstName'])?$_SESSION['FirstName']:'' ?> <?= isset($_SESSION['LastName'])?$_SESSION['LastName']:'' ?></span>
 										</div>
 										
 
@@ -3946,7 +3991,7 @@ $(function() {
 
 
 											<a href="#" id = "modal_form_desktop" >
-												<input type="image" src="assets/img/edit.png" alt="Submit" id="edit-button" >
+												<input type="button" src="assets/img/edit.png" alt="Submit" id="edit-button" >
 												<!-- <button>Edit</button> -->
 												<!-- <img style="height: 24px" src="assets/img/edit.png" /> -->
 											</a>
@@ -3959,9 +4004,18 @@ $(function() {
 											<img style="height: 23px" src="assets/img/location.png" />
 										</div>
 										<div class="col-md-8">
-											<span class="location-edit"><?= isset($_SESSION['StreetAddress1'])?$_SESSION['StreetAddress1']:'' ?></span>
+											<span class="location-edit"><?= isset($_SESSION['Address'])?$_SESSION['Address']:'' ?></span>
 										</div> 
 									</div>
+								<div class="summary row">
+										<div class="col-md-1">
+											<img style="height: 23px" src="assets/img/location.png" />
+										</div>
+										<div class="col-md-8">
+											<span class="location-edit"><?= isset($_SESSION['phonenum'])?$_SESSION['phonenum']:'' ?></span>
+										</div> 
+									</div>									
+									
 									<br/><br/>
 									<!-- End desktop  -->
 								<?php //endif; ?>
@@ -4089,7 +4143,7 @@ $(function() {
 					
 					
 					
-					<div class="container-fluid" style="background:#daeef3; overflow:hidden; padding-left:0px; padding-top:12px;"> 
+					<div class="container-fluid" style="background:#EEEEEE; overflow:hidden; padding-left:0px; padding-top:12px;"> 
 						<div style="padding-left:0px" class="col-md-8">
 							<input id="promo"   value="<?= isset($_SESSION['_PromoCode'])?$_SESSION['_PromoCode']:'' ?>" name="_PromoCode" class="form-control promo-desktop" placeholder="Promo code (optional)" />
 						</div>
@@ -4284,10 +4338,10 @@ $(function() {
 					
 						$('.name-edit').html($('#idForm input[name=fname]').val());
 						
-						$('#firstname').val(fullname[0]);
-						
+						$('#firstname').val(fullname[0]);						
 						$('#lastname').val(fullname[1]);
-						
+						$('#firstnameCredit').val(fullname[0]);						
+						$('#lastnameCredit').val(fullname[1]);						
 						
 						$('.location-edit').html($('#idForm input[name=address]').val());
 						$('#street_address').val($('#idForm input[name=address]').val());
@@ -4322,8 +4376,7 @@ $(function() {
 								
 								
 								}else{
-								$('#idForm input[name=fname]').val("");
-								$('#idForm input[name=address]').val("");
+								
 													
 								setTimeout(function(){
 									$('.modal_body').hide(500);
@@ -4347,4 +4400,4 @@ $(function() {
 
 	</body>
 <!-- END BODY -->
-</html>a
+</html>
