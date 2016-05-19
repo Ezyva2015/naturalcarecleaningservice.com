@@ -806,12 +806,7 @@ $( "#continue2" ).click(function() {
 
 		</script>
 		<script>
-		
-			function dayCheck(daytimeCheck){
-		
-	
-		
-			if(daytimeCheck=="anytime"){	
+			function anytime() {
 			    $('#daytime').valid();
 				document.getElementById('anytime').style.display = "block";
 				document.getElementById('morning').style.display = "none";
@@ -819,9 +814,9 @@ $( "#continue2" ).click(function() {
 				$('span[for="daytime"].has-error').css({
                     display: 'none',
                 })
-		
 			}
-			if(daytimeCheck=="morning"){
+
+			function morning() {
 			    $('#daytime').valid();
 				document.getElementById('morning').style.display = "block";
 				document.getElementById('anytime').style.display = "none";
@@ -830,7 +825,8 @@ $( "#continue2" ).click(function() {
                     display: 'none',
                 })
 			}
-			if(daytimeCheck=="afternoon"){
+
+			function afternoon() {
 			    $('#daytime').valid();
 				document.getElementById('afternoon').style.display = "block";
 				document.getElementById('morning').style.display = "none";
@@ -838,8 +834,6 @@ $( "#continue2" ).click(function() {
 				$('span[for="daytime"].has-error').css({
                     display: 'none',
                 })
-             }   
-		
 			}
 
 			function onetime() {
@@ -849,8 +843,7 @@ $( "#continue2" ).click(function() {
 			
 
 
-     
-     			document.getElementById('fcleanmobile').style.display = "block";
+
 				document.getElementById('disctime').style.display = "none";
 				document.getElementById('multvisit').style.display = "none";
 				document.getElementById('pmultvisit').style.display = "none";
@@ -869,7 +862,6 @@ $( "#continue2" ).click(function() {
 
 			function weekly() {
 			    $('#repeat').valid();
-			    document.getElementById('fcleanmobile').style.display = "none";
 			    //document.getElementById('border').style.display = "block";
 				document.getElementById('disctime').style.display = "block";
 				document.getElementById('multvisit').style.display = "block";
@@ -897,7 +889,6 @@ $( "#continue2" ).click(function() {
 
 			function biweekly() {
 			    $('#repeat').valid();
-			    document.getElementById('fcleanmobile').style.display = "none";
 			    //document.getElementById('border').style.display = "block";
 				document.getElementById('disctime').style.display = "block";
 				document.getElementById('multvisit').style.display = "block";
@@ -923,7 +914,6 @@ $( "#continue2" ).click(function() {
 
 			function monthly() {
 			    $('#repeat').valid();
-			    document.getElementById('fcleanmobile').style.display = "none";
 			    //document.getElementById('border').style.display = "block";
 				document.getElementById('disctime').style.display = "block";
 				document.getElementById('multvisit').style.display = "block";
@@ -1826,8 +1816,8 @@ $( "#continue2" ).click(function() {
 	} 
 
 
-	$('#footage').bind("keyup change", function(e) {
-	//$('#footage').keyup(function(e) { 
+
+	$('#footage').keyup(function(e) { 
 		/**
 		* if the footage field is empty
 		* if not empty then show this field
@@ -2300,26 +2290,8 @@ $( "#continue2" ).click(function() {
         // var firstclean = $.fn.calculateFirstCleanByKeepItCleanGetCleanMoveInOut(cleanType);    
         // $('#visit1').text( '$' + Math.round(firstclean));
         // $('#pvisit1').text( '$' + Math.round(firstclean)); 
- 		
- 		var countaddon = '';
  
- 		$('.addon').each(function(){
- 		
- 			if($(this).val()!=""){
- 				countaddon = 1;
- 			}
- 		
- 		})	
- 	
- 		if(countaddon==1){
- 		
- 			$('.right-container-price1 .summary div b.priceHolderfclean').css('display','inline')
- 		
- 		}else{
- 		
- 			$('.right-container-price1 .summary div b.priceHolderfclean').css('display','none')
- 			
- 		}
+ 
 
 	
 		// recurringDiscount *= 1 / adjustment;
@@ -2354,8 +2326,6 @@ $( "#continue2" ).click(function() {
 				$('#pwindow').show();
 			else if($(this).is('#wall'))
 				$('#pbedsteam').show();
-				
-				
 		}	 
 		// alert(" global addons " + global.totalAddOns);  
 		$.fn.plusAndMinusButtonClickedAutoCalculate(); 
@@ -2736,7 +2706,7 @@ $( "#continue2" ).click(function() {
 					$('#Ivisit1').val((firstclean * 100).toFixed(0));
 					$('#visit1').text('$' + firstclean.toFixed(0));
 					$('#pvisit1').text('$' + firstclean.toFixed(0));
-					$('#promomobile').show();
+
 				} else {
 					alert("Invalid promo code");
 				}
@@ -2773,7 +2743,6 @@ $( "#continue2" ).click(function() {
 
 					$('#discountP').text('-$' + promodiscount.toFixed(0)).parent().show().parent().show();
 					$('#pdiscountP').text('-$' + promodiscount.toFixed(0)).parent().show().parent().show();
-					$('#promomobile').show();
 					document.getElementById('sub').style.display = "block";
 					$('#Ivisit1').val((firstclean * 100).toFixed(0));
 					$('#visit1').text('$' + firstclean.toFixed(0));
@@ -2802,52 +2771,46 @@ $( "#continue2" ).click(function() {
     
    .input-group-addon:last-child {
     border-left: 0 none;
-	}
-	.input-group .form-control:last-child, .input-group-addon:last-child, .input-group-btn:last-child > .btn, .input-group-btn:last-child > .dropdown-toggle, .input-group-btn:first-child > .btn:not(:first-child) {
-		border-bottom-left-radius: 0;
-		border-top-left-radius: 0;
-	}
-	.input-group-addon2 {
-		border: 1px solid #dcdcdc !important;
-	}
-	.input-group-addon2 {
-		border-bottom: 3px solid #ccc;
-		border-radius: 0;
-		border-right: 3px solid #ccc;
-		border-top: 3px solid #ccc;
-	}
-	.input-group-addon2 {
-		background-color: #ffffff;
-		border-bottom: 1px solid #cccccc;
-		border-radius: 4px;
-		border-right: 1px solid #cccccc;
-		border-top: 1px solid #cccccc;
-		color: #555555;
-		font-size: 14px;
-		font-weight: normal;
-		line-height: 1;
-		padding: 6px 12px;
-		text-align: center;
-	}
-	.input-group-addon2, .input-group-btn {
-		vertical-align: middle;
-		white-space: nowrap;
-		width: 1%;
-	} 
-	.input-group-addon2, .input-group-btn, .input-group .form-control {
-		display: table-cell;
-	}
-	.ccCard span.has-error{
-		bottom: -21px;
-		left: 0;
-		position: absolute;
-	}    
-	#continue2{
-	  font-size: 28px;
-	}
-	.btn-line.btn-default{
-		height:60px !important;
-	}	
+}
+.input-group .form-control:last-child, .input-group-addon:last-child, .input-group-btn:last-child > .btn, .input-group-btn:last-child > .dropdown-toggle, .input-group-btn:first-child > .btn:not(:first-child) {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+.input-group-addon2 {
+    border: 1px solid #dcdcdc !important;
+}
+.input-group-addon2 {
+    border-bottom: 3px solid #ccc;
+    border-radius: 0;
+    border-right: 3px solid #ccc;
+    border-top: 3px solid #ccc;
+}
+.input-group-addon2 {
+    background-color: #ffffff;
+    border-bottom: 1px solid #cccccc;
+    border-radius: 4px;
+    border-right: 1px solid #cccccc;
+    border-top: 1px solid #cccccc;
+    color: #555555;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1;
+    padding: 6px 12px;
+    text-align: center;
+}
+.input-group-addon2, .input-group-btn {
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 1%;
+} 
+.input-group-addon2, .input-group-btn, .input-group .form-control {
+    display: table-cell;
+}
+.ccCard span.has-error{
+    bottom: -21px;
+    left: 0;
+    position: absolute;
+}    
 </style>
 
 
@@ -3146,7 +3109,30 @@ $( "#continue2" ).click(function() {
 
 									<div class="summary col-xs-12 header2-mobile-pricing-and-info"> 
 
-					
+									<div class="header2-arrow-down">  
+										<img src="assets/img/triangleft.png" /> 
+									</div>
+
+										<div class="summary col-xs-12">
+											<!--<div id="psub" style="display:none" class="tablerow col-xs-12">
+												<span class="col-xs-10">Subtotal:</span>
+												<span class="col-xs-2" style="text-align: right" id="psubtotal" name="subtotal"></span>
+											</div>
+											<div class="clearfix"></div>-->
+											<div class="tablerow col-xs-12" id="disctime" style="display:none">
+												<span id="pweekdisc" class="col-xs-10" style="display:none">35% Recurring Discount</span>
+												<span id="pbidisc" class="col-xs-10" style="display:none">30% Recurring Discount</span>
+												<span id="pmonthdisc" class="col-xs-10" style="display:none">25% Recurring Discount</span>
+												<span id="pdiscountR" class="col-xs-2"></span>
+											</div>
+											<div class="clearfix"></div>
+											<div id="pprodisc" class="tablerow col-xs-12" style="display:none">
+												<span class="col-xs-10">Promo Discount</span>
+												<span style="white-space: nowrap" class="col-xs-2" id="pdiscountP"></span>
+											</div>
+											<div class="clearfix"></div>
+										</div>
+										<div class="clearfix"></div>
 
 										<div class="psummary row">
 											<div class="col-xs-5" style="float:left;padding-right: 0px;/* border: 1px solid red; */width: 44%;">
@@ -3249,55 +3235,9 @@ $( "#continue2" ).click(function() {
 											</div>
 
 
-											<div class="ptablerow col-xs-5  header2-right-container" id="promomobile"  style="display:none;"> 
+											<div class="ptablerow col-xs-5  header2-right-container"  > 
 
 												<div class="header2-right-firstclean">
-
-													<table border="0" cellspacing="0" cellpadding="0" > 
-												 		<tr> 
-
-												 			<td>  
-												 				<img src="assets/img/loading.png" style="visibility:hidden">
-												 			</td> 
-
-												 			<td>
-				
-
-																<div class="summary col-xs-12">
-																	<!--<div id="psub" style="display:none" class="tablerow col-xs-12">
-																		<span class="col-xs-10">Subtotal:</span>
-																		<span class="col-xs-2" style="text-align: right" id="psubtotal" name="subtotal"></span>
-																	</div>
-																	<div class="clearfix"></div>-->
-																	<div class="tablerow col-xs-12" id="disctime" style="display:none">
-																		<span id="pweekdisc" class="col-xs-10" style="display:none">35% Recurring Discount</span>
-																		<span id="pbidisc" class="col-xs-10" style="display:none">30% Recurring Discount</span>
-																		<span id="pmonthdisc" class="col-xs-10" style="display:none">25% Recurring Discount</span>
-																		<span id="pdiscountR" class="col-xs-2"></span>
-																	</div>
-																	<div class="clearfix"></div>
-																	<div id="pprodisc" class="tablerow col-xs-12" style="display:none">
-																		<span class="col-xs-10">Promo Discount</span>
-																		<span style="white-space: nowrap" class="col-xs-2" id="pdiscountP"></span>
-																	</div>
-																	<div class="clearfix"></div>
-																</div>
-																<div class="clearfix"></div>														
-												 			</td>  
-
-												 			<td> 
-												 				
-												 			</td>
-
-												 		</tr> 
-													</table> 
-
-													<div class="header2-arrow-down-div">
-														<img src="assets/img/arrow-down-white.png">
-													</div> 
-												</div>
-
-												<div class="header2-right-firstclean" id="fcleanmobile">
 
 													<table border="0" cellspacing="0" cellpadding="0" > 
 												 		<tr> 
@@ -3474,7 +3414,7 @@ $( "#continue2" ).click(function() {
                                                    		<div class="form-group" style="padding-left: 0px">
                                                    			<label class="control-label col-xs-12" style="font-size: 20px; padding-left: 0px; padding-right: 0px; font-weight: inherit"></label>
                                                    			<div class="col-xs-12" style="padding-left: 0px; padding-right: 0px">
-                                                   				<input style="height: 42px" min="500" max="9999" type="number" maxlength="4" id="footage"  name="_SquareFootagesize" class="form-control square-foot-field" placeholder="Square Footage" required />
+                                                   				<input style="height: 42px" min="500" max="9999" type="number" maxlength="4" id="footage" name="_SquareFootagesize" class="form-control square-foot-field" placeholder="Square Footage" required />
                                                    			</div>
                                                    		</div>
 													</div>
@@ -3578,27 +3518,10 @@ $( "#continue2" ).click(function() {
 												
 										<div class="form-group">
 										<div class="row cleaning-date-arrival-field-container">
-										<div class="col-xs-12 col-lg-6">
-											<input style="text-align: center" type="text" placeholder="mm/dd/yyyy" class="form-control datepicker col-xs-12" name="_SelectYourDate" data-date-format="mm/dd/yyyy" id="datepicker" />
-											<span class="glyphicon glyphicon-calendar"></span>
-											<img src="assets/img/down.png" class="triangle">
+										<div class="col-xs-12 col-lg-3">
+										<input style="text-align: center" type="text" placeholder="mm/dd/yyyy" class="form-control datepicker col-xs-12" name="_SelectYourDate" data-date-format="mm/dd/yyyy" id="datepicker" />
 										</div>
-
-
-										
-										<div class="col-xs-12 col-lg-6 time-inner">
-											<div class="time-wrapper">
-												<select class="form-control" onchange="dayCheck(this.value)" id="timers">
-													<option> </option>
-													<option value="anytime">Anytime</option>
-													<option value="morning">Morning</option>
-													<option value="afternoon">Afternoon</option>
-												</select>
-												<span class="glyphicon glyphicon-time timer" style="font-size:24px;"></span>
-												<img src="assets/img/down.png" class="triangle-time">
-											</div>
-										</div>
-									<!-- 	<div class="col-xs-12 col-lg-3">
+										<div class="col-xs-12 col-lg-3">
 										    <a href="#" id="any" onclick="anytime()" style="margin: 3px 0px 0px 0px; " class="btn btn-default btn-lg btn-line repeat col-xs-12 daytime form-control">Anytime</a>
 										</div>
 										<div class="col-xs-12 col-lg-3">
@@ -3606,7 +3529,7 @@ $( "#continue2" ).click(function() {
 										</div>
 										<div class="col-xs-12 col-lg-3">
 										    <a href="#" id="after" onclick="afternoon()" style="margin: 3px 0px 0px 0px;" class="btn btn-default btn-lg btn-line repeat col-xs-12 daytime form-control">Afternoon</a>
-										</div> -->
+										</div>
 										</div>
 								
 										<center><span style="padding-left:30px; width:50%">
@@ -4244,7 +4167,7 @@ $( "#continue2" ).click(function() {
 							<br>
 							<div class="summary col-sm-12" style="padding-top: 0px">
 							    <div>
-    								<b class="priceHolderfclean" ><div class="tablerow col-sm-12">
+    								<b><div class="tablerow col-sm-12">
     									<span style="color: #000" class="col-sm-8">First Clean:</span>
     									<b><span style="font-size: 20px; color: #000" class="col-sm-4" id="visit1"> visit 1</span></b>
     									<sub style="float:right">+tax</sub>
@@ -4469,22 +4392,6 @@ $( "#continue2" ).click(function() {
 		 
 		 <script type="text/javascript">
 			$(document).ready(function(){
-			
-				$('.triangle-time').click(function(){
-					
-					  $("#timers").focus();
-					
-				
-				
-				})	
-				$('.triangle').click(function(){
-					
-					  $("#datepicker").focus();
-					
-				
-				
-				})	
-						
 				$("#idForm").submit(function() {
 					
 						$('.error-success-wrapper').html("");
@@ -4555,18 +4462,6 @@ $( "#continue2" ).click(function() {
 				 
 			});
 		 </script>
-
-		 <style type="text/css">
-		 	/*css floyd*/
-		 #timers{
-					border: none !important;	
-					width: 120% !important;
-					box-shadow: none !important;
-					margin-left: -30px !important;
-					text-align: center !important;
-				}
-
-		 </style>
 		
 		
 

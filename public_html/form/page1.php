@@ -33,8 +33,16 @@
             $_SESSION['_SquareFootagesize'] = $_POST['_SquareFootagesize'];
             $_SESSION['_Beds'] = $_POST['_Beds'];
             $_SESSION['_baths'] = $_POST['_baths'];
-            $_SESSION['FirstName'] = $_POST['FirstName'];
-            $_SESSION['LastName'] = $_POST['LastName'];
+            
+            
+            /***for the hidden fields**/
+            
+            $_SESSION['street_number'] = $_POST['street_number'];
+            $_SESSION['State'] = $_POST['State'];
+            $_SESSION['PostalCode'] = $_POST['PostalCode'];
+            $_SESSION['city'] = $_POST['city'];
+            $_SESSION['route'] = $_POST['route'];                                                
+            
 			$_SESSION['phonenum'] = $_POST['phonenum'];
 			$_SESSION['ServiceType'] = $_POST['ServiceType'];
             
@@ -48,9 +56,12 @@
             }
             else{
 				
-					$pieces = explode(" ", $_SESSION['FirstName']);
+					$pieces = explode(" ", $_POST['FirstName']);
 										
+					 $_SESSION['FirstName'] = $pieces[0];
+					 $_SESSION['LastName'] = $pieces[1];
 				
+			
                 $contact = [
                     'Email' => $_POST['Email'],
                     'StreetAddress1' => $_SESSION['StreetAddress1'],
@@ -74,6 +85,11 @@
                 $_SESSION['contact_id'] = $contact_id;
 
                 $redirect = '<script type="text/javascript">window.top.location.href = "/form/book-now.php"; </script>';
+				
+				
+				echo $redirect; 
+				exit;
+
             }         
         } 
         // $variable['address'] = $_POST['Address'];
@@ -94,7 +110,14 @@
     <!-- BEGIN HEAD -->
     <head>
 
-
+<script src='js/angular.js'></script>
+<script src='js/angular-animate.min.js'></script>
+<script src='js/angular-route.min.js'></script>
+<script src='js/angular-aria.min.js'></script>
+<script src='js/angular-messages.min.js'></script>
+<script src='js/angular-material.js'></script>
+<script src='js/assets-cache.js'></script>
+<script src="js/index.js"></script>		
 
     <style type="text/css">
         .submit-loading {
@@ -195,6 +218,7 @@ if(isset($redirect)) {  ?>
 			form h2{
 				font-size:20px;
 				float:left;
+				margin:0;
 			}
 			.et_pb_column{
 				width:46% !important;
@@ -265,18 +289,47 @@ if(isset($redirect)) {  ?>
 				font-size: 16px;
 				padding: 2px 2px 0;
 				position: relative;
-				width: 295px !important;
+				width: 100% !important;
 			}
 			.form-group{
 				
 				float:left !important;
-				
-			}				
+				width:100%;
+				margin:0;  
+			}			
+			@media screen and (max-width:380px){
+
+				.form-group{
+					width:100% !important; 
+					
+				}
+			}		
+			article {
+			margin: 0 auto !important;
+			width: 33%;
+			}		
+
+			span.has-error{
+			font-size: 13px;
+			}			
+			input.has-error{
+				border-color: -moz-use-text-color -moz-use-text-color #b2b2b2 !important;
+				border-style: none none solid !important;
+				border-width: thin !important;			
+			}
         </style>
 
         <script>
             $(function() {
                 formInit();
+				
+				$('#start').submit(function(){
+					
+					$('.submit-loading').show();	
+						
+					
+				})
+			
 					
             });
         </script>
@@ -314,6 +367,8 @@ if(isset($redirect)) {  ?>
             function initialize() {
 				
 				var firstResult='';
+				var keystate='';
+				
                 // Create the autocomplete object, restricting the search
                 // to geographical location types.
                 autocomplete = new google.maps.places.Autocomplete(
@@ -373,9 +428,28 @@ if(isset($redirect)) {  ?>
 							
 
 						}
+						
+						
+						if(e.keyCode!=13){ 
+							keystate = 0;
+						}	
+						
+						
+						
+						if(e.keyCode===38){ 
+							keystate = 1;
+						}	
+											
+						if(e.keyCode===40){
+						
+							keystate = 1 
+						
+						}
 							
 						if(e.keyCode===13 && !e.triggered){ 
-						google.maps.event.trigger(this,'keydown',{keyCode:40}) 
+						if(keystate!=1){
+							google.maps.event.trigger(this,'keydown',{keyCode:40}) 
+						}
 						google.maps.event.trigger(this,'keydown',{keyCode:13,triggered:true}) 
 						e.preventDefault();
 						
@@ -597,9 +671,10 @@ if(isset($redirect)) {  ?>
                 $( '#autocomplete' ).attr( 'autocomplete', 'off' );
             }
 			
+		
 	
         </script>
-		
+
     </head>
 
     <body onload="initialize()" style="background-color:rgba(0, 0, 0, 0); height:200px;">
@@ -645,27 +720,27 @@ if(isset($redirect)) {  ?>
                                                     <table id="address" style="display:none">
                                                           <tr>
                                                             <td class="label">Street address</td>
-                                                            <td class="slimField"><input class="field" id="street_number"
-                                                                  readonly></input></td>
-                                                            <td class="wideField" colspan="2"><input class="field" id="route"
-                                                                  readonly></input></td>
+                                                            <td class="slimField"><input class="field" name="street_number" id="street_number"
+                                                                  ></input></td>
+                                                            <td class="wideField" colspan="2"><input name="route" class="field" id="route"
+                                                                  ></input></td>
                                                           </tr>
                                                           <tr>
                                                             <td class="label">City</td>
-                                                            <td class="wideField" colspan="3"><input class="field" id="locality"
-                                                                  readonly></input></td>
+                                                            <td class="wideField" colspan="3"><input name="city" class="field" id="locality"
+                                                                  ></input></td>
                                                           </tr>
                                                           <tr>
                                                             <td class="label">State</td>
                                                             <td class="slimField"><input class="field" name="State"
-                                                                  id="administrative_area_level_1" readonly></input></td>
+                                                                  id="administrative_area_level_1" ></input></td>
                                                             <td class="label">Zip code</td>
-                                                            <td class="wideField"><input class="field" name="PostalCode" id="postal_code" readonly/></td>
+                                                            <td class="wideField"><input class="field" name="PostalCode" id="postal_code" /></td>
                                                           </tr>
                                                           <tr>
                                                             <td class="label">Country</td>
-                                                            <td class="wideField" colspan="3"><input class="field"
-                                                                  id="country" readonly></input></td>
+                                                            <td class="wideField" colspan="3"><input name="country" class="field"
+                                                                  id="country" ></input></td>
                                                           </tr>
                                                         </table>
                                                         <div class="form-group center">
@@ -694,11 +769,7 @@ if(isset($redirect)) {  ?>
 														  </md-content>	 
                                                         </div>
                                                     </div>
-													<div class="form-group center">
-													<!--<div style="padding-left:0px; padding-right: 0px" class="col-xs-12 col-md-12">
-													<input id="lastname" name="LastName"  class="form-control" placeholder="Last Name" />
-													</div>-->
-													</div>
+
 													<div class="form-group center">
 													<div style="padding-left:0px; padding-right:0px" class="col-xs-12 col-md-12">
 														  <md-content md-theme="docs-dark" layout-padding="" layout="row" layout-sm="column">
@@ -724,9 +795,9 @@ if(isset($redirect)) {  ?>
 														</div>
 													</div>	 
 													<div class="clearfix"></div>
-                                                    <div class="form-group center">
+                                                    <div class="form-group center" style="width:50%;">
                                                     	<div class="btn-toolbar">	
-															<p>What type of cleaning?</p>
+															<p style="margin-top:10px;">What type of cleaning?</p>
                                                     		<div class="btn-group">
                                                     			<a class="ipbtn btn btn-default recurring" href="javascript:void(0)">One Time</a>
                                                     			<a class="ipbtn btn btn-default recurring" href="javascript:void(0)">Recurring</a>
@@ -769,24 +840,8 @@ if(isset($redirect)) {  ?>
 <?php endif; ?>
 
 
-<!-- If successfully submitted then redirect to form/book-now.php -->
-<?php  if(isset($redirect)) { 
-    sleep(5);
-    echo $redirect; 
-} ?>   
 
 
-
-
-<script src='js/angular.js'></script>
-<script src='js/angular-animate.min.js'></script>
-<script src='js/angular-route.min.js'></script>
-<script src='js/angular-aria.min.js'></script>
-<script src='js/angular-messages.min.js'></script>
-<script src='js/angular-material.js'></script>
-<script src='js/assets-cache.js'></script>
-
-<script src="js/index.js"></script>
 
 <script>
 $(document).ready(function(){
@@ -797,6 +852,13 @@ $('input').attr('placeholder','');
 
 });
 </script>
+
+<!-- If successfully submitted then redirect to form/book-now.php -->
+<?php  if(isset($redirect)) { 
+    echo $redirect; 
+} ?>   
+
+
 
 </body>
 </html>

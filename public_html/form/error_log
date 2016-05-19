@@ -708,3 +708,5 @@ Stack trace:
 [16-Apr-2016 00:42:39 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/natural/public_html/form/book-now.php on line 3168
 [22-Apr-2016 06:39:17 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/natural/public_html/form/page1.php on line 767
 [22-Apr-2016 06:39:28 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/natural/public_html/form/page1.php on line 767
+[18-May-2016 03:41:54 UTC] PHP Parse error:  syntax error, unexpected ''<td><b>One time adjustment </' (T_ENCAPSED_AND_WHITESPACE) in /home/natural/public_html/form/book-now.php on line 522
+[18-May-2016 08:08:22 UTC] PHP Parse error:  syntax error, unexpected ''<td><b>One time adjustment </' (T_ENCAPSED_AND_WHITESPACE) in /home/natural/public_html/form/book-now.php on line 522
