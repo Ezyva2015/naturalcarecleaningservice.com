@@ -36,7 +36,28 @@ session_start();
 
  // creates the edit record form
  // since this form is used multiple times in this file, I have made it a function that is easily reusable
- function renderForm($base, $keepclean, $getclean, $deepclean, $moveinout, $addon, $beds, $baths, $sqft, $week, $biweek, $month, $rate, $use_flat_first_time_discount, $first_time_disocunt, $final_link, $error)
+ function renderForm($base, 
+  $keepclean, 
+  $getclean, 
+  $deepclean, 
+  $moveinout, 
+  $addon,
+  $addon_inside_windows_1,
+  $addon_inside_windows_2,
+  $addon_bed_stream,
+  $addon_inside_fridge,
+  $addon_inside_stove, 
+  $beds, 
+  $baths, 
+  $sqft, 
+  $week, 
+  $biweek, 
+  $month, 
+  $rate, 
+  $use_flat_first_time_discount, 
+  $first_time_disocunt, 
+  $final_link, 
+  $error)
  {
  ?>
  <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
@@ -106,9 +127,26 @@ session_start();
         <li>     
              <strong>Move In/Out: *</strong> <input type="text" name="moveinout" value="<?php echo $moveinout; ?>"/>(%)<br/>
         </li> <br>    
+        
+
         <li>     
              <strong>Add on: *</strong> <input type="text" name="addon" value="<?php echo $addon; ?>"/><br/>
+        </li> <br>  
+        <li>     
+           <strong>Add on: Inside Windows: *</strong> <br>
+           <input type="text" name="addon_inside_windows_1" value="<?php echo $addon_inside_windows_1; ?>"/><br/>
+           <input type="text" name="addon_inside_windows_2" value="<?php echo $addon_inside_windows_2; ?>"/><br/>
+        </li> <br>   
+        <li>     
+             <strong>Add on:  Bed Stream: *</strong> <br> <input type="text" name="addon_bed_stream" value="<?php echo $addon_bed_stream; ?>"/><br/>
         </li> <br>    
+        <li>     
+             <strong>Add on: Inside Fridge: *</strong><br> <input type="text" name="addon_inside_fridge" value="<?php echo $addon_inside_fridge; ?>"/><br/>
+        </li> <br>   
+        <li>     
+             <strong> Add on:  Inside Stove: *</strong><br> <input type="text" name="addon_inside_stove" value="<?php echo $addon_inside_stove; ?>"/><br/>
+        </li> <br>  
+
         <li>     
              <strong>Beds: *</strong> <input type="text" name="beds" value="<?php echo $beds; ?>"/><br/>
         </li> <br>    
@@ -160,7 +198,17 @@ include('connect-db.php');
 // check if the form has been submitted. If it has, process the form and save it to the database
 if (isset($_POST['submit']))
 {
+
+
+
+
 		// get form data, making sure it is valid
+
+    $addon_inside_windows_1 = mysql_real_escape_string(htmlspecialchars($_POST['addon_inside_windows_1']));
+    $addon_inside_windows_2 = mysql_real_escape_string(htmlspecialchars($_POST['addon_inside_windows_2']));
+    $addon_bed_stream = mysql_real_escape_string(htmlspecialchars($_POST['addon_bed_stream']));
+    $addon_inside_fridge = mysql_real_escape_string(htmlspecialchars($_POST['addon_inside_fridge']));
+    $addon_inside_stove = mysql_real_escape_string(htmlspecialchars($_POST['addon_inside_stove']));  
 		$base = mysql_real_escape_string(htmlspecialchars($_POST['base']));
         $getclean = mysql_real_escape_string(htmlspecialchars($_POST['getclean']));
         $keepclean = mysql_real_escape_string(htmlspecialchars($_POST['keepclean']));
@@ -181,8 +229,12 @@ if (isset($_POST['submit']))
 		//SC: insert error checking here!
 		//if/else
 
+
+
+
 		// save the data to the database
-		$query = "UPDATE options SET base='$base', keepclean='$keepclean', getclean='$getclean', deepclean='$deepclean', moveinout='$moveinout', addon='$addon', beds='$beds',
+		$query = "UPDATE options SET addon_inside_windows_1='$addon_inside_windows_1', addon_inside_windows_2='$addon_inside_windows_2', addon_bed_stream='$addon_bed_stream', addon_inside_fridge='$addon_inside_fridge', addon_inside_stove='$addon_inside_stove',
+    base='$base', keepclean='$keepclean', getclean='$getclean', deepclean='$deepclean', moveinout='$moveinout', addon='$addon', beds='$beds',
 		baths='$baths', sqft='$sqft', week='$week', biweek='$biweek', month='$month', rate='$rate', use_flat_first_time_discount=$use_flat_first_time_discount, first_time_discount='$first_time_discount', final_link = '$final_link'";
 		mysql_query($query)
 		or die(mysql_error());
@@ -220,12 +272,42 @@ else
 		$biweek = $row['biweek'];
 		$month = $row['month'];
 		$rate = $row['rate'];
-        $use_flat_first_time_discount = $row['use_flat_first_time_discount'];
-        $first_time_discount = $row['first_time_discount'];
+    $use_flat_first_time_discount = $row['use_flat_first_time_discount'];
+    $first_time_discount = $row['first_time_discount'];
 		$final_link = $row['final_link'];
-	
+    $addon_inside_windows_1 = $row['addon_inside_windows_1'];
+    $addon_inside_windows_2 = $row['addon_inside_windows_2'];
+    $addon_bed_stream = $row['addon_bed_stream'];
+    $addon_inside_fridge = $row['addon_inside_fridge'];
+    $addon_inside_stove = $row['addon_inside_stove'];
+
+
+ 
 		// show form
-		renderForm($base, $keepclean, $getclean, $deepclean, $moveinout, $addon, $beds, $baths, $sqft, $week, $biweek, $month, $rate, $use_flat_first_time_discount, $first_time_discount, $final_link, '');
+		renderForm(
+      $base, 
+      $keepclean, 
+      $getclean, 
+      $deepclean, 
+      $moveinout, 
+      $addon, 
+      $addon_inside_windows_1,
+      $addon_inside_windows_2,
+      $addon_bed_stream,
+      $addon_inside_fridge,
+      $addon_inside_stove,
+      $beds, 
+      $baths, 
+      $sqft, 
+      $week, 
+      $biweek, 
+      $month, 
+      $rate, 
+      $use_flat_first_time_discount, 
+      $first_time_discount, 
+      $final_link, 
+      ''
+      );
 	}
 	else
 	// if no match, display result
