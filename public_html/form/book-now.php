@@ -9,7 +9,7 @@
 ?> 
 
 
-<?php
+<?php 
 require_once ('infusionsoft/PHP-iSDK-master/src/isdk.php');
 require_once ('stripe/init.php');
 require_once ('conf.php');
@@ -75,6 +75,11 @@ include('results_table/connect-db.php');
         $deepclean = ($row['deepclean']/100) + 1;
         $moveinout = ($row['moveinout']/100) + 1;
         $addon = $row['addon'];
+        $addon_inside_windows_1 = $row['addon_inside_windows_1'];
+	    $addon_inside_windows_2 = $row['addon_inside_windows_2'];
+	    $addon_bed_stream = $row['addon_bed_stream'];
+	    $addon_inside_fridge = $row['addon_inside_fridge'];
+	    $addon_inside_stove = $row['addon_inside_stove'];  
         $beds = $row['beds'];
         $baths = $row['baths'];
         $sqft = $row['sqft'];
@@ -1065,6 +1070,11 @@ $( "#continue2" ).click(function() {
 	var deepclean = <?php echo $deepclean; ?>;
 	var moveinout = <?php echo $moveinout; ?>;
 	var addon = <?php echo $addon; ?>;
+	var addon_inside_windows_1 =  <?php echo $addon_inside_windows_1; ?>;
+ 	var addon_inside_windows_2 =  <?php echo $addon_inside_windows_2; ?>;
+ 	var addon_bed_stream 	   =  <?php echo $addon_bed_stream; ?>;
+ 	var addon_inside_fridge    =  <?php echo $addon_inside_fridge; ?>;
+ 	var addon_inside_stove	   =  <?php echo $addon_inside_stove ; ?>;  
 	var beds = <?php echo $beds; ?>;
 	var baths = <?php echo $baths; ?>;
 	var sqft = <?php echo $sqft; ?>;
@@ -2338,38 +2348,42 @@ $( "#continue2" ).click(function() {
 	
 		// recurringDiscount *= 1 / adjustment;
 		if ($(this).val() == 0) {
-		 	
-
-
-			 global.totalAddOns-= addon;
-
-
-			
-			if($(this).is('#fridge'))
+		 		 // global.totalAddOns-= addon; 
+			if($(this).is('#fridge')){
+				global.totalAddOns-= addon_inside_fridge;
 				$('#pfridge').hide();
-			else if($(this).is('#stove'))
+			}
+			else if($(this).is('#stove')){
+				global.totalAddOns-= addon_inside_stove;
 				$('#pstove').hide();
-			else if($(this).is('#window'))
+			}
+			else if($(this).is('#window')){
+			    var windowTotal = addon_inside_windows_1 + addon_inside_windows_2;
+				global.totalAddOns-= windowTotal;
 				$('#pwindow').hide();
-			else if($(this).is('#wall'))
+			}
+			else if($(this).is('#wall')){
+				global.totalAddOns-= addon_bed_stream;
 				$('#pbedsteam').hide();
-				
+			} 
 		} else {
-
-			  global.totalAddOns+= addon;
-
-
-			 
-			if($(this).is('#fridge'))
+			if($(this).is('#fridge')){
+				global.totalAddOns+= addon_inside_fridge;
 				$('#pfridge').show();
-			else if($(this).is('#stove'))
+			}
+			else if($(this).is('#stove')){
+				global.totalAddOns+= addon_inside_stove;
 				$('#pstove').show();
-			else if($(this).is('#window'))
+			}
+			else if($(this).is('#window')){
+			    var windowTotal = addon_inside_windows_1 + addon_inside_windows_2;
+				global.totalAddOns+= windowTotal;
 				$('#pwindow').show();
-			else if($(this).is('#wall'))
+			}
+			else if($(this).is('#wall')){
+				global.totalAddOns+= addon_bed_stream;
 				$('#pbedsteam').show();
-				
-				
+			} 
 		}	 
 		// alert(" global addons " + global.totalAddOns);  
 		$.fn.plusAndMinusButtonClickedAutoCalculate(); 
