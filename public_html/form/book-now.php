@@ -1597,14 +1597,14 @@ $( "#continue2" ).click(function() {
 	if($('#repeat').val() && $('#repeat').val() != "One Time" && ($('#cleantype').val() == 'Keep It Clean' || !$('#cleantype').val()) && $('.addon[value=""]').length == 4)
     {
        $('#visit1').parent().parent().parent().hide();
-       $('#pvisit1').parent().parent().parent().hide();
+       $('#pvisit1').parent().parent().parent().parent().parent().parent().hide();
        $('#visit2').parent().parent().parent().show();
-       $('#pvisit2').parent().parent().parent().show();
+       $('#pvisit2').parent().parent().parent().parent().parent().parent().show();
     }
     else
     {
       $('#visit1').parent().parent().parent().show();
-      $('#pvisit1').parent().parent().parent().show();
+      $('#pvisit1').parent().parent().parent().parent().parent().parent().show();
     }
 	$('#visit1').text('$' + Math.round(firstclean).toFixed(0))
     $('#pvisit1').text('$' + Math.round(firstclean).toFixed(0))
@@ -1619,9 +1619,9 @@ $( "#continue2" ).click(function() {
 	$('#Ihour').text(hours.toFixed(1) + ' hours')
 	
 	$('#visit1').parent().parent().parent().hide();
-    $('#pvisit1').parent().parent().parent().hide();
+    $('#pvisit1').parent().parent().parent().parent().parent().parent().hide();
     $('#visit2').parent().parent().parent().hide();
-    $('#pvisit2').parent().parent().parent().hide();
+    $('#pvisit2').parent().parent().parent().parent().parent().parent().hide();
     $('#subtotal').parent().hide();
 	$('#psubtotal').parent().hide();
 	$('#discountR').parent().hide();
@@ -1678,21 +1678,21 @@ $( "#continue2" ).click(function() {
         	if($('#repeat').val() && $('#repeat').val() != "One Time" && ($('#cleantype').val() == 'Keep It Clean' || !$('#cleantype').val()) && $('.addon[value=""]').length == 4)
         	{
           		$('#visit1').parent().parent().parent().hide();
-          		$('#pvisit1').parent().parent().parent().hide();
+          		$('#pvisit1').parent().parent().parent().parent().parent().parent().hide();
           		$('#visit2').parent().parent().parent().show();
-          		$('#pvisit2').parent().parent().parent().show();
+          		$('#pvisit2').parent().parent().parent().parent().parent().parent().show();
         	}
         	else if($('#repeat').val() != 'One Time' && $('#cleantype').val() != 'Keep It Clean')
         	{
           		$('#visit1').parent().parent().parent().show();
-          		$('#pvisit1').parent().parent().parent().show();
+          		$('#pvisit1').parent().parent().parent().parent().parent().parent().show();
           		$('#visit2').parent().parent().parent().show();
-          		$('#pvisit2').parent().parent().parent().show();
+          		$('#pvisit2').parent().parent().parent().parent().parent().parent().show();
         	}
         	else if($('#cleantype').val() != 'Keep It Clean')
         	{
         		$('#visit1').parent().parent().parent().show();
-          		$('#pvisit1').parent().parent().parent().show();
+          		$('#pvisit1').parent().parent().parent().parent().parent().parent().show();
         	}
         	
         	$('#subtotal').parent().show();
@@ -1724,9 +1724,9 @@ $( "#continue2" ).click(function() {
        else
        {
        		$('#visit1').parent().parent().parent().hide();
-          	$('#pvisit1').parent().parent().parent().hide();
+          	$('#pvisit1').parent().parent().parent().parent().parent().parent().hide();
           	$('#visit2').parent().parent().parent().hide();
-          	$('#pvisit2').parent().parent().parent().hide();
+          	$('#pvisit2').parent().parent().parent().parent().parent().parent().hide();
        		$('#subtotal').parent().hide();
 			$('#psubtotal').parent().hide();
 			$('#discountR').parent().hide();
@@ -1879,21 +1879,21 @@ $( "#continue2" ).click(function() {
 
 
           			$('#visit1').parent().parent().parent().hide();
-          			$('#pvisit1').parent().parent().parent().hide();
+          			$('#pvisit1').parent().parent().parent().parent().parent().parent().hide();
           			$('#visit2').parent().parent().parent().show();
-          			$('#pvisit2').parent().parent().parent().show();
+          			$('#pvisit2').parent().parent().parent().parent().parent().parent().show();
         		}
         		else if($('#repeat').val() != 'One Time' && $('#cleantype').val() != 'Keep It Clean')
         		{
           			$('#visit1').parent().parent().parent().show();
-          			$('#pvisit1').parent().parent().parent().show();
+          			$('#pvisit1').parent().parent().parent().parent().parent().parent().show();
           			$('#visit2').parent().parent().parent().show();
-          			$('#pvisit2').parent().parent().parent().show();
+          			$('#pvisit2').parent().parent().parent().parent().parent().parent().show();
         		}
         		else if($('#cleantype').val() != 'Keep It Clean')
         		{
         			$('#visit1').parent().parent().parent().show();
-          			$('#pvisit1').parent().parent().parent().show();
+          			$('#pvisit1').parent().parent().parent().parent().parent().parent().show();
         		}
         	
         		$('#subtotal').parent().show();
@@ -1925,9 +1925,9 @@ $( "#continue2" ).click(function() {
        		else
        		{
        			$('#visit1').parent().parent().parent().hide();
-          		$('#pvisit1').parent().parent().parent().hide();
+          		$('#pvisit1').parent().parent().parent().parent().parent().parent().hide();
           		$('#visit2').parent().parent().parent().hide();
-          		$('#pvisit2').parent().parent().parent().hide();
+          		$('#pvisit2').parent().parent().parent().parent().parent().parent().hide();
        			$('#subtotal').parent().hide();
 				$('#psubtotal').parent().hide();
 				$('#discountR').parent().hide();
@@ -2052,15 +2052,23 @@ $( "#continue2" ).click(function() {
 
 
 		if(useDiscount)
-		  firstclean = adjustment - discount - promodiscount;
+		  firstclean = Math.round(adjustment) - Math.round(discount) - Math.round(promodiscount);
+		
 		else
-		  firstclean = adjustment - recurringDiscount - promodiscount;
+		
+		  firstclean = Math.round(adjustment) - Math.round(recurringDiscount) - Math.round(promodiscount);
 
+		if(promodiscount!=0){
+		
+
+			//firstclean = firstclean - promodiscount
+		
+		}
 
 		hours = adjustment / rate;
 
 		// Calculate keep it clean, deep clean and move in out
-			firstclean =  $.fn.calculateFirstCleanByKeepItCleanGetCleanMoveInOut(textTab);
+			//firstclean =  $.fn.calculateFirstCleanByKeepItCleanGetCleanMoveInOut(textTab);
 //	    calculateFirstCleanByKeepItCleanGetCleanMoveInOut(textTab);
 
 
@@ -2081,21 +2089,21 @@ $( "#continue2" ).click(function() {
         		if($('#repeat').val() && $('#repeat').val() != "One Time" && ($('#cleantype').val() == 'Keep It Clean' || !$('#cleantype').val()) && $('.addon[value=""]').length == 4)
         	{
           		$('#visit1').parent().parent().parent().hide();
-          		$('#pvisit1').parent().parent().parent().hide();
+          		$('#pvisit1').parent().parent().parent().parent().parent().parent().hide();
           		$('#visit2').parent().parent().parent().show();
-          		$('#pvisit2').parent().parent().parent().show();
+          		$('#pvisit2').parent().parent().parent().parent().parent().parent().show();
         	}
         	else if($('#repeat').val() != 'One Time' && $('#cleantype').val() != 'Keep It Clean')
         	{
           		$('#visit1').parent().parent().parent().show();
-          		$('#pvisit1').parent().parent().parent().show();
+          		$('#pvisit1').parent().parent().parent().parent().parent().parent().show();
           		$('#visit2').parent().parent().parent().show();
-          		$('#pvisit2').parent().parent().parent().show();
+          		$('#pvisit2').parent().parent().parent().parent().parent().parent().show();
         	}
         	else if($('#cleantype').val() != 'Keep It Clean')
         	{
         		$('#visit1').parent().parent().parent().show();
-          		$('#pvisit1').parent().parent().parent().show();
+          		$('#pvisit1').parent().parent().parent().parent().parent().parent().show();
         	}
         	
         		$('#subtotal').parent().show();
@@ -2127,9 +2135,9 @@ $( "#continue2" ).click(function() {
        		else
        		{
        			$('#visit1').parent().parent().parent().hide();
-          		$('#pvisit1').parent().parent().parent().hide();
+          		$('#pvisit1').parent().parent().parent().parent().parent().parent().hide();
           		$('#visit2').parent().parent().parent().hide();
-          		$('#pvisit2').parent().parent().parent().hide();
+          		$('#pvisit2').parent().parent().parent().parent().parent().parent().hide();
        			$('#subtotal').parent().hide();
 				$('#psubtotal').parent().hide();
 				$('#discountR').parent().hide();
@@ -2150,6 +2158,12 @@ $( "#continue2" ).click(function() {
 			
 			$('#onetimeadjust').val('$' + adjustment.toFixed(0))
 			oldcleantype = $('#cleantype').val()
+			
+			 $('#visit1').parent().prev().text($('#repeat').val() == 'One Time' ? 'Your Clean' : 'First Clean');
+            $('#pvisit1').parent().parent().prev().children().text($('#repeat').val() == 'One Time' ? 'Your Clean' : 'First Clean');
+            
+            
+           
 		}
 		else
 		{
@@ -2212,21 +2226,21 @@ $( "#continue2" ).click(function() {
         	if($('#repeat').val() && $('#repeat').val() != "One Time" && ($('#cleantype').val() == 'Keep It Clean' || !$('#cleantype').val()) && $('.addon[value=""]').length == 4)
         	{
           		$('#visit1').parent().parent().parent().hide();
-          		$('#pvisit1').parent().parent().parent().hide();
+          		$('#pvisit1').parent().parent().parent().parent().parent().parent().hide();
           		$('#visit2').parent().parent().parent().show();
-          		$('#pvisit2').parent().parent().parent().show();
+          		$('#pvisit2').parent().parent().parent().parent().parent().parent().show();
         	}
         	else if($('#repeat').val() != 'One Time' && $('#cleantype').val() != 'Keep It Clean')
         	{
           		$('#visit1').parent().parent().parent().show();
-          		$('#pvisit1').parent().parent().parent().show();
+          		$('#pvisit1').parent().parent().parent().parent().parent().parent().show();
           		$('#visit2').parent().parent().parent().show();
-          		$('#pvisit2').parent().parent().parent().show();
+          		$('#pvisit2').parent().parent().parent().parent().parent().parent().show();
         	}
         	else if($('#cleantype').val() != 'Keep It Clean')
         	{
         		$('#visit1').parent().parent().parent().show();
-          		$('#pvisit1').parent().parent().parent().show();
+          		$('#pvisit1').parent().parent().parent().parent().parent().parent().show();
         	}
         	
         	$('#subtotal').parent().show();
@@ -2258,9 +2272,9 @@ $( "#continue2" ).click(function() {
        else
        {
        		$('#visit1').parent().parent().parent().hide();
-          	$('#pvisit1').parent().parent().parent().hide();
+          	$('#pvisit1').parent().parent().parent().parent().parent().parent().hide();
           	$('#visit2').parent().parent().parent().hide();
-          	$('#pvisit2').parent().parent().parent().hide();
+          	$('#pvisit2').parent().parent().parent().parent().parent().parent().hide();
        		$('#subtotal').parent().hide();
 			$('#psubtotal').parent().hide();
 			$('#discountR').parent().hide();
@@ -2381,21 +2395,21 @@ $( "#continue2" ).click(function() {
         	if($('#repeat').val() && $('#repeat').val() != "One Time" && ($('#cleantype').val() == 'Keep It Clean' || !$('#cleantype').val()) && $('.addon[value=""]').length == 4)
         	{
           		$('#visit1').parent().parent().parent().hide();
-          		$('#pvisit1').parent().parent().parent().hide();
+          		$('#pvisit1').parent().parent().parent().parent().parent().parent().hide();
           		$('#visit2').parent().parent().parent().show();
-          		$('#pvisit2').parent().parent().parent().show();
+          		$('#pvisit2').parent().parent().parent().parent().parent().parent().show();
         	}
         	else if($('#repeat').val() != 'One Time' && $('#cleantype').val() != 'Keep It Clean')
         	{
           		$('#visit1').parent().parent().parent().show();
-          		$('#pvisit1').parent().parent().parent().show();
+          		$('#pvisit1').parent().parent().parent().parent().parent().parent().show();
           		$('#visit2').parent().parent().parent().show();
-          		$('#pvisit2').parent().parent().parent().show();
+          		$('#pvisit2').parent().parent().parent().parent().parent().parent().show();
         	}
         	else if($('#cleantype').val() != 'Keep It Clean')
         	{
         		$('#visit1').parent().parent().parent().show();
-          		$('#pvisit1').parent().parent().parent().show();
+          		$('#pvisit1').parent().parent().parent().parent().parent().parent().show();
         	}
         	
         	$('#subtotal').parent().show();
@@ -2427,9 +2441,9 @@ $( "#continue2" ).click(function() {
        else
        {
        		$('#visit1').parent().parent().parent().hide();
-          	$('#pvisit1').parent().parent().parent().hide();
+          	$('#pvisit1').parent().parent().parent().parent().parent().parent().hide();
           	$('#visit2').parent().parent().parent().hide();
-          	$('#pvisit2').parent().parent().parent().hide();
+          	$('#pvisit2').parent().parent().parent().parent().parent().parent().hide();
        		$('#subtotal').parent().hide();
 			$('#psubtotal').parent().hide();
 			$('#discountR').parent().hide();
@@ -2631,21 +2645,21 @@ $( "#continue2" ).click(function() {
         	if($('#repeat').val() && $('#repeat').val() != "One Time" && ($('#cleantype').val() == 'Keep It Clean' || !$('#cleantype').val()) && $('.addon[value=""]').length == 4)
         	{
           		$('#visit1').parent().parent().parent().hide();
-          		$('#pvisit1').parent().parent().parent().hide();
+          		$('#pvisit1').parent().parent().parent().parent().parent().parent().hide();
           		$('#visit2').parent().parent().parent().show();
-          		$('#pvisit2').parent().parent().parent().show();
+          		$('#pvisit2').parent().parent().parent().parent().parent().parent().show();
         	}
         	else if($('#repeat').val() != 'One Time' && $('#cleantype').val() != 'Keep It Clean')
         	{
           		$('#visit1').parent().parent().parent().show();
-          		$('#pvisit1').parent().parent().parent().show();
+          		$('#pvisit1').parent().parent().parent().parent().parent().parent().show();
           		$('#visit2').parent().parent().parent().show();
-          		$('#pvisit2').parent().parent().parent().show();
+          		$('#pvisit2').parent().parent().parent().parent().parent().parent().show();
         	}
         	else if($('#cleantype').val() != 'Keep It Clean')
         	{
         		$('#visit1').parent().parent().parent().show();
-          		$('#pvisit1').parent().parent().parent().show();
+          		$('#pvisit1').parent().parent().parent().parent().parent().parent().show();
         	}
         	
         	
@@ -2677,14 +2691,14 @@ $( "#continue2" ).click(function() {
             $('#pdiscountR').hide();
             
             $('#visit1').parent().prev().text($('#repeat').val() == 'One Time' ? 'Your Clean' : 'First Clean');
-            $('#pvisit1').parent().prev().text($('#repeat').val() == 'One Time' ? 'Your Clean' : 'First Clean');
+            $('#pvisit1').parent().parent().prev().children().text($('#repeat').val() == 'One Time' ? 'Your Clean' : 'First Clean');
        }
        else
        {
        		$('#visit1').parent().parent().parent().hide();
-          	$('#pvisit1').parent().parent().parent().hide();
+          	$('#pvisit1').parent().parent().parent().parent().parent().parent().hide();
           	$('#visit2').parent().parent().parent().hide();
-          	$('#pvisit2').parent().parent().parent().hide();
+          	$('#pvisit2').parent().parent().parent().parent().parent().parent().hide();
        		$('#subtotal').parent().hide();
 			$('#psubtotal').parent().hide();
 			$('#discountR').parent().hide();
@@ -2731,7 +2745,7 @@ $( "#continue2" ).click(function() {
                         firstclean = adjustment - recurringDiscount - promodiscount;
 
 					$('#discountP').text('-$' + promodiscount.toFixed(0)).parent().show().parent().show();
-					$('#pdiscountP').text('-$' + promodiscount.toFixed(0)).parent().show().parent().show();
+					$('#pdiscountP').text('-$' + promodiscount.toFixed(0)).parent().show().parent().show().parent().show().parent().show().parent().show().parent().show().parent().show();
 					document.getElementById('sub').style.display = "block";
 					$('#Ivisit1').val((firstclean * 100).toFixed(0));
 					$('#visit1').text('$' + firstclean.toFixed(0));
@@ -2772,7 +2786,7 @@ $( "#continue2" ).click(function() {
                         firstclean = adjustment - recurringDiscount - promodiscount;
 
 					$('#discountP').text('-$' + promodiscount.toFixed(0)).parent().show().parent().show();
-					$('#pdiscountP').text('-$' + promodiscount.toFixed(0)).parent().show().parent().show();
+					$('#pdiscountP').text('-$' + promodiscount.toFixed(0)).parent().show().parent().show().parent().show().parent().show().parent().show().parent().show().parent().show();
 					$('#promomobile').show();
 					document.getElementById('sub').style.display = "block";
 					$('#Ivisit1').val((firstclean * 100).toFixed(0));
@@ -3249,9 +3263,9 @@ $( "#continue2" ).click(function() {
 											</div>
 
 
-											<div class="ptablerow col-xs-5  header2-right-container" id="promomobile"  style="display:none;"> 
+											<div class="ptablerow col-xs-5  header2-right-container" > 
 
-												<div class="header2-right-firstclean">
+												<div class="header2-right-firstclean" style="display:none">
 
 													<table border="0" cellspacing="0" cellpadding="0" > 
 												 		<tr> 
@@ -3269,7 +3283,7 @@ $( "#continue2" ).click(function() {
 																		<span class="col-xs-2" style="text-align: right" id="psubtotal" name="subtotal"></span>
 																	</div>
 																	<div class="clearfix"></div>-->
-																	<div class="tablerow col-xs-12" id="disctime" style="display:none">
+																	<div class="tablerow col-xs-12">
 																		<span id="pweekdisc" class="col-xs-10" style="display:none">35% Recurring Discount</span>
 																		<span id="pbidisc" class="col-xs-10" style="display:none">30% Recurring Discount</span>
 																		<span id="pmonthdisc" class="col-xs-10" style="display:none">25% Recurring Discount</span>
@@ -3305,13 +3319,12 @@ $( "#continue2" ).click(function() {
 												 			<td>  
 												 				<img src="assets/img/loading.png" style="visibility:hidden">
 												 			</td> 
-
 												 			<td>
-															 	<span  style="vertical-align: middle">First Clean:</span>		
-												 			</td>  
-
-												 			<td> 
-												 				<b><span id="pvisit1"></span></b> 
+	 															<span  style="vertical-align: middle">First Clean:</span>		
+												 			</td>
+												 			<td>
+														
+												 				<b><span style="margin-left: 10px; vertical-align: middle;" id="pvisit1"></span></b> 
 												 			</td>  
 
 												 			<td> 
@@ -3589,7 +3602,7 @@ $( "#continue2" ).click(function() {
 										<div class="col-xs-12 col-lg-6 time-inner">
 											<div class="time-wrapper">
 												<select class="form-control" onchange="dayCheck(this.value)" id="timers">
-													<option> </option>
+													<option value="">--Select One--</option>
 													<option value="anytime">Anytime</option>
 													<option value="morning">Morning</option>
 													<option value="afternoon">Afternoon</option>
@@ -4557,13 +4570,14 @@ $( "#continue2" ).click(function() {
 		 </script>
 
 		 <style type="text/css">
-		 	/*css floyd*/
-		 #timers{
+		 	/*css*/
+			 #timers{
 					border: none !important;	
 					width: 120% !important;
 					box-shadow: none !important;
-					margin-left: -30px !important;
-					text-align: center !important;
+					text-indent: 30px !important;
+					text-align: left !important;
+
 				}
 
 		 </style>
