@@ -2285,7 +2285,13 @@ $( "#continue2" ).click(function() {
 				$('#pstove').hide();
 			}
 			else if($(this).is('#window')){
-			    var windowTotal = addon_inside_windows_1 + addon_inside_windows_2;
+
+				if(sqft > 2000) {
+					var windowTotal = addon_inside_windows_1;
+				} else {
+					var windowTotal = addon_inside_windows_2;
+				} 
+
 				global.totalAddOns-= windowTotal;
 				$('#pwindow').hide();
 			}
@@ -2294,6 +2300,8 @@ $( "#continue2" ).click(function() {
 				$('#pbedsteam').hide();
 			} 
 		} else {
+
+
 			if($(this).is('#fridge')){
 				global.totalAddOns+= addon_inside_fridge;
 				$('#pfridge').show();
@@ -2303,7 +2311,13 @@ $( "#continue2" ).click(function() {
 				$('#pstove').show();
 			}
 			else if($(this).is('#window')){
-			    var windowTotal = addon_inside_windows_1 + addon_inside_windows_2;
+				
+			   if(sqft > 2000) {
+					var windowTotal = addon_inside_windows_1;
+				} else {
+					var windowTotal = addon_inside_windows_2;
+				} 
+
 				global.totalAddOns+= windowTotal;
 				$('#pwindow').show();
 			}

@@ -132,11 +132,23 @@ session_start();
         <li>     
              <strong>Add on: *</strong> <input type="text" name="addon" value="<?php echo $addon; ?>"/><br/>
         </li> <br>  
-        <li>     
-           <strong>Add on: Inside Windows: *</strong> <br>
-           <input type="text" name="addon_inside_windows_1" value="<?php echo $addon_inside_windows_1; ?>"/><br/>
-           <input type="text" name="addon_inside_windows_2" value="<?php echo $addon_inside_windows_2; ?>"/><br/>
-        </li> <br>   
+        <li>      
+
+        <?php if($sqft >  2000):?>
+
+          <strong>Add on: Inside Windows Square Footage > 2, 000: *</strong> <br>
+
+          <input type="text" name="addon_inside_windows_1" value="<?php echo $addon_inside_windows_1; ?>"/><br/>
+
+        <?php  else: ?> 
+
+          <strong>Add on: Inside Windows Square Footage < 2, 000: *</strong> <br>
+
+          <input type="text" name="addon_inside_windows_2" value="<?php echo $addon_inside_windows_2; ?>"/><br/> 
+
+        <?php endif; ?>
+
+        </li><br>   
         <li>     
              <strong>Add on:  Bed Stream: *</strong> <br> <input type="text" name="addon_bed_stream" value="<?php echo $addon_bed_stream; ?>"/><br/>
         </li> <br>    
@@ -202,10 +214,22 @@ if (isset($_POST['submit']))
 
 
 
+    // echo "<pre>";
+    //   print_r($_POST);
+    // echo "</pre>";
+    // exit;
 		// get form data, making sure it is valid
 
-    $addon_inside_windows_1 = mysql_real_escape_string(htmlspecialchars($_POST['addon_inside_windows_1']));
-    $addon_inside_windows_2 = mysql_real_escape_string(htmlspecialchars($_POST['addon_inside_windows_2']));
+     
+    if(isset($_POST['addon_inside_windows_1'])) {   
+      $addon_inside_windows_1 = mysql_real_escape_string(htmlspecialchars($_POST['addon_inside_windows_1']));
+      $sqlAddonWindowsUpdate = "addon_inside_windows_1='$addon_inside_windows_1'"; 
+    } else {  
+      $addon_inside_windows_2 = mysql_real_escape_string(htmlspecialchars($_POST['addon_inside_windows_2'])); 
+      $sqlAddonWindowsUpdate = "addon_inside_windows_2='$addon_inside_windows_2'";
+    }
+ 
+
     $addon_bed_stream = mysql_real_escape_string(htmlspecialchars($_POST['addon_bed_stream']));
     $addon_inside_fridge = mysql_real_escape_string(htmlspecialchars($_POST['addon_inside_fridge']));
     $addon_inside_stove = mysql_real_escape_string(htmlspecialchars($_POST['addon_inside_stove']));  
@@ -226,6 +250,11 @@ if (isset($_POST['submit']))
         $first_time_discount = $_POST['first_time_discount'] ? mysql_real_escape_string(htmlspecialchars($_POST['first_time_discount'])) : 0;
         $final_link = mysql_real_escape_string(htmlspecialchars(($_POST['final_link'])));
 	
+
+
+
+  // echo " addon_inside_windows_1  $addon_inside_windows_1 <br>";
+  // echo " addon_inside_windows_2  $addon_inside_windows_2 <br>";
 		//SC: insert error checking here!
 		//if/else
 
@@ -233,7 +262,7 @@ if (isset($_POST['submit']))
 
 
 		// save the data to the database
-		$query = "UPDATE options SET addon_inside_windows_1='$addon_inside_windows_1', addon_inside_windows_2='$addon_inside_windows_2', addon_bed_stream='$addon_bed_stream', addon_inside_fridge='$addon_inside_fridge', addon_inside_stove='$addon_inside_stove',
+		$query = "UPDATE options SET $sqlAddonWindowsUpdate, addon_bed_stream='$addon_bed_stream', addon_inside_fridge='$addon_inside_fridge', addon_inside_stove='$addon_inside_stove',
     base='$base', keepclean='$keepclean', getclean='$getclean', deepclean='$deepclean', moveinout='$moveinout', addon='$addon', beds='$beds',
 		baths='$baths', sqft='$sqft', week='$week', biweek='$biweek', month='$month', rate='$rate', use_flat_first_time_discount=$use_flat_first_time_discount, first_time_discount='$first_time_discount', final_link = '$final_link'";
 		mysql_query($query)
