@@ -1504,7 +1504,7 @@ $( "#continue2" ).click(function() {
 				
 				//floyd promocode
 				
-				function promoCode() { return convertNumber($('#promPrice').val());  }
+				function promoCode() { return convertNumber($('#footage').val()); }
 
 				// Admin Input
 				function adminInputBeds() { return beds; /*convertNumber('6.1');*/ }
@@ -1540,7 +1540,6 @@ $( "#continue2" ).click(function() {
 
 				function calculateBasePrice() {
 
-					var promocode = promoCode();
 					var totalBedsPrice     = adminInputBeds();
 					var totalBathRoOmPrice = adminInputBath();
 					var totalBaseValue     = adminInputBaseValue();
@@ -1550,97 +1549,31 @@ $( "#continue2" ).click(function() {
 					//totalSquareFootCalculation = M3;
 					var totalBasePrice = (totalBeds*totalBedsPrice) + (totalBathRoom*totalBathRoOmPrice) + totalBaseValue+totalSquareFootCalculation;
 					return convertNumber(totalBasePrice);
-
 				}
 
 				function calculateWeekly() {
-				
-					var promocode = promoCode();
-				
-					if(promocode!="0"){
-					
-					var basetimesweek = calculateBasePrice() * adminInputWeekly()
-					
-					return convertNumber(basetimesweek - promocode);
-					}
-				
-				
 					return convertNumber(calculateBasePrice() * adminInputWeekly());
-					
-					
 				}
 
 				function calculateEvery2Weeks() {
-				
-					var promocode = promoCode();
-				
-					if(promocode!="0"){
-					
-					var basetimesweek = calculateBasePrice() * adminInputEvery2Weeks()
-					
-					return convertNumber(basetimesweek - promocode);
-					}
-									
 					return  convertNumber(calculateBasePrice() * adminInputEvery2Weeks() );
 				}
 
 				function calculateEvery4Weeks() {
-				
-					var promocode = promoCode();
-				
-					if(promocode!="0"){
-					
-					var basetimesweek = calculateBasePrice() * adminInputEvery4Weeks()
-					
-					return convertNumber(basetimesweek - promocode);
-					
-					}
-				
 					return convertNumber(calculateBasePrice() * adminInputEvery4Weeks() );
 				}
 
 				function calculateGetItClean() {
-				
-					var promocode = promoCode();
-				
-					if(promocode!="0"){
-					
-					var basetimesweek = calculateBasePrice() * adminInputGetItClean()
-					
-					return convertNumber(basetimesweek - promocode);
-					}				
-				
 					return convertNumber(calculateBasePrice() *  adminInputGetItClean());
 
 				}
 
 				function calculateDeepClean() {
-				
-					var promocode = promoCode();
-				
-					if(promocode!="0"){
-					
-					var basetimesweek = calculateBasePrice() * adminInputDeepClean()
-					
-					return convertNumber(basetimesweek - promocode);
-					}						
-				
 					return convertNumber(calculateBasePrice() *  adminInputDeepClean());
-					
-					
-					
-					
 				}
 
 				function calculateMoveInOut() {
-					var promocode = promoCode();
-				
-					if(promocode!="0"){
-					
-					var basetimesweek = calculateBasePrice() * adminInputMoveInOut()
-					
-					return convertNumber(basetimesweek - promocode);
-					}			
+
 					return convertNumber(calculateBasePrice() *  adminInputMoveInOut());
 				}
 
@@ -1949,8 +1882,8 @@ $( "#continue2" ).click(function() {
 			
 			$('#Ihour').text(hours.toFixed(1) + ' hours');
 			$('#hour').text(hours.toFixed(1) + ' hours')
-			$('#visit1').text('$' + Math.round(firstclean).toFixed(0));
-			$('#pvisit1').text('$' + Math.round(firstclean).toFixed(0));
+			$('#visit1').text('$' + Math.round(firstclean-promodiscount).toFixed(0));
+			$('#pvisit1').text('$' + Math.round(firstclean-promodiscount).toFixed(0));
 		
         	if($('#repeat').val() && $('#cleantype').val() && $('#footage').val())
 			{		
@@ -2016,8 +1949,8 @@ $( "#continue2" ).click(function() {
 				$('#prodisc').hide();
        		}
         
-			$('#visit2').text('$' + Math.round(recurringPrice).toFixed(0));
-			$('#pvisit2').text('$' + Math.round(recurringPrice).toFixed(0));
+			$('#visit2').text('$' + Math.round(recurringPrice-promodiscount).toFixed(0));
+			$('#pvisit2').text('$' + Math.round(recurringPrice-promodiscount).toFixed(0));
 			$('#Ivisit1').val(Math.round(firstclean));
 			$('#Ivisit2').val(Math.round(recurringPrice));
 			$('#IdiscountR').val(Math.round(recurringDiscount));
@@ -2055,6 +1988,18 @@ $( "#continue2" ).click(function() {
 			console.log(" text == " + $(this).text());
 
 			console.log("base price " + base);
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 			console.log("this not Keep It Clean || repeat not One Time  ||this Keep It Clean ");
@@ -2119,14 +2064,20 @@ $( "#continue2" ).click(function() {
 
 
 
-// 
-// 		if(useDiscount)
-// 		  firstclean = Math.round(adjustment) - Math.round(discount) - Math.round(promodiscount);
-// 		
-// 		else
-// 		
-// 		  firstclean = Math.round(adjustment) - Math.round(recurringDiscount) - Math.round(promodiscount);
 
+		if(useDiscount)
+		  firstclean = Math.round(adjustment) - Math.round(discount) - Math.round(promodiscount);
+		
+		else
+		
+		  firstclean = Math.round(adjustment) - Math.round(recurringDiscount) - Math.round(promodiscount);
+
+		if(promodiscount!=0){
+		
+
+			//firstclean = firstclean - promodiscount
+		
+		}
 
 		hours = adjustment / rate;
 
@@ -2144,8 +2095,8 @@ $( "#continue2" ).click(function() {
 		$('#cleantype').val($(this).text());
 		$('#Ihour').text(hours.toFixed(1) + ' hours');
 		$('#hour').text(hours.toFixed(1) + ' hours');
-		$('#visit1').text('$' + Math.round(firstclean).toFixed(0));
-		$('#pvisit1').text('$' + Math.round(firstclean).toFixed(0));
+		$('#visit1').text('$' + Math.round(firstclean-promodiscount).toFixed(0));
+		$('#pvisit1').text('$' + Math.round(firstclean-promodiscount).toFixed(0));
 		
         if($('#repeat').val() && $('#cleantype').val() && $('#footage').val())
 		{		
@@ -2208,8 +2159,8 @@ $( "#continue2" ).click(function() {
 				$('#prodisc').hide();
        		}
        		
-			$('#visit2').text('$' + Math.round(recurringPrice).toFixed(0))
-			$('#pvisit2').text('$' + Math.round(recurringPrice).toFixed(0))
+			$('#visit2').text('$' + Math.round(recurringPrice-promodiscount).toFixed(0))
+			$('#pvisit2').text('$' + Math.round(recurringPrice-promodiscount).toFixed(0))
 			$('#Ivisit1').val(Math.round(firstclean))
 			$('#Ivisit2').val(Math.round(recurringPrice))
 			$('#IdiscountR').val(Math.round(recurringDiscount))
@@ -2266,9 +2217,8 @@ $( "#continue2" ).click(function() {
  			$('.right-container-price1 .summary div b.priceHolderfclean').css('display','inline')
  		
  		}else{
- 			
-
- 			
+ 		
+ 			$('.right-container-price1 .summary div b.priceHolderfclean').css('display','none')
  			
  		}
 
@@ -2342,55 +2292,65 @@ $( "#continue2" ).click(function() {
 			}).hide();
 			
 		} else {
-			
-		$('.cleantype').first().show();	
-	
-// 			console.log("repeat clicked as one time but else");
-// 		  $('.cleantype').first().show();
-// 		  
-// 		  if ($('#repeat').val() == 'Every Week') {
-// 			  console.log("clicked is every week");
-// 			recurringDiscount = (1 - week) * adjustment;
-// 			recurringPrice = subtotal * week;
-// 			console.log(recurringPrice);
-// 		  } else if ($('#repeat').val() == 'Every 2 Weeks') {
-// 
-// 			  console.log("clicked is every 2 weeks");
-// 			recurringDiscount = (1 - biweek) * adjustment;
-// 			recurringPrice = subtotal * biweek;
-// 		  } else if ($('#repeat').val() == 'Every 4 Weeks') {
-// 
-// 			  console.log("clicked is every 4 weeks");
-// 			recurringPrice = subtotal * month;
-// 			recurringDiscount = (1 - month) * adjustment;
-// 		  }
-//         }
-// 
-// 
-//         
-//         
-// 
-// 		if(useDiscount)
-//           firstclean = adjustment - discount - promodiscount;
-//         else
-//           firstclean = adjustment - recurringDiscount - promodiscount;
-//           
-// 		hours = adjustment / rate;
-// 
-// 
-// 		var $weekTab = $('#repeat').val();
-// 
-// 		console.log('successfully calculated');
-// 		console.log('visit1 value first clean = ' + firstclean);
-// 		console.log('visit2 value prices for weekly = ' + recurringPrice);
-// 
-// 		console.log('visit1 repeat  = ' + $('#repeat').val());
-// 		console.log('base ' + base);
-// 		console.log('rate  ' + biweek);
-// 		console.log("member input bed " + memberInputBeds());
-// 
-// 
-// 		console.log("new");
+
+
+			console.log("repeat clicked as one time but else");
+		  $('.cleantype').first().show();
+		  
+		  if ($('#repeat').val() == 'Every Week') {
+			  console.log("clicked is every week");
+			recurringDiscount = (1 - week) * adjustment;
+			recurringPrice = subtotal * week;
+			console.log(recurringPrice);
+		  } else if ($('#repeat').val() == 'Every 2 Weeks') {
+
+			  console.log("clicked is every 2 weeks");
+			recurringDiscount = (1 - biweek) * adjustment;
+			recurringPrice = subtotal * biweek;
+		  } else if ($('#repeat').val() == 'Every 4 Weeks') {
+
+			  console.log("clicked is every 4 weeks");
+			recurringPrice = subtotal * month;
+			recurringDiscount = (1 - month) * adjustment;
+		  }
+        }
+
+
+        
+        
+
+		if(useDiscount)
+          firstclean = adjustment - discount - promodiscount;
+        else
+          firstclean = adjustment - recurringDiscount - promodiscount;
+          
+		hours = adjustment / rate;
+
+
+
+
+
+
+
+
+
+
+
+
+
+		var $weekTab = $('#repeat').val();
+
+		console.log('successfully calculated');
+		console.log('visit1 value first clean = ' + firstclean);
+		console.log('visit2 value prices for weekly = ' + recurringPrice);
+
+		console.log('visit1 repeat  = ' + $('#repeat').val());
+		console.log('base ' + base);
+		console.log('rate  ' + biweek);
+		console.log("member input bed " + memberInputBeds());
+
+
+		console.log("new");
 
 
 
@@ -2427,7 +2387,19 @@ $( "#continue2" ).click(function() {
 
 		var repeatText = $('#repeat').val().toLowerCase();
 
-		var cleanType = $('#cleantype').val().toLowerCase();
+
+		console.log("repeat text " + repeatText);
+
+
+
+
+
+
+
+
+
+
+
 
 		console.log("repeat text " + repeatText);
 
@@ -2456,50 +2428,32 @@ $( "#continue2" ).click(function() {
 			recurringPrice =  calculateEvery4Weeks();
 		}
 
-		var cleant =  $.fn.calculateFirstCleanByKeepItCleanGetCleanMoveInOut(cleanType);
+
 
 
 
 		console.log("recurring price " + recurringPrice);
 
 		if (repeatText == 'one time') {
-					
-			$('#visit1').text('$' + cleant);
-			$('#pvisit1').text('$' + cleant);
+			
+			onetimeprice = adjustment-promodiscount;
+		
+			$('#visit1').text('$' + onetimeprice);
+			$('#pvisit1').text('$' + onetimeprice);
 
 		} else {
 		
 			
 			
-			if(cleanType=="keep it clean"){
+			otherrepeaterprice = adjustment-promodiscount;
 			
-				cleanprice =  $.fn.calculateFirstCleanByKeepItCleanGetCleanMoveInOut(cleanType);
-			
-			}
-
-			if(cleanType=="deep clean"){
-				var cleanprice = calculateDeepClean();
-			}
-			
-			if(cleanType=="get it clean"){
-			
-				var cleanprice = calculateGetItClean();
-			
-			}
-			
-			if(cleanType=="move in/out"){
-				var cleanprice = calculateMoveInOut();
-			}									
-			
-		
-			
-			$('#visit1').text('$' + Math.round(cleanprice).toFixed(0));
-			$('#pvisit1').text('$' + Math.round(cleanprice).toFixed(0));		
+			$('#visit1').text('$' + otherrepeaterprice);
+			$('#pvisit1').text('$' + otherrepeaterprice);		
 
 		}
 
 
-//		$('#pvisit1').text('$' + Math.round(firstclean).toFixed(0));
+//			$('#pvisit1').text('$' + Math.round(firstclean).toFixed(0));
         if($('#repeat').val() && $('#cleantype').val() && $('#footage').val())
 		{		
         	if($('#repeat').val() && $('#repeat').val() != "One Time" && ($('#cleantype').val() == 'Keep It Clean' || !$('#cleantype').val()) && $('.addon[value=""]').length == 4)
@@ -2569,8 +2523,8 @@ $( "#continue2" ).click(function() {
 
 
 
-		$('#visit2').text('$' + Math.round(recurringPrice).toFixed(0));
-		$('#pvisit2').text('$' + Math.round(recurringPrice).toFixed(0));
+		$('#visit2').text('$' + Math.round(recurringPrice-promodiscount).toFixed(0));
+		$('#pvisit2').text('$' + Math.round(recurringPrice-promodiscount).toFixed(0));
 		$('#Ivisit1').val(Math.round(firstclean));
 		$('#Ivisit2').val(Math.round(recurringPrice));
 		$('#IdiscountR').val(Math.round(recurringDiscount));
@@ -2578,10 +2532,6 @@ $( "#continue2" ).click(function() {
 		$('#pdiscountR').text('-$' + Math.round(recurringDiscount).toFixed(0));
 		
 		$('#onetimeadjust').val('$' + adjustment.toFixed(0));
-		
-	}	
-		
-		
 	})
 	
 
@@ -2609,9 +2559,9 @@ $( "#continue2" ).click(function() {
 						
 					}
 					
-					
+					var promodiscountStorage = localStorage.setItem('promodiscount',promodiscount);
 	
-					$('#promPrice').val(promodiscount);	
+
 
 					if(useDiscount)
                         firstclean = adjustment - discount - promodiscount;
@@ -2633,8 +2583,8 @@ $( "#continue2" ).click(function() {
 					var weeklyVal = $.fn.getWeeklyPrice(repeatText);  
 					
 		
-					$('#visit2').text('$' +eval(weeklyVal));
-					$('#pvisit2').text('$' + eval(weeklyVal));					
+					$('#visit2').text('$' +eval(weeklyVal-promodiscount));
+					$('#pvisit2').text('$' + eval(weeklyVal-promodiscount));					
 					//$('#visit1').text('$' + adjustment.toFixed(0));
 					//$('#pvisit1').text('$' + adjustment.toFixed(0));
 				
@@ -2690,8 +2640,8 @@ $( "#continue2" ).click(function() {
 					
 					var repeatText = $('#repeat').val().toLowerCase(); 
 					var weeklyVal = $.fn.getWeeklyPrice(repeatText);  
-					$('#visit2').text('$' +eval(weeklyVal));
-					$('#pvisit2').text('$' + eval(weeklyVal));					
+					$('#visit2').text('$' +eval(weeklyVal-promodiscount));
+					$('#pvisit2').text('$' + eval(weeklyVal-promodiscount));					
 					
 
 				} else {
@@ -2996,8 +2946,8 @@ $(window).load(function(){
         
         var cleanType = $('#cleantype').val().toLowerCase();  
         var firstclean = $.fn.calculateFirstCleanByKeepItCleanGetCleanMoveInOut(cleanType); 
-        $('#visit1').text( '$' + Math.round(firstclean));
-        $('#pvisit1').text( '$' + Math.round(firstclean)); 
+        $('#visit1').text( '$' + Math.round(firstclean-promodiscount));
+        $('#pvisit1').text( '$' + Math.round(firstclean-promodiscount)); 
 
         /**
         * Repeat
@@ -3006,8 +2956,8 @@ $(window).load(function(){
         
         var repeatText = $('#repeat').val().toLowerCase();  
         var weeklyVal = $.fn.getWeeklyPrice(repeatText);  
-        $('#visit2').text('$' +eval(weeklyVal));
-        $('#pvisit2').text('$' + eval(weeklyVal));  
+        $('#visit2').text('$' +eval(weeklyVal-promodiscount));
+        $('#pvisit2').text('$' + eval(weeklyVal-promodiscount));  
     } 
  
 
@@ -3272,7 +3222,7 @@ $(window).load(function(){
 				    
 					<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" id="step1" role="form">
 						<span class="payment-errors"></span>
-						<input type="hidden" id="promPrice" value="0">						<div class="container-fluid" style="padding:0px">
+						<div class="container-fluid" style="padding:0px">
 							<section class="col-xs-12" style="padding:0px">
 
 								<div id="phonetotal" class="summary col-xs-12 hidden-md hidden-lg">

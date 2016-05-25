@@ -195,11 +195,14 @@ $(window).load(function(){
     }  
  
     function plusAndMinusButtonClickedAutoCalculate() {
+
+        
         //$('#field-bath').val(bathRoomUnit(bed)); 
         var cleanType = $('#cleantype').val().toLowerCase();  
         var firstclean = $.fn.calculateFirstCleanByKeepItCleanGetCleanMoveInOut(cleanType); 
         $('#visit1').text( '$' + Math.round(firstclean));
         $('#pvisit1').text( '$' + Math.round(firstclean)); 
+
 
         /**
         * Repeat
